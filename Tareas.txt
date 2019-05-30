@@ -1,0 +1,59 @@
+Tareas y trabajos Fase 3
+
+
+- Redactar el documento DEA
+
+- Actualizar IEEE830
+
+- Actualizar Formulación de proyecto
+
+- Documento de análisis
+
+- Requerimientos de la base de datos
+
+- Hacer mapa de navegación 
+
+- Corregir presentacion
+
+- Diagrama de componentes
+
+- Diagrama de despliegue
+
+- Infraestructura de red
+
+- Diagrama de paquetes
+
+- Arquitectura en capas
+
+- Patrones de diseño
+
+- Tegnologias a usar
+
+- Modelo relaciónal
+
+- Requerimientos bases de datos 1,2 y 3
+
+- Hacer Rae de Comunicaciones 
+
+- Corregir o rehacer los diagramas
+
+- Modelo de datos 
+
+- Mirar video sobre mysqi
+
+- Hacer base de datos en Gaes
+
+* Arquitectura  wed exposición
+
+* Maquetado Diseño Wed
+
+* Manual Corporativo
+
+* Base de datos Miselaneas en grupos
+
+- Trabajo de arquitectura computaciónal 
+
+* Ejercicios Java de diseño web 
+
+- Estudiar Java
+- Estudiar aces
