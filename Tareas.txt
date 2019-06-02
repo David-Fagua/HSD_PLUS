@@ -33,7 +33,7 @@ Tareas y trabajos Fase 3
 
 - Requerimientos bases de datos 1,2 y 3
 
-- Hacer Rae de Comunicaciones 
+* Hacer Rae de Comunicaciones 
 
 - Corregir o rehacer los diagramas
 
@@ -41,7 +41,7 @@ Tareas y trabajos Fase 3
 
 - Mirar video sobre mysqi
 
-- Hacer base de datos en Gaes
+* Hacer base de datos en Gaes
 
 * Arquitectura  wed exposición
 
