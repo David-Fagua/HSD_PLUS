@@ -4,122 +4,112 @@
     <head>          
         <meta charset="utf-8">  
 
-    <link rel="icon" type="image/png" href="Img/Logo.png">
+    
 
         <title>Iniciar Sesión</title>
-       <link rel="icon" type="image/png" href="Img/Logo.png">
+      
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="icon" type="image/png" href="Img/Logo.png">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <meta charset="utf-8">
-    <script type="text/javascript">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/style.css">
 
-        function saludar() {
-            //body...
-            alert("Buenos, dias¡");
-        }
-
-        function emailblur(){
-            alert("Esta quitando el cursor!!");
-        }
-        function passwordclick(){
-            alert("Esta cliqueado");
-        }
-
-        function uwufocus(){
-            alert("Esto es un inicio de sesion xdxd");
-        }
-        function Recordarmeload(){
-            alert("Quiere recordar su cuneta en este dispositivo")
-        }
-
-    </script>
-<br/>
-<br/>
-<div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-        <form class="border border-light p-5">
-
-    <p class="h4 mb-4 text-center">Iniciar Sesión</p>
-
-    <input type="email" onblur="emailblur()" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
-
-    <input type="password" onclick="passwordclick()" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
-
-    <div class="d-flex justify-content-between">
-        <div>
-            <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                <label class="custom-control-label" for="defaultLoginFormRemember">No Recordar Contraseña</label>
-            </div>
-        </div>
-        <div>
-            <a
-            onload="Recordarmeload()" href="">Recordarme</a>
-        </div>
-    </div>
-
-    <button class="btn btn-info btn-block my-4" onFocus="uwufocus()" onmouseover="uwufocus()" type="submit">Iniciar Sesión</button>
-
-    <div class="text-center">
-        <p>No estoy registrado?
-            <a href="">Registrar</a>
-        </p>
-
-        <p>or sign in with:</p>
-        <a type="button" class="light-blue-text mx-2">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a type="button" class="light-blue-text mx-2">
-            <i class="fab fa-twitter"></i>
-        </a>
-        <a type="button" class="light-blue-text mx-2">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a type="button" class="light-blue-text mx-2">
-            <i class="fab fa-github"></i>
-        </a>
-    </div>
-</form>
-    </div>
-    <div class="col-md-3"></div>
-</div>
 
 </head>
-<body onload="()" style="background-color: currentColor; ffffff;">
 
-    </script>
+<body>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-          <center>
-                    <img src="img/Usuario.png" width="200" height="200"  alt="...">
-                    <h5>Sesión Administrador</h5>
-                    <p class="card-text">...</p><span><a href="Inicioadmi.html">Iniciar</a></span></span>
-          </center>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-body">
-                    <center>
-          <img href="iniciocliente.html" src="img/Usuario.png" width="200" height="200"  alt="...">
-                    <h5>Sesión Cliente</h5>
-                    <p class="card-text">...</p><span><a href="iniciocliente.html">Iniciar</a></span></span>
-          </center>
-                </div>
-            </div>
-        </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="row">
+    <div class="col-md-3">
     </div>
+    <div class="col-md-6">
+        <formaction=""  onsubmit="return validarformulario()" method="post" class="border border-light p-5">
+        <p class="h4 mb-4 text-center">Iniciar Sesión</p>
+        <div class="form-group">
+            <input id="correoId"  required="true" type="text" class="form-control" placeholder="Correo">
+        </div>
+        <div class="form-group">
+            <input maxlength="10" minlength="4" id="claveId" required="true" type="password" class="form-control" placeholder="Contraseña">
+        </div>
+        <div class="form-group mb-4">
+            <input maxlength="10"  minlength="4" id="reclaveId" required="true" type="password" class="form-control" placeholder="Repetir Contraseña">
+        </div>
+        <div class="form-group">
+                      <input type="submit" class="btn btn-primary btn-pill" value="Ingresar">
+                    </div>
+    <div class="text-center">
+        <p>No estoy registrado
+            <a href="">Registrar</a>
+        </p>
+    </div>
+</form>
 </div>
+   
+
+<script type="text/javascript">
+    function validarformulario(){
+      var clave1 = document.getElementById('claveId').value;
+      var clave2 = document.getElementById('reclaveId').value;
+      var correo = document.getElementById('correoId').value;
+
+      if(clave1 === clave2){
+        switch (correo) {
+            case 'administrador@gmail.com';
+            window.location('Admin/Inicio.html')
+            break;
+
+            case 'administrador@gmail.com';
+        }
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        
 
+        alert("Claves ok");
+        return true;
+      }else{
+        ohSnap('Las claves no son iguales', {'duration':'2000', 'color':'danger'});
+        return false;
+      }
+    }   
+  </script>
+
+  <script src="js/ohsnap.js"></script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/jquery.countdown.min.js"></script>
+  <script src="js/bootstrap-datepicker.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.fancybox.min.js"></script>
+  <script src="js/jquery.sticky.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
 </html>
