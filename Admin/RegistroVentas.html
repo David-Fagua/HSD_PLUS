@@ -1,141 +1,230 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Registro de CompraVenta</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-	<link rel="icon" type="image/png" href="../Img/Logo.png">
+    <title>Registro de Ventas</title>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<meta charset="utf-8">
-
+    <link rel="icon" type="image/png" href="../Img/Logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/metisMenu.min.css" rel="stylesheet">
+    <link href="../css/timeline.css" rel="stylesheet">
+    <link href="../css/startmin.css" rel="stylesheet">
+    <link href="../css/morris.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
-<br/>
-<br/>
-<br/>
-<br/>
+<div id="wrapper">
 
-<div>
-	<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-    <a href="inicio.html" class="navbar-brand">
-		<img src="../img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
-		<a href="inicio.html"  class="navbar-brand">SHD PLUS</a>
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-    			<a href="Inventario.html" style="color:#47A5B4;" class="nav-link">Inventario</a>
-    		</li>
-    		<li class="nav-item">
-    			<a 
-    			href="RegistroVentas.html"style="color:#47A5B4;" class="nav-link">Registro de CompraVenta
-    			</a>
-    		</li>
-    		<li>
-    			<a href="Catalogo.html" class="nav-link" style="color: #47A5B4;">Catalogo
-    			</a>
-    		</li>
-    		<li>
-    			<a href="Reservaciones.html" class="nav-link" style="color: #47A5B4;">Reservaciones
-    			</a>
-    		</li>
-    	</ul>
-      <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-          <button style="color:#47A5B4;" class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        
+
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Samuel X</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <ul class="nav navbar-nav navbar-left navbar-top-links">
+            <li><a href="inicio.html"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
+        </ul>
+        <center>
+            
+        </center>
+
+        <ul class="nav navbar-right navbar-top-links">
+            <li class="dropdown navbar-inverse">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-comment fa-fw"></i> Nuevo Mensaje
+                                <span class="pull-right text-muted small">Hace 4 minutos</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>Más Notificasiones</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> Samuel Sanches <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i>Usuario</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+
+                <a href="inicio.html" class="navbar-brand" href="#">
+        <img src="../img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
+        <a href="inicio.html" class="navbar-brand" href="#">HSD PLUS</a>
+
+        </br>
+        </br>
+        </br>
+
+                <ul class="nav" id="side-menu">
+
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Buscar">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="Inventario.html"><i class="fa fa-edit fa-fw"></i> Inventario
+                        </a>
+                    </li>
+                    <li>
+                        <a href="RegistroVentas.html"><i class="fa fa-edit fa-fw"></i> Registro de Ventas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Catalogo.html"><i class="fa fa-edit fa-fw"></i> Catalogo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Reservaciones.html"><i class="fa fa-edit fa-fw"></i> Reservaciones
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Error 404.html"><i class="fa fa-edit fa-fw"></i> Usuarios
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
         </div>
-        <div class="btn-group dropleft">
-          <button style="background-color: #ffffff;" class="button" class="btn btn-sec btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="../img/Usuario.png" width="40" height="40" alt="">
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="iniciosesion.html">Iniciar Sesión</a>
-            <a class="dropdown-item" href="Registrar.html">Registrar</a>
-          </div>
+    </nav>
+
+   
+    <div id="page-wrapper">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Registro de Ventas</h1>
+                   <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Codigo</th>
+                <th>Articulo</th>
+                <th>Cantidad</th>
+                <th>Disponibilidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+            </tr>
+            <tr>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+            </tr>
+            <tr>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+            </tr>
+            <tr>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+            </tr>
+            <tr>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+            </tr>
+            <tr>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+            </tr>
+            <tr>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+                <td>uwu</td>
+            </tr>
+    </table>
+<center>
+    
+</center>
+
+<div class="col-12 col-md">
+                <img class="mb-2" src="Img/Logo.jpg" alt="" width="24" height="24">
+                <small class="d-block mb-3 text-center text-muted">Copyright &copy; 2018-2019 HSD Plus</small>
+            </div>
         </div>
-      </nav>
+                </div>
+            </div>
+
+            
+
+        </div>
     </div>
-  </nav>
+
 </div>
-
-</br>
-
-
-<div class="container">
-	<div class="row">
-		<div class="col-sm-6">
-			<div class="card">
-				<div class="card-body">
-					<img src="../img/B.jpg" width="200" height="200">
-					<h5 class="card-title">Se busca Trabajo</h5>
-					<p class="card-text">Tecnico en sistemas busca Empleo en el ambito tecnologico, preferiblemente con abogados.</p>
-					<a href="#" class="btn btn-info">Ver Más.</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-6">
-			<div class="card">
-				<div class="card-body">
-					<img src="../img/Usuario.Png" width="200" height="200">
-					<h5 class="card-title">Proximamente</h5>
-					<p class="card-text">Modulo en desarrolo.</p>
-					<a href="#" class="btn btn-info">Ver Más.</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-  
-<div class="container">
-	<footer class="pt-5 my-md-5 pt-md-5 border-top">
-		<div class="row">
-			<div class="col-6 col-md">
-				<h5>Información útil</h5>
-				<ul class="list-unstyled text-small">
-					<li><a class="text-muted" href="#">Contacto & Ayuda</a></li>
-					<li><a class="text-muted" href="#">Consejos de seguridad</a></li>
-					<li><a class="text-muted" href="#">Terminos & Condiciones</a></li>
-					<li><a class="text-muted" href="#">Acaerca de HSD Plus</a></li>
-					<li><a class="text-muted" href="#">Sumate a nosotros</a></li>
-				</ul>
-			</div>
-			<div class="col-6 col-md">
-				<h5>Servicios</h5>
-				<ul class="list-unstyled text-small">
-					<li><a class="text-muted" href="#">Registrate</a></li>
-					<li><a class="text-muted" href="#">Reserva</a></li>
-					<li><a class="text-muted" href="#">Consulta</a></li>
-				</ul>
-			</div>
-			<div class="col-6 col-md">
-				<h5>Contactanos</h5>
-				<ul class="list-unstyled text-small">
-					<li><a class="text-muted" href="#">Equipo</a></li>
-					<li><a class="text-muted" href="#">Localización</a></li>
-					<li><a class="text-muted" href="#">Privacidad</a></li>
-					<li><a class="text-muted" href="#">Terminos</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="col-12 col-md">
-				<img class="mb-2" src="Img/Logo.jpg" alt="" width="24" height="24">
-				<small class="d-block mb-3 text-center text-muted">Copyright &copy; 2018-2019 HSD Plus</small>
-			</div>
-		</div>
-	</footer>
-</div>
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/metisMenu.min.js"></script>
+<script src="../js/startmin.js"></script>
 
 </body>
 </html>

@@ -1,131 +1,148 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>HSD PLUS</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-	<link rel="icon" type="image/png" href="../Img/Logo.png">
+    <title>Inicio</title>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<meta charset="utf-8">
-
+    <link rel="icon" type="image/png" href="../Img/Logo.png">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/metisMenu.min.css" rel="stylesheet">
+    <link href="../css/timeline.css" rel="stylesheet">
+    <link href="../css/startmin.css" rel="stylesheet">
+    <link href="../css/morris.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
-
-
 <body>
 
-<br/>
-<br/>
-<br/>
+<div id="wrapper">
 
-<div>
-<span><a style="float:right;" href="start.html">English</a></span>
-</span>
-</div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        
 
-<div>
-	<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-    <a href="inicio.html" class="navbar-brand">
-		<img src="../img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
-		<a href="inicio.html"  class="navbar-brand">SHD PLUS</a>
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-    			<a href="Inventario.html" style="color:#47A5B4;" class="nav-link">Inventario</a>
-    		</li>
-    		<li class="nav-item">
-    			<a 
-    			href="RegistroVentas.html"style="color:#47A5B4;" class="nav-link">Registro de CompraVenta
-    			</a>
-    		</li>
-    		<li>
-    			<a href="Catalogo.html" class="nav-link" style="color: #47A5B4;">Catalogo
-    			</a>
-    		</li>
-    		<li>
-    			<a href="Reservaciones.html" class="nav-link" style="color: #47A5B4;">Reservaciones
-    			</a>
-    		</li>
-    	</ul>
-      <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
-          <button style="color:#47A5B4;" class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
-        </form>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Samuel X</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <ul class="nav navbar-nav navbar-left navbar-top-links">
+            <li><a href="inicio.html"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
+        </ul>
+
+        <center>
+            
+        </center>
+
+        <ul class="nav navbar-right navbar-top-links">
+            <li class="dropdown navbar-inverse">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-alerts">
+                    <li>
+                        <a href="#">
+                            <div>
+                                <i class="fa fa-comment fa-fw"></i> Nuevo Mensaje
+                                <span class="pull-right text-muted small">Hace 4 minutos</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="text-center" href="#">
+                            <strong>Más Notificasiones</strong>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-user fa-fw"></i> Samuel Sanches <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li><a href="#"><i class="fa fa-user fa-fw"></i>Usuario</a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+
+                <a href="inicio.html" class="navbar-brand" href="#">
+        <img src="../img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
+        <a href="inicio.html" class="navbar-brand" href="#">HSD PLUS</a>
+
+        </br>
+        </br>
+        </br>
+
+                <ul class="nav" id="side-menu">
+
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Buscar">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="Inventario.html"><i class="fa fa-edit fa-fw"></i> Inventario
+                        </a>
+                    </li>
+                    <li>
+                        <a href="RegistroVentas.html"><i class="fa fa-edit fa-fw"></i> Registro de Ventas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Catalogo.html"><i class="fa fa-edit fa-fw"></i> Catalogo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Reservaciones.html"><i class="fa fa-edit fa-fw"></i> Reservaciones
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Error 404.html"><i class="fa fa-edit fa-fw"></i> Usuarios
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
         </div>
-        <div class="btn-group dropleft">
-          <button style="background-color: #ffffff;" class="button" class="btn btn-sec btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="../img/Usuario.png" width="40" height="40" alt="">
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="iniciosesion.html">Iniciar Sesión</a>
-            <a class="dropdown-item" href="Registrar.html">Registrar</a>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </nav>
-</div>
+    </nav>
 
-</br>
+   
+    <div id="page-wrapper">
+        <div class="container-fluid">
 
-<div class="container">
-	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-		<ol class="carousel-indicators">
-			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-			<li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
-		</ol>
-	<div class="carousel-inner">
-    <div class="carousel-item active">
-      <img  src="../Img/1.jpg" width="100" height="400px whilt " class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="../Img/2.jpg" width="100" height="400px " class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="../Img/3.jpg" width="100" height="400px " class="d-block w-100" alt="...">
-    </div>
-     <div class="carousel-item">
-      <img src="../Img/4.jpg" width="100" height="400px " class="d-block w-100" alt="...">
-    </div>
-     <div class="carousel-item">
-      <img src="../Img/5.jpg" width="100" height="400px " class="d-block w-100" alt="...">
-    </div>
-     <div class="carousel-item">
-      <img src="../Img/6.jpg" width="100" height="400px " class="d-block w-100" alt="...">
-    </div>
-     <div class="carousel-item">
-      <img src="../Img/7.jpg" width="100" height="400px " class="d-block w-100" alt="...">
-    </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-    </a>
-  </div>
-</div>
-
-</br>
-
-<div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Inicio</h1>
+                    <div class="container">
   <div class="row featurette">
     <div class="col-md-7">
       <h2 class="featurette-heading">Misión</h2>
       <p class="lead">Somos una empresa dedicada a la comercialización y distribución de productos informáticos, fabricación de ordenadores, desarrollo de aplicaciones informáticas de gestión, soluciones en Internet, servicio técnico y mantenimiento de equipos y sistemas informáticos, hosting, y consultoría de protección de datos. Ofreciendo una solución a todo el territorio nacional.</p>
     </div>
     <div class="col-md-5">
-      <img src="../img/12.jpg" class="card-img-top" alt="img">
+      <img src="../img/12.jpg" width="300" height="300px" class="card-img-top" alt="img">
     </div>
   </div>
   </br>
@@ -135,7 +152,7 @@
       <p class="lead">Pretendemos ser un referente en el mercado nacional en el sector de las TIC, y para ello abarcaremos todos los servicios que ofrecemos actualmente incrementando los que vayan surgiendo debido a la necesidad de cambio provocado por los avances tecnológicos. Esto es así ya que somos una empresa en constante innovación ya que el sector de la tecnología así lo requiere.</p>
     </div>
     <div class="col-md-5 order-md-1">
-      <img src="../img/9.jpg" class="card-img-top" alt="img">
+      <img src="../img/9.jpg" width="300" height="300px" class="card-img-top" alt="img">
     </div>
   </div>
   </br>
@@ -146,98 +163,28 @@
         <a href="img/Manual.pdf" class="btn btn-secondary" role="button">Manual Corporativo. &raquo;</a>
       </div>
       <div class="col-md-5">
-        <img src="../img/Logo.png" class="card-img-top" alt="img">
+        <img src="../img/Logo.png" width="300" height="300px" class="card-img-top" alt="img">
       </div>
     </div>
 </div>
+<div class="col-12 col-md">
+                <img class="mb-2" src="Img/Logo.jpg" alt="" width="24" height="24">
+                <small class="d-block mb-3 text-center text-muted">Copyright &copy; 2018-2019 HSD Plus</small>
+            </div>
+        </div>
+                </div>
+            </div>
 
-</br>
+            
 
-<div>
-	<center>
-		<div class="card-body">
-			<h5>¿QUIENES SOMOS?</h5>
-		</div>
-		</center>
-	</div>
+        </div>
+    </div>
+
 </div>
-<div class="container">
-	<div class="row">
-		<div class="col-sm-4">
-			<div class="card">
-				<div class="card-body">
-					<img src="../Img/A.png" class="card-img-top" alt="...">
-					<h5>Harold Rojas</h5>
-					<p class="card-text">Ingeniero de sistemas, conocimiento en administración con capacidad de trabajo en equipo, desempeño alto en entornos de alta presión,   fortaleza para tomar decisiones con objetividad, disposición para el aprendizaje y el conocimiento, hábil para la planeación, gestión y ejecución de  proyectos.</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-4">
-			<div class="card">
-				<div class="card-body">
-					<img src="../Img/B.jpg" class="card-img-top" alt="...">
-					<h5>Samuel Salguero</h5>
-					<p class="card-text">Ingeniero de sistemas, tecnico de sistema, Capacidad de trabajo en equipo con abogados, fortaleza para tomar decisiones con objetividad, disposición para el aprendizaje y el conocimiento, hábil para la planeación, gestión y ejecución de  proyectos.</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-4">
-			<div class="card">
-				<div class="card-body">
-					<img src="../Img/C.jpg" class="card-img-top" alt="...">
-					<h5>David Fagua</h5>
-					<p class="card-text">Ingeniero de sistemas y diseñador grafico, Capacidad de trabajo en equipo, fortaleza para tomar decisiones con objetividad, disposición para el aprendizaje y el conocimiento, hábil para la planeación, creatividad, gestión y ejecución de  proyectos.</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-</br>
-  
-<div class="container">
-	<footer class="pt-5 my-md-5 pt-md-5 border-top">
-		<div class="row">
-			<div class="col-6 col-md">
-				<h5 style="color:#47A5B4;">Información útil</h5>
-				<ul class="list-unstyled text-small">
-					<li><a class="text-muted" href="#">Contacto & Ayuda</a></li>
-					<li><a class="text-muted" href="#">Consejos de seguridad</a></li>
-					<li><a class="text-muted" href="#">Terminos & Condiciones</a></li>
-					<li><a class="text-muted" href="#">Acerca de HSD Plus</a></li>
-					<li><a class="text-muted" href="#">Sumate a nosotros</a></li>
-				</ul>
-			</div>
-			<div class="col-6 col-md">
-				<h5 style="color:#47A5B4;">Servicios</h5>
-				<ul class="list-unstyled text-small">
-					<li><a class="text-muted" href="Registrar.html">Registrate</a></li>
-					<li><a class="text-muted" href="#">Reserva</a></li>
-					<li><a class="text-muted" href="#">Consulta</a></li>
-				</ul>
-			</div>
-			<div class="col-6 col-md">
-				<h5 style="color:#47A5B4;">Contactenos</h5>
-				<ul class="list-unstyled text-small">
-					<li><a class="text-muted" href="#">Equipo</a></li>
-					<li><a class="text-muted" href="#">Localización</a></li>
-					<li><a class="text-muted" href="#">Privacidad</a></li>
-					<li><a class="text-muted" href="#">Terminos</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="col-12 col-md">
-				<img class="mb-2" src="Img/Logo.jpg" alt="" width="24" height="24">
-				<small class="d-block mb-3 text-center text-muted">Copyright &copy; 2018-2019 HSD Plus</small>
-			</div>
-		</div>
-	</footer>
-</div>
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/metisMenu.min.js"></script>
+<script src="../js/startmin.js"></script>
 
 </body>
 </html>
