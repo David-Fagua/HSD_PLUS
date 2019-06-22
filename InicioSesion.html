@@ -83,6 +83,8 @@
     </form>
   </div>
 </div>
+
+
    
 
 <script type="text/javascript">
@@ -110,6 +112,51 @@
         return false;
       }
     }   
+  </script>
+
+
+  <script type="text/javascript">
+    function validarRegistro(){
+      var clave1 = document.getElementById('claveReg').value;
+
+      var clave2 = document.getElementById('reClaveReg').value;
+
+      if (clave1===clave2) {
+
+        alert("Registro Exitoso");
+
+
+      }else{
+        alert("Las contraseñas no coinciden");
+        return false;
+      }
+
+    }
+
+    function validarIngreso(){
+
+    
+
+      var clave = document.getElementById('clave').value;
+
+      var usuario = document.getElementById('usuario').value;
+
+      switch (usuario) {
+      case 'administrador@gmail.com':
+      localStorage.setItem('logUser', 'administrador@gmail.com'); 
+      return true;
+      break;
+      case 'cliente@gmail.com':
+      localStorage.setItem('logUser', 'cliente@gmail.com');
+      return true;
+      break;
+      default:
+      alert('Usuario no encontrado, verifique su informacion');
+      return false;
+      }
+  
+  }
+
   </script>
 
   <script src="js/ohsnap.js"></script>
