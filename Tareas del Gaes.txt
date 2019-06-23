@@ -1,31 +1,33 @@
 Tareas y trabajos Fase 3
 
-- Redactar el documento DEA
+- Corregir Diagrama de clases
+- Corregir Diagramas de Samuel 
 - Actualizar IEEE830
-- Actualizar FormulaciÛn de proyecto
-- Documento de an·lisis
-- Requerimientos de la base de datos
-- Hacer mapa de navegaciÛn 
-- Corregir presentacion de fase 3
+- Corregir presentaci√≥n
+- Redactar el documento DEA
+- Actualizar Formulaci√≥n de proyecto
 - Diagrama de componentes
 - Diagrama de despliegue
-- Infraestructura de red
 - Diagrama de paquetes
+* Diagrama de Componentes
+- Diagrama de Modelo relacional
+- Requerimientos de la base de datos
+- Hacer mapa de navegaci√≥n
+- Infraestructura de red
 - Arquitectura en capas
-- Patrones de diseÒo
-- Tegnologias a usar
-- Modelo relaciÛnal
+- Patrones de dise√±o
+- Tecnolog√≠as a usar
 - Requerimientos bases de datos 1,2 y 3
-* Hacer Rae de Comunicaciones 
-- Corregir o rehacer los diagramas
 - Modelo de datos 
-- Mirar video sobre mysqi
-* Hacer base de datos en Gaes
-* Arquitectura† wed exposiciÛn
-* Maquetado DiseÒo Wed
-* Manual Corporativo
-* Base de datos Miselaneas en grupos
-* Trabajo de arquitectura computaciÛnal 
-* Ejercicios Java de diseÒo web 
+- Mirar video sobre MySQL
 - Estudiar Java
-- Estudiar aces
+- Estudiar Aces
+* Documento de an√°lisis
+* Hacer base de datos en GAES
+* Arquitectura  web exposici√≥n
+* Trabajo de arquitectura computacional 
+* Maquetado Dise√±o Web
+* Manual Corporativo
+* Base de datos Miscel√°neas en grupos
+
+
