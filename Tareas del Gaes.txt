@@ -30,4 +30,5 @@ Tareas y trabajos Fase 3
 * Manual Corporativo
 * Base de datos Misceláneas en grupos
 
-
+Poner pdf
+<a href="img/Manual.pdf" class="btn btn-secondary" role="button">Manual Corporativo. &raquo;</a>
