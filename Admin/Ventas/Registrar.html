@@ -184,163 +184,112 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Registro de Ventas</h1>
+                    <h1 class="page-header">Registrar Nueva Venta</h1>
                    <div class="card mb-3">
-                    <input type="text" class="form-control pull-right" style="width:30%" id="search" placeholder="Consultar salida del producto vendido">
-</diva>
-<p>
-  <button type="button" role="button" href="../Usuario.html" class="btn btn-primary">Registrar Salida del Producto Vendido</button>
-</p>
-<div class="form-group">
-<div id="div1">
-<table class="table-bordered table pull-right" id="mytable" cellspacing="0" style="width: 100%;">
- <thead>
- <tr role="row">
- <th>No Registro</th>
- <th>Nombre Cliente</th>
- <th>Apellido Cliente</th>
- <th>Cedula Cliente</th>
- <th>Dirección cliente</th>
- <th>Telefono Cliente</th>
- <th>Nombre del Producto</th>
- <th>Fecha</th>
- <th>Nombre del Vendedor</th>
- <th>Valor Total</th>
- </tr>
- </thead>
- <tbody>
- <tr>
- <td>0001</td>
- <td>Ariel</td>
- <td>Aleman</td>
- <td>12345671234</td>
- <td>calle74#92-01</td>
- <td>1234123</td>
- <td>Hilo Croche</td>
- <td>2000/11/28</td>
- <td>Harold</td>
- <td>500000</td>
- </tr>
- <tr>
-  <td>0002</td>
- <td>Bernardo</td>
- <td>Bericio</td>
- <td>1231234890</td>
- <td>calle74#92-02</td>
- <td>9876567</td>
- <td>Hilo polietioleno</td>
- <td>2001/11/28</td>
- <td>Harold</td>
- <td>500000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>Carlos</td>
- <td>Carmin</td>
- <td>1234567890</td>
- <td>calle74#92-03</td>
- <td>1123567</td>
- <td>Hilo de Trapero</td>
- <td>2003/11/28</td>
- <td>Harold</td>
- <td>200000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>David</td>
- <td>Darnes</td>
- <td>1456567890</td>
- <td>calle74#92-11</td>
- <td>1238527</td>
- <td>Hilo Croche</td>
- <td>2009/09/10</td>
- <td>Harold</td>
- <td>500000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>Enrique</td>
- <td>Macias</td>
- <td>1234567890</td>
- <td>calle74#92-52</td>
- <td>1234567</td>
- <td>Hilo Croche</td>
- <td>2008/11/28</td>
- <td>Harold</td>
- <td>500000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>Jose</td>
- <td>Plata</td>
- <td>1234567890</td>
- <td>calle74#92-85</td>
- <td>1234567</td>
- <td>Hilo Croche</td>
- <td>2008/11/28</td>
- <td>Harold</td>
- <td>500000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>Karen</td>
- <td>Vengas</td>
- <td>1234512390</td>
- <td>calle74#95-15</td>
- <td>7654321</td>
- <td>Hilo fino</td>
- <td>2008/11/28</td>
- <td>Samuel</td>
- <td>500000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>Natalia</td>
- <td>Congo</td>
- <td>8529637410</td>
- <td>calle74#85-25</td>
- <td>1234567</td>
- <td>Hilo polietileno</td>
- <td>2008/11/28</td>
- <td>Samuel</td>
- <td>500000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>Jose</td>
- <td>Plata</td>
- <td>1234567890</td>
- <td>calle74#92-85</td>
- <td>1234567</td>
- <td>Hilo Croche</td>
- <td>2008/11/28</td>
- <td>David</td>
- <td>500000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>macias</td>
- <td>Plata</td>
- <td>1234567890</td>
- <td>calle74#92-85</td>
- <td>1234567</td>
- <td>Hilo Croche</td>
- <td>2008/11/28</td>
- <td>Harold</td>
- <td>500000</td>
- </tr>
- </tbody>
-</table>
 </div>
 
-<center>
-<p>
-  <button type="button" class="btn btn-primary" >Consultar Historico de Registro de Ventas</button>
-</p>
-</center>
-          <div class="copyright text-center my-auto">
-            <span>Copyright © Your Website 2019</span>
+            
+    <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      
+      
+        
+      </center>
+      <div class="form-group"> <!-- Vendedor Button -->
+        <label for="state_id" class="control-label" >Nombre del Vendedor</label>
+        <select class="form-control" id="state_id">
+            <option value="AL">Samuel Salguero</option>
+            <option value="AK">Harold Rojas</option>
+            <option value="AZ">David Fragua</option>
+        </select>                    
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Nombre Cliente">
+      </div>
+      <div class="form-group">
+         <input type="text" class="form-control" placeholder="Apellido Cliente">
+      </div>
+      <div class="form-group">
+         <input type="tel" class="form-control" placeholder="Telefono">
+      </div>
+         <div class="form-group">
+        <div class="col-xs-6">
+          <div class="checkbox" >
+              <label>
+                <input type="checkbox" value="">
+                Hilo Croche 
+              </label><input type="number" name="numero" class="form-control" placeholder="Cantidad"><input type="number" name="numero" class="form-control" placeholder="Presio"><input type="text" class="form-control" placeholder="color">
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="">
+                Hilo de la Falle
+              </label><input type="number" name="numero" class="form-control" placeholder="Cantidad"><input type="number" name="numero" class="form-control" placeholder="Presio"><input type="text" class="form-control" placeholder="Color">
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="">
+                Hilo comun
+              </label><input type="number" name="numero" class="form-control" placeholder="Cantidad"><input type="number" name="numero" class="form-control" placeholder="Presio"><input type="text" class="form-control" placeholder="Color">
+            </div>      
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="">
+                Hilo Polietileno
+              </label><input type="number" name="numero" class="form-control" placeholder="Cantidad"><input type="number" name="numero" class="form-control" placeholder="Presio"><input type="text" class="form-control" placeholder="Color">
+            </div>             
+         </div>
+      <div class="form-group">
+        <input type="number" class="form-control" placeholder="Valor Total">
+      </div>
+
+      <div class="form-group">
+        <input type="date" name="fecha" class="form-control" placeholder="Nombre Cliente">
+      </div>
+
+
+  <p>
+
+    Sube archivos:
+
+    <input type="file" name="archivossubidos[]" multiple>
+
+  </p>
+ <textarea class="form-control" rows="4">Escriba aquí su texto.</textarea>
+  <div class="row ">
+            <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                 <input type="submit"  class="btn btn-default"value="Limpiar"/> &nbsp; &nbsp; &nbsp;<input type="submit"  class="btn btn-primary" value="Enviar"/>
+              </div>
+
           </div>
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
         </div>
       </footer>
 
