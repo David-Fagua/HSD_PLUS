@@ -141,19 +141,18 @@
                         <a><i class="fa fa-bar-chart-o fa-fw"></i>Ventas<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="./Inventario/Inventario.html">Consultar</a>
+                                <a href="./Ventas/Registrar.html">Registrar</a>
                             </li>
                             <li>
-                                <a href="./Inventario/Añadir.html">Añadir</a>
+                                <a href="./Ventas/Consultar.html">Consultar</a>
                             </li>
                             <li>
-                                <a href="./Inventario/Editar.html">Editar</a>
+                                <a href="./Ventas/Modificar.html">Modificar</a>
                             </li>
                             <li>
-                                <a href="./Inventario/Eliminaro.html">Eliminar</a>
+                                <a href="./Ventas/Historial de ventas.html">Historial de ventas</a>
                             </li>
-                        </ul>
-                    </li>
+                        </ul>                    </li>
                     <li>
                         <a><i class="fa fa-bar-chart-o fa-fw"></i>Catalogo<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -184,107 +183,65 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Inicio</h1>
-                <p2 class="page-header">Cambios Recientes</p2>
+                
                 <div class="card mb-3">
           <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <thead>
-                  <tr>
-                    <th>Nonbre</th>
-                    <th>Cargo</th>
-                    <th>Lugar</th>
-                    <th>Años</th>
-                    <th>Fecha</th>
-                    <th>Salario</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                  <tr>
-                    <th>Nonbre</th>
-                    <th>Cargo</th>
-                    <th>Lugar</th>
-                    <th>Años</th>
-                    <th>Fecha</th>
-                    <th>Salario</th>
-                  </tr>
-                </tfoot>
-                  <tr>
-                    <td>Howard Hatfield</td>
-                    <td>Administrador</td>
-                    <td>Bogotá</td>
-                    <td>51</td>
-                    <td>2008/12/16</td>
-                    <td>$164,500</td>
-                  </tr>
-                  <tr>
-                    <td>Hope Fuentes</td>
-                    <td>Secretaria</td>
-                    <td>San Andreas</td>
-                    <td>41</td>
-                    <td>2010/02/12</td>
-                    <td>$109,850</td>
-                  </tr>
-                   <td>Howard Hatfield</td>
-                    <td>Secretaria</td>
-                    <td>San Francisco</td>
-                    <td>51</td>
-                    <td>2008/12/16</td>
-                    <td>$164,500</td>
-                  </tr>
-                  <tr>
-                    <td>Hope Fuentes</td>
-                    <td>Secretaria</td>
-                    <td>Soacha</td>
-                    <td>41</td>
-                    <td>2010/02/12</td>
-                    <td>$109,850</td>
-                  </tr>
-                  <tr>
-                    <td>Vivian Harrell</td>
-                    <td>Administrador</td>
-                    <td>Suba</td>
-                    <td>62</td>
-                    <td>2009/02/14</td>
-                    <td>$452,500</td>
-                  </tr>
-                  <tr>
-                    <td>Timothy Mooney</td>
-                    <td>Administrador</td>
-                    <td>Zipaquira</td>
-                    <td>37</td>
-                    <td>2008/12/11</td>
-                    <td>$136,200</td>
-                  </tr>
-                  <tr>
-                    <td>Jackson Bradshaw</td>
-                    <td>Secretariar</td>
-                    <td>Medillin</td>
-                    <td>65</td>
-                    <td>2008/09/26</td>
-                    <td>$645,750</td>
-                  </tr>
-                  <tr>
-                    <td>Olivia Liang</td>
-                    <td>Administrador</td>
-                    <td>Armero</td>
-                    <td>64</td>
-                    <td>2011/02/03</td>
-                    <td>$234,500</td>
-                  </tr>
-                  
-                  <tr>
-                    <td>Donna Snider</td>
-                    <td>Administrador</td>
-                    <td>Nariz del diablo</td>
-                    <td>27</td>
-                    <td>2011/01/25</td>
-                    <td>$112,000</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
+                                    <div class="pull-right">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default btn-xs dropdown-toggle"
+                                                    data-toggle="dropdown">
+                                                Actions
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu pull-right" role="menu">
+                                                <li><a href="#">Action</a>
+                                                </li>
+                                                <li><a href="#">Another action</a>
+                                                </li>
+                                                <li><a href="#">Something else here</a>
+                                                </li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <div id="morris-area-chart"></div>
+                                </div>
+                                <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+                                    <div class="pull-right">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default btn-xs dropdown-toggle"
+                                                    data-toggle="dropdown">
+                                                Actions
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu pull-right" role="menu">
+                                                <li><a href="#">Action</a>
+                                                </li>
+                                                <li><a href="#">Another action</a>
+                                                </li>
+                                                <li><a href="#">Something else here</a>
+                                                </li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
           </div>
       </div>
   </div>
@@ -298,5 +255,11 @@
 <script src="../js/metisMenu.min.js"></script>
 <script src="../js/startmin.js"></script>
 
+        <!-- Morris Charts JavaScript -->
+        <script src="../js/raphael.min.js"></script>
+        <script src="../js/morris.min.js"></script>
+        <script src="../js/morris-data.js"></script>
+
+        
 </body>
 </html>
