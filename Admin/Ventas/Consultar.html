@@ -198,96 +198,109 @@
 </p>
 <div class="form-group">
 <div id="div1">
-<table class="table-bordered table pull-right" id="mytable" cellspacing="0" style="width: 100%;">
- <thead>
- <tr role="row">
- <th>No Registro</th>
- <th>Nombre Cliente</th>
- <th>Apellido Cliente</th>
- <th>Cedula Cliente</th>
- <th>Dirección cliente</th>
- <th>Telefono Cliente</th>
- <th>Nombre del Producto</th>
- <th>Fecha</th>
- <th>Nombre del Vendedor</th>
- <th>Valor Total</th>
- </tr>
- </thead>
- <tbody>
- <tr>
+  <table border="1" class="table-bordered table pull-right" id="mytable" cellspacing="0" style="width: 100%;">
+
+
+    <tr>
+     <th>Registro</th>
+     <th>NombreCliente</th>
+     <th>ApellidoCliente</th>
+    <th>CedulaCliente</th>
+     <th>Direccióncliente</th>
+     <th>TelefonoCliente</th>
+     <th>Productos</th>
+     <th>Fecha</th>
+     <th>Vendedor</th>
+     <th>ValorTotal</th>
+     <th>Opciones</th></th>
+    </tr>
+
+    <tr> 
+     <td>0001</td>
+     <td>Armando </td> 
+     <td>Arquimedes</td>
+     <td>12345678910</td> 
+     <td>crea 54a sur</td>
+     <td>123456789</td>
+     <td>Hilo Croche</td>
+     <td>11-12-2019</td>
+     <td>Hrold</td>
+     <td>25500</td>
+     <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+    </tr>
+
+    <tr> 
+     <td>0002</td>
+    <td>Bernardo</td>
+     <td>Bericio</td>
+     <td>1231234890</td>
+     <td>calle74#92-02</td>
+     <td>9876567</td>
+     <td>Hilo polietioleno</td>
+     <td>2001/11/28</td>
+     <td>David</td>
+     <td>90000</td>
+     <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span    ></td>
+    </tr>
+
+    <tr> 
+    <td>0001</td>
+     <td>Alirio</td>
+     <td>Aleman</td>
+     <td>12345671234</td>
+     <td>calle74#92-01</td>
+     <td>1234123</td>
+     <td>Hilo Croche</td>
+    <td>2000/11/28</td>
+     <td>Harold</td>
+    <td>30000</td>
+     <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+    </tr>
+
+    <tr>
+     <td>0001</td>
+     <td>Carlos</td>
+     <td>Carmin</td>
+     <td>1234567890</td>
+     <td>calle74#92-03</td>
+     <td>1123567</td>
+     <td>Hilo de Trapero</td>
+     <td>2003/11/28</td>
+    <td>Harold</td>
+    <td>28000</td>
+     <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+    </tr>
+
+    <tr>
+     <td>0005</td>
+     <td>David</td>
+     <td>Darnes</td>
+     <td>1456567890</td>
+     <td>calle74#92-11</td> 
+     <td>1238527</td>
+     <td>Hilo Croche</td>
+     <td>2009/09/10</td>
+     <td>Samuel</td>
+     <td>500000</td>
+     <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+    </tr>
+
+    <tr>
+     <td>0010</td>
+     <td>Jose</td>
+     <td>Plata</td>
+     <td>1234567890</td>
+     <td>calle74#92-85</td>
+     <td>1234567</td>
+     <td>Hilo Croche</td>
+     <td>2008/11/28</td>
+     <td>HDavid</td>
+     <td>500000</td>
+     <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+    </tr>
+
+<tr>
  <td>0001</td>
- <td>Ariel</td>
- <td>Aleman</td>
- <td>12345671234</td>
- <td>calle74#92-01</td>
- <td>1234123</td>
- <td>Hilo Croche</td>
- <td>2000/11/28</td>
- <td>Harold</td>
- <td>500000</td>
- </tr>
- <tr>
-  <td>0002</td>
- <td>Bernardo</td>
- <td>Bericio</td>
- <td>1231234890</td>
- <td>calle74#92-02</td>
- <td>9876567</td>
- <td>Hilo polietioleno</td>
- <td>2001/11/28</td>
- <td>Harold</td>
- <td>500000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>Carlos</td>
- <td>Carmin</td>
- <td>1234567890</td>
- <td>calle74#92-03</td>
- <td>1123567</td>
- <td>Hilo de Trapero</td>
- <td>2003/11/28</td>
- <td>Harold</td>
- <td>200000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>David</td>
- <td>Darnes</td>
- <td>1456567890</td>
- <td>calle74#92-11</td>
- <td>1238527</td>
- <td>Hilo Croche</td>
- <td>2009/09/10</td>
- <td>Harold</td>
- <td>500000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>Enrique</td>
- <td>Macias</td>
- <td>1234567890</td>
- <td>calle74#92-52</td>
- <td>1234567</td>
- <td>Hilo Croche</td>
- <td>2008/11/28</td>
- <td>Harold</td>
- <td>500000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>Jose</td>
- <td>Plata</td>
- <td>1234567890</td>
- <td>calle74#92-85</td>
- <td>1234567</td>
- <td>Hilo Croche</td>
- <td>2008/11/28</td>
- <td>Harold</td>
- <td>500000</td>
- </tr>
- <tr>
-  <td>0001</td>
  <td>Karen</td>
  <td>Vengas</td>
  <td>1234512390</td>
@@ -297,45 +310,121 @@
  <td>2008/11/28</td>
  <td>Samuel</td>
  <td>500000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>Natalia</td>
- <td>Congo</td>
- <td>8529637410</td>
- <td>calle74#85-25</td>
- <td>1234567</td>
- <td>Hilo polietileno</td>
+ <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+</tr>
+
+
+
+ <tr> 
+     <td>0001</td>
+     <td>Armando </td> 
+     <td>Arquimedes</td>
+     <td>12345678910</td> 
+     <td>crea 54a sur</td>
+     <td>123456789</td>
+     <td>Hilo Croche</td>
+     <td>11-12-2019</td>
+     <td>Hrold</td>
+     <td>25500</td>
+     <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+    </tr>
+
+    <tr> 
+     <td>0002</td>
+    <td>Bernardo</td>
+     <td>Bericio</td>
+     <td>1231234890</td>
+     <td>calle74#92-02</td>
+     <td>9876567</td>
+     <td>Hilo polietioleno</td>
+     <td>2001/11/28</td>
+     <td>David</td>
+     <td>90000</td>
+     <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span    ></td>
+    </tr>
+
+    <tr> 
+    <td>0001</td>
+     <td>Alirio</td>
+     <td>Aleman</td>
+     <td>12345671234</td>
+     <td>calle74#92-01</td>
+     <td>1234123</td>
+     <td>Hilo Croche</td>
+    <td>2000/11/28</td>
+     <td>Harold</td>
+    <td>30000</td>
+     <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+    </tr>
+
+    <tr>
+     <td>0001</td>
+     <td>Carlos</td>
+     <td>Carmin</td>
+     <td>1234567890</td>
+     <td>calle74#92-03</td>
+     <td>1123567</td>
+     <td>Hilo de Trapero</td>
+     <td>2003/11/28</td>
+    <td>Harold</td>
+    <td>28000</td>
+     <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+    </tr>
+
+    <tr>
+     <td>0005</td>
+     <td>David</td>
+     <td>Darnes</td>
+     <td>1456567890</td>
+     <td>calle74#92-11</td> 
+     <td>1238527</td>
+     <td>Hilo Croche</td>
+     <td>2009/09/10</td>
+     <td>Samuel</td>
+     <td>500000</td>
+     <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+    </tr>
+
+    <tr>
+     <td>0010</td>
+     <td>Jose</td>
+     <td>Plata</td>
+     <td>1234567890</td>
+     <td>calle74#92-85</td>
+     <td>1234567</td>
+     <td>Hilo Croche</td>
+     <td>2008/11/28</td>
+     <td>HDavid</td>
+     <td>500000</td>
+     <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+    </tr>
+
+<tr>
+ <td>0001</td>
+ <td>Karen</td>
+ <td>Vengas</td>
+ <td>1234512390</td>
+ <td>calle74#95-15</td>
+ <td>7654321</td>
+ <td>Hilo fino</td>
  <td>2008/11/28</td>
  <td>Samuel</td>
  <td>500000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>Jose</td>
- <td>Plata</td>
- <td>1234567890</td>
- <td>calle74#92-85</td>
- <td>1234567</td>
- <td>Hilo Croche</td>
- <td>2008/11/28</td>
- <td>David</td>
- <td>500000</td>
- </tr>
- <tr>
-  <td>0001</td>
- <td>macias</td>
- <td>Plata</td>
- <td>1234567890</td>
- <td>calle74#92-85</td>
- <td>1234567</td>
- <td>Hilo Croche</td>
- <td>2008/11/28</td>
- <td>Harold</td>
- <td>500000</td>
- </tr>
- </tbody>
-</table>
+ <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+</tr>
+
+
+
+
+
+  </table>
+<div class="table-responsive">
+</div>
+
+
+
+</div>
+<div id="contenedorForm">
 </div>
 
 <center>
@@ -349,10 +438,9 @@
 
        
 
-      </div>
 
 
-    </div>
+    
         </div>
     </div>
 
@@ -373,6 +461,7 @@
  });
 });
 </script>
+<script type="text/javascript" src="../../js/functions.js"></script>
 <script src="../../js/jquery.min.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
 <script src="../../js/metisMenu.min.js"></script>
