@@ -42,9 +42,9 @@
     <div class="col-md-3">
     </div>
     <div class="col-md-6">
-      <formaction=""  onsubmit="return validarformulario()" method="post" class="border border-light p-5">
+      <form role="form" action="../admin/Start.html" method="post onsubmit="return validarregistro()" method="post" class="border border-light p-5">
       <center>
-        <h2>Register</h2>
+        <h2>Create account</h2>
       </center>
       <center>
         <div class="form-group">
@@ -53,12 +53,14 @@
         <div class="form-group">
           <input id="correoId"  required="true" type="text" class="form-control" placeholder="Username">
         </div>
+
         <div class="form-group">
-          <input id="correoId"  required="true" type="text" class="form-control" placeholder="password">
+          <input  maxlength="15" name="form-password" type="password" class="form-control" placeholder="password">
         </div>
         <div class="form-group">
-          <input id="correoId"  required="true" type="text" class="form-control" placeholder="Confirm password">
+          <input  maxlength="15" name="form-Repassword"  type="password" class="form-control" placeholder="Confirm password">
         </div>
+
         <div class="form-group">
           <input id="correoId"  required="true" type="text" class="form-control" placeholder="email">
         </div>
@@ -79,162 +81,18 @@
 <br>
   
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script>
-          
-        $(document).ready(function () {
-   $("#rpassword").keyup(checkPasswordMatch);
- 
-});
-
-   $(document).ready(function () {
-   $("#password").keyup(checkPasswordMatch2);
- 
-});
-
- 
- 
-
- function checkPasswordMatch2() {
- var repeatPass= document.getElementById('rpassword').value;
-var repeatclave = repeatPass.length;
- if (repeatclave>0)
- {
-    var password = $("#password").val();
-    var confirmarPassword = $("#rpassword").val();
-
-    if (password != confirmarPassword){
-        $("#divchearsisoniguales").html("<div class='alert alert-danger'><i class='fa fa-close'></i> passwords do not match!<input value='error' type='hidden' name='passwordchecker'></div>");
-   document.getElementById("thesubmitBoton").disabled = true; 
-} else{
-    
-        $("#divchearsisoniguales").html("<div class='alert alert-success'><i class='fa fa-check'></i> passwords do not match.<input type='hidden'  value='1' name='passwordchecker'></div>");
-        document.getElementById("thesubmitBoton").disabled = false; 
-    }
-    }
-}
-    
-    </script>
-  <script>
-
-   
-
- function checkPasswordMatch() {
-    var password = $("#password").val();
-    var confirmarPassword = $("#rpassword").val();
-
-    if (password != confirmarPassword){
-        var contador=0;
-        $("#divchearsisoniguales").html("<i class='fa fa-close'></i>  passwords do not match!<input value='error' type='hidden' name='passwordchecker'>");
-   document.getElementById("thesubmitBoton").disabled = true; 
-} else{
-    contador=1; 
-        $("#divchearsisoniguales").html("<i class='fa fa-check'></i> passwords do not match.<input type='hidden'  value='1' name='passwordchecker'>");
-        document.getElementById("thesubmitBoton").disabled = false; 
-    }
- 
-}
-
-    
-    </script>
-    <script>
-    
-        
-      $(document).ready(function () {
-   $("#username").keyup(checarUsuarios);
-});
- 
- 
-     $(document).ready(function () {
-   $("#username").change(checarUsuarios);
-});
-
-     $(document).ready(function () {
-   $("#email").keyup(checarEmails);
-});
- 
- 
-     $(document).ready(function () {
-   $("#email").change(checarEmails);
-});
-function checarUsuarios() {
-    
-var username= document.getElementById('username').value;
-var userlenght = username.length;
-if (userlenght<4)
-{
-  document.getElementById("checkusername").innerHTML="<i class='fa fa-close'></i> jjjjj <input id='usernamechecker' type='hidden' value='0' name='usernamechecker'> ";
-  
-}
-else {
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-if (xhttp.readyState == 4 && xhttp.status == 200) {
-document.getElementById("checkusername").innerHTML = xhttp.responseText;
-usernameresponsed = document.getElementById('usernamechecker').value;
-
-
-
-if (usernameresponsed=="1")
-{
-   
-   if (emailresponsed)
-   {
-      emailresponsed=document.getElementById('emailchecker').value;
-      if (emailresponsed=="1"){
-          document.getElementById("thesubmitBoton").disabled = false; 
-                    }
-   }
-}
-
-
-else if (usernameresponsed=="0")
-{
-    document.getElementById("thesubmitBoton").disabled = true;
-}
-}
-};
-xhttp.open("POST", "checarusername.php", true);
-xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xhttp.send("username="+username+"");
-
-}
-}
-function checarEmails() {
-    
-var email= document.getElementById('email').value;
-
-
-
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-if (xhttp.readyState == 4 && xhttp.status == 200) {
-document.getElementById("checkemailresponse").innerHTML = xhttp.responseText;
-emailresponsed = document.getElementById('emailchecker').value;
-if (emailresponsed=="1")
-{
-   
-   if (usernameresponsed)
-   {
-      usernameresponsed=document.getElementById('usernamechecker').value;
-      if (usernameresponsed=="1"){
-          document.getElementById("thesubmitBoton").disabled = false; 
-                    }
-   }
-}
-else if (emailresponsed=="0")
-{
-    document.getElementById("thesubmitBoton").disabled = true;
-}
-}
-};
-xhttp.open("POST", "checkemail.php", true);
-xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-xhttp.send("email="+email+"");
-
-
-}
-
+<script type="text/javascript">
+function validarformulario() {
+  var clave1 = document.getElemtById('form-password').value
+  var clave2 = document.getElemtById('form-Repassword').value
+  if (clave1===clave2) {
+    alert("Succesful registration.");
+  }else{
+    alert("password do not match");
+    return false;
+  }
+}  
 </script>
-
+  
 </body>
 </html>

@@ -1,36 +1,22 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Iniciar Sesión</title>
+  <title>Log In</title>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-    <link rel="icon" type="image/png" href="../Img/Logo.png">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="utf-8">
 </head>
 
 <body>
 
 <div>
   <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-    <a href="start.html" class="navbar-brand" href="#">
+    <a href="inicio.html" class="navbar-brand" href="#">
     <img src="../img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
-    <a href="start.html" class="navbar-brand" href="#">HSD PLUS</a>
+    <a href="inicio.html" class="navbar-brand" href="#">HSD PLUS</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -46,40 +32,32 @@
     <div class="col-md-3">
     </div>
     <div class="col-md-6">
-      <formaction=""  onsubmit="return validarformulario()" method="post" class="border border-light p-5">
       <center>
-        <h2>Log in</h2>
+        <img src="../img/Usuario.png" width="100" height="100" alt="HSD PLUS">
+        <h2>Log In</h2>
       </center>
-      <div class="form-group">
-        <input id="correoId"  required="true" type="text" class="form-control" placeholder="email">
-      </div>
-      <div class="form-group">
-        <input maxlength="10" minlength="4" id="claveId" required="true" type="password" class="form-control" placeholder="password">
-      </div>
-      <div class="form-group mb-4">
-        <input maxlength="10"  minlength="4" id="reclaveId" required="true" type="password" class="form-control" placeholder="Confirm password">
-      </div>
-      <div class="text-center">
-        <p>Not registered
-          <a href="Register.html">Registrar</a>
-        </p>
-      </div>
-      <div class="text-center">
-          <a href="Register.html">Remember password</a>
-        </p>
-      </div>
-      <center>
-        <div class="form-group">
-        <input type="submit" class="btn btn-primary btn-pill" value="Ingresar">
-      </div>
-      </center>
-      <!-- Inicios temporales -->
-      <center>
-        <div>
-         <a href="./Admin/Inicio.html">Admin</a>
-         <a href="./cliente/Catalogo.html">Cliente</a>
-      </div>
-      </center>
+      <div class="myform-bottom">
+        <form role="form" action="./Admin/inicio.html" method="post" class="" onsubmit="return validarInicio()">
+          <div class="form-group">
+            <input type="text" name="form-username" placeholder="username" class="form-control" id="user-username">
+          </div>
+          <div class="form-group">
+            <input type="password" name="form-password" placeholder="Password" class="form-control" id="form-password">
+          </div>
+
+          <div class="text-center">
+            <p>Not registered
+              <a href="Register.html">Create account</a>
+            </p>
+          </div>
+          <div class="text-center">
+            <a href="../404.html">Remember password</a>
+          </div>
+          <br/>
+
+        <center>
+          <button style="float:center;" class="btn btn-primary btn-lg" role="button" type="submit" class="mybtn">Log in</button>
+        </center> 
     </form>
   </div>
 </div>
@@ -88,92 +66,27 @@
    
 
 <script type="text/javascript">
-    function validarformulario(){
-      var clave1 = document.getElementById('claveId').value;
-      var clave2 = document.getElementById('reclaveId').value;
-      var correo = document.getElementById('correoId').value;
+  function validarInicio(){
 
-      if(clave1 === clave2){
-        switch (correo) {
-            case 'administrador@gmail.com';
-            window.location('Admin/Inicio.html')
-            break;
+    var clave = document.getElementById('form-password').value;
 
-            case 'administrador@gmail.com';
-        }
+      var usuario1 = document.getElementById('user-username').value;
 
 
-        
-
-        alert("Claves ok");
-        return true;
-      }else{
-        ohSnap('Las claves no son iguales', {'duration':'2000', 'color':'danger'});
-        return false;
-      }
-    }   
-  </script>
-
-
-  <script type="text/javascript">
-    function validarRegistro(){
-      var clave1 = document.getElementById('claveReg').value;
-
-      var clave2 = document.getElementById('reClaveReg').value;
-
-      if (clave1===clave2) {
-
-        alert("Registro Exitoso");
-
-
-      }else{
-        alert("Las contraseñas no coinciden");
-        return false;
-      }
-
-    }
-
-    function validarIngreso(){
-
-    
-
-      var clave = document.getElementById('clave').value;
-
-      var usuario = document.getElementById('usuario').value;
-
-      switch (usuario) {
-      case 'administrador@gmail.com':
-      localStorage.setItem('logUser', 'administrador@gmail.com'); 
+      switch (usuario1) {
+      case 'admin@gmail.com':
+      LocalStorege.setItem('LogUser','admin@gmail.com');
       return true;
       break;
       case 'cliente@gmail.com':
-      localStorage.setItem('logUser', 'cliente@gmail.com');
+      LocalStorege.setItem('LogUser', 'cliente@gmail.com');
       return true;
       break;
-      default:
-      alert('Usuario no encontrado, verifique su informacion');
-      return false;
+      default:alert('Could not find your user.');
+            return false; 
       }
-  
   }
-
-  </script>
-
-  <script src="js/ohsnap.js"></script>
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/bootstrap-datepicker.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.fancybox.min.js"></script>
-  <script src="js/jquery.sticky.js"></script>
-  <script src="js/main.js"></script>
-
+</script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
