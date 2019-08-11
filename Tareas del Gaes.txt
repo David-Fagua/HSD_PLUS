@@ -1,34 +1,24 @@
-Tareas y trabajos Fase 3
+Tareas de programacion en html, java y php
 
-- Corregir Diagrama de clases
-- Corregir Diagramas de Samuel 
-- Actualizar IEEE830
-- Corregir presentación
-- Redactar el documento DEA
-- Actualizar Formulación de proyecto
-- Diagrama de componentes
-- Diagrama de despliegue
-- Diagrama de paquetes
-* Diagrama de Componentes
-- Diagrama de Modelo relacional
-- Requerimientos de la base de datos
-- Hacer mapa de navegación
-- Infraestructura de red
-- Arquitectura en capas
-- Patrones de diseño
-- Tecnologías a usar
-- Requerimientos bases de datos 1,2 y 3
-- Modelo de datos 
-- Mirar video sobre MySQL
-- Estudiar Java
-- Estudiar Aces
-* Documento de análisis
-* Hacer base de datos en GAES
-* Arquitectura  web exposición
-* Trabajo de arquitectura computacional 
-* Maquetado Diseño Web
-* Manual Corporativo
-* Base de datos Misceláneas en grupos
+-Hacer funcional el inicio de sesion y el registro (A Cargo de Samuel)
+	Agregar Cambiar contraseña
+	Agregar recordar contraseña
+-Editar los modulos(a cargo del dependiente de cada modulo)
+-Crear paginas faltantes (David)
+-Podible sctualizacion a java
+
+________________________
+
+Tareas y trabajos Fase 4
+
+-Base de datos (entre el gaes)
+-Replantear los objetivos especificos (gaes)
+-Actualizar IEEE830 (gaes)
+-Actualizar diagramas del sistema (gaes)
+-terminar diagramas del gestor de usuarios e inicio de sesión (Gaes)
+*Actualizar lading page (David)
+-Conectar base de datos con el sistema (por definir)
+
 
 Poner pdf
 <a href="img/Manual.pdf" class="btn btn-secondary" role="button">Manual Corporativo. &raquo;</a>
