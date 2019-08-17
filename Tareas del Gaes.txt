@@ -22,3 +22,5 @@ Tareas y trabajos Fase 4
 
 Poner pdf
 <a href="img/Manual.pdf" class="btn btn-secondary" role="button">Manual Corporativo. &raquo;</a>
+
+reordenar los modulos (cata,inve, regis) en el navbar del admin
