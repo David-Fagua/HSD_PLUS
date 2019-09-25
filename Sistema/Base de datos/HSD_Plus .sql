@@ -1,81 +1,85 @@
 CREATE DATABASE IF NOT EXISTS HSD_Plus;
 USE HSD_Plus;
 
-create user Admin'@'localhost' identified by '123456789';
+CREATE TABLE IF NOT EXISTS ciudad(
+	id_ciudad INT NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(45) NOT NULL,
+    PRIMARY KEY(id_ciudad)
+)ENGINE=INNODB;
+
 
 CREATE TABLE IF NOT EXISTS proveedores(
-	nit INT NOT NULL,
+	nit INT NOT NULL AUTO_INCREMENT,
     razon_social VARCHAR(45) NOT NULL,
     telefono INT NOT NULL,
     email VARCHAR(45) NOT NULL,
     direccion VARCHAR(45) NOT NULL,
-    ciudad VARCHAR(45) NOT NULL,
-    PRIMARY KEY(Nit)
+    PRIMARY KEY(Nit),
+            ciudad_id_ciudad INT NOT NULL,
+    CONSTRAINT fknit_ciudad
+    FOREIGN KEY(ciudad_id_ciudad)
+    REFERENCES ciudad(id_ciudad)
 )ENGINE=INNODB;
 
-
-
 CREATE TABLE IF NOT EXISTS roles(
-	id_rol INT NOT NULL,
+	id_rol INT NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(45) NOT NULL,
     fecha_de_apertura DATE,
     PRIMARY KEY(id_rol)
 )ENGINE=INNODB;
 
-
-
-
-
-CREATE TABLE IF NOT EXISTS administrador(
-	id_administrador INT NOT NULL,
+CREATE TABLE IF NOT EXISTS tipo_documento(
+	id_tipo_documento INT NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(45) NOT NULL,
-    apellido VARCHAR(45) NOT NULL,
-    cedula INT NOT NULL,
-    telefono INT NOT NULL,
-    celular INT NOT NULL,
+    PRIMARY KEY(id_tipo_documento)
+)ENGINE=INNODB;
+
+
+
+CREATE TABLE IF NOT EXISTS usuarios(
+	id_usuario INT NOT NULL AUTO_INCREMENT,
+    nombre1 VARCHAR(45) NOT NULL,
+    nombre2 VARCHAR(45),
+    apellido1 VARCHAR(45) NOT NULL,
+    apellido2 VARCHAR(45),
+    numero_documento INT NOT NULL,
+    telefono INT (7),
+    celular INT,
     email VARCHAR(45) NOT NULL,
     fecha_de_ingreso DATE,
-    PRIMARY KEY(id_administrador),
-    roles_id_rol INT NOT NULL,
-    CONSTRAINT fkadministrador_rol
+    PRIMARY KEY(id_usuario),
+		tipo_documento_id_tipo_documento INT NOT NULL,
+    CONSTRAINT fkusuario_tipo_documento
+    FOREIGN KEY(tipo_documento_id_tipo_documento)
+    REFERENCES tipo_documento(id_tipo_documento),
+        ciudad_id_ciudad INT NOT NULL,
+    CONSTRAINT fkusuario_ciudad
+    FOREIGN KEY(ciudad_id_ciudad)
+    REFERENCES ciudad(id_ciudad),
+        roles_id_rol INT NOT NULL,
+    CONSTRAINT fkusuario_rol
     FOREIGN KEY(roles_id_rol)
     REFERENCES roles(id_rol)
 )ENGINE=INNODB;
 
 
-
-
-
-
-CREATE TABLE IF NOT EXISTS cliente(
-	id_cliente INT NOT NULL,
-    nombre VARCHAR(45) NOT NULL,
-    apellido VARCHAR(45) NOT NULL,
-    cedula INT NOT NULL,
-    telefono INT NOT NULL,
-    celular INT NOT NULL,
-    email VARCHAR(45) NOT NULL,
-    PRIMARY KEY(id_cliente),
-    roles_id_rol INT NOT NULL,
-    CONSTRAINT fkcliente_rol
-    FOREIGN KEY(roles_id_rol)
-    REFERENCES roles(id_rol)
-)ENGINE=INNODB;
-
-
-
-CREATE TABLE IF NOT EXISTS inventarios(
-	id_inventario INT NOT NULL,
+CREATE TABLE IF NOT EXISTS tipo_de_inventario(
+	id_inventario INT NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(45) NOT NULL,
     fecha_de_apertura DATE,
     PRIMARY KEY(id_inventario),
-	administrador_id_administrador INT NOT NULL,
-    CONSTRAINT fkinventario_administrador
-    FOREIGN KEY(administrador_id_administrador)
-    REFERENCES administrador(id_administrador)
+		usuarios_id_usuario INT NOT NULL,
+    CONSTRAINT fkinventario_usuario
+    FOREIGN KEY(usuarios_id_usuario)
+    REFERENCES usuarios(id_usuario)
 )ENGINE=INNODB;
 
-
+CREATE TABLE IF NOT EXISTS grosor_hilo(
+	id_grosor INT NOT NULL AUTO_INCREMENT,
+    medida INT NOT NULL,
+    fecha_aprobacion DATE,
+    PRIMARY KEY(id_grosor)    
+)ENGINE=INNODB;
 
 
 CREATE TABLE IF NOT EXISTS inventario_general(
@@ -83,347 +87,273 @@ CREATE TABLE IF NOT EXISTS inventario_general(
     nombre VARCHAR(45) NOT NULL,
     fecha_de_entrada DATE,
     precio_de_compra DECIMAL,
-    disponibilidad ENUM('SI','NO'),
+    disponibilidad BOOLEAN,
     peso_en_lbr DECIMAL,
     cantidad_unitaria INT,
     color VARCHAR(20),
-    grosor ENUM('pequeño','mediano','grande'),
-    estado ENUM('bueno','malo'),
+    estado BOOLEAN,
     PRIMARY KEY(id_articulo),
-	inventarios_id_inventario INT NOT NULL,
+		tipo_de_inventario_id_inventario INT NOT NULL,
     CONSTRAINT fkarticulo_inventario
-    FOREIGN KEY(inventarios_id_inventario )
-    REFERENCES inventarios(id_inventario),
-	proveedores_nit INT NOT NULL,
+    FOREIGN KEY(tipo_de_inventario_id_inventario)
+    REFERENCES tipo_de_inventario(id_inventario),
+		proveedores_nit INT NOT NULL,
     CONSTRAINT fkarticulo_nit
     FOREIGN KEY(proveedores_nit)
     REFERENCES proveedores(nit),
-	administrador_id_administrador INT NOT NULL,
-    CONSTRAINT fkarticulo_administrador
-    FOREIGN KEY(administrador_id_administrador)
-    REFERENCES administrador(id_administrador)
-)ENGINE=INNODB;
-
-
-
-
-CREATE TABLE IF NOT EXISTS materia_prima(
-	id_mprima INT NOT NULL,
-    cantidad_unitaria INT,
-    disponibilidad ENUM('SI','NO'),
-    PRIMARY KEY(id_mprima),
-	inventario_general_id_articulo INT NOT NULL,
-    CONSTRAINT fkmprima_inventario_general
-    FOREIGN KEY(inventario_general_id_articulo)
-    REFERENCES inventario_general(id_articulo),
-	administrador_id_administrador INT NOT NULL,
-    CONSTRAINT fkmprima_administrador
-    FOREIGN KEY(administrador_id_administrador)
-    REFERENCES administrador(id_administrador),
-	inventarios_id_inventario INT NOT NULL,
-    CONSTRAINT fkmprima_inventario
-    FOREIGN KEY(inventarios_id_inventario)
-    REFERENCES inventarios(id_inventario)
+		usuarios_id_usuario INT NOT NULL,
+    CONSTRAINT fkarticulo_usuario
+    FOREIGN KEY(usuarios_id_usuario)
+    REFERENCES usuarios(id_usuario)
 )ENGINE=INNODB;
 
 
 
 
 CREATE TABLE IF NOT EXISTS producto_final(
-	id_productofinal INT NOT NULL,
+	id_productofinal INT NOT NULL AUTO_INCREMENT,
     fecha_de_apertura DATE,
     precio_por_unidad DECIMAL,
-    disponibilidad ENUM('SI','NO'),
+    disponibilidad BOOLEAN,
     cantidad INT,
     PRIMARY KEY(id_productofinal),
-	inventario_general_id_articulo INT NOT NULL,
+		grosor_hilo_id_grosor INT NOT NULL,
+    CONSTRAINT fkproductofinal_grosor
+    FOREIGN KEY(grosor_hilo_id_grosor)
+    REFERENCES grosor_hilo(id_grosor),
+		inventario_general_id_articulo INT NOT NULL,
     CONSTRAINT fkproductofinal_inventario_general
     FOREIGN KEY(inventario_general_id_articulo)
     REFERENCES inventario_general(id_articulo),
-	administrador_id_administrador INT NOT NULL,
-    CONSTRAINT fkproductofinal_administrador
-    FOREIGN KEY(administrador_id_administrador)
-    REFERENCES administrador(id_administrador),
-    inventarios_id_inventario INT NOT NULL,
+		usuarios_id_usuario  INT NOT NULL,
+    CONSTRAINT fkproductofinal_usuario
+    FOREIGN KEY(usuarios_id_usuario )
+    REFERENCES usuarios(id_usuario),
+		tipo_de_inventario_id_inventario INT NOT NULL,
     CONSTRAINT fkproductofinal_inventario
-    FOREIGN KEY(inventarios_id_inventario )
-    REFERENCES inventarios(id_inventario)
+    FOREIGN KEY(tipo_de_inventario_id_inventario )
+    REFERENCES tipo_de_inventario(id_inventario)
 )ENGINE=INNODB;
 
 
-
-
 CREATE TABLE IF NOT EXISTS producto_proceso(
-	id_proceso INT NOT NULL,
+	id_proceso INT NOT NULL AUTO_INCREMENT,
     fecha_de_apertura DATE,
     estado ENUM('iniciando','en_proceso','terminado'),
     cantidad INT,
     PRIMARY KEY(id_proceso),
-	materia_prima_id_mprima INT NOT NULL,
-    CONSTRAINT fkproceso_materia_prima
-    FOREIGN KEY(materia_prima_id_mprima)
-    REFERENCES materia_prima(id_mprima),
-    producto_final_id_productofinal INT NOT NULL,
+		inventario_general_id_articulo INT NOT NULL,
+    CONSTRAINT fkproceso_inventario_general
+    FOREIGN KEY(inventario_general_id_articulo)
+    REFERENCES inventario_general(id_articulo),
+		producto_final_id_productofinal INT NOT NULL,
     CONSTRAINT fkproceso_producto_final
     FOREIGN KEY(producto_final_id_productofinal)
     REFERENCES producto_final(id_productofinal),
-	administrador_id_administrador INT NOT NULL,
-    CONSTRAINT fkproceso_administrador
-    FOREIGN KEY(administrador_id_administrador)
-    REFERENCES administrador(id_administrador),
-	inventarios_id_inventario INT NOT NULL,
+		usuarios_id_usuario INT NOT NULL,
+    CONSTRAINT fkproceso_usuario
+    FOREIGN KEY(usuarios_id_usuario)
+    REFERENCES usuarios(id_usuario),
+		tipo_de_inventario_id_inventario INT NOT NULL,
     CONSTRAINT fkproceso_inventario
-    FOREIGN KEY(inventarios_id_inventario )
-    REFERENCES inventarios(id_inventario)
+    FOREIGN KEY(tipo_de_inventario_id_inventario )
+    REFERENCES tipo_de_inventario(id_inventario)
 )ENGINE=INNODB;
 
-
-
-
-CREATE TABLE IF NOT EXISTS merma(
-	id_merma INT NOT NULL,
+CREATE TABLE IF NOT EXISTS sobrantes(
+	id_sobrante INT NOT NULL AUTO_INCREMENT,
     fecha_de_apertura DATE,
-    disponibilidad ENUM('SI','NO'),
     cantidad INT,
-    estado ENUM('BUENO','MALO'),
-    PRIMARY KEY(id_merma),
-	inventario_general_id_articulo INT NOT NULL,
-    CONSTRAINT fkmerma_inventario_general
+    estado BOOLEAN,
+	disponibilidad BOOLEAN,
+    observaciones VARCHAR(200),
+    PRIMARY KEY(id_sobrante),
+		inventario_general_id_articulo INT NOT NULL,
+    CONSTRAINT fksobrante_inventario_general
     FOREIGN KEY(inventario_general_id_articulo)
     REFERENCES inventario_general(id_articulo),
-	administrador_id_administrador INT NOT NULL,
-    CONSTRAINT fkmerma_administrador
-    FOREIGN KEY(administrador_id_administrador)
-    REFERENCES administrador(id_administrador),
-	inventarios_id_inventario INT NOT NULL,
-    CONSTRAINT fkmerma_inventario
-    FOREIGN KEY(inventarios_id_inventario )
-    REFERENCES inventarios(id_inventario)
+		usuarios_id_usuario INT NOT NULL,
+    CONSTRAINT fksobrante_usuario
+    FOREIGN KEY(usuarios_id_usuario)
+    REFERENCES usuarios(id_usuario),
+		tipo_de_inventario_id_inventario INT NOT NULL,
+    CONSTRAINT fksobrante_inventario
+    FOREIGN KEY(tipo_de_inventario_id_inventario )
+    REFERENCES tipo_de_inventario(id_inventario)
 )ENGINE=INNODB;
 
-
-
-
-CREATE TABLE IF NOT EXISTS productosdefectuosos(
-	id_defecto INT NOT NULL,
+CREATE TABLE IF NOT EXISTS desechos(
+	id_desecho INT NOT NULL AUTO_INCREMENT,
     fecha_de_apertura DATE,
     cantidad INT,
     observaciones VARCHAR(200),
-    PRIMARY KEY(id_defecto),
-	inventario_general_id_articulo INT NOT NULL,
-    CONSTRAINT fkdefecto_inventario_general
-    FOREIGN KEY(inventario_general_id_articulo)
-    REFERENCES inventario_general(id_articulo),
-	administrador_id_administrador INT NOT NULL,
-    CONSTRAINT fkdefecto_administrador
-    FOREIGN KEY(administrador_id_administrador)
-    REFERENCES administrador(id_administrador),
-	inventarios_id_inventario INT NOT NULL,
-    CONSTRAINT fkdefecto_inventario
-    FOREIGN KEY(inventarios_id_inventario )
-    REFERENCES inventarios(id_inventario)
+    PRIMARY KEY(id_desecho),
+		sobrantes_id_sobrante INT NOT NULL,
+    CONSTRAINT fkdesecho_sobrante
+    FOREIGN KEY(sobrantes_id_sobrante )
+    REFERENCES sobrantes(id_sobrante)
 )ENGINE=INNODB;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 CREATE TABLE IF NOT EXISTS reservas(
-	id_reserva INT NOT NULL,
-    fecha_de_apertura DATE,
+	id_reserva INT NOT NULL AUTO_INCREMENT,
+    fecha_de_reserva DATE,
     cantidad INT,
 	precio_por_unidad DECIMAL,
     precio_total DECIMAL,
+    estado ENUM('iniciada','proceso','finalizada'),
     observaciones VARCHAR(200),
     PRIMARY KEY(id_reserva),
-	producto_final_id_productofinal INT NOT NULL,
+		producto_final_id_productofinal INT NOT NULL,
     CONSTRAINT fkreserva_producto_final
     FOREIGN KEY(producto_final_id_productofinal)
     REFERENCES producto_final(id_productofinal),
-	cliente_id_cliente INT NOT NULL,
-    CONSTRAINT fkreserva_cliente
-    FOREIGN KEY(cliente_id_cliente)
-    REFERENCES cliente(id_cliente)
+		usuarios_id_usuario INT NOT NULL,
+    CONSTRAINT fkreserva_usuario
+    FOREIGN KEY(usuarios_id_usuario)
+    REFERENCES usuarios(id_usuario)
 )ENGINE=INNODB;
-
-
-
-
-
-
-
-
-
-CREATE TABLE IF NOT EXISTS cliente_reservas(
-	reservas_id_reserva INT NOT NULL,
-    cliente_id_cliente INT NOT NULL,
-    PRIMARY KEY(reservas_id_reserva, cliente_id_cliente),
-    CONSTRAINT fkcliente_reservas_cliente
-    FOREIGN KEY(cliente_id_cliente)
-    REFERENCES cliente(id_cliente),
-    CONSTRAINT fkcliente_cliente_reservas
-    FOREIGN KEY(reservas_id_reserva)
-    REFERENCES reservas(id_reserva)
-)ENGINE=INNODB;
-
-
-
-
 
 
 CREATE TABLE IF NOT EXISTS Registro_Ventas(
-	id_venta INT NOT NULL,
+	id_venta INT NOT NULL AUTO_INCREMENT,
     fecha_de_la_venta DATE,
     cantidad INT,
 	precio_por_unidad DECIMAL,
     precio_total DECIMAL,
     observaciones VARCHAR(200),
     PRIMARY KEY(id_venta),
-	producto_final_id_productofinal INT NOT NULL,
+		producto_final_id_productofinal INT NOT NULL,
     CONSTRAINT fkventa_producto_final
     FOREIGN KEY(producto_final_id_productofinal)
     REFERENCES producto_final(id_productofinal),
-	administrador_id_administrador INT NOT NULL,
-    CONSTRAINT fkventa_administrador
-    FOREIGN KEY(administrador_id_administrador)
-    REFERENCES administrador(id_administrador)
+		usuarios_id_usuario INT NOT NULL,
+    CONSTRAINT fkventa_usuario
+    FOREIGN KEY(usuarios_id_usuario)
+    REFERENCES usuarios(id_usuario),
+		reservas_id_reserva INT NOT NULL,
+    CONSTRAINT fkventa_reserva
+    FOREIGN KEY(reservas_id_reserva)
+    REFERENCES reservas(id_reserva)    
+)ENGINE=INNODB;
+
+
+CREATE TABLE IF NOT EXISTS productofinal_reservas(
+	reservas_id_reserva INT NOT NULL,
+    producto_final_id_productofinal  INT NOT NULL,
+    PRIMARY KEY(reservas_id_reserva, producto_final_id_productofinal ),
+    CONSTRAINT fkproductofinal_reservas_productofinal
+    FOREIGN KEY(producto_final_id_productofinal)
+    REFERENCES producto_final(id_productofinal),
+    CONSTRAINT fkproductofinal_productofinal_reservas
+    FOREIGN KEY(reservas_id_reserva)
+    REFERENCES reservas(id_reserva)
 )ENGINE=INNODB;
 
 
 
+INSERT INTO ciudad (`nombre`) 
+VALUES  ('bogotá'),
+		('medellin'),
+		('risaralda'),
+		('cali'),
+		('funza'),
+		('cunadinamarca'),
+		('meta'),
+		('chinquyinquira'),
+		('pereira');
+        
+INSERT INTO proveedores (`razon_social`, `telefono`, `email`, `direccion`, `ciudad_id_ciudad`) 
+VALUES  ('culvos algodonmax', '1234567', 'culmax@hotmail.com', 'calle73#82_58', '1'),
+		('culvos algomister', '4567456', 'cualmister@hotmail.com', 'calle72#82_58', '2'),
+		('culvos insumosdas', '4568567', 'insumodas@hotmail.com', 'calle73#83_58', '3'),
+		('culvos insumax', '6745689', 'insumax@hotmail.com', 'calle73#82_85', '4');
+        
+INSERT INTO roles (`nombre`, `fecha_de_apertura`) 
+VALUES  ('administrador', '2000/01/01'),
+		('cliente', '2000/01/01');
+        
+INSERT INTO tipo_documento (`nombre`) 
+VALUES  ('cedula de ciudadania'),
+		('cedula de extranjeria'),
+		('tarjeta de identidad');
+        
+INSERT INTO usuarios (`nombre1`, `nombre2`, `apellido1`, `apellido2`, `numero_documento`, `telefono`, `celular`, `email`, `fecha_de_ingreso`, `tipo_documento_id_tipo_documento`, `ciudad_id_ciudad`, `roles_id_rol`) 
+VALUES 	('samuel', 'andres', 'salguero', 'carrillo', '1030621769', '1234567', '3115375124', 'ssalguero@hotmail.com', '2000/02/01', '1', '1', '1'),
+		('harold ', 'giovany', 'rojas ', 'laguna', '2014566321', '7654321', '3106090245', 'jrolas@gmail.com', '2000/02/01', '1', '1', '1'),
+		('juan', 'david', 'fagua', 'murillo', '4561238755', '6543217', '3206862456', 'jfragua@hotmail.com', '2000/02/01', '1', '1', '1'),
+		('yolanda', 'yaneth', 'carrillo', 'salguero', '39636847', '1235647', '3002005519', 'yola@hotmail.com', '2001/01/01', '1', '1', '2'),
+		('vanedsa', 'inez','salguero', 'carrillo', '1030645128', '8526974', '3195144643', 'vanesalguero@hotmail.com', '2001/01/02', '1', '2', '2'),
+		('karen', 'patricia', 'vanegas', 'salgado', '1030546468', '5823694', '3142628365', 'karev@hotmail.com', '2006/06/01', '1', '1', '2'),
+		('juan ', 'estevan ', 'vanegas', 'sanchez', '1030123456', '8521474', '3106542587', 'juanes@gmail.com', '2010/10/31', '1', '1', '2');
 
-
-
-INSERT INTO proveedores (`nit`, `razon_social`, `telefono`, `email`, `direccion`, `ciudad`) 
-VALUES ('1234567890', 'campos de algodon sonora', '1234567', 'camposasono@gmail.com', 'calle 73 N 29-50', 'Bogotá'),
-	   ('7894561235', 'volcanes pintora', '7654321', 'camposasono@gmail.com', 'calle 37 N 30-58', 'cesar'),
-	   ('1234547895', 'insumos piora', '1234785', 'camposasono@gmail.com', 'calle 34 N 32-28', 'arauca'),
-       ('1234585214', 'campos tormenta', '1234567', 'camposasono@gmail.com', 'calle 43 N 29-55', 'nicaragua');
-
-
-       
-       
-INSERT INTO roles (`id_rol`,`nombre`, `fecha_de_apertura`) 
-VALUES ('100','administrador', '2000/01/01'),
-	   ('200','cliente', '2000/01/01');
-       
-       
-       
-INSERT INTO administrador (`id_administrador`, `nombre`, `apellido`, `cedula`, `telefono`, `celular`, `email`, `fecha_de_ingreso`, `roles_id_rol`) 
-VALUES ('10000', 'samuel', 'salguero', '1030621769', '7536548', '3115375124', 'ssalguero@hotmail.com', '2000/10/10', '100'),
-	   ('20000', 'giovana', 'rojas', '1030621770', '7536123', '3115375789', 'hrojitas@hotmail.com', '2000/10/10', '100'),
-       ('30000', 'juanita', 'fragua', '1020621770', '7586123', '3125865789', 'juanis@hotmail.com', '2000/10/10', '100');
-       
-       
-INSERT INTO cliente (`id_cliente`, `nombre`, `apellido`, `cedula`, `telefono`, `celular`, `email`, `roles_id_rol`) 
-VALUES ('2000001', 'ana', 'arieta', '456678921', '2586974', '3558965745', 'arl@gmail.com', '200'),
-	   ('2000002', 'bersabed', 'bernal', '456456921', '2587894', '3558852445', 'bersaber@gmail.com', '200'),
-       ('2000003', 'carlos', 'cogua', '457894921', '2582574', '3118965745', 'carco@gmail.com', '200'),
-       ('2000004', 'david', 'fagua', '456678921', '2586974', '3558965745', 'jdf@gmail.com', '200'),
-       ('2000005', 'eugenia', 'hernandez', '656678921', '2588526', '3578925745', 'eugeer@gmail.com', '200'),
-       ('2000006', 'favian', 'fonseca', '123678921', '254564', '3558965745', 'fafo@gmail.com', '200'),
-       ('2000007', 'javier', 'jungla', '456677891', '2598774', '3118965745', 'jaju@gmail.com', '200'),
-       ('2000008', 'karen', 'garecia', '454568921', '2586974', '355789745', 'k graccia@gmail.com', '200'),
-       ('2000009', 'lore', 'enciso', '456625821', '2963974', '3558964565', 'loree@gmail.com', '200'),
-       ('2000010', 'maria', 'mueca', '4655421', '24566974', '355894565', 'mm@gmail.com', '200'),
-       ('2000011', 'natalia', 'guarda', '456678921', '2586974', '3558965745', 'nagu@gmail.com', '200');
-       
-       
-INSERT INTO inventarios (`id_inventario`, `nombre`, `fecha_de_apertura`, `administrador_id_administrador`) 
-VALUES ('1000', 'inventario_general', '2000/10/11', '10000'),
-       ('2000', 'materia_prima', '2000/10/11', '20000'),
-       ('3000', 'producto_en_proceso', '2000/10/11', '30000'),
-       ('4000', 'producto_final', '2000/10/11', '10000'),
-       ('5000', 'merma', '2000/10/11', '20000'),
-       ('6000', 'productos_defectuosos', '2000/10/11', '30000');
-       
-       
-       
-INSERT INTO inventario_general(`nombre`, `fecha_de_entrada`, `precio_de_compra`, `disponibilidad`, `peso_en_lbr`, `cantidad_unitaria`, `color`, `grosor`, `estado`, `inventarios_id_inventario`, `proveedores_nit`, `administrador_id_administrador`) 
-VALUES  ('suministros', '2000/01/30', '100000', 'si', '3000', '1', 'amarillo', '0', 'bueno', '1000', '1234547895', '10000'),
-		('hilo_croche', '2000/01/31', '200000', 'no', '0', '54', 'azul', '3', 'malo', '1000', '1234547895', '10000'),
-        ('hilo_algodon', '2000/02/01', '1000000', 'si', '0', '20', 'rojo', '1', 'bueno', '1000', '1234547895', '20000'),
-        ('hilo_polietileno', '2000/02/02', '500000', 'si', '0', '25', 'verde', '3', 'bueno', '1000', '1234547895', '20000'),
-        ('hilo_delgado', '2000/02/03', '300000', 'si', '0', '30', 'cafe', '1', 'malo', '1000', '1234547895', '10000'),
-        ('escobas', '2000/02/04', '50000', 'si', '0', '15', 'gris', '3', 'bueno', '1000', '1234547895', '10000'),
-        ('camisas', '2000/02/05', '120000', 'si', '0', '50', 'morado', '1', 'bueno', '1000', '1234547895', '10000'),
-        ('algodon_blanco', '2000/02/06', '600000', 'no', '100000', '1', 'blanco', '1', 'malo', '1000', '1234547895', '10000'),
-        ('algodon_gris', '2000/02/07', '900000', 'si', '200000', '1', 'gris', '2', 'bueno', '1000', '1234547895', '10000'),
-        ('polietileno', '2000/02/10', '800000', 'si', '300000', '1', 'gris', '2', 'bueno', '1000', '1234547895', '10000'),
-        ('plastico', '2000/02/15', '300000', 'si', '500000', '1', 'verde', '3', 'malo', '1000', '1234547895', '10000'),
-        ('vocanes_de_carton', '2000/03/20', '520000', 'si', '0', '35', 'cafe', '3', 'bueno', '1000', '1234547895', '10000'),
-        ('madejas_de_madera', '2000/03/15', '580000', 'no', '0', '20', 'cafe', '2', 'bueno', '1000', '1234547895', '10000'),
-        ('palos_de_escoba', '2000/03/17', '2000000', 'si', '0', '40', 'verde', '1', 'malo', '1000', '1234547895', '10000');
+INSERT INTO tipo_de_inventario (`nombre`, `fecha_de_apertura`, `usuarios_id_usuario`) 
+VALUES  ('inventario_general', '2000/01/21', '2'),
+		('producto_en_proceso', '2000/01/22', '3'),
+		('producto_final', '2000/01/23', '1'),
+		('sobrantes', '2000/01/23', '2'),
+		('desechos', '2000/01/24', '3');
         
         
+INSERT INTO grosor_hilo (`medida`, `fecha_aprobacion`) 
+VALUES ('100', '2000/02/10'),
+		('200', '2000/02/11'),
+		('300', '2000/02/12'),
+		('400', '2000/02/13');
         
-	
-INSERT INTO materia_prima (`id_mprima`, `cantidad_unitaria`, `disponibilidad`, `inventario_general_id_articulo`, `administrador_id_administrador`, `inventarios_id_inventario`) 
-VALUES  ('2000001', '1', 'si', '1', '10000', '2000'),
-		('2000002', '1', 'no', '8', '10000', '2000'),
-        ('2000003', '1', 'si', '9', '20000', '2000'),
-        ('2000004', '1', 'si', '10', '20000', '2000'),
-        ('2000005', '1', 'si', '11', '10000', '2000'),
-        ('2000006', '35', 'si', '12', '30000', '2000'),
-        ('2000007', '20', 'no', '13', '30000', '2000'),
-        ('2000008', '40', 'si', '14', '10000', '2000');
+INSERT INTO inventario_general (`nombre`, `fecha_de_entrada`, `precio_de_compra`, `disponibilidad`, `peso_en_lbr`, `cantidad_unitaria`, `color`, `estado`, `tipo_de_inventario_id_inventario`, `proveedores_nit`, `usuarios_id_usuario`) 
+VALUES ('algodon blaco', '2000/02/01', '500000', '1', '1000', '100', 'blanco', '1', '2', '1', '1'),
+		('algodon gris ', '2000/02/02', '500000', '1', '1000', '100', 'gris', '1', '2', '2', '1'),
+		('polietileno', '2000/02/03', '400000', '1', '1000', '100', 'amarillo', '1', '2', '3', '1'),
+		('rodillos de carton', '2000/02/04', '100000', '1', '500', '100', 'cafe', '1', '2', '4', '1'),
+		('quimicos', '2000/02/05', '600000', '1', '1000', '50', 'no aplica', '1', '2', '1', '1'),
+		('poliester', '2000/02/06', '550000', '1', '1000', '100', 'azul', '1', '2', '2', '1'),
+		('suministros oficina', '2000/02/07', '200000', '1', '60', '0', 'no aplica', '1', '2', '3', '1'),
+		('hilo de algodon', '2000/02/08', '0', '0', '500', '70', 'amarillo', '0', '2', '4', '1'),
+		('hilo de algodon', '2000/02/09', '0', '1', '500', '80', 'azul', '1', '2', '1', '1'),
+		('hilo croche', '2000/02/10', '0', '1', '500', '80', 'rojo', '1', '2', '2', '1'),
+		('hilo choche', '2000/02/11', '0', '1', '600', '90', 'verde', '1', '2', '3', '1'),
+		('hilo trapero', '2000/02/12', '0', '1', '600', '90', 'blanco', '1', '2', '4', '1'),
+		('hilo poliester', '2000/02/13', '0', '0', '600', '80', 'naranja', '0', '2', '1', '1'),
+		('hilo poliester', '2000/02/14', '0', '1', '600', '80', 'violeta', '1', '2', '2', '1');
+        
+INSERT INTO  producto_final(`fecha_de_apertura`, `precio_por_unidad`, `disponibilidad`, `cantidad`, `grosor_hilo_id_grosor`, `inventario_general_id_articulo`, `usuarios_id_usuario`, `tipo_de_inventario_id_inventario`) 
+VALUES 	('2000/03/01', '100000', '1', '1000', '1', '8', '1', '4'),
+		('2000/03/02', '100000', '1', '1500', '1', '9', '2', '4'),
+		('2000/03/03', '100000', '1', '2000', '2', '10', '3', '4'),
+		('2000/03/04', '150000', '1', '800', '2', '11', '1', '4'),
+		('2000/03/05', '120000', '1', '700', '3', '12', '2', '4'),
+		('2000/03/06', '110000', '0', '0', '3', '13', '3', '4');
+        
+INSERT INTO producto_proceso (`fecha_de_apertura`, `estado`, `cantidad`,`inventario_general_id_articulo`, `producto_final_id_productofinal`, `usuarios_id_usuario`, `tipo_de_inventario_id_inventario`) 
+VALUES  ('2001/01/01', 'en_proceso', '100', '1', '1', '1', '3'),
+	    ('2001/01/01', 'terminado ', '100', '2', '2', '2', '3'),
+		('2001/01/01', 'terminado', '100', '3', '3', '3', '3');
+        
+INSERT INTO sobrantes (`fecha_de_apertura`, `cantidad`, `estado`, `disponibilidad`, `observaciones`, `inventario_general_id_articulo`, `usuarios_id_usuario`, `tipo_de_inventario_id_inventario`) 
+VALUES  ('2000/06/01', '10', '1', '1', 'a partir de la fecha hace parte del inventario general', '1', '1', '5'),
+		('2000/06/01', '5', '1', '1', 'a partir de la fecha hace parte del inventario general', '2', '2', '5'),
+		('2000/06/01', '10', '1', '1', 'a partir de la fecha hace parte del inventario general', '3', '3', '5'),
+		('2000/06/02', '6', '1', '1', 'a partir de la fecha hace parte del inventario general', '4', '1', '5'),
+		('2000/06/03', '2', '0', '0', 'a partir de la fecha queda  en desechos', '5', '2', '5');
+        
+INSERT INTO desechos (`fecha_de_apertura`, `cantidad`, `observaciones`, `sobrantes_id_sobrante`) VALUES ('2000-06-03', '2', 'no se puede volver a usar', '5');
 
-
-
-
-INSERT INTO producto_final (`id_productofinal`, `fecha_de_apertura`, `precio_por_unidad`, `disponibilidad`, `cantidad`, `inventario_general_id_articulo`, `administrador_id_administrador`, `inventarios_id_inventario`) 
-VALUES  ('4000001', '2001/02/11', '100000', 'no', '10', '2', '20000', '1000'),
-		('4000002', '2001/02/12', '200000', 'si', '20', '3', '20000', '1000'),
-        ('4000003', '2001/02/13', '300000', 'si', '25', '4', '20000', '1000'),
-        ('4000004', '2001/02/14', '400000', 'si', '30', '5', '20000', '1000'),
-        ('4000005', '2001/02/15', '500000', 'si', '15', '6', '20000', '1000'),
-        ('4000006', '2001/02/16', '600000', 'si', '50', '7', '20000', '1000');
+INSERT INTO reservas (`fecha_de_reserva`, `cantidad`, `precio_por_unidad`, `precio_total`, `estado`, `observaciones`, `producto_final_id_productofinal`, `usuarios_id_usuario`) 
+VALUES  ('2000/03/01', '10', '100000', '10000000', 'finalizada', 'se vendio', '1', '4'),
+		('2000/03/02', '10', '100000', '10000000', 'finalizada', 'se vendio', '2', '5'),
+		('2000/03/03', '10', '100000', '10000000', 'finalizada', 'se vendio', '3', '6'),
+		('2000/03/04', '10', '120000', '10000000', 'finalizada', 'se vendio', '4', '7'),
+		('2000/03/05', '20', '120000', '12000000', 'finalizada', 'se vendio', '5', '4'),
+		('2000/03/06', '30', '100000', '10000000', 'proceso', 'ninguna', '6', '5'),
+		('2000/03/07', '40', '200000', '20000000', 'iniciada', 'ninguna', '1', '6'),
+		('2000/03/08', '15', '250000', '25000000', 'proceso', 'ninguna', '2', '7'),
+		('2000/03/09', '12', '100000', '1000000', 'iniciada', 'ninguna', '3', '4'),
+		('2000/03/10', '16', '100000', '10000000', 'finalizada', 'se vendio', '4', '5');
         
-        
-        
-        
-INSERT INTO producto_proceso(`id_proceso`, `fecha_de_apertura`, `estado`, `cantidad`, `materia_prima_id_mprima`, `producto_final_id_productofinal`, `administrador_id_administrador`, `inventarios_id_inventario`) 
-VALUES  ('3000001', '2000/12/01', 'iniciando', '1', '2000002', '4000001', '10000', '3000'),
-		('3000002', '2000/12/02', 'en_proceso', '3', '2000003', '4000002', '20000', '3000'),
-        ('3000003', '2000/12/03', 'iniciando', '10', '2000004', '4000003', '30000', '3000'),
-        ('3000004', '2000/12/04', 'iniciando', '15', '2000005', '4000004', '20000', '3000'),
-        ('3000005', '2000/12/05', 'finalizado', '15', '2000006', '4000005', '10000', '3000');
-        
-        
-INSERT INTO merma (`id_merma`, `fecha_de_apertura`, `disponibilidad`, `cantidad`, `estado`, `inventario_general_id_articulo`, `administrador_id_administrador`, `inventarios_id_inventario`) 
-VALUES ('5000001', '2001/02/12', 'si', '1', 'bueno', '2', '10000', '5000'),
-       ('5000002', '2001/02/12', 'si', '2', 'bueno', '3', '10000', '5000'),
-       ('5000003', '2001/02/13', 'si', '2', 'bueno', '4', '10000', '5000'),
-       ('5000004', '2001/02/14', 'si', '1', 'bueno', '5', '10000', '5000'),
-       ('5000005', '2001/02/15', 'si', '2', 'bueno', '6', '10000', '5000'),
-       ('5000006', '2001/02/16', 'si', '3', 'bueno', '7', '10000', '5000');
-       
-       
-       
-INSERT INTO productosdefectuosos (`id_defecto`, `fecha_de_apertura`, `cantidad`, `observaciones`, `inventario_general_id_articulo`, `administrador_id_administrador`, `inventarios_id_inventario`) 
-VALUES  ('6000001', '2002/01/01', '1', 'defectuoso', '1', '10000', '6000'),
-		('6000002', '2002/01/01', '2', 'defectuoso', '5', '20000', '6000'),
-		('6000003', '2002/01/01', '3', 'defectuoso', '8', '30000', '6000'),
-		('6000004', '2002/01/01', '4', 'defectuoso', '6', '10000', '6000'),
-		('6000005', '2002/01/01', '5', 'defectuoso', '2', '20000', '6000');
+INSERT INTO registro_ventas (`fecha_de_la_venta`, `cantidad`, `precio_por_unidad`, `precio_total`, `observaciones`, `producto_final_id_productofinal`, `usuarios_id_usuario`, `reservas_id_reserva`) 
+VALUES  ('2000/03/15', '10', '100000', '10000000', 'ninguna', '1', '4', '1'),
+		('2000/03/16', '10', '100000', '10000000', 'ninguna', '2', '5', '2'),
+		('2000/03/17', '10', '100000', '10000000', 'ninguna', '3', '6', '3'),
+		('2000/03/18', '10', '120000', '10000000', 'ninguna', '4', '7', '4'),
+		('2000/03/19', '20', '120000', '12000000', 'ninguna', '5', '4', '5'),
+		('2000/03/20', '16', '100000', '10000000', 'ninguna', '6', '5', '10');
