@@ -1,5 +1,8 @@
 CREATE DATABASE IF NOT EXISTS HSD_Plus;
 USE HSD_Plus;
+
+create user Admin'@'localhost' identified by '123456789';
+
 CREATE TABLE IF NOT EXISTS proveedores(
 	nit INT NOT NULL,
     razon_social VARCHAR(45) NOT NULL,
