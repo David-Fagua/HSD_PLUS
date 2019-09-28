@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Añadir</title>
+    <title>Inventario</title>
 
     <link rel="icon" type="image/png" href="../../../Img/Logo.png">
     <link href="../../../css/bootstrap.min.css" rel="stylesheet">
@@ -121,19 +121,19 @@
                         </div>
                     </li>   
                     <li>
-                        <a><i class="fa fa-bar-chart-o fa-fw"></i>Inventario<span class="fa arrow"></span></a>
+                        <a><i class="fa fa-bar-chart-o fa-fw"></i>Inventarios<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../Inventario/Inventario.html">Consultar</a>
+                                <a href="../Inventario/Inventario.html">Inventario general</a>
                             </li>
                             <li>
-                                <a href="../Inventario/Añadir.html">Añadir</a>
+                                <a href="../Inventario/Añadir.html">Producto inicial</a>
                             </li>
                             <li>
-                                <a href="../Inventario/Editar.html">Editar</a>
+                                <a href="../Inventario/Editar.html">Producto en proceso</a>
                             </li>
                             <li>
-                                <a href="../Inventario/Eliminar.html">Eliminar</a>
+                                <a href="../Inventario/Eliminar.html">Producto final</a>
                             </li>
                         </ul>
                     </li>
@@ -179,101 +179,104 @@
     </nav>
 </div>
 
-   
+
 <div id="page-wrapper">
-    <div class="container-fluid">
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Producto inicial</h1>
+                   <div class="card mb-3">
+
+ <input type="text" class="form-control pull-right" id="search" placeholder="Consultar producto">
+ <br>
+ <br>
+</div>         
+        </div>
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Añadir producto
-                </h1>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nombre articulo</th>
+                                        <th>Fecha</th>
+                                        <th>Precio de compra</th>
+                                        <th>Proveedor</th>
+                                        <th>Cantidad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd gradeX">
+                                        <td>000001</td>
+                                        <td>Algodon</td>
+                                        <td>03/05/19</td>
+                                        <td class="center">1'000.000</td>
+                                        <td class="center">Algodones S.A</td>
+                                        <td class="center">20 kg</td>
+                                    </tr>
+                                    <tr class="even gradeC">
+                                        <td>001002</td>
+                                        <td>Seda</td>
+                                        <td>03/05/19</td>
+                                        <td class="center">1'000.000</td>
+                                        <td class="center">Algodones S.A</td>
+                                        <td class="center">20 kg</td>
+                                    </tr>
+                                    <tr class="odd gradeX">
+                                        <td>001003</td>
+                                        <td>Seda</td>
+                                        <td>03/05/19</td>
+                                        <td class="center">1'000.000</td>
+                                        <td class="center">Algodones S.A</td>
+                                        <td class="center">20 kg</td>
+                                    </tr>
+                                    <tr class="even gradeC">
+                                        <td>001004</td>
+                                        <td>Poliester</td>
+                                        <td>03/05/19</td>
+                                        <td class="center">1'000.000</td>
+                                        <td class="center">Algodones S.A</td>
+                                        <td class="center">20 kg</td>
+                                    </tr><tr class="odd gradeX">
+                                        <td>001005</td>
+                                        <td>Algodon</td>
+                                        <td>03/05/19</td>
+                                        <td class="center">1'000.000</td>
+                                        <td class="center">Algodones S.A</td>
+                                        <td class="center">20 kg</td>
+                                    </tr>
+                                    <tr class="even gradeC">
+                                        <td>001006</td>
+                                        <td>Poliester</td>
+                                        <td>03/05/19</td>
+                                        <td class="center">1'000.000</td>
+                                        <td class="center">Algodones S.A</td>
+                                        <td class="center">20 kg</td>
+                                </tbody>
+                            </table>
+                        </div>
+                                    <!-- /.table-responsive -->
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="dataTables_info" id="dataTables-example_info" role="status" aria-live="polite">
+                                </div>
+                            </div>
+                              <p>
+                                  <a href="#" class="btn btn-primary btn-lg" role="button">Registrar</a>
+                                  <a href="#" class="btn btn-primary btn-lg" role="button">Editar</a>
+                                  <a href="#" class="btn btn-primary btn-lg" role="button">Eliminar</a>
+                               </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
- <form class="needs-validation" novalidate>
-  <div class="form-row">
-    <div class="col-md-2 mb-3">
-      <label for="validationCustom01">Id</label>
-      <input type="text" class="form-control" id="validationCustom01" placeholder="Id" maxlength="6">
-      <div class="valid-feedback">
-      </div>
-    </div>
-    <div class="col-md-5 mb-3">
-      <label for="validationCustom02">Producto</label>
-      <input type="text" class="form-control" id="validationCustom02" placeholder="Producto">
-      <div class="valid-feedback">
-      </div>
-    </div>
-    <div class="col-md-5 mb-3">
-      <label for="validationCustomUsername">Fecha</label>
-      <div class="input-group">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroupPrepend"></span>
-        </div>
-        <input type="date" class="form-control" id="validationCustomUsername" placeholder="Fecha" aria-describedby="inputGroupPrepend" required>
-        <div class="invalid-feedback">
-
-        </div>
-      </div>
-    </div>
-<br></br>
-<br></br>
-<br></br>
-  </div>
-  <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationCustom03">Proveedor</label>
-      <select id="inputState" class="form-control">
-        <option selected>Elige el proveedor...</option>
-        <option>Proveedor N1</option>
-        <option>Proveedor N2</option>
-        <option>Proveedor N3</option>
-        <option>Proveedor N4</option>
-        <option>Proveedor N5</option>
-      </select>
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationCustom04">Cantidad</label>
-      <input type="number" class="form-control" id="validationCustom04" placeholder="Cantidad" required>
-      <div class="invalid-feedback">
-     
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <label for="validationCustom05">Precio de compra</label>
-      <input type="number" class="form-control" id="validationCustom05" placeholder="Precio de compra" required>
-      <div class="invalid-feedback">
-
-      </div>
-    </div>
-  </div>
-
-<center>
-<br></br>
-  <button class="btn btn-primary" type="submit">Añadir</button>
-</center>
-
-</form>
-
-<script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
-</script>
     </div>
 </div>
 
