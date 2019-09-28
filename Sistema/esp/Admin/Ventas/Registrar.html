@@ -122,19 +122,19 @@
                         </div>
                     </li>   
                     <li>
-                        <a><i class="fa fa-bar-chart-o fa-fw"></i>Inventario<span class="fa arrow"></span></a>
+                        <a><i class="fa fa-bar-chart-o fa-fw"></i>Inventarios<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../Inventario/Inventario.html">Consultar</a>
+                                <a href="../Inventario/Inventario.html">Inventario general</a>
                             </li>
                             <li>
-                                <a href="../Inventario/Añadir.html">Añadir</a>
+                                <a href="../Inventario/Añadir.html">Producto inicial</a>
                             </li>
                             <li>
-                                <a href="../Inventario/Editar.html">Editar</a>
+                                <a href="../Inventario/Editar.html">Producto en proceso</a>
                             </li>
                             <li>
-                                <a href="../Inventario/Eliminar.html">Eliminar</a>
+                                <a href="../Inventario/Eliminar.html">Producto final</a>
                             </li>
                         </ul>
                     </li>
@@ -156,15 +156,8 @@
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-bar-chart-o fa-fw"></i>Catalogo<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="./Inscribir.html">Inscribir</a>
-                            </li>
-                            <li>
-                                <a href="./Modificar.html">Modificar</a>
-                            </li>
-                        </ul>
+                        <a href="../Catalogo/Modificar.html"><i class="fa fa-edit fa-fw"></i>Gestor del Catalogo
+                        </a>
                     </li>
                     <li>
                         <a href="../Reservaciones.html"><i class="fa fa-edit fa-fw"></i> Reservas de los Clientes
@@ -198,75 +191,47 @@
         
       </center>
       <div class="form-group"> <!-- Vendedor Button -->
-        <label for="state_id" class="control-label" >Nombre del Vendedor</label>
-        <select class="form-control" id="state_id">
-            <option value="AL">Samuel Salguero</option>
-            <option value="AK">Harold Rojas</option>
-            <option value="AZ">David Fragua</option>
-        </select>                    
+        <label for="state_id" class="control-label" >Fecha de Venta</label>
+        <div class="form-group">
+            <input type="date" name="fecha" class="form-control">
+        </div>                    
       </div>
+
 
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Nombre Cliente">
+         <input type="number" class="form-control" placeholder="ID Cliente">
       </div>
       <div class="form-group">
-         <input type="text" class="form-control" placeholder="Apellido Cliente">
+        <input type="number" class="form-control" placeholder="Cantidad">
       </div>
       <div class="form-group">
-         <input type="tel" class="form-control" placeholder="Telefono">
+         <input type="number" class="form-control" placeholder="Precio Por Unidad">
       </div>
-         <div class="form-group">
-        <div class="col-xs-6">
-          <div class="checkbox" >
-              <label>
-                <input type="checkbox" value="">
-                Hilo Croche 
-              </label><input type="number" name="numero" class="form-control" placeholder="Cantidad"><input type="number" name="numero" class="form-control" placeholder="Presio"><input type="text" class="form-control" placeholder="color">
-            </div>
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" value="">
-                Hilo de la Falle
-              </label><input type="number" name="numero" class="form-control" placeholder="Cantidad"><input type="number" name="numero" class="form-control" placeholder="Presio"><input type="text" class="form-control" placeholder="Color">
-            </div>
-        </div>
-        <div class="col-xs-6">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" value="">
-                Hilo comun
-              </label><input type="number" name="numero" class="form-control" placeholder="Cantidad"><input type="number" name="numero" class="form-control" placeholder="Presio"><input type="text" class="form-control" placeholder="Color">
-            </div>      
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" value="">
-                Hilo Polietileno
-              </label><input type="number" name="numero" class="form-control" placeholder="Cantidad"><input type="number" name="numero" class="form-control" placeholder="Presio"><input type="text" class="form-control" placeholder="Color">
-            </div>             
-         </div>
       <div class="form-group">
-        <input type="number" class="form-control" placeholder="Valor Total">
+         <input type="number" class="form-control" placeholder="Precio Total">
       </div>
-
       <div class="form-group">
-        <input type="date" name="fecha" class="form-control" placeholder="Nombre Cliente">
+         <input type="number" class="form-control" placeholder="ID Producto Final">
+      </div>
+            <div class="form-group">
+         <input type="number" class="form-control" placeholder="ID Reserva">
       </div>
 
+      <p>
 
-  <p>
+      Adjuntar archivo:
+        <input type="file" name="archivossubidos[]" multiple>
+      </p>
+            <div class="form-group">
+         <textarea type="number" class="form-control" placeholder="Observaciones"></textarea>
+      </div>
 
-    Sube archivos:
-
-    <input type="file" name="archivossubidos[]" multiple>
-
-  </p>
- <textarea class="form-control" rows="4">Escriba aquí su texto.</textarea>
-  <div class="row ">
+    <div class="row ">
             <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
-                 <input type="submit"  class="btn btn-default"value="Limpiar"/> &nbsp; &nbsp; &nbsp;<input type="submit"  class="btn btn-primary" value="Enviar"/>
+                 <input type="submit"  class="btn btn-default"value="Limpiar"/> &nbsp; &nbsp; &nbsp;<input type="submit"  class="btn btn-primary" value="Aceptar"/>
               </div>
 
-          </div>
+        </div>
 
 
 

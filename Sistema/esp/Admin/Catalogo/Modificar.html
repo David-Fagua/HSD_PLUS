@@ -121,19 +121,19 @@
                         </div>
                     </li>   
                     <li>
-                        <a><i class="fa fa-bar-chart-o fa-fw"></i>Inventario<span class="fa arrow"></span></a>
+                        <a><i class="fa fa-bar-chart-o fa-fw"></i>Inventarios<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../Inventario/Inventario.html">Consultar</a>
+                                <a href="../Inventario/Inventario.html">Inventario general</a>
                             </li>
                             <li>
-                                <a href="../Inventario/Añadir.html">Añadir</a>
+                                <a href="../Inventario/Añadir.html">Producto inicial</a>
                             </li>
                             <li>
-                                <a href="../Inventario/Editar.html">Editar</a>
+                                <a href="../Inventario/Editar.html">Producto en proceso</a>
                             </li>
                             <li>
-                                <a href="../Inventario/Eliminar.html">Eliminar</a>
+                                <a href="../Inventario/Eliminar.html">Producto final</a>
                             </li>
                         </ul>
                     </li>
@@ -155,15 +155,8 @@
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-bar-chart-o fa-fw"></i>Catalogo<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="./Inscribir.html">Inscribir</a>
-                            </li>
-                            <li>
-                                <a href="./Modificar.html">Modificar</a>
-                            </li>
-                        </ul>
+                        <a href="../Catalogo/Modificar.html"><i class="fa fa-edit fa-fw"></i>Gestor del Catalogo
+                        </a>
                     </li>
                     <li>
                         <a href="../Reservaciones.html"><i class="fa fa-edit fa-fw"></i> Reservas de los Clientes
@@ -178,129 +171,185 @@
         </div>
     </nav>
 </div>
-   
+
+
 <div id="page-wrapper">
         <div class="container-fluid">
-            <h1 class="page-header">Modificar Catalogo</h1>
-            <div class="content-row">
-                <div class="content-row">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-3">
-                            <div class="thumbnail">
-                                <img src="../../../img/11.jpg" class="d-block w-100" class="card-img-top" alt="...">
-                                <div class="caption text-center">
-                                    <h3>Hilo de algodón</h3>
-                                    <p>este tipo de hilo sirve para cualquier tipo de costura pero es muy aconsejado para coser a mano, ya que es suave y fácil de sacar y romper.</p>
-                                    <p>
-                                        <a href="#" class="btn btn-primary btn-lg" role="button">Editar</a>
-                                        <a href="#" class="btn btn-primary btn-lg" role="button">Agotado</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="thumbnail">
-                                <img src="../../../img/2.jpg" class="d-block w-100" class="card-img-top" alt="...">
-                                <div class="caption text-center">
-                                    <h3>Hilos de seda</h3>
-                                    <p>Usado para coser seda y otras telas delicadas ofrece una variedad cromática muy limitada. Ideal para bordados. Su precio es más elevado que el resto.</p>
-                                    <p>
-                                        <a href="#" class="btn btn-primary btn-lg" role="button">Editar</a>
-                                        <a href="#" class="btn btn-primary btn-lg" role="button">Agotado</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="thumbnail">
-                                <img src="../../../img/3.jpg" class="d-block w-100" class="card-img-top" alt="...">
-                    <div class="caption text-center">
-                        <h3>Hilos sintéticos</h3>
-                        <p>elásticos y por norma general fabricados con poliéster. Existen modelos también de algodón y fibra sintética. Este tipo es de los más resistentes para todo tipo de telas.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary btn-lg" role="button">Editar</a>
-                            <a href="#" class="btn btn-primary btn-lg" role="button">Agotado</a>
-                        </p>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Productos del catalogo</h1>
+                   <div class="card mb-3">
+                </diva>
+                <p>
+                    <a href="./Inscribir.html" style="float:left;" class="btn btn-primary btn-lg" role="button">Inscribir producto</a>
+                </p>
+                <div class="form-group">
+                    <div id="div1">
+                        <table border="1" class="table-bordered table pull-right" id="mytable" cellspacing="0" style="width: 100%;">
+                            <tr>
+                                <th>Registro</th>
+                                <th>NombreCliente</th>
+                                <th>ApellidoCliente</th>
+                                <th>Direccióncliente</th>
+                                <th>TelefonoCliente</th>
+                                <th>Productos</th>
+                                <th>Fecha</th>
+                                <th>Vendedor</th>
+                                <th>ValorTotal</th>
+                                <th>Opciones</th>
+                            </tr>
+                            <tr>
+                                <td>0001</td>
+                                <td>Armando </td> 
+                                <td>Arquimedes</td>
+                                <td>crea 54a sur</td>
+                                <td>123456789</td>
+                                <td>Hilo Croche</td>
+                                <td>11-12-2019</td>
+                                <td>Hrold</td>
+                                <td>25500</td>
+                                <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+                            </tr>
+                            <tr>
+                                <td>0002</td>
+                                <td>Armando </td> 
+                                <td>Arquimedes</td>
+                                <td>crea 54a sur</td>
+                                <td>123456789</td>
+                                <td>Hilo Croche</td>
+                                <td>11-12-2019</td>
+                                <td>Hrold</td>
+                                <td>25500</td>
+                                <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+                            </tr>
+                            <tr>
+                                <td>0003</td>
+                                <td>Armando </td> 
+                                <td>Arquimedes</td>
+                                <td>crea 54a sur</td>
+                                <td>123456789</td>
+                                <td>Hilo Croche</td>
+                                <td>11-12-2019</td>
+                                <td>Hrold</td>
+                                <td>25500</td>
+                                <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+                            </tr>
+                            <tr>
+                                <td>0004</td>
+                                <td>Armando </td> 
+                                <td>Arquimedes</td>
+                                <td>crea 54a sur</td>
+                                <td>123456789</td>
+                                <td>Hilo Croche</td>
+                                <td>11-12-2019</td>
+                                <td>Hrold</td>
+                                <td>25500</td>
+                                <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+                            </tr>
+                            <tr>
+                                <td>0005</td>
+                                <td>Armando </td> 
+                                <td>Arquimedes</td>
+                                <td>crea 54a sur</td>
+                                <td>123456789</td>
+                                <td>Hilo Croche</td>
+                                <td>11-12-2019</td>
+                                <td>Hrold</td>
+                                <td>25500</td>
+                                <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+                            </tr>
+                            <tr>
+                                <td>0006</td>
+                                <td>Armando </td> 
+                                <td>Arquimedes</td>
+                                <td>crea 54a sur</td>
+                                <td>123456789</td>
+                                <td>Hilo Croche</td>
+                                <td>11-12-2019</td>
+                                <td>Hrold</td>
+                                <td>25500</td>
+                                <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+                            </tr>
+                            <tr>
+                                <td>0007</td>
+                                <td>Armando </td> 
+                                <td>Arquimedes</td>
+                                <td>crea 54a sur</td>
+                                <td>123456789</td>
+                                <td>Hilo Croche</td>
+                                <td>11-12-2019</td>
+                                <td>Hrold</td>
+                                <td>25500</td>
+                                <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+                            </tr>
+                            <tr>
+                                <td>0008</td>
+                                <td>Armando </td> 
+                                <td>Arquimedes</td>
+                                <td>crea 54a sur</td>
+                                <td>123456789</td>
+                                <td>Hilo Croche</td>
+                                <td>11-12-2019</td>
+                                <td>Hrold</td>
+                                <td>25500</td>
+                                <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+                            </tr>
+                            <tr>
+                                <td>0009</td>
+                                <td>Armando </td> 
+                                <td>Arquimedes</td>
+                                <td>crea 54a sur</td>
+                                <td>123456789</td>
+                                <td>Hilo Croche</td>
+                                <td>11-12-2019</td>
+                                <td>Hrold</td>
+                                <td>25500</td>
+                                <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+                            </tr>
+                            <tr>
+                                <td>0010</td>
+                                <td>Armando </td> 
+                                <td>Arquimedes</td>
+                                <td>crea 54a sur</td>
+                                <td>123456789</td>
+                                <td>Hilo Croche</td>
+                                <td>11-12-2019</td>
+                                <td>Hrold</td>
+                                <td>25500</td>
+                                <td><span class="editar" onclick="transformarEnEditable(this)">Editar</span></td>
+                            </tr>
+                        </table>
+                        <div class="table-responsive"></div>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <img src="../../../img/4.jpg" class="d-block w-100" class="card-img-top" alt="...">
-                    <div class="caption text-center">
-                        <h3>Hilo de algodón perlé</h3>
-                        <p>este tipo de hilo es ideal para coser lana, algodón y tiene un tono brillante. Sirven para coser tanto a máquina como a mano. Este tipo de hilo es mucho más resistente a los lavados y planchados.</p>
-                        <p>
-                            <a href="#" class="btn btn-primary btn-lg" role="button">Editar</a>
-                            <a href="#" class="btn btn-primary btn-lg" role="button">Agotado</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
-                            <div class="thumbnail">
-                                <img src="../../../img/5.jpg" class="d-block w-100" class="card-img-top" alt="...">
-                                <div class="caption text-center">
-                                    <h3>Hilo X</h3>
-                                    <p>Hilo de alta calidad para limpiar los dientes.</p>
-                                    <p>
-                                        <a href="#" class="btn btn-primary btn-lg" role="button">Editar</a>
-                                        <a href="#" class="btn btn-primary btn-lg" role="button">Agotado</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="thumbnail">
-                                <img src="../../../img/6.jpg" class="d-block w-100" class="card-img-top" alt="...">
-                                <div class="caption text-center">
-                                    <h3>Hilo X</h3>
-                                    <p>Hilo de alta calidad para limpiar los dientes.</p>
-                                    <p>
-                                        <a href="#" class="btn btn-primary btn-lg" role="button">Editar</a>
-                                        <a href="#" class="btn btn-primary btn-lg" role="button">Agotado</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <div class="thumbnail">
-                                <img src="../../../img/7.jpg" class="d-block w-100" class="card-img-top" alt="...">
-                    <div class="caption text-center">
-                        <h3>Hilo X</h3>
-                                    <p>Hilo de alta calidad para limpiar los dientes.</p>
-                                    <p>
-                            <a href="#" class="btn btn-primary btn-lg" role="button">Editar</a>
-                            <a href="#" class="btn btn-primary btn-lg" role="button">Agotado</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
-                <div class="thumbnail">
-                    <img src="../../../img/8.jpg" class="d-block w-100" class="card-img-top" alt="...">
-                    <div class="caption text-center">
-                        <h3>Hilo X</h3>
-                                    <p>Hilo de alta calidad para limpiar los dientes.</p>
-                                    <p>
-                            <a href="#" class="btn btn-primary btn-lg" role="button">Editar</a>
-                            <a href="#" class="btn btn-primary btn-lg" role="button">Agotado</a>
-                        </p>
-                    </div>
+                    <div id="contenedorForm"></div>
                 </div>
             </div>
         </div>
     </div>
+    <center>
+        <div class="col-12 col-md">
+            <small class="d-block mb-3 text-center text-muted">Copyright &copy; 2018-2019 HSD Plus</small>
+        </div>
+    </center>
 </div>
-
-</br>
-
-<center>
-    <div class="col-12 col-md">
-        <small class="d-block mb-3 text-center text-muted">Copyright &copy; 2018-2019 HSD Plus</small>
-    </div>
-</center>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+ // Write on keyup event of keyword input element
+ $(document).ready(function(){
+ $("#search").keyup(function(){
+ _this = this;
+ // Show only matching TR, hide rest of them
+ $.each($("#mytable tbody tr"), function() {
+ if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+ $(this).hide();
+ else
+ $(this).show();
+ });
+ });
+});
+</script>
+<script type="text/javascript" src="../../../js/functions.js"></script>
 <script src="../../../js/jquery.min.js"></script>
 <script src="../../../js/bootstrap.min.js"></script>
 <script src="../../../js/metisMenu.min.js"></script>

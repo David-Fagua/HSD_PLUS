@@ -121,19 +121,19 @@
                         </div>
                     </li>   
                     <li>
-                        <a><i class="fa fa-bar-chart-o fa-fw"></i>Inventario<span class="fa arrow"></span></a>
+                        <a><i class="fa fa-bar-chart-o fa-fw"></i>Inventarios<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../Inventario/Inventario.html">Consultar</a>
+                                <a href="../Inventario/Inventario.html">Inventario general</a>
                             </li>
                             <li>
-                                <a href="../Inventario/Añadir.html">Añadir</a>
+                                <a href="../Inventario/Añadir.html">Producto inicial</a>
                             </li>
                             <li>
-                                <a href="../Inventario/Editar.html">Editar</a>
+                                <a href="../Inventario/Editar.html">Producto en proceso</a>
                             </li>
                             <li>
-                                <a href="../Inventario/Eliminar.html">Eliminar</a>
+                                <a href="../Inventario/Eliminar.html">Producto final</a>
                             </li>
                         </ul>
                     </li>
@@ -155,15 +155,8 @@
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-bar-chart-o fa-fw"></i>Catalogo<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="./Inscribir.html">Inscribir</a>
-                            </li>
-                            <li>
-                                <a href="./Modificar.html">Modificar</a>
-                            </li>
-                        </ul>
+                        <a href="../Catalogo/Modificar.html"><i class="fa fa-edit fa-fw"></i>Gestor del Catalogo
+                        </a>
                     </li>
                     <li>
                         <a href="../Reservaciones.html"><i class="fa fa-edit fa-fw"></i> Reservas de los Clientes
@@ -188,22 +181,32 @@
                     <h1 class="page-header">Incribir en Catalogo</h1>
                     <center>
                         <div class="form-group">
-                            <input id="correoId"  required="true" type="text" class="form-control" placeholder="Nombre">
+                            <input id="correoId"  required="true" type="text" class="form-control" placeholder="Nombre de producto">
                         </div>
                         <div class="form-group">
-                            <input id="correoId"  required="true" type="text" class="form-control" placeholder="Nombre">
+                            <input id="correoId"  required="true" type="text" class="form-control" placeholder="Id_producto">
                         </div>
                         <div class="form-group">
-                            <input id="correoId"  required="true" type="text" class="form-control" placeholder="Nombre">
+                            <input id="correoId"  required="true" type="text" class="form-control" placeholder="Cantidad disponible">
                         </div>
                         <div class="form-group">
-                            <input id="correoId"  required="true" type="text" class="form-control" placeholder="Nombre">
+                            <input id="correoId"  required="true" type="text" class="form-control" placeholder="Precio unitario">
                         </div>
                         <div class="form-group">
-                            <input id="correoId"  required="true" type="text" class="form-control" placeholder="Nombre">
+                            <input id="correoId"  required="true" type="text" class="form-control" placeholder="Descuento">
                         </div>
+                        <div class="form-group">
+                            <textarea type="number" class="form-control" placeholder="Descripción"></textarea>
+                        </div>
+                        Adjuntar archivo:
+                        <input type="file" name="archivossubidos[]" multiple>
+                    </p>
+                    <div class="row ">
+                        <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                            <input type="submit"  class="btn btn-default"value="Limpiar"/> &nbsp; &nbsp; &nbsp;<input type="submit"  class="btn btn-primary" value="Aceptar"/>
+                        </div>
+                    </div>
                     </center>
-                    <a href="../../../Error 404.html" style="float:center;" class="btn btn-primary btn-lg" role="button">Guardar</a>
                 </form>
             </div>
         </div>
