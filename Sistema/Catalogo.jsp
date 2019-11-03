@@ -17,23 +17,23 @@
 
 <div>
   <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-    <a href="inicio.html" class="navbar-brand" href="#">
+    <a href="inicio.jsp" class="navbar-brand" href="#">
     <img src="img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
-    <a href="inicio.html" class="navbar-brand" href="#">HSD PLUS</a>
+    <a href="inicio.jsp" class="navbar-brand" href="#">HSD PLUS</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-          <a href="Catalogo.html" class="nav-link" style="color: #47A5B4;">Catalogo
+          <a href="Catalogo.jsp" class="nav-link" style="color: #47A5B4;">Catalogo
           </a>
-          <a href="Contactenos.html" class="nav-link" style="color: #47A5B4;">Contactenos
+          <a href="Contactenos.jsp" class="nav-link" style="color: #47A5B4;">Contactenos
           </a>
-          <a href="Quienessomos.html" class="nav-link" style="color: #47A5B4;">¿Quienes Somos?
+          <a href="Quienessomos.jsp" class="nav-link" style="color: #47A5B4;">¿Quienes Somos?
           </a>
-          <a href="Misión y Visión.html" class="nav-link" style="color: #47A5B4;">Misión y Visión
+          <a href="Misión y Visión.jsp" class="nav-link" style="color: #47A5B4;">Misión y Visión
           </a>
-          <a href="Portafolio.html" class="nav-link" style="color: #47A5B4;">Portafolio
+          <a href="Portafolio.jsp" class="nav-link" style="color: #47A5B4;">Portafolio
           </a>
         </li>
       </ul>
@@ -48,8 +48,8 @@
           <img src="img/Usuario.png" width="40" height="40" alt="">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="iniciosesion.html">Iniciar Sesión</a>
-          <a class="dropdown-item" href="Registrar.html">Registrar</a>
+          <a class="dropdown-item" href="iniciosesion.jsp">Iniciar Sesión</a>
+          <a class="dropdown-item" href="Registrar.jsp">Registrar</a>
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@
   <div class="row featurette">
     <div class="col-md-6 order-md-2">
       <h3 class="featurette-heading">Hilo de algodón</h3>
-      <h6 href="Productos.html" class="lead">este tipo de hilo sirve para cualquier tipo de costura pero es muy aconsejado para coser a mano, ya que es suave y fácil de sacar y romper.</h6>
+      <h6 href="Productos.jsp" class="lead">este tipo de hilo sirve para cualquier tipo de costura pero es muy aconsejado para coser a mano, ya que es suave y fácil de sacar y romper.</h6>
       <div class="col-6 col-md">
       <a href="#" class="badge badge-info">Destacado</a>
     </div>
@@ -81,7 +81,7 @@
   <div class="row featurette">
     <div class="col-md-6 order-md-2">
       <h3 class="featurette-heading">Hilos de seda</h3>
-      <h6 href="Productos.html" class="lead"> usado para coser seda y otras telas delicadas ofrece una variedad cromática muy limitada. Ideal para bordados. Su precio es más elevado que el resto.</h6>
+      <h6 href="Productos.jsp" class="lead"> usado para coser seda y otras telas delicadas ofrece una variedad cromática muy limitada. Ideal para bordados. Su precio es más elevado que el resto.</h6>
       <div class="col-6 col-md">
       <a href="#" class="badge badge-info">Destacado</a>
     </div>
@@ -100,7 +100,7 @@
   <div class="row featurette">
     <div class="col-md-6 order-md-2">
       <h3 class="featurette-heading">Hilos sintéticos</h3>
-      <h6 href="Productos.html" class="lead">elásticos y por norma general fabricados con poliéster. Existen modelos también de algodón y fibra sintética. Este tipo es de los más resistentes para todo tipo de telas.</h6>
+      <h6 href="Productos.jsp" class="lead">elásticos y por norma general fabricados con poliéster. Existen modelos también de algodón y fibra sintética. Este tipo es de los más resistentes para todo tipo de telas.</h6>
       <div class="col-6 col-md">
       <a href="#" class="badge badge-info">Destacado</a>
     </div>
@@ -119,7 +119,7 @@
   <div class="row featurette">
     <div class="col-md-6 order-md-2">
       <h3 class="featurette-heading">Hilo de algodón perlé</h3>
-      <h6 href="Productos.html" class="lead">este tipo de hilo es ideal para coser lana, algodón y tiene un tono brillante. Sirven para coser tanto a máquina como a mano. Este tipo de hilo es mucho más resistente a los lavados y planchados.</h6>
+      <h6 href="Productos.jsp" class="lead">este tipo de hilo es ideal para coser lana, algodón y tiene un tono brillante. Sirven para coser tanto a máquina como a mano. Este tipo de hilo es mucho más resistente a los lavados y planchados.</h6>
       <div class="col-6 col-md">
       <a href="#" class="badge badge-info">Destacado</a>
     </div>
@@ -138,7 +138,7 @@
   <div class="row featurette">
     <div class="col-md-6 order-md-2">
       <h3 class="featurette-heading">Hilo X</h3>
-      <h6 href="Productos.html" class="lead">Hilo de alta calidad para limpiar los dientes.</h6>
+      <h6 href="Productos.jsp" class="lead">Hilo de alta calidad para limpiar los dientes.</h6>
       <div class="col-6 col-md">
       <a href="#" class="badge badge-info">Destacado</a>
     </div>
@@ -157,7 +157,7 @@
   <div class="row featurette">
     <div class="col-md-6 order-md-2">
       <h3 class="featurette-heading">Hilo X</h3>
-      <h6 href="Productos.html" class="lead">Hilo de alta calidad para limpiar los dientes.</h6>
+      <h6 href="Productos.jsp" class="lead">Hilo de alta calidad para limpiar los dientes.</h6>
       <div class="col-6 col-md">
       <a href="#" class="badge badge-info">Destacado</a>
     </div>
@@ -176,7 +176,7 @@
   <div class="row featurette">
     <div class="col-md-6 order-md-2">
       <h3 class="featurette-heading">Hilo X</h3>
-      <h6 href="Productos.html" class="lead">Hilo de alta calidad para limpiar los dientes.</h6>
+      <h6 href="Productos.jsp" class="lead">Hilo de alta calidad para limpiar los dientes.</h6>
       <div class="col-6 col-md">
       <a href="#" class="badge badge-info">Destacado</a>
     </div>
@@ -195,7 +195,7 @@
   <div class="row featurette">
     <div class="col-md-6 order-md-2">
       <h3 class="featurette-heading">Hilo X</h3>
-      <h6 href="Productos.html" class="lead">Hilo de alta calidad para limpiar los dientes.</h6>
+      <h6 href="Productos.jsp" class="lead">Hilo de alta calidad para limpiar los dientes.</h6>
       <div class="col-6 col-md">
       <a href="#" class="badge badge-info">Destacado</a>
     </div>
@@ -214,7 +214,7 @@
   <div class="row featurette">
     <div class="col-md-6 order-md-2">
       <h3 class="featurette-heading">Hilo X</h3>
-      <h6 href="Productos.html" class="lead">Hilo de alta calidad para limpiar los dientes.</h6>
+      <h6 href="Productos.jsp" class="lead">Hilo de alta calidad para limpiar los dientes.</h6>
       <div class="col-6 col-md">
       <a href="#" class="badge badge-info">Destacado</a>
     </div>
