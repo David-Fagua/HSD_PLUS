@@ -4,7 +4,7 @@
 <head>
 	<title>HSD PLUS</title>
 
-	<link rel="icon" type="image/png" href="Img/Logo.png">
+	<link rel="icon" type="assets/img/png" href="assets/Img/Logo.png">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<meta charset="utf-8">
@@ -20,7 +20,7 @@
 <div>
   <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
     <a href="inicio.html" class="navbar-brand" href="#">
-    <img src="img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
+    <img src="assets/img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
     <a href="inicio.html" class="navbar-brand" href="#">HSD PLUS</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -47,7 +47,7 @@
       </div>
       <div class="btn-group dropleft">
         <button style="background-color: #ffffff;" class="button" class="btn btn-sec btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="img/Usuario.png" width="40" height="40" alt="">
+          <img src="assets/img/Usuario.png" width="40" height="40" alt="">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="iniciosesion.html">Iniciar SesiÃ³n</a>

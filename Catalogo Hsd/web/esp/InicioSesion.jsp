@@ -1,7 +1,8 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Iniciar Sesi�n</title>
+  <title>Iniciar Sesión</title>
 
   <link rel="icon" type="image/png" href="../Img/Logo.png">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -36,7 +37,7 @@
     <div class="col-md-6">
       <center>
         <img src="../img/Usuario.png" width="100" height="100" alt="HSD PLUS">
-        <h2>Iniciar Sesión</h2>
+        <h2>Iniciar SesiÃ³n</h2>
       </center>
       <div class="myform-bottom">
         <form role="form" action="./Admin/inicio.html" method="post" class="" onsubmit="return validarInicio()">
@@ -44,7 +45,7 @@
             <input type="text" name="form-username" placeholder="Usuario" class="form-control" id="user-username">
           </div>
           <div class="form-group">
-            <input type="password" name="form-password" placeholder="Contraseña" class="form-control" id="form-password">
+            <input type="password" name="form-password" placeholder="ContraseÃ±a" class="form-control" id="form-password">
           </div>
 
           <div class="text-center">
@@ -53,7 +54,7 @@
             </p>
           </div>
           <div class="text-center">
-            <a href="Recordar.html">Recordar contraseña</a>
+            <a href="Recordar.html">Recordar contraseÃ±a</a>
           </div>
           <br/>
 

@@ -1,14 +1,14 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Catalogo</title>
+  <title>Catalogo</title>
 
-	<link rel="icon" type="image/png" href="Img/Logo.png">
+  <link rel="icon" type="image/png" href="Img/Logo.png">
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <%@include file="css.jsp"  %>
 
 </head>
 <body>
@@ -31,9 +31,9 @@
           </a>
           <a href="Contactenos.jsp" class="nav-link" style="color: #47A5B4;">Contactenos
           </a>
-          <a href="Quienessomos.jsp" class="nav-link" style="color: #47A5B4;">Â¿Quienes Somos?
+          <a href="Quienessomos.jsp" class="nav-link" style="color: #47A5B4;">¿Quienes Somos?
           </a>
-          <a href="MisiÃ³n y VisiÃ³n.jsp" class="nav-link" style="color: #47A5B4;">MisiÃ³n y VisiÃ³n
+          <a href="Misión y Visión.jsp" class="nav-link" style="color: #47A5B4;">Misión y Visión
           </a>
           <a href="Portafolio.jsp" class="nav-link" style="color: #47A5B4;">Portafolio
           </a>
@@ -50,7 +50,7 @@
           <img src="img/Usuario.png" width="40" height="40" alt="">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="iniciosesion.jsp">Iniciar SesiÃ³n</a>
+          <a class="dropdown-item" href="iniciosesion.jsp">Iniciar Sesión</a>
           <a class="dropdown-item" href="Registrar.jsp">Registrar</a>
         </div>
       </div>
@@ -63,8 +63,8 @@
 <div class="container">
   <div class="row featurette">
     <div class="col-md-6 order-md-2">
-      <h3 class="featurette-heading">Hilo de algodÃ³n</h3>
-      <h6 href="Productos.jsp" class="lead">este tipo de hilo sirve para cualquier tipo de costura pero es muy aconsejado para coser a mano, ya que es suave y fÃ¡cil de sacar y romper.</h6>
+      <h3 class="featurette-heading">Hilo de algodón</h3>
+      <h6 href="Productos.jsp" class="lead">este tipo de hilo sirve para cualquier tipo de costura pero es muy aconsejado para coser a mano, ya que es suave y fácil de sacar y romper.</h6>
       <div class="col-6 col-md">
       <a href="#" class="badge badge-info">Destacado</a>
     </div>
@@ -83,7 +83,7 @@
   <div class="row featurette">
     <div class="col-md-6 order-md-2">
       <h3 class="featurette-heading">Hilos de seda</h3>
-      <h6 href="Productos.jsp" class="lead"> usado para coser seda y otras telas delicadas ofrece una variedad cromÃ¡tica muy limitada. Ideal para bordados. Su precio es mÃ¡s elevado que el resto.</h6>
+      <h6 href="Productos.jsp" class="lead"> usado para coser seda y otras telas delicadas ofrece una variedad cromática muy limitada. Ideal para bordados. Su precio es más elevado que el resto.</h6>
       <div class="col-6 col-md">
       <a href="#" class="badge badge-info">Destacado</a>
     </div>
@@ -101,8 +101,8 @@
 </br>
   <div class="row featurette">
     <div class="col-md-6 order-md-2">
-      <h3 class="featurette-heading">Hilos sintÃ©ticos</h3>
-      <h6 href="Productos.jsp" class="lead">elÃ¡sticos y por norma general fabricados con poliÃ©ster. Existen modelos tambiÃ©n de algodÃ³n y fibra sintÃ©tica. Este tipo es de los mÃ¡s resistentes para todo tipo de telas.</h6>
+      <h3 class="featurette-heading">Hilos sintéticos</h3>
+      <h6 href="Productos.jsp" class="lead">elásticos y por norma general fabricados con poliéster. Existen modelos también de algodón y fibra sintética. Este tipo es de los más resistentes para todo tipo de telas.</h6>
       <div class="col-6 col-md">
       <a href="#" class="badge badge-info">Destacado</a>
     </div>
@@ -120,8 +120,8 @@
 </br>
   <div class="row featurette">
     <div class="col-md-6 order-md-2">
-      <h3 class="featurette-heading">Hilo de algodÃ³n perlÃ©</h3>
-      <h6 href="Productos.jsp" class="lead">este tipo de hilo es ideal para coser lana, algodÃ³n y tiene un tono brillante. Sirven para coser tanto a mÃ¡quina como a mano. Este tipo de hilo es mucho mÃ¡s resistente a los lavados y planchados.</h6>
+      <h3 class="featurette-heading">Hilo de algodón perlé</h3>
+      <h6 href="Productos.jsp" class="lead">este tipo de hilo es ideal para coser lana, algodón y tiene un tono brillante. Sirven para coser tanto a máquina como a mano. Este tipo de hilo es mucho más resistente a los lavados y planchados.</h6>
       <div class="col-6 col-md">
       <a href="#" class="badge badge-info">Destacado</a>
     </div>
@@ -235,41 +235,41 @@
 </br>
   
 <div class="container">
-	<footer class="pt-5 my-md-5 pt-md-5 border-top">
-		<div class="row">
-			<div class="col-6 col-md">
-				<h5>InformaciÃ³n Ãºtil</h5>
-				<ul class="list-unstyled text-small">
-					<li><a class="text-muted" href="#">Contacto & Ayuda</a></li>
-					<li><a class="text-muted" href="#">Consejos de seguridad</a></li>
-					<li><a class="text-muted" href="#">Terminos & Condiciones</a></li>
-					<li><a class="text-muted" href="#">Acaerca de HSD Plus</a></li>
-					<li><a class="text-muted" href="#">Sumate a nosotros</a></li>
-				</ul>
-			</div>
-			<div class="col-6 col-md">
-				<h5>Servicios</h5>
-				<ul class="list-unstyled text-small">
-					<li><a class="text-muted" href="#">Registrate</a></li>
-					<li><a class="text-muted" href="#">Reserva</a></li>
-					<li><a class="text-muted" href="#">Consulta</a></li>
-				</ul>
-			</div>
-			<div class="col-6 col-md">
-				<h5>Contactanos</h5>
-				<ul class="list-unstyled text-small">
-					<li><a class="text-muted" href="#">Equipo</a></li>
-					<li><a class="text-muted" href="#">LocalizaciÃ³n</a></li>
-					<li><a class="text-muted" href="#">Privacidad</a></li>
-					<li><a class="text-muted" href="#">Terminos</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="col-12 col-md">
-				<small class="d-block mb-3 text-center text-muted">Copyright &copy; 2018-2019 HSD Plus</small>
-			</div>
-		</div>
-	</footer>
+  <footer class="pt-5 my-md-5 pt-md-5 border-top">
+    <div class="row">
+      <div class="col-6 col-md">
+        <h5>Información útil</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Contacto & Ayuda</a></li>
+          <li><a class="text-muted" href="#">Consejos de seguridad</a></li>
+          <li><a class="text-muted" href="#">Terminos & Condiciones</a></li>
+          <li><a class="text-muted" href="#">Acaerca de HSD Plus</a></li>
+          <li><a class="text-muted" href="#">Sumate a nosotros</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Servicios</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Registrate</a></li>
+          <li><a class="text-muted" href="#">Reserva</a></li>
+          <li><a class="text-muted" href="#">Consulta</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Contactanos</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Equipo</a></li>
+          <li><a class="text-muted" href="#">Localización</a></li>
+          <li><a class="text-muted" href="#">Privacidad</a></li>
+          <li><a class="text-muted" href="#">Terminos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-12 col-md">
+        <small class="d-block mb-3 text-center text-muted">Copyright &copy; 2018-2019 HSD Plus</small>
+      </div>
+    </div>
+  </footer>
 </div>
 
 
