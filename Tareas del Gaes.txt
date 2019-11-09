@@ -1,26 +1,11 @@
-Tareas de programacion en html, java y php
+﻿Tareas de programacion en java
 
--Hacer funcional el inicio de sesion y el registro (A Cargo de Samuel)
+-Hacer funcional el inicio de sesion y el registro
 	Agregar Cambiar contraseña
 	Agregar recordar contraseña
 -Editar los modulos(a cargo del dependiente de cada modulo)
 -Crear paginas faltantes (David)
--Podible sctualizacion a java
 
 ________________________
 
-Tareas y trabajos Fase 4
 
--Base de datos (entre el gaes)
--Replantear los objetivos especificos (gaes)
--Actualizar IEEE830 (gaes)
--Actualizar diagramas del sistema (gaes)
--terminar diagramas del gestor de usuarios e inicio de sesión (Gaes)
-*Actualizar lading page (David)
--Conectar base de datos con el sistema (por definir)
-
-
-Poner pdf
-<a href="img/Manual.pdf" class="btn btn-secondary" role="button">Manual Corporativo. &raquo;</a>
-
-reordenar los modulos (cata,inve, regis) en el navbar del admin
