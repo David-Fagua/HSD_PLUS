@@ -17,9 +17,9 @@ public class Tipo_documento implements Serializable {
     private String nombre;
 
     public Tipo_documento() {
-        this.id_tdocumento=0;
-        this.abrebiatura="";
-        this.nombre="";
+        this.id_tdocumento = 0;
+        this.abrebiatura = "";
+        this.nombre = "";
     }
 
     public Tipo_documento(int id_tdocumento, String abrebiatura, String nombre) {

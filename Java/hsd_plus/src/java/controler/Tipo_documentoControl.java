@@ -5,21 +5,20 @@
  */
 package controler;
 
-
-import dao.CiudadDao;
+import dao.Tipo_documentoDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Ciudad;
+import model.Tipo_documento;
 
 /**
  *
  * @author SAM
  */
-public class CiudadControl extends HttpServlet {
+public class Tipo_documentoControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,20 +32,17 @@ public class CiudadControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CiudadControl</title>");
+            out.println("<title>Servlet Tipo_documentoControl</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CiudadControl at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Tipo_documentoControl at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        } finally {
-            out.close();
         }
     }
 
@@ -80,31 +76,32 @@ public class CiudadControl extends HttpServlet {
         String accion=request.getParameter("accion").toLowerCase();
         
 
-        Ciudad ciu = new Ciudad();
-        ciu.setNombre(nombre);
+        Tipo_documento td = new Tipo_documento();
+        td.setNombre(nombre);
 
         if(accion.equals("registrar")){
-                if (CiudadDao.registrar(ciu)) {
-                    request.setAttribute("mensaje", "La ciudad Fue Registrada con Exito");
+                if (Tipo_documentoDao.registrar(td)) {
+                    request.setAttribute("mensaje", "La documento Fue Registrada con Exito");
                 } else {
-                    request.setAttribute("mensaje", "La ciudad Nooooooooo Fue Registrada con Exito");
+                    request.setAttribute("mensaje", "La documento Nooooooooo Fue Registrada con Exito");
                 }
             }else if(accion.equals("actualizar")){
-                if(CiudadDao.actualizar(ciu)){
-                    request.setAttribute("mensaje", "La ciudad Fue Actualizada con Exito");
+                if(Tipo_documentoDao.actualizar(td)){
+                    request.setAttribute("mensaje", "La documento Fue Actualizada con Exito");
                 }
-                    request.setAttribute("mensaje", "La ciudad Nooooooooo Fue Actualizada con Exito");
+                    request.setAttribute("mensaje", "La documento Nooooooooo Fue Actualizada con Exito");
             }else if(accion.equals("eliminar")){
-                if(CiudadDao.eliminar(ciu)){
-                    request.setAttribute("mensaje", "La ciudad Fue Elimanada con Exito");              
+                if(Tipo_documentoDao.eliminar(td)){
+                    request.setAttribute("mensaje", "La documento Fue Elimanada con Exito");              
                 }else{
-                    request.setAttribute("mensaje", "La ciudad Nooooooooo Fue Eliminada con Exito");
+                    request.setAttribute("mensaje", "La documento Nooooooooo Fue Eliminada con Exito");
                 }
             }else{
                 request.setAttribute("mensaje", "Accion desconocida");    
         }
-        request.getRequestDispatcher("registroCiudad.jsp").forward(request, response);
+        request.getRequestDispatcher("registroTipo_documento.jsp").forward(request, response);
     }
+
     /**
      * Returns a short description of the servlet.
      *

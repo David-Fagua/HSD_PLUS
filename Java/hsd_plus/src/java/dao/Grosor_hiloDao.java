@@ -56,4 +56,65 @@ public class Grosor_hiloDao {
             return null;
         }
     }
+    
+    
+    public static boolean actualizar(Grosor_hilo gro){
+        try {
+            String SQL="update grosor_hilo set medida='"+gro.getMedida()+"'fecha_aprobacion'"+gro.getFecha_aprobacion()+"' where id_grosor'"+gro.getId_grosor()+"'";
+            Connection con=Conexion.conectar();
+            PreparedStatement st=con.prepareStatement(SQL);
+            st.setInt(3, gro.getId_grosor());
+            st.setInt(1, gro.getMedida());
+            st.setString(2, gro.getFecha_aprobacion());
+            if(st.executeUpdate()>0){
+                return true;
+            }else{
+            return false;    
+            } 
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
+    
+    public static boolean eliminar(Grosor_hilo gro){
+        try {
+            String SQL="DELETE FROM ciudad WHERE ('id_grosor' = '"+gro.getId_grosor()+"');";
+            Connection con=Conexion.conectar();
+            PreparedStatement st=con.prepareStatement(SQL);
+            st.setInt(1, gro.getId_grosor());
+            if(st.executeUpdate()>0){
+                return true;
+            }else{
+            return false;    
+            } 
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public static  String getGrosor_hilo(int gro){
+        try {
+            String SQL="select medida from grosor_hilo where id_grosor=?";
+            Connection con=Conexion.conectar();
+            PreparedStatement st=con.prepareStatement(SQL);
+            st.setInt(1, gro);
+            ResultSet resultado=st.executeQuery();
+            
+            if(resultado.next()){
+                return resultado.getString("medida");
+            }
+            return "--";
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
 }

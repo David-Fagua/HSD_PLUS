@@ -1,19 +1,17 @@
-
-
-
-
 <%-- 
-    Document   : registroGrosor_hilo
-    Created on : 26/10/2019, 01:07:51 PM
+    Document   : registroTipo_documento
+    Created on : 7/11/2019, 08:25:06 PM
     Author     : SAM
 --%>
 
+<%@page import="dao.Tipo_documentoDao"%>
+<%@page import="model.Tipo_documento"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Grosor_hilo</title>
+        <title>Ciudad</title>
         <%@include file="css.jsp"  %>
     </head>
     <body class="no-skin">
@@ -28,7 +26,6 @@
 
                     <span class="icon-bar"></span>
                 </button>
-
 
                 <div class="navbar-header pull-left">
                     <a href="index.jsp" class="navbar-brand">
@@ -118,7 +115,7 @@
                             </ul>
                         </li>
 
-                        <li class="black dropdown-modal">
+                        <li class="Black dropdown-modal">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <i class="ace-icon fa fa-bell icon-animated-bell"></i>
                                 <span class="badge badge-important">8</span>
@@ -190,7 +187,7 @@
 
                         <li class="light-Black dropdown-modal">
                             <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                                <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Samuel Salguero" />
+                                <img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
                                 <span class="user-info">
                                     <small>Bienvenido</small>
                                     Samuel Salguero
@@ -254,8 +251,7 @@
                             </span>
                         </form>
                     </div><!-- /.nav-search -->
-                </div><!-- /.sidebar-shortcuts -->
-
+                </div>
                 <ul class="nav nav-list">
                     <li class="">
                         <a href="index.jsp">
@@ -265,9 +261,6 @@
 
                         <b class="arrow"></b>
                     </li>
-
-
-
 
 
                     <li class="active">
@@ -401,7 +394,6 @@
 
 
 
-
                     <li class="active open">
                         <a href="#" class="dropdown-toggle">
                             <i class="menu-icon fa fa-sitemap"></i>
@@ -468,6 +460,8 @@
                 <div class="main-content-inner">
                     <div class="breadcrumbs ace-save-state" id="breadcrumbs">
 
+
+
                     </div>
 
                     <div class="page-content">
@@ -475,8 +469,7 @@
 
                         <div class="page-header">
                             <h1>
-                                Registro de Grosor Hilo
-
+                                Tipo de Documento
 
                             </h1>
                         </div><!-- /.page-header -->
@@ -490,139 +483,51 @@
                                     <div class="col-xs-12">
 
 
-                                        <!-- div.table-responsive -->
 
-                                        <!-- div.dataTables_borderWrap -->
                                         <div>
-                                            <form action="Grosor_hiloControl" method="post" class="form-horizontal">
+                                            <form action="Tipo_documentoControl" method="post" class="form-horizontal">
                                                 <div class="form-group">
                                                     <label class="col-sm-2 control-label no-padding-right">
-                                                        ID Grosor Hilo:
+                                                        Id Tipo Documento:
                                                     </label>
-                                                    <div class="col-sm-1">
-                                                        <input type="text" name="id_grosor" value="" placeholder="ID Grosor Hilo" />
+                                                    <div class="col-sm-2">
+                                                        <input type="text" name="tipo_documento" value="" placeholder="No es Obligatorio" />
                                                     </div>
-                                                    
-                                                    
-                                                    
+                                                    <label class="col-sm-2 control-label no-padding-right">
+                                                        Abrebiatura:
+                                                    </label>
+                                                    <div class="col-sm-2">
+                                                        <input type="text" name="abrebiatura" value="" placeholder="Abrebiatura" />
+                                                    </div>
                                                     
                                                     <label class="col-sm-2 control-label no-padding-right">
-                                                        Medida:
+                                                        Nombre:
                                                     </label>
-                                                    <div class="col-sm-1">
-                                                        <input type="text" name="medida" value="" placeholder="Medida del Hilo" />
+                                                    <div class="col-sm-2">
+                                                        <input type="text" name="nombre" value="" placeholder="Nombre Doc" />
                                                     </div>
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                    
-                                                     <label class="col-sm-3 control-label no-padding-right">
-                                                        Fecha de Aprobación:
-                                                    </label>
-                                                    <div class="col-sm-1">
-                                                        <input type="date" name="fecha_aprobacion" value="" placeholder="2018-12-21" />
-                                                    </div>
-                                                    
                                                 </div>
 
-                                                
-                                                <button class="btn btn-success" type="submit">
+
+                                                <button name="accion"class="btn btn-success" type="submit" value="registrar">
                                                     <i class="fa fa-save"></i>
                                                     Registrar
+                                                </button>
+                                                <button name="accion" class="btn btn-warning" type="submit" value="actualizar">
+                                                    <i class="fa fa-edit"></i>
+                                                    Actualizar
+                                                </button>
+                                                <button name="accion" class="btn btn-danger" type="submit" value="eliminar">
+                                                    <i class="fa fa-clock-o"></i>
+                                                    Eliminar
                                                 </button>
                                                 <div>
                                                     <%=(request.getAttribute("mensaje") != null ? request.getAttribute("mensaje") : "")%>
                                                 </div>
-
                                             </form>
-                                                <div>
-                                                    <table id="dynamic-table" class="table table-striped table-bordered table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>ID Grosor</th>
-                                                                <th>Medida</th>
-                                                                <th>Fecha</th>
-                                                                <th></th>
-
-                                                                
-                                                            </tr>
-                                                        </thead>
-
-                                                        <tbody>
-                                                            
-                                                            
-                                                                <tr>
-
-                                                                    <td>
-                                                                        <a href="#">???</a>
-                                                                    </td>
-                                                                    <td class="hidden-480">???</td>
-                                                                    <td>2019/05/16</td>
-
-
-
-
-
-                                                                    <td>
-                                                                        <div class="hidden-sm hidden-xs action-buttons">
-                                                                            <a class="blue" href="#">
-                                                                                <i class="ace-icon fa fa-search-plus bigger-130"></i>
-                                                                            </a>
-
-                                                                            <a class="green" href="#">
-                                                                                <i class="ace-icon fa fa-pencil bigger-130"></i>
-                                                                            </a>
-
-                                                                            <a class="red" href="#">
-                                                                                <i class="ace-icon fa fa-trash-o bigger-130"></i>
-                                                                            </a>
-                                                                        </div>
-
-                                                                        <div class="hidden-md hidden-lg">
-                                                                            <div class="inline pos-rel">
-                                                                                <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
-                                                                                    <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
-                                                                                </button>
-
-                                                                                <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-                                                                                    <li>
-                                                                                        <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-                                                                                            <span class="blue">
-                                                                                                <i class="ace-icon fa fa-search-plus bigger-120"></i>
-                                                                                            </span>
-                                                                                        </a>
-                                                                                    </li>
-
-                                                                                    <li>
-                                                                                        <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-                                                                                            <span class="green">
-                                                                                                <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-                                                                                            </span>
-                                                                                        </a>
-                                                                                    </li>
-
-                                                                                    <li>
-                                                                                        <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-                                                                                            <span class="red">
-                                                                                                <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                                                                            </span>
-                                                                                        </a>
-                                                                                    </li>
-                                                                                </ul>
-                                                                            </div>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-
-
+                                        
                                         </div>
+                                        
 
 
                                     </div><!-- /.modal-content -->
@@ -921,3 +826,5 @@
         </script>
     </body>
 </html>
+
+

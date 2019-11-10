@@ -67,25 +67,23 @@ public class ProveedorDao {
     
     public static boolean actualizar( Proveedor pr){
         try {
-            String SQL="UPDATE proveedor SET  razon_social = "+pr.getRazon_social()+", telefono = "+pr.getTelefono()+", email = "+pr.getEmail()+", direccion = "+pr.getDireccion()+", ciudad = "+pr.getCiudad()+" WHERE (`nit` = "+pr.getNit()+");";
+            String SQL="UPDATE proveedor SET razon_social = ?, telefono = ?, email = ?, direccion = ?, ciudad = ? WHERE (`nit` = ?);";
             Connection con=Conexion.conectar();
             PreparedStatement st=con.prepareStatement(SQL);
-            
-            //st.setString(6, pr.getNit());
-            //st.setString(1, pr.getRazon_social());
-            //st.setString(2, pr.getTelefono());
-            //st.setString(3, pr.getEmail());
-            //st.setString(4, pr.getDireccion());
-            //st.setInt(5, pr.getCiudad());
+            st.setString(6, pr.getNit());
+            st.setString(1, pr.getRazon_social());
+            st.setString(2, pr.getTelefono());
+            st.setString(3, pr.getEmail());
+            st.setString(4, pr.getDireccion());
+            st.setInt(5, pr.getCiudad());
             if(st.executeUpdate()>0){
                 return true;
             }else{
-                //return false;    
+                return false;    
             } 
         } catch (SQLException ex) {
             return false;
         }
-        return false;
     }
     
     

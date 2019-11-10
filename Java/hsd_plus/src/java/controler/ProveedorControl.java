@@ -80,7 +80,6 @@ public class ProveedorControl extends HttpServlet {
         int ciudad=Integer.parseInt(request.getParameter("ciudad"));
         String accion=request.getParameter("accion").toLowerCase();
         
-        
         Proveedor pr=new Proveedor();
         
         pr.setNit(nit);
@@ -97,7 +96,7 @@ public class ProveedorControl extends HttpServlet {
                     request.setAttribute("mensaje", "Proveedor Nooooooooooooooooooo Registrado con Exito");
                 }
             }else if(accion.equals("actualizar")){
-                if(ProveedorDao.registrar(pr)){
+                if(ProveedorDao.actualizar(pr)){
                     request.setAttribute("mensaje", "Proveedor Actualizado con Exito");
                 }else{
                     request.setAttribute("mensaje", "Proveedor Nooooooooooooooooooo Actualizado con Exito");
@@ -111,7 +110,7 @@ public class ProveedorControl extends HttpServlet {
             }else{
                 request.setAttribute("mensaje", "Accion desconocida");            
         }
-        request.getRequestDispatcher("registroProveedor.jsp").forward(request, response);
+        request.getRequestDispatcher("tablaProveedores.jsp").forward(request, response);
     }
 
     /**

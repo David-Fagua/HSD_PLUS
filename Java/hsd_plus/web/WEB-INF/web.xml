@@ -16,6 +16,10 @@
         <servlet-name>ProveedorControl</servlet-name>
         <servlet-class>controler.ProveedorControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Tipo_documentoControl</servlet-name>
+        <servlet-class>controler.Tipo_documentoControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CiudadControl</servlet-name>
         <url-pattern>/CiudadControl</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ProveedorControl</servlet-name>
         <url-pattern>/ProveedorControl</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Tipo_documentoControl</servlet-name>
+        <url-pattern>/Tipo_documentoControl</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

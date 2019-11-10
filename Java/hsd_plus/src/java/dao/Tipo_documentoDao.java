@@ -5,27 +5,27 @@
  */
 package dao;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.Ciudad;
-
+import model.Tipo_documento;
 
 
 /**
  *
  * @author SAM
  */
-public class CiudadDao {
-    public static boolean registrar(Ciudad ciu){
+public class Tipo_documentoDao {
+    public static boolean registrar(Tipo_documento td){
         try {
-            String SQL="INSERT INTO ciudad (nombre) values (?)";
+            String SQL="INSERT INTO tipo_documento (abreviatura,nombre) values (?,?)";
             Connection con=Conexion.conectar();
             PreparedStatement st=con.prepareStatement(SQL);
-            st.setString(1, ciu.getNombre());
+            
+            st.setString(1, td.getAbrebiatura());
+            st.setString(2, td.getNombre());
             if(st.executeUpdate()>0){
                 return true;
             }else{
@@ -36,20 +36,21 @@ public class CiudadDao {
         }
     }
     
-    public static  ArrayList<Ciudad>listar(){
+    public static  ArrayList<Tipo_documento>listar(){
         try {
-            String SQL="SELECT * FROM ciudad";
+            String SQL="select * from tipo_documento";
             Connection con=Conexion.conectar();
             PreparedStatement st=con.prepareStatement(SQL);
             //st.setString(1, ciu.getNombre());
             ResultSet resultado=st.executeQuery();
-            ArrayList<Ciudad> lista=new ArrayList<>();
-            Ciudad ciu;
+            ArrayList<Tipo_documento> lista=new ArrayList<>();
+            Tipo_documento td;
             while(resultado.next()){
-                ciu=new Ciudad();
-                ciu.setId_ciudad(resultado.getInt("id_ciudad"));
-                ciu.setNombre(resultado.getString("nombre"));
-                lista.add(ciu);
+                td=new Tipo_documento();
+                td.setId_tdocumento(resultado.getInt("tdocumento"));
+                td.setAbrebiatura(resultado.getString("abrebiatura"));
+                td.setNombre(resultado.getString("nombre"));
+                lista.add(td);
             }
             return lista;
         } catch (SQLException ex) {
@@ -58,14 +59,14 @@ public class CiudadDao {
     }
     
     
-    public static boolean actualizar(Ciudad ciu){
+    public static boolean actualizar(Tipo_documento td){
         try {
-            String SQL="UPDATE ciudad SET   nombre='"+ciu.getNombre()+"'where id_ciudad='"+ciu.getId_ciudad()+"'";
+            String SQL="UPDATE `hsd_plus`.`tipo_documento` SET `abrebiatura` = ?, `nombre` = ? WHERE (`id_tdocumento` = ?);";
             Connection con=Conexion.conectar();
             PreparedStatement st=con.prepareStatement(SQL);
-            st.setInt(2, ciu.getId_ciudad());
-            st.setString(1, ciu.getNombre());
-            
+            st.setInt(3, td.getId_tdocumento());
+            st.setString(1, td.getAbrebiatura());
+            st.setString(2, td.getNombre());
             if(st.executeUpdate()>0){
                 return true;
             }else{
@@ -77,13 +78,12 @@ public class CiudadDao {
     }
     
     
-    public static boolean eliminar(Ciudad ciu){
+    public static boolean eliminar(Tipo_documento td){
         try {
-            String SQL="DELETE FROM ciudad WHERE ('id_ciudad' = ?);";
+            String SQL="DELETE FROM tipo_documento WHERE (id_tdocumento = ?);";
             Connection con=Conexion.conectar();
             PreparedStatement st=con.prepareStatement(SQL);
-            st.setInt(1, ciu.getId_ciudad());
-            
+            st.setInt(1, td.getId_tdocumento());
             if(st.executeUpdate()>0){
                 return true;
             }else{
@@ -94,21 +94,6 @@ public class CiudadDao {
         }
     }
     
-    public static  String getCiudad(int ciu){
-        try {
-            String SQL="select nombre from ciudad where id_ciudad=?";
-            Connection con=Conexion.conectar();
-            PreparedStatement st=con.prepareStatement(SQL);
-            st.setInt(1, ciu);
-            ResultSet resultado=st.executeQuery();
-            
-            if(resultado.next()){
-                return resultado.getString("nombre");
-            }
-            return "--";
-        } catch (SQLException ex) {
-            return null;
-        }
-    }
+    
       
 }

@@ -1,16 +1,21 @@
-
 <%-- 
-    Document   : registroRoles
-    Created on : 26/10/2019, 01:07:51 PM
+    Document   : tablaProveedores
+    Created on : 8/11/2019, 08:54:48 PM
     Author     : SAM
 --%>
 
+
+
+
+
+<%@page import="dao.ProveedorDao"%>
+<%@page import="model.Proveedor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Roles</title>
+        <title>Ciudad</title>
         <%@include file="css.jsp"  %>
     </head>
     <body class="no-skin">
@@ -114,7 +119,7 @@
 							</ul>
 						</li>
 
-						<li class="black dropdown-modal">
+						<li class="Black dropdown-modal">
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-bell icon-animated-bell"></i>
 								<span class="badge badge-important">8</span>
@@ -186,7 +191,7 @@
 
 						<li class="light-Black dropdown-modal">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Samuel Salguero" />
+								<img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>Bienvenido</small>
 									Samuel Salguero
@@ -235,7 +240,7 @@
 					try{ace.settings.loadState('sidebar')}catch(e){}
 				</script>
 
-				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+                                <div class="sidebar-shortcuts" id="sidebar-shortcuts">
                                     <div class="nav-search" id="nav-search">
                                         <form class="form-search">
                                             <span class="input-icon">
@@ -244,8 +249,7 @@
                                             </span>
                                         </form>
                                     </div><!-- /.nav-search -->
-				</div><!-- /.sidebar-shortcuts -->
-
+				</div>
 				<ul class="nav nav-list">
 					<li class="">
 						<a href="index.jsp">
@@ -256,6 +260,7 @@
 						<b class="arrow"></b>
 					</li>
 
+                                        
                                         
                                         
                                                                                 <li class="active">
@@ -390,8 +395,6 @@
                                         
                                         
                                         
-                                        
-                                        
 					<li class="active open">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-sitemap"></i>
@@ -458,6 +461,8 @@
 				<div class="main-content-inner">
 					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
 						
+
+						
 					</div>
 
 					<div class="page-content">
@@ -465,7 +470,7 @@
 
 						<div class="page-header">
 							<h1>
-								Registro de Rol
+								Registro de Proveedor
 								
 							</h1>
 						</div><!-- /.page-header -->
@@ -483,39 +488,94 @@
 
 										<!-- div.dataTables_borderWrap -->
                                                                                 <div>
-                                                                                    <form action="RolesControl" method="post" class="form-horizontal">
-                                                                                        <div class="form-group">
-                                                                                            <label class="col-sm-3 control-label no-padding-right">
-                                                                                                ID Rol:
-                                                                                            </label>
-                                                                                            <div class="col-sm-9">
-                                                                                                <input type="text" name="id_rol" value="" placeholder="ID Rol" />
+                                                                                    
+                                                                                        <div class="col-xs-12">
+                                                                                            <div class="table-header" style="background-color: #000000;">
+                                                                                                Proveedores
                                                                                             </div>
-                                                                                        </div>
-                                                                                        
-                                                                                        <div class="form-group">
-                                                                                            <label class="col-sm-3 control-label no-padding-right">
-                                                                                                Nombre:
-                                                                                            </label>
-                                                                                            <div class="col-sm-9">
-                                                                                                <input type="text" name="nombre" value="" placeholder="Nombre Rol" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        
-                                                                                        <div class="form-group">
-                                                                                            <label class="col-sm-3 control-label no-padding-right">
-                                                                                                Fecha de Apertura:
-                                                                                            </label>
-                                                                                            <div class="col-sm-9">
-                                                                                                <input type="date" name="fecha" value="" placeholder="2018-12-21" />
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <button class="btn btn-success" type="submit">
-                                                                                            <i class="fa fa-save"></i>
-                                                                                            Registrar
-                                                                                        </button>
-                                                                                        <div>
-                                                                                            <%=(request.getAttribute("mensaje")!=null?request.getAttribute("mensaje"):"")%>
+
+                                                                                            <!-- div.table-responsive -->
+
+                                                                                            <!-- div.dataTables_borderWrap -->
+
+                                                                                            <table id="dynamic-table"  class="table table-striped table-bordered table-hover ">
+                                                                                                <thead>
+                                                                                                    <tr>
+                                                                                                        <th>NIT</th>
+                                                                                                        <th>Razon Social</th>
+                                                                                                        <th>Telefono</th>
+                                                                                                        <th>Email</th>
+                                                                                                        <th>Dirección</th>
+                                                                                                        <th>Ciudad</th>
+
+                                                                                                        <th></th>
+                                                                                                    </tr>
+                                                                                                </thead>
+
+                                                                                                <tbody>
+
+                                                                                                    <% for (Proveedor pr : ProveedorDao.listar()) {%>
+                                                                                                    <tr>
+
+                                                                                                        <td>
+                                                                                                            <a href="#"><%=pr . getNit() %></a>
+                                                                                                        </td>
+                                                                                                        <td class="hidden-500"><%=pr . getRazon_social() %></td>
+                                                                                                        <td class="hidden-500"><%=pr . getTelefono()%></td>
+                                                                                                        <td class="hidden-500"><%=pr . getEmail() %></td>
+                                                                                                        <td class="hidden-500"><%=pr . getDireccion() %></td>
+                                                                                                        <td class="hidden-500"><%=pr . getCiudad() %></td>
+
+
+                                                                                                        <td>
+                                                                                                            <div class="hidden-sm hidden-xs action-buttons">
+
+
+                                                                                                                <a class="green" href="#">
+                                                                                                                    <i class="ace-icon fa fa-pencil bigger-130"></i>
+                                                                                                                </a>
+
+                                                                                                                <a class="red" href="#">
+                                                                                                                    <i class="ace-icon fa fa-trash-o bigger-130"></i>
+                                                                                                                </a>
+                                                                                                            </div>
+
+                                                                                                            <div class="hidden-md hidden-lg">
+                                                                                                                <div class="inline pos-rel">
+                                                                                                                    <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
+                                                                                                                        <i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
+                                                                                                                    </button>
+
+                                                                                                                    <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+
+
+                                                                                                                        <li>
+                                                                                                                            <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                                                                                                <span class="green">
+                                                                                                                                    <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
+                                                                                                                                </span>
+                                                                                                                            </a>
+                                                                                                                        </li>
+
+                                                                                                                        <li>
+                                                                                                                            <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
+                                                                                                                                <span class="red">
+                                                                                                                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                                                                                                                </span>
+                                                                                                                            </a>
+                                                                                                                        </li>
+                                                                                                                    </ul>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                    <%}%>
+
+                                                                                                </tbody>
+                                                                                            </table>
+
+
+                                                                                            
                                                                                         </div>
                                                                                     </form>
                                                                                 </div>

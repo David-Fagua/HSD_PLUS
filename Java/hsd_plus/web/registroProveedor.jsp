@@ -4,8 +4,11 @@
     Author     : SAM
 --%>
 
+
 <%@page import="dao.CiudadDao"%>
 <%@page import="model.Ciudad"%>
+<%@page import="dao.ProveedorDao"%>
+<%@page import="model.Proveedor"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -466,7 +469,7 @@
 
 						<div class="page-header">
 							<h1>
-								Componentes
+								Registro de Proveedor
 								
 							</h1>
 						</div><!-- /.page-header -->
@@ -478,9 +481,7 @@
 
 								<div class="row">
 									<div class="col-xs-12">
-										<div class=" table-header ">
-											Registro de Proveedor
-										</div>
+										
 
 										<!-- div.table-responsive -->
 
@@ -561,6 +562,7 @@
                                                                                         <div>
                                                                                             <%=(request.getAttribute("mensaje")!=null?request.getAttribute("mensaje"):"")%>
                                                                                         </div>
+                                                                                        
                                                                                     </form>
                                                                                 </div>
 
