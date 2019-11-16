@@ -1,4 +1,5 @@
-package controlador;
+
+package Controlador;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,14 +10,14 @@ import java.sql.SQLException;
  * @author fagua
  */
 public class Conexion {
-    private String USERNAME = "root";
-    private String PASSWORD = "";
+    private String USERNAME = "david";
+    private String PASSWORD = "12345";
     private String HOST = "localhost";
     private String PORT = "3306";
     private String DATABASE = "usuarios";
-    private String CLASSNAME = "com.mysql.jdbc.driver";
+    private String CLASSNAME = "com.mysql.jdbc.Driver";
     private String URL = "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE;
-    private Connection con;
+    Connection con;
     
     public Conexion (){
         try {
