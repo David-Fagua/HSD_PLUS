@@ -39,12 +39,12 @@
         <h2>Iniciar Sesión</h2>
       </center>
       <div class="myform-bottom">
-        <form role="form" action="./Admin/inicio.html" method="post" class="" onsubmit="return validarInicio()">
+        <form role="form" action="./Admin/inicio.html" method="post" class="">
           <div class="form-group">
-            <input type="text" name="form-username" placeholder="Usuario" class="form-control" id="user-username">
+            <input type="text" placeholder="Usuario" class="form-control">
           </div>
           <div class="form-group">
-            <input type="password" name="form-password" placeholder="Contraseña" class="form-control" id="form-password">
+            <input type="password" placeholder="Contraseña" class="form-control">
           </div>
 
           <div class="text-center">
@@ -60,41 +60,10 @@
         <center>
           <button style="float:center;" class="btn btn-primary btn-lg" role="button" type="submit" class="mybtn">Ingresar</button>
         </center>
-
-        <div class="text-center">
-          <p>Entrar como
-            <a href="./Cliente/Catalogo.html">Cliente</a>
-          </p>
-        </div>
     </form>
   </div>
 </div>
 
-
-   
-
-<script type="text/javascript">
-  function validarInicio(){
-
-    var clave = document.getElementById('form-password').value;
-
-      var usuario1 = document.getElementById('user-username').value;
-
-
-      switch (usuario1) {
-      case 'admin@gmail.com':
-      LocalStorege.setItem('LogUser','admin@gmail.com');
-      return true;
-      break;
-      case 'cliente@gmail.com':
-      LocalStorege.setItem('LogUser', 'cliente@gmail.com');
-      return true;
-      break;
-      default:alert('Usuario no encontrado, verifique su informacion');
-      return false; 
-      }
-  }
-</script>
 <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

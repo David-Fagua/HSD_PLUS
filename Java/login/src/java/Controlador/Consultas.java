@@ -20,7 +20,7 @@ public class Consultas extends Conexion{
         ResultSet rs = null;
         
         try {
-            String Consulta = "select * from usuarios where usuario = ? and pass = ?";
+            String Consulta = "select * from usuarios where correo = ? and pass = ?";
             con =cn.getConnection();
             ps=con.prepareStatement(Consulta);
             ps.setString(1, correo);
