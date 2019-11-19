@@ -24,7 +24,7 @@ public class Conexion {
             Class.forName(CLASSNAME);
             con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         } catch (ClassNotFoundException e) {
-            System.err.println("ERROR "+e);
+            System.err.println("Error "+e);
         } catch (SQLException e){
         System.err.println("Error "+e);
         }

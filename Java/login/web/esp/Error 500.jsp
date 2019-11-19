@@ -8,8 +8,8 @@
 
 	<title>Error500</title>
 
-	<link rel="icon" type="image/png" href="../Img/Logo.png">
-	<link type="text/css" rel="stylesheet" href="../css/style.css" />
+	<link rel="icon" type="image/png" href="<%=request.getContextPath()%>/assets/Img/Logo.png">
+	<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/style.css" />
 
 </head>
 
@@ -23,7 +23,7 @@
 			</div>
 			<h2>ERROR DE SERVIDOR INTERNO</h2>
 			<p>Incapaz de encontrar el motivo exacto del error, no se ha podido completar la solicitud.</p>
-			<a href="inicio.html">Pagina de Inicio</a>
+			<a href="index.jsp">Pagina de Inicio</a>
 		</div>
 	</div>
 

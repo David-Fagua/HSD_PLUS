@@ -7,9 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Error 404</title>
-<link rel="icon" type="image/png" href="../Img/Logo.png">
+<link rel="icon" type="image/png" href="<%=request.getContextPath()%>/Img/Logo.png">
 
-	<link type="text/css" rel="stylesheet" href="../css/style.css" />
+	<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/style.css" />
 	
 
 </head>
@@ -22,9 +22,9 @@
 				<div></div>
 				<h1>404</h1>
 			</div>
-			<h2>P√°gina no encontrada </h2>
-			<p>La p√°gina que est√° buscando podr√≠a haberse eliminado si su nombre hubiera cambiado o no estuviera disponible temporalmente.</p>
-			<a href="../inicio.html">Homepage</a>
+			<h2>P·gina no encontrada </h2>
+			<p>La p·gina que est· buscando podrÌa haberse eliminado si su nombre hubiera cambiado o no estuviera disponible temporalmente.</p>>
+			<a href="<%=request.getContextPath()%>/index.jsp">Homepage</a>
 		</div>
 	</div>
 

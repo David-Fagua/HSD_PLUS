@@ -3,7 +3,7 @@
 <head>
 	<title>Catalogo</title>
 
-	<link rel="icon" type="image/png" href="../../Img/Logo.png">
+	<link rel="icon" src="../../assets/Img/Logo.png">
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<meta charset="utf-8">
@@ -17,7 +17,7 @@
 <div>
   <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
     <a href="Catalogo.html" class="navbar-brand" href="#">
-    <img src="../../img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
+    <img src="../../assets/Img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
     <a href="Catalogo.html" class="navbar-brand" href="#">SHD PLUS</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -40,12 +40,12 @@
       </div>
       <div class="btn-group dropleft">
         <button style="background-color: #ffffff;" class="button" class="btn btn-sec btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="../../img/Usuario.png" width="40" height="40" alt="">
+          <img src="../../assets/Img//Usuario.png" width="40" height="40" alt="">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="Cliente.html">Cliente</a>
           <a class="dropdown-item" href="Cliente.html">Configuracion</a>
-          <a class="dropdown-item" href="../../Inicio.html">Cerrar sesión</a>
+          <a class="dropdown-item" href="../../assets/Index.jsp">Cerrar sesión</a>
         </div>
       </nav>
     </div>
@@ -67,25 +67,25 @@
 		</ol>
 	<div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="../../Img/9.jpg" width="100" height="400px whilt " class="d-block w-100" alt="...">
+      <img src="../../assets/Img/9.jpg" width="100" height="400px whilt " class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="../../Img/2.jpg" width="100" height="400px " class="d-block w-100" alt="...">
+      <img src="../../assets/Img/2.jpg" width="100" height="400px " class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="../../Img/3.jpg" width="100" height="400px " class="d-block w-100" alt="...">
+      <img src="../../assets/Img/3.jpg" width="100" height="400px " class="d-block w-100" alt="...">
     </div>
      <div class="carousel-item">
-      <img src="../../Img/4.jpg" width="100" height="400px " class="d-block w-100" alt="...">
+      <img src="../../assets/Img/4.jpg" width="100" height="400px " class="d-block w-100" alt="...">
     </div>
      <div class="carousel-item">
-      <img src="../../Img/5.jpg" width="100" height="400px " class="d-block w-100" alt="...">
+      <img src="../../assets/Img/5.jpg" width="100" height="400px " class="d-block w-100" alt="...">
     </div>
      <div class="carousel-item">
-      <img src="../../Img/6.jpg" width="100" height="400px " class="d-block w-100" alt="...">
+      <img src="../../assets/Img/6.jpg" width="100" height="400px " class="d-block w-100" alt="...">
     </div>
      <div class="carousel-item">
-      <img src="../../Img/7.jpg" width="100" height="400px " class="d-block w-100" alt="...">
+      <img src="../../assets/Img/7.jpg" width="100" height="400px " class="d-block w-100" alt="...">
     </div>
     </div>
     <a class="carousel-control-prev" href="producto.htmlcarouselExampleIndicators" role="button" data-slide="prev">
@@ -118,7 +118,7 @@
     <small  class="d-block mb-3 text-right text-muted">14 Jun</small>
   </div>
   <div class="col-md-3 order-md-1">
-    <img src="../../img/12.jpg" class="card-img-top" alt="img">
+    <img src="../../assets/Img/12.jpg" class="card-img-top" alt="img">
   </div>
 </div>
 </br>
@@ -138,7 +138,7 @@
     <small  class="d-block mb-3 text-right text-muted">6 Jun</small>
   </div>
   <div class="col-md-3 order-md-1">
-    <img src="../../img/2.jpg" class="card-img-top" alt="img">
+    <img src="../../assets/Img/2.jpg" class="card-img-top" alt="img">
   </div>
 </div>
 </br>
@@ -158,7 +158,7 @@
     <small  class="d-block mb-3 text-right text-muted">1 Jun</small>
   </div>
   <div class="col-md-3 order-md-1">
-    <img src="../../img/3.jpg" class="card-img-top" alt="img">
+    <img src="../../assets/Img/3.jpg" class="card-img-top" alt="img">
   </div>
 </div>
 </br>
@@ -178,7 +178,7 @@
     <small  class="d-block mb-3 text-right text-muted">29 May</small>
   </div>
   <div class="col-md-3 order-md-1">
-    <img src="../../img/4.jpg" class="card-img-top" alt="img">
+    <img src="../../assets/Img/4.jpg" class="card-img-top" alt="img">
   </div>
 </div>
 </br>
@@ -198,7 +198,7 @@
     <small  class="d-block mb-3 text-right text-muted">25 May</small>
   </div>
   <div class="col-md-3 order-md-1">
-    <img src="../../img/5.jpg" class="card-img-top" alt="img">
+    <img src="../../assets/Img/5.jpg" class="card-img-top" alt="img">
   </div>
 </div>
 </br>
@@ -218,7 +218,7 @@
     <small  class="d-block mb-3 text-right text-muted">25 May</small>
   </div>
   <div class="col-md-3 order-md-1">
-    <img src="../../img/6.jpg" class="card-img-top" alt="img">
+    <img src="../../assets/Img/6.jpg" class="card-img-top" alt="img">
   </div>
 </div>
 </br>
@@ -238,7 +238,7 @@
     <small  class="d-block mb-3 text-right text-muted">25 May</small>
   </div>
   <div class="col-md-3 order-md-1">
-    <img src="../../img/7.jpg" class="card-img-top" alt="img">
+    <img src="../../assets/Img/7.jpg" class="card-img-top" alt="img">
   </div>
 </div>
 </br>
@@ -258,7 +258,7 @@
     <small  class="d-block mb-3 text-right text-muted">25 May</small>
   </div>
   <div class="col-md-3 order-md-1">
-    <img src="../../img/8.jpg" class="card-img-top" alt="img">
+    <img src="../../assets/Img/8.jpg" class="card-img-top" alt="img">
   </div>
 </div>
 </br>
@@ -278,7 +278,7 @@
     <small  class="d-block mb-3 text-right text-muted">25 May</small>
   </div>
   <div class="col-md-3 order-md-1">
-    <img src="../../img/9.jpg" class="card-img-top" alt="img">
+    <img src="../../assets/Img/9.jpg" class="card-img-top" alt="img">
   </div>
 </div>
 

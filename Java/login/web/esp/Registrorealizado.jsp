@@ -31,9 +31,9 @@
     
 <div>
   <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-    <a href="inicio.html" class="navbar-brand" href="#">
-    <img src="../img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
-    <a href="../inicio.html" class="navbar-brand" href="#">HSD PLUS</a>
+    <a href="<%=request.getContextPath()%>/index.jsp" class="navbar-brand" href="#">
+        <img src="<%=request.getContextPath()%>/assets/Img/Logo.png" width="35" height="35" >
+    <a href="<%=request.getContextPath()%>/index.jsp" class="navbar-brand" href="#">HSD PLUS</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>

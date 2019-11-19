@@ -63,7 +63,7 @@
                     <li>
                         <a href="#">
                             <div>
-                                <i class="fa fa-comment fa-fw"></i> Nueva Reserva NÂ°4
+                                <i class="fa fa-comment fa-fw"></i> Nueva Reserva N°4
                                 <span class="pull-right text-muted small">Hace 23 hora</span>
                             </div>
                         </a>
@@ -71,7 +71,7 @@
                     <li>
                         <a href="#">
                             <div>
-                                <i class="fa fa-comment fa-fw"></i> Nueva Reserva NÂ°3   
+                                <i class="fa fa-comment fa-fw"></i> Nueva Reserva N°3   
                                 <span class="pull-right text-muted small">Hace Un dia</span>
                             </div>
                         </a>

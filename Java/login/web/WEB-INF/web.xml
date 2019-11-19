@@ -4,9 +4,17 @@
         <servlet-name>IniciarSesion</servlet-name>
         <servlet-class>Servlet.IniciarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Registro</servlet-name>
+        <servlet-class>Servlet.Registro</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IniciarSesion</servlet-name>
         <url-pattern>/Inicio</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Registro</servlet-name>
+        <url-pattern>/Registro</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

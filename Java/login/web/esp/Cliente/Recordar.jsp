@@ -4,7 +4,7 @@
 <head>
   <title>Recordar</title>
 
-  <link rel="icon" type="image/png" href="../Img/Logo.png">
+  <link rel="icon" type="image/png" href="<%=request.getContextPath()%>/assets/Img/Logo.png">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <meta charset="utf-8">
@@ -16,30 +16,30 @@
 <br/>
 <br/>
 <center>
-  <h1>Recordar contrase帽a</h1>
+  <h1>Recordar contrase馻</h1>
 </center>
 <br/>
 <br/>
 
 <div>
   <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-    <a href="inicio.html" class="navbar-brand" href="#">
-    <img src="../img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
-    <a href="inicio.html" class="navbar-brand" href="#">HSD PLUS</a>
+    <a href="<%=request.getContextPath()%>/index.jsp" class="navbar-brand" href="#">
+    <img src="<%=request.getContextPath()%>/assets/Img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
+    <a href="<%=request.getContextPath()%>/index.jsp" class="navbar-brand" href="#">HSD PLUS</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-          <a href="../Catalogo.html" class="nav-link" style="color: #47A5B4;">Catalogo
+          <a href="<%=request.getContextPath()%>/Catalogo.jsp" class="nav-link" style="color: #47A5B4;">Catalogo
           </a>
-          <a href="../Contactenos.html" class="nav-link" style="color: #47A5B4;">Contactenos
+          <a href="<%=request.getContextPath()%>/Contactenos.jsp" class="nav-link" style="color: #47A5B4;">Contactenos
           </a>
-          <a href="../Quienessomos.html" class="nav-link" style="color: #47A5B4;">驴Quienes Somos?
+          <a href="<%=request.getContextPath()%>/quienessomos.jsp" class="nav-link" style="color: #47A5B4;">縌uienes Somos?
           </a>
-          <a href="../Misi贸n y Visi贸n.html" class="nav-link" style="color: #47A5B4;">Misi贸n y Visi贸n
+          <a href="<%=request.getContextPath()%>/Mision y Vision.jsp" class="nav-link" style="color: #47A5B4;">Misi髇 y Visi髇
           </a>
-          <a href="../Portafolio.html" class="nav-link" style="color: #47A5B4;">Portafolio
+          <a href="<%=request.getContextPath()%>/Portafolio.jsp" class="nav-link" style="color: #47A5B4;">Portafolio
           </a>
         </li>
       </ul>
@@ -51,11 +51,11 @@
       </div>
       <div class="btn-group dropleft">
         <button style="background-color: #ffffff;" class="button" class="btn btn-sec btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="../img/Usuario.png" width="40" height="40" alt="">
+          <img src="<%=request.getContextPath()%>/assets/Img/Usuario.png" width="40" height="40" alt="">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="./esp/iniciosesion.html">Iniciar Sesi贸n</a>
-          <a class="dropdown-item" href="./esp/Registrar.html">Registrar</a>
+          <a class="dropdown-item" href="<%=request.getContextPath()%>/esp/InicioSesion.jsp">Iniciar Sesi髇</a>
+          <a class="dropdown-item" href="<%=request.getContextPath()%>/esp/Registrar.jsp">Registrar</a>
         </div>
       </div>
     </div>
@@ -76,13 +76,11 @@
 </form>
     
 
-
-  
 <div class="container">
   <footer class="pt-5 my-md-5 pt-md-5 border-top">
     <div class="row">
       <div class="col-6 col-md">
-        <h5 style="color:#47A5B4;">Informaci贸n 煤til</h5>
+        <h5 style="color:#47A5B4;">Informaci髇 鷗il</h5>
         <ul class="list-unstyled text-small">
           <li><a class="text-muted" href="#">Contacto & Ayuda</a></li>
           <li><a class="text-muted" href="#">Consejos de seguridad</a></li>
@@ -94,7 +92,7 @@
       <div class="col-6 col-md">
         <h5 style="color:#47A5B4;">Servicios</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="Registrar.html">Registrate</a></li>
+          <li><a class="text-muted" href="Registrar.jsp">Registrate</a></li>
           <li><a class="text-muted" href="#">Reserva</a></li>
           <li><a class="text-muted" href="#">Consulta</a></li>
         </ul>
@@ -103,15 +101,14 @@
         <h5 style="color:#47A5B4;">Contactenos</h5>
         <ul class="list-unstyled text-small">
           <li><a class="text-muted" href="#">Equipo</a></li>
-          <li><a class="text-muted" href="#">Localizaci贸n</a></li>
+          <li><a class="text-muted" href="#">Localizaci髇</a></li>
           <li><a class="text-muted" href="#">Privacidad</a></li>
           <li><a class="text-muted" href="#">Terminos</a></li>
         </ul>
       </div>
     </div>
     <div class="col-12 col-md">
-        <small class="d-block mb-3 text-center text-muted">Copyright &copy; 2018-2019 HSD Plus</small>
-      </div>
+      <small class="d-block mb-3 text-center text-muted">Copyright &copy; 2018-2019 HSD Plus</small>
     </div>
   </footer>
 </div>
