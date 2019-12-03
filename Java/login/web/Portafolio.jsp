@@ -67,7 +67,7 @@
   <div class="row featurette">
     <div class="col-md-8 order-md-2">
       <h1 class="featurette-heading">Portafolio</h1>
-      <p class="lead">HSD PLUS, es una Startup seria, moderna con unos excelentes profesionales que permanecen siempre investigando, innovando y mejorando para entregar los mejores servicios tecnol贸gicos de desarrollo de alta calidad a nuestros clientes. Brindando interfases c贸modas, afiles y f谩ciles de usar para mayor productividad en las actividades que desempe帽en nuestros clientes</p>
+      <p class="lead">HSD PLUS, es una Startup seria, moderna con unos excelentes profesionales que permanecen siempre investigando, innovando y mejorando para entregar los mejores servicios tecnol骻icos de desarrollo de alta calidad a nuestros clientes. Brindando interfases c髆odas, afiles y f醕iles de usar para mayor productividad en las actividades que desempe馿n nuestros clientes.</p>
     </div>
     <div class="col-md-4 order-md-1">
       <img src="assets/Img/Logo.png" class="card-img-top" alt="img">
@@ -79,7 +79,7 @@
   <footer class="pt-5 my-md-5 pt-md-5 border-top">
     <div class="row">
       <div class="col-6 col-md">
-        <h5 style="color:#47A5B4;">Informaci贸n 煤til</h5>
+        <h5 style="color:#47A5B4;">Informaci髇 趖il</h5>
         <ul class="list-unstyled text-small">
           <li><a class="text-muted" href="#">Contacto & Ayuda</a></li>
           <li><a class="text-muted" href="#">Consejos de seguridad</a></li>
@@ -91,7 +91,7 @@
       <div class="col-6 col-md">
         <h5 style="color:#47A5B4;">Servicios</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="Registrar.jsp">Registrate</a></li>
+          <li><a class="text-muted" href="Registrar.jsp">Registrar</a></li>
           <li><a class="text-muted" href="#">Reserva</a></li>
           <li><a class="text-muted" href="#">Consulta</a></li>
         </ul>
@@ -100,7 +100,7 @@
         <h5 style="color:#47A5B4;">Contactenos</h5>
         <ul class="list-unstyled text-small">
           <li><a class="text-muted" href="#">Equipo</a></li>
-          <li><a class="text-muted" href="#">Localizaci贸n</a></li>
+          <li><a class="text-muted" href="#">Localizaci髇</a></li>
           <li><a class="text-muted" href="#">Privacidad</a></li>
           <li><a class="text-muted" href="#">Terminos</a></li>
         </ul>

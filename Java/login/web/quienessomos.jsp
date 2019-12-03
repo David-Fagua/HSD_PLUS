@@ -65,7 +65,7 @@
 <div>
   <center>
     <div class="card-body">
-      <h5>Â¿QUIENES SOMOS?</h5>
+      <h5>¿QUIENES SOMOS?</h5>
     </div>
     </center>
   </div>
@@ -77,7 +77,7 @@
         <div class="card-body">
           <img src="assets/Img/A.png" class="card-img-top" alt="...">
           <h5>Harold Rojas</h5>
-          <p class="card-text">Ingeniero de sistemas, conocimiento en administraciÃƒÂ³n con capacidad de trabajo en equipo, desempeÃƒÂ±o alto en entornos de alta presiÃƒÂ³n,   fortaleza para tomar decisiones con objetividad, disposiciÃƒÂ³n para el aprendizaje y el conocimiento, hÃƒÂ¡bil para la planeaciÃƒÂ³n, gestiÃƒÂ³n y ejecuciÃƒÂ³n de  proyectos.</p>
+          <p class="card-text">Ingeniero de sistemas, conocimiento en administración con capacidad de trabajo en equipo, desempeño alto en entornos de alta presión,   fortaleza para tomar decisiones con objetividad, disposición para el aprendizaje y el conocimiento, hábil para la planeación, gestión y ejecución de  proyectos.</p>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@
         <div class="card-body">
           <img src="assets/Img/B.jpg" class="card-img-top" alt="...">
           <h5>Samuel Salguero</h5>
-          <p class="card-text">Ingeniero de sistemas, tecnico de sistema, Capacidad de trabajo en equipo con abogados, fortaleza para tomar decisiones con objetividad, disposiciÃƒÂ³n para el aprendizaje y el conocimiento, hÃƒÂ¡bil para la planeaciÃƒÂ³n, gestiÃƒÂ³n y ejecuciÃƒÂ³n de  proyectos.</p>
+          <p class="card-text">Ingeniero de sistemas, tecnico de sistema, Capacidad de trabajo en equipo con abogados, fortaleza para tomar decisiones con objetividad, disposición para el aprendizaje y el conocimiento, hábil para la planeación, gestión y ejecución de  proyectos.</p>
         </div>
       </div>
     </div>
@@ -95,7 +95,7 @@
         <div class="card-body">
           <img src="assets/Img/C.jpg" class="card-img-top" alt="...">
           <h5>David Fagua</h5>
-          <p class="card-text">Ingeniero de sistemas y diseÃƒÂ±ador grafico, Capacidad de trabajo en equipo, fortaleza para tomar decisiones con objetividad, disposiciÃƒÂ³n para el aprendizaje y el conocimiento, hÃƒÂ¡bil para la planeaciÃƒÂ³n, creatividad, gestiÃƒÂ³n y ejecuciÃƒÂ³n de  proyectos.</p>
+          <p class="card-text">Ingeniero de sistemas y diseñador grafico, Capacidad de trabajo en equipo, fortaleza para tomar decisiones con objetividad, disposición para el aprendizaje y el conocimiento, hábil para la planeación, creatividad, gestión y ejecución de  proyectos.</p>
         </div>
       </div>
     </div>
@@ -114,7 +114,7 @@
   <footer class="pt-5 my-md-5 pt-md-5 border-top">
     <div class="row">
       <div class="col-6 col-md">
-        <h5 style="color:#47A5B4;">InformaciÃ³n Ãºtil</h5>
+        <h5 style="color:#47A5B4;">Información Útil</h5>
         <ul class="list-unstyled text-small">
           <li><a class="text-muted" href="#">Contacto & Ayuda</a></li>
           <li><a class="text-muted" href="#">Consejos de seguridad</a></li>
@@ -126,7 +126,7 @@
       <div class="col-6 col-md">
         <h5 style="color:#47A5B4;">Servicios</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="Registrar.jsp">Registrate</a></li>
+          <li><a class="text-muted" href="Registrar.jsp">Registrar</a></li>
           <li><a class="text-muted" href="#">Reserva</a></li>
           <li><a class="text-muted" href="#">Consulta</a></li>
         </ul>
@@ -135,7 +135,7 @@
         <h5 style="color:#47A5B4;">Contactenos</h5>
         <ul class="list-unstyled text-small">
           <li><a class="text-muted" href="#">Equipo</a></li>
-          <li><a class="text-muted" href="#">LocalizaciÃ³n</a></li>
+          <li><a class="text-muted" href="#">Localización</a></li>
           <li><a class="text-muted" href="#">Privacidad</a></li>
           <li><a class="text-muted" href="#">Terminos</a></li>
         </ul>

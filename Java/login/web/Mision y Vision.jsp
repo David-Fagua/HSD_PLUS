@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <html>
 <head>
-	<title>HSD PLUS</title>
+	<title>Misión y Visión</title>
 
 	<link rel="icon" type="assets/img/png" href="<%=request.getContextPath()%>/assets/Img/Logo.png">
 
@@ -61,11 +61,13 @@
 </div>
 <link rel="icon" type="image/png"src="assets/Img/Logo.png">
 
+<br/>
+
 <div class="container">
   <div class="row featurette">
     <div class="col-md-7">
-      <h2 class="featurette-heading">MisiÃ³n</h2>
-      <p class="lead">Somos una empresa dedicada a la comercializaciÃ³n y distribuciÃ³n de productos informÃ¡ticos, fabricaciÃ³n de ordenadores, desarrollo de aplicaciones informÃ¡ticas de gestiÃ³n, soluciones en Internet, servicio tÃ©cnico y mantenimiento de equipos y sistemas informÃ¡ticos, hosting, y consultorÃ­a de protecciÃ³n de datos. Ofreciendo una soluciÃ³n a todo el territorio nacional.</p>
+      <h2 class="featurette-heading">Misión</h2>
+      <p class="lead">Somos una empresa dedicada a la comercialización y distribución de productos informáticos, fabricación de ordenadores, desarrollo de aplicaciones informáticas de gestión, soluciones en Internet, servicio técnico y mantenimiento de equipos y sistemas informáticos, hosting, y consultoría de protección de datos. Ofreciendo una solución a todo el territorio nacional.</p>
     </div>
     <div class="col-md-5">
       <img src="assets/Img/17.jpg" class="card-img-top" alt="img">
@@ -74,8 +76,8 @@
   </br>
   <div class="row featurette">
     <div class="col-md-7 order-md-2">
-      <h2 class="featurette-heading">VisiÃ³n</h2>
-      <p class="lead">Pretendemos ser un referente en el mercado nacional en el sector de las TIC, y para ello abarcaremos todos los servicios que ofrecemos actualmente incrementando los que vayan surgiendo debido a la necesidad de cambio provocado por los avances tecnolÃ³gicos. Esto es asÃ­ ya que somos una empresa en constante innovaciÃ³n ya que el sector de la tecnologÃ­a asÃ­ lo requiere.</p>
+      <h2 class="featurette-heading">Visión</h2>
+      <p class="lead">Pretendemos ser un referente en el mercado nacional en el sector de las TIC, y para ello abarcaremos todos los servicios que ofrecemos actualmente incrementando los que vayan surgiendo debido a la necesidad de cambio provocado por los avances tecnológicos. Esto es así ya que somos una empresa en constante innovación ya que el sector de la tecnología así lo requiere.</p>
     </div>
     <div class="col-md-5 order-md-1">
       <img src="assets/Img/18.jpg" class="card-img-top" alt="img">
@@ -88,7 +90,7 @@
   <footer class="pt-5 my-md-5 pt-md-5 border-top">
     <div class="row">
       <div class="col-6 col-md">
-        <h5 style="color:#47A5B4;">InformaciÃ³n Ãºtil</h5>
+        <h5 style="color:#47A5B4;">Información Útil</h5>
         <ul class="list-unstyled text-small">
           <li><a class="text-muted" href="#">Contacto & Ayuda</a></li>
           <li><a class="text-muted" href="#">Consejos de seguridad</a></li>
@@ -100,7 +102,7 @@
       <div class="col-6 col-md">
         <h5 style="color:#47A5B4;">Servicios</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="Registrar.jsp">Registrate</a></li>
+          <li><a class="text-muted" href="Registrar.jsp">Registrar</a></li>
           <li><a class="text-muted" href="#">Reserva</a></li>
           <li><a class="text-muted" href="#">Consulta</a></li>
         </ul>
@@ -109,7 +111,7 @@
         <h5 style="color:#47A5B4;">Contactenos</h5>
         <ul class="list-unstyled text-small">
           <li><a class="text-muted" href="#">Equipo</a></li>
-          <li><a class="text-muted" href="#">LocalizaciÃ³n</a></li>
+          <li><a class="text-muted" href="#">Localización</a></li>
           <li><a class="text-muted" href="#">Privacidad</a></li>
           <li><a class="text-muted" href="#">Terminos</a></li>
         </ul>

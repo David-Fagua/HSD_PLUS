@@ -19,7 +19,7 @@
 <br/>
 <br/>
 <center>
-  <h1>Â¡Contacta con nosotros!</h1>
+  <h1>¡Contacta con nosotros!</h1>
 </center>
 <br/>
 <br/>
@@ -100,8 +100,8 @@
       <label for="inputState">Ciudad</label>
       <select id="inputState" class="form-control">
         <option selected>Elige tu ciudad...</option>
-        <option>BogotÃ¡</option>
-        <option>MedellÃ­n</option>
+        <option>Bogotá¡</option>
+        <option>Medelli­n</option>
         <option>Cali</option>
         <option>Tunja</option>
         <option>Otra</option>
@@ -110,12 +110,12 @@
 
     
       <label for="inputZip">Numero de telefono</label>
-      <input type="text" maxlength="10" class="form-control required="true" id="inputZip">
+      <input type="text" maxlength="10" class="form-control required=true" id="inputZip">
     
   </div>
 
   <div class="form-group" style="margin: 0px 200px">
-    <label for="exampleFormControlTextarea1">Â¡Dejanos un comentario!</label>
+    <label for="exampleFormControlTextarea1">!Dejanos un comentario!</label>
     <textarea class="form-control" id="exampleFormControlTextarea1"  required="true" rows="3"></textarea>
   </div>
 
@@ -130,7 +130,7 @@
   <footer class="pt-5 my-md-5 pt-md-5 border-top">
     <div class="row">
       <div class="col-6 col-md">
-        <h5 style="color:#47A5B4;">InformaciÃ³n Ãºtil</h5>
+        <h5 style="color:#47A5B4;">Información Útil</h5>
         <ul class="list-unstyled text-small">
           <li><a class="text-muted" href="#">Contacto & Ayuda</a></li>
           <li><a class="text-muted" href="#">Consejos de seguridad</a></li>
@@ -142,7 +142,7 @@
       <div class="col-6 col-md">
         <h5 style="color:#47A5B4;">Servicios</h5>
         <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="Registrar.jsp">Registrate</a></li>
+          <li><a class="text-muted" href="Registrar.jsp">Registrar</a></li>
           <li><a class="text-muted" href="#">Reserva</a></li>
           <li><a class="text-muted" href="#">Consulta</a></li>
         </ul>
@@ -151,7 +151,7 @@
         <h5 style="color:#47A5B4;">Contactenos</h5>
         <ul class="list-unstyled text-small">
           <li><a class="text-muted" href="#">Equipo</a></li>
-          <li><a class="text-muted" href="#">LocalizaciÃ³n</a></li>
+          <li><a class="text-muted" href="#">Localización</a></li>
           <li><a class="text-muted" href="#">Privacidad</a></li>
           <li><a class="text-muted" href="#">Terminos</a></li>
         </ul>
