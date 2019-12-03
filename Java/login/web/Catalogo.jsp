@@ -1,10 +1,11 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
   <title>Catalogo</title>
 
-  <link rel="icon" type="image/png" href="assets/Img/Logo.png">
+  <link rel="icon" type="assets/img/png" href="<%=request.getContextPath()%>/assets/Img/Logo.png">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <meta charset="utf-8">
@@ -30,9 +31,9 @@
           </a>
           <a href="Contactenos.jsp" class="nav-link" style="color: #47A5B4;">Contactenos
           </a>
-          <a href="quienessomos.jsp" class="nav-link" style="color: #47A5B4;">Â¿Quienes Somos?
+          <a href="quienessomos.jsp" class="nav-link" style="color: #47A5B4;">¿Quienes Somos?
           </a>
-          <a href="Mision y Vision.jsp" class="nav-link" style="color: #47A5B4;">MisiÃ³n y VisiÃ³n
+          <a href="Mision y Vision.jsp" class="nav-link" style="color: #47A5B4;">Misión y Visión
           </a>
           <a href="Portafolio.jsp" class="nav-link" style="color: #47A5B4;">Portafolio
           </a>
@@ -49,7 +50,7 @@
           <img src="assets/Img/Usuario.png" width="40" height="40" alt="">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="esp/InicioSesion.jsp">Iniciar SesiÃ³n</a>
+          <a class="dropdown-item" href="esp/InicioSesion.jsp">Iniciar Sesión</a>
           <a class="dropdown-item" href="esp/Registrar.jsp">Registrar</a>
         </div>
       </div>

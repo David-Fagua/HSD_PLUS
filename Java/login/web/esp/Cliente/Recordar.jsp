@@ -1,10 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 
 <head>
   <title>Recordar</title>
 
-  <link rel="icon" type="image/png" href="<%=request.getContextPath()%>/assets/Img/Logo.png">
+  <link rel="icon" type="image/png" href="../../assets/Img/Logo.png">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <meta charset="utf-8">
@@ -23,23 +24,19 @@
 
 <div>
   <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-    <a href="<%=request.getContextPath()%>/index.jsp" class="navbar-brand" href="#">
-    <img src="<%=request.getContextPath()%>/assets/Img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
-    <a href="<%=request.getContextPath()%>/index.jsp" class="navbar-brand" href="#">HSD PLUS</a>
+    <a href="Catalogo.jsp" class="navbar-brand" href="#">
+    <img src="../../assets/Img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
+    <a href="Catalogo.jsp" class="navbar-brand" href="#">SHD PLUS</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-          <a href="<%=request.getContextPath()%>/Catalogo.jsp" class="nav-link" style="color: #47A5B4;">Catalogo
+          <a href="Catalogo.jsp" class="nav-link" style="color: #47A5B4;">Catalogo
           </a>
-          <a href="<%=request.getContextPath()%>/Contactenos.jsp" class="nav-link" style="color: #47A5B4;">Contactenos
+          <a href="ConsultarCompras.jsp" class="nav-link" style="color: #47A5B4;">Consultar Compras
           </a>
-          <a href="<%=request.getContextPath()%>/quienessomos.jsp" class="nav-link" style="color: #47A5B4;">¿Quienes Somos?
-          </a>
-          <a href="<%=request.getContextPath()%>/Mision y Vision.jsp" class="nav-link" style="color: #47A5B4;">Misión y Visión
-          </a>
-          <a href="<%=request.getContextPath()%>/Portafolio.jsp" class="nav-link" style="color: #47A5B4;">Portafolio
+          <a href="Reservarproducto.jsp" class="nav-link" style="color: #47A5B4;">Reservaciones
           </a>
         </li>
       </ul>
@@ -51,13 +48,14 @@
       </div>
       <div class="btn-group dropleft">
         <button style="background-color: #ffffff;" class="button" class="btn btn-sec btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="<%=request.getContextPath()%>/assets/Img/Usuario.png" width="40" height="40" alt="">
+          <img src="../../assets/Img//Usuario.png" width="40" height="40" alt="">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="<%=request.getContextPath()%>/esp/InicioSesion.jsp">Iniciar Sesión</a>
-          <a class="dropdown-item" href="<%=request.getContextPath()%>/esp/Registrar.jsp">Registrar</a>
+          <a class="dropdown-item" href="Cliente.jsp">Cliente</a>
+          <a class="dropdown-item" href="Cliente.jsp">Configuración</a>
+          <a class="dropdown-item" href="../../assets/Index.jsp">Cerrar sesión</a>
         </div>
-      </div>
+      </nav>
     </div>
   </nav>
 </div>

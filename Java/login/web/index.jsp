@@ -1,11 +1,11 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 
 <head>
   <title>HSD PLUS</title>
-  <link rel="icon" src="assets/Img/Logo.png">
-  <img src="assets/Img/Logo.png" width="35" height="35" >
+ <link rel="icon" type="assets/img/png" href="<%=request.getContextPath()%>/assets/Img/Logo.png">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <meta charset="utf-8">
@@ -32,9 +32,9 @@
           </a>
           <a href="Contactenos.jsp" class="nav-link" style="color: #47A5B4;">Contactenos
           </a>
-          <a href="quienessomos.jsp" class="nav-link" style="color: #47A5B4;">¬øQuienes Somos?
+          <a href="quienessomos.jsp" class="nav-link" style="color: #47A5B4;">øQuienes Somos?
           </a>
-          <a href="Mision y Vision.jsp" class="nav-link" style="color: #47A5B4;">Misi√≥n y Visi√≥n
+          <a href="Mision y Vision.jsp" class="nav-link" style="color: #47A5B4;">MisiÛn y VisiÛn
           </a>
           <a href="Portafolio.jsp" class="nav-link" style="color: #47A5B4;">Portafolio
           </a>
@@ -51,7 +51,7 @@
           <img src="assets/Img/Usuario.png" width="40" height="40" alt="">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="esp/InicioSesion.jsp">Iniciar Sesi√≥n</a>
+          <a class="dropdown-item" href="esp/InicioSesion.jsp">Iniciar SesiÛn</a>
           <a class="dropdown-item" href="esp/Registrar.jsp">Registrar</a>
         </div>
       </div>
@@ -106,101 +106,65 @@
   </div>
 </div>  
 
-</br>
-
 <div class="container">
-  <footer class="pt-5 my-md-5 pt-md-5 border-top">
-    <div class="row">
-      <div class="col-6 col-md">
-        <h5 style="color:#47A5B4;">Informaci√≥n √∫til</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Contacto & Ayuda</a></li>
-          <li><a class="text-muted" href="#">Consejos de seguridad</a></li>
-          <li><a class="text-muted" href="#">Terminos & Condiciones</a></li>
-          <li><a class="text-muted" href="#">Acerca de HSD Plus</a></li>
-          <li><a class="text-muted" href="#">Sumate a nosotros</a></li>
-        </ul>
+    </br>
+      <div class="row featurette">
+        <div class="col-md-6 order-md-2">
+          <h3 class="featurette-heading">Hilo de algodÛn</h3>
+          <h6 href="Productos.html" class="lead">este tipo de hilo sirve para cualquier tipo de costura pero es muy aconsejado para coser a mano, ya que es suave y f·cil de sacar y romper.</h6>
+          <div class="col-6 col-md">
+          <a href="#" class="badge badge-info">Destacado</a>
+        </div>
       </div>
-      <div class="col-6 col-md">
-        <h5 style="color:#47A5B4;">Servicios</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="Registrar.jsp">Registrate</a></li>
-          <li><a class="text-muted" href="#">Reserva</a></li>
-          <li><a class="text-muted" href="#">Consulta</a></li>
-        </ul>
+      <div class="col-md-2 order-md-4">
+        <h3 class="text-right" class="featurette-heading">$25.000</h3>
       </div>
-      <div class="col-6 col-md">
-        <h5 style="color:#47A5B4;">Contactenos</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="#">Equipo</a></li>
-          <li><a class="text-muted" href="#">Localizaci√≥n</a></li>
-          <li><a class="text-muted" href="#">Privacidad</a></li>
-          <li><a class="text-muted" href="#">Terminos</a></li>
-        </ul>
+      <div class="col-md-1 order-md-3">
+        <small  class="d-block mb-3 text-right text-muted">6 Jun</small>
+      </div>
+      <div class="col-md-3 order-md-1">
+        <img src="assets/Img/2.jpg" class="card-img-top" alt="img">
       </div>
     </div>
-    <div class="col-12 col-md">
-      <small class="d-block mb-3 text-center text-muted">Copyright &copy; 2018-2019 HSD Plus</small>
+    </br>
+      <div class="row featurette">
+        <div class="col-md-6 order-md-2">
+          <h3 class="featurette-heading">Hilos sintÈticos</h3>
+          <h6 href="Productos.html" class="lead">el·sticos y por norma general fabricados con poliÈster. Existen modelos tambiÈn de algodÛn y fibra sintÈtica. Este tipo es de los m·s resistentes para todo tipo de telas.</h6>
+          <div class="col-6 col-md">
+          <a href="#" class="badge badge-info">Destacado</a>
+        </div>
+      </div>
+      <div class="col-md-2 order-md-4">
+        <h3 class="text-right" class="featurette-heading">$18.000</h3>
+      </div>
+      <div class="col-md-1 order-md-3">
+        <small  class="d-block mb-3 text-right text-muted">1 Jun</small>
+      </div>
+      <div class="col-md-3 order-md-1">
+        <img src="assets/Img/3.jpg" class="card-img-top" alt="img">
+      </div>
     </div>
-  </footer>
-</div>
+    </br>
+      <div class="row featurette">
+        <div class="col-md-6 order-md-2">
+          <h3 class="featurette-heading">Hilo de algodÛn perlÈ</h3>
+          <h6 href="Productos.html" class="lead">este tipo de hilo es ideal para coser lana, algodÛn y tiene un tono brillante. Sirven para coser tanto a m·quina como a mano. Este tipo de hilo es mucho m·s resistente a los lavados y planchados.</h6>
 
-</br>
-  <div class="row featurette">
-    <div class="col-md-6 order-md-2">
-      <h3 class="featurette-heading">Hilos de seda</h3>
-      <h6 href="Productos.jsp" class="lead"> usado para coser seda y otras telas delicadas ofrece una variedad crom√°tica muy limitada. Ideal para bordados. Su precio es m√°s elevado que el resto.</h6>
-      <div class="col-6 col-md">
-      <a href="#" class="badge badge-info">Destacado</a>
-    </div>
-  </div>
-  <div class="col-md-2 order-md-4">
-    <h3 class="text-right" class="featurette-heading">$25.000</h3>
-  </div>
-  <div class="col-md-1 order-md-3">
-    <small  class="d-block mb-3 text-right text-muted">6 Jun</small>
-  </div>
-  <div class="col-md-3 order-md-1">
-    <img src="assets/Img/2.jpg" class="card-img-top" alt="img">
-  </div>
-</div>
-</br>
-  <div class="row featurette">
-    <div class="col-md-6 order-md-2">
-      <h3 class="featurette-heading">Hilos sint√©ticos</h3>
-      <h6 href="Productos.jsp" class="lead">el√°sticos y por norma general fabricados con poli√©ster. Existen modelos tambi√©n de algod√≥n y fibra sint√©tica. Este tipo es de los m√°s resistentes para todo tipo de telas.</h6>
-      <div class="col-6 col-md">
-      <a href="#" class="badge badge-info">Destacado</a>
-    </div>
-  </div>
-  <div class="col-md-2 order-md-4">
-    <h3 class="text-right" class="featurette-heading">$18.000</h3>
-  </div>
-  <div class="col-md-1 order-md-3">
-    <small  class="d-block mb-3 text-right text-muted">1 Jun</small>
-  </div>
-  <div class="col-md-3 order-md-1">
-    <img src="assets/Img/3.jpg" class="card-img-top" alt="img">
-  </div>
-</div>
-</br>
-  <div class="row featurette">
-    <div class="col-md-6 order-md-2">
-      <h3 class="featurette-heading">Hilo de algod√≥n perl√©</h3>
-      <h6 href="Productos.jsp" class="lead">este tipo de hilo es ideal para coser lana, algod√≥n y tiene un tono brillante. Sirven para coser tanto a m√°quina como a mano. Este tipo de hilo es mucho m√°s resistente a los lavados y planchados.</h6>
-      <div class="col-6 col-md">
-      <a href="#" class="badge badge-info">Destacado</a>
-    </div>
-  </div>
-  <div class="col-md-2 order-md-4">
-    <h3 class="text-right" class="featurette-heading">$10.000</h3>
-  </div>
-  <div class="col-md-1 order-md-3">
-    <small  class="d-block mb-3 text-right text-muted">29 May</small>
-  </div>
-  <div class="col-md-3 order-md-1">
-    <img src="assets/Img/4.jpg" class="card-img-top" alt="img">
-  </div>
+          <div class="col-6 col-md">
+          <a href="#" class="badge badge-info">Destacado</a>
+        </div>
+      </div>
+      <div class="col-md-2 order-md-4">
+        <h3 class="text-right" class="featurette-heading">$10.000</h3>
+      </div>
+      <div class="col-md-1 order-md-3">
+        <small  class="d-block mb-3 text-right text-muted">29 May</small>
+      </div>
+      <div class="col-md-3 order-md-1">
+        <img src="assets/Img/4.jpg" class="card-img-top" alt="img">
+      </div>
+      </br>
 </div>
 
 </br>
@@ -209,7 +173,7 @@
   <footer class="pt-5 my-md-5 pt-md-5 border-top">
     <div class="row">
       <div class="col-6 col-md">
-        <h5 style="color:#47A5B4;">Informaci√≥n √∫til</h5>
+        <h5 style="color:#47A5B4;">InformaciÛn ˙til</h5>
         <ul class="list-unstyled text-small">
           <li><a class="text-muted" href="#">Contacto & Ayuda</a></li>
           <li><a class="text-muted" href="#">Consejos de seguridad</a></li>
@@ -230,7 +194,7 @@
         <h5 style="color:#47A5B4;">Contactenos</h5>
         <ul class="list-unstyled text-small">
           <li><a class="text-muted" href="#">Equipo</a></li>
-          <li><a class="text-muted" href="#">Localizaci√≥n</a></li>
+          <li><a class="text-muted" href="#">LocalizaciÛn</a></li>
           <li><a class="text-muted" href="#">Privacidad</a></li>
           <li><a class="text-muted" href="#">Terminos</a></li>
         </ul>

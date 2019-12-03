@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +9,7 @@
 
 	<title>Error500</title>
 
-	<link rel="icon" type="image/png" href="../../Img/Logo.png">
+	<link rel="icon" type="image/png" href="../../assets/Img/Logo.png">
 	<link type="text/css" rel="stylesheet" href="../../css/style.css" />
 
 </head>
