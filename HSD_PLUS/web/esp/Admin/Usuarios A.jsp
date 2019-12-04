@@ -9,13 +9,13 @@
 
     <title>Usuarios</title>
 
-    <link rel="icon" type="image/png" href="../../Img/Logo.png">
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../css/metisMenu.min.css" rel="stylesheet">
-    <link href="../../css/timeline.css" rel="stylesheet">
-    <link href="../../css/startmin.css" rel="stylesheet">
-    <link href="../../css/morris.css" rel="stylesheet">
-    <link href="../../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="../../assets/Img/Logo.png">
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/metisMenu.min.css" rel="stylesheet">
+    <link href="../../assets/css/timeline.css" rel="stylesheet">
+    <link href="../../assets/css/startmin.css" rel="stylesheet">
+    <link href="../../assets/css/morris.css" rel="stylesheet">
+    <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -227,10 +227,10 @@
     </div>
 </div>
 
-<script src="../../js/jquery.min.js"></script>
-<script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/metisMenu.min.js"></script>
-<script src="../../js/startmin.js"></script>
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/bootstrap.min.js"></script>
+<script src="../../assets/js/metisMenu.min.js"></script>
+<script src="../../assets/js/startmin.js"></script>
 
 </body>
 </html>

@@ -339,15 +339,20 @@
 
 
 </div>
-<script src="../../js/jquery.min.js"></script>
-<script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/metisMenu.min.js"></script>
-<script src="../../js/startmin.js"></script>
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/bootstrap.min.js"></script>
+<script src="../../assets/js/metisMenu.min.js"></script>
+<script src="../../assets/js/startmin.js"></script>
 
 <!-- Morris Charts JavaScript -->
-<script src="../../js/raphael.min.js"></script>
-<script src="../../js/morris.min.js"></script>
-<script src="../../js/morris-data.js"></script>
+<script src="../../assets/js/raphael.min.js"></script>
+<script src="../../assets/jss/morris.min.js"></script>
+<script src="../../assets/js/morris-data.js"></script>
+
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/bootstrap.min.js"></script>
+<script src="../../assets/js/metisMenu.min.js"></script>
+<script src="../../assets/js/startmin.js"></script>
         
 </body>
 </html>
