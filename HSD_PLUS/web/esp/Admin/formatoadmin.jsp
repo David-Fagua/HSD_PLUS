@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Usuarios</title>
+    <title>HSD</title>
 
     <link rel="icon" type="image/png" href="../../assets/Img/Logo.png">
     <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
@@ -96,7 +96,7 @@
                     <li><a href="../Error 404.jsp"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="../../Inicio.jsp"><i class="fa fa-sign-out fa-fw"></i>Cerrar SesiÃ³n</a>
+                    <li><a href="../../Inicio.jsp"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión</a>
                     </li>
                 </ul>
             </li>

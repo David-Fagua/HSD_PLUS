@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Error 404</title>
-<link rel="icon" type="image/png" href="<%=request.getContextPath()%>/Img/Logo.png">
+        <link rel="icon" type="image/png" href="../assets/Img/Logo.png">
 
 	<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/style.css" />
 	
