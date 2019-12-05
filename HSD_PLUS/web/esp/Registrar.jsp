@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,24 +6,13 @@
   
   <link rel="icon" type="image/png" href="../assets/Img/Logo.png">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+  <meta http-equiv="Content-Tipe" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
-  <script>
-function comprobarClave(){
-    clave1 = document.f1.clave1.value
-    clave2 = document.f1.clave2.value
-
-    if (clave1 == clave2)
-       alert("Las dos claves son iguales...\nRealizaríamos las acciones del caso positivo")
-    else
-       alert("Las dos claves son distintas...\nRealizaríamos las acciones del caso negativo")
-}
-</script>
-  
 </head>
+
 <body>
     
 <br/>
@@ -50,7 +38,7 @@ function comprobarClave(){
       <center>
         <h2>Crear Cuenta</h2>
       </center>
-        <form action="" method="post">
+        <form action="/Registro" method="post">
         <center>
           <div class="form-group">
             <input required="true" type="email" class="form-control" placeholder="Correo">
@@ -62,23 +50,35 @@ function comprobarClave(){
             <input required="true" type="text" class="form-control" placeholder="Apellido">
           </div>
           <div class="form-group">
-            <input required="true" name="clave1" type="password" class="form-control" placeholder="Clave">
+            <input required="true" name="clave1" id="calve1" type="password" class="form-control" placeholder="Clave">
           </div>
           <div class="form-group">
-            <input  required="true" name="clave2" type="password" class="form-control" placeholder="Confirmar Clave">
+            <input  required="true" name="clave2" id="calve2" type="password" class="form-control" placeholder="Confirmar Clave">
+          </div>
+          <div>
+            <center>
+                <button href="Registrorealizado.jsp" value="Comprobar si son iguales" onClick="comprobarClave()" style="float:center;" class="btn btn-primary btn-lg">Registrar</button>
+            </center>  
           </div>
         </center>
         </form>
-      <center>
-        <a href="Registrorealizado.jsp" value="Comprobar si son iguales" onClick="comprobarClave()" style="float:center;" class="btn btn-primary btn-lg" role="button">Registrar</a>
-      </center>
-    </form>
   </div>
 </div>
 
 <br>
 
 <script src="js/bootstrap.min.js"></script>
+
+
+<script>
+    if (clave1 != clave2) {
+  alert("Las passwords deben de coincidir");
+  return false;
+} else {
+  alert("Todo esta correcto");
+  return true; 
+}
+</script>
 
 </body>
 </html>

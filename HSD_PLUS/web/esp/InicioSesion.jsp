@@ -13,6 +13,10 @@
     <link rel="icon" type="image/png" href="../assets/Img/Logo.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta http-equiv="Content-Tipe" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 </head>
 
 <body>
@@ -46,10 +50,10 @@
         <div>
             <form action="/Inicio" method="post">
                 <div class="form-group">
-                  <input type="text" placeholder="Correo" name="correo" class="form-control">
+                  <input required="true" type="email" placeholder="Correo" name="correo" class="form-control">
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Contraseña" name="pass" class="form-control">
+                    <input required="true" name="pass" id="pass" type="password" class="form-control" placeholder="Clave">
                 </div>
                 <center>
                     <button style="float:center;" class="btn btn-primary btn-lg" role="button" type="submit" name="envio">Ingresar</button>

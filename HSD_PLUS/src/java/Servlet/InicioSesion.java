@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fagua
  */
-@WebServlet(name = "inicioSesion", urlPatterns = {"/inicio"})
-public class IniciarSesion extends HttpServlet {
+@WebServlet(name = "InicioSesion", urlPatterns = {"/Inicio"})
+public class InicioSesion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -86,5 +86,4 @@ public class IniciarSesion extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }
