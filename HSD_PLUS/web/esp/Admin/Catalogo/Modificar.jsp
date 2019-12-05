@@ -28,7 +28,7 @@
             <span class="icon-bar"></span>
         </button>
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="inicio.jsp"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
+            <li><a href="Inicio.jsp"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
         </ul>
         <ul class="nav navbar-right navbar-top-links">
             <li class="dropdown navbar-inverse">
@@ -95,16 +95,16 @@
                     <li><a href="../../Error 404.jsp"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="../../../Inicio.jsp"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión</a>
+                    <li><a href="../../../index.jsp"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión</a>
                     </li>
                 </ul>
             </li>
         </ul>
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
-                <a href="inicio.jsp" class="navbar-brand" href="#">
+                <a href="../Inicio.jsp" class="navbar-brand" href="#">
                     <img src="../../../assets/Img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
-                    <a href="inicio.jsp" class="navbar-brand" href="#">HSD PLUS</a>
+                    <a href="../Inicio.jsp" class="navbar-brand" href="#">HSD PLUS</a>
                 </br>
                 </br>
                 </br>
@@ -181,7 +181,7 @@
                    <div class="card mb-3">
                 </diva>
                 <p>
-                    <a href="./Inscribir.jsp" style="float:left;" class="btn btn-primary btn-lg" role="button">Inscribir producto</a>
+                    <a href="../Inscribir.jsp" style="float:left;" class="btn btn-primary btn-lg" role="button">Inscribir producto</a>
                 </p>
                 <div class="form-group">
                     <div id="div1">
