@@ -119,53 +119,79 @@
                                 </span>
                             </input>
                         </div>
-                    </li>   
+                    </li>
                     <li>
-                        <a><i class="fa fa-bar-chart-o fa-fw"></i>Inventarios<span class="fa arrow"></span></a>
+                        <a href="#" class="dropdown-toggle"><i class="menu-icon fa fa-shopping-cart"></i><span class="menu-text"> Registro de Reservas<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="Inventario/Inventario.jsp">Inventario general</a>
-                            </li>
-                            <li>
-                                <a href="Inventario/Añadir.jsp">Producto inicial</a>
-                            </li>
-                            <li>
-                                <a href="Inventario/Editar.jsp">Producto en proceso</a>
-                            </li>
-                            <li>
-                                <a href="Inventario/Eliminar.jsp">Producto final</a>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Registro Reservas</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a><i class="fa fa-bar-chart-o fa-fw"></i>Ventas<span class="fa arrow"></span></a>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="menu-icon fa  fa-file-text"></i>
+                            <span class="menu-text">
+                            Registro de Ventas<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="Ventas/Registrar.jsp">Registrar</a>
-                            </li>
-                            <li>
-                                <a href="Ventas/Consultar.jsp">Consultar</a>
-                            </li>
-                            <li>
-                                <a href="Ventas/Modificar.jsp">Modificar</a>
-                            </li>
-                            <li>
-                                <a href="Ventas/Historial de ventas.jsp">Historial de ventas</a>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Registro Ventas</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="Catalogo/Modificar.jsp"><i class="fa fa-edit fa-fw"></i>Gestor del Catalogo
-                        </a>
+                        <a href="#" class="dropdown-toggle"><i class="menu-icon fa fa-list-ol"></i><span class="menu-text">Inventario<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Usuarios</a>
+                            </li>
+                            <li>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Inventario General</a>
+                            </li>
+                            <li>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Producto en Proceso</a>
+                            </li>                            
+                            <li>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Producto Final</a>
+                            </li>
+                            <li>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Sobrantes</a>
+                            </li>
+                            <li>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Desechos</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
-                        <a href="Reservaciones.jsp"><i class="fa fa-edit fa-fw"></i> Reservas de los Clientes
+                        <a href="#" class="dropdown-toggle"><i class="menu-icon fa fa-sitemap"></i><span class="menu-text">Componentes<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Tipo Documento</a>
+                            </li>
+                            <li>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Registrar Rol</a>
+                            </li>
+                            <li>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Registrar Proveedor</a>
+                            </li>
+                            <li>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Registrar Grosor de hilo</a>
+                            </li>
+                            <li>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Lista de Ciudades</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="Catalogo/Modificar.jsp"><i class="fa fa-bar-chart-o fa-fw"></i>Gestor del Catalogo
                         </a>
                     </li>
                     <li>
                         <a href="Usuarios.jsp"><i class="fa fa-edit fa-fw"></i> Usuarios
                         </a>
                     </li>
+
                 </ul>
             </div>
         </div>
