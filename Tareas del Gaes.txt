@@ -1,9 +1,6 @@
 ﻿Tareas de programacion en java
 
 -Hacer funcional el inicio de sesion y el registro
-	Agregar Cambiar contraseña
-	Agregar recordar contraseña
--Editar los modulos(a cargo del dependiente de cada modulo)
 -Crear paginas faltantes (David)
 
 ________________________
