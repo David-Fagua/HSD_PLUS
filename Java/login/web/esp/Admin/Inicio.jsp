@@ -9,13 +9,13 @@
 
     <title>Inicio</title>
 
-    <link rel="icon" type="image/png" href="../../Img/Logo.png">
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../../css/metisMenu.min.css" rel="stylesheet">
-    <link href="../../css/timeline.css" rel="stylesheet">
-    <link href="../../css/startmin.css" rel="stylesheet">
-    <link href="../../css/morris.css" rel="stylesheet">
-    <link href="../../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="../../assets/Img/Logo.png">
+    <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/css/metisMenu.min.css" rel="stylesheet">
+    <link href="../../assets/css/timeline.css" rel="stylesheet">
+    <link href="../../assets/css/startmin.css" rel="stylesheet">
+    <link href="../../assets/css/morris.css" rel="stylesheet">
+    <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -28,7 +28,7 @@
             <span class="icon-bar"></span>
         </button>
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="inicio.html"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
+            <li><a href="Inicio.jsp"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
         </ul>
         <ul class="nav navbar-right navbar-top-links">
             <li class="dropdown navbar-inverse">
@@ -39,7 +39,7 @@
                     <li>
                         <a href="#">
                             <div>
-                                <i class="fa fa-comment fa-fw"></i> Nueva Reserva NÂ°7
+                                <i class="fa fa-comment fa-fw"></i> Nueva Reserva N°7
                                 <span class="pull-right text-muted small">Hace 4 minutos</span>
                             </div>
                         </a>
@@ -47,7 +47,7 @@
                     <li>
                         <a href="#">
                             <div>
-                                <i class="fa fa-comment fa-fw"></i> Nueva Reserva NÂ°6
+                                <i class="fa fa-comment fa-fw"></i> Nueva Reserva N°6
                                 <span class="pull-right text-muted small">Hace 1 hora</span>
                             </div>
                         </a>
@@ -55,7 +55,7 @@
                     <li>
                         <a href="#">
                             <div>
-                                <i class="fa fa-comment fa-fw"></i> Nueva Reserva NÂ°5
+                                <i class="fa fa-comment fa-fw"></i> Nueva Reserva N°5
                                 <span class="pull-right text-muted small">Hace 3 hora</span>
                             </div>
                         </a>
@@ -79,7 +79,7 @@
                     <li class="divider"></li>
                     <li>
                         <a class="text-center" href="#">
-                            <strong>MÃ¡s Notificasiones</strong>
+                            <strong>Más Notificasiones</strong>
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </li>
@@ -90,21 +90,21 @@
                     <i class="fa fa-user fa-fw"></i> Samuel Sanches <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="Usuario.html"><i class="fa fa-user fa-fw"></i>Usuario</a>
+                    <li><a href="Usuario.jsp"><i class="fa fa-user fa-fw"></i>Usuario</a>
                     </li>
-                    <li><a href="../Error 404.html"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
+                    <li><a href="../Error 404.jsp"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="../../Inicio.html"><i class="fa fa-sign-out fa-fw"></i>Cerrar SesiÃ³n</a>
+                    <li><a href="../../index.jsp"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión</a>
                     </li>
                 </ul>
             </li>
         </ul>
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
-                <a href="inicio.html" class="navbar-brand" href="#">
-                    <img src="../../img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
-                    <a href="inicio.html" class="navbar-brand" href="#">HSD PLUS</a>
+                <a href="Inicio.jsp" class="navbar-brand" href="#">
+                    <img src="../../assets/Img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
+                    <a href="Inicio.jsp" class="navbar-brand" href="#">HSD PLUS</a>
                 </br>
                 </br>
                 </br>
@@ -124,16 +124,16 @@
                         <a><i class="fa fa-bar-chart-o fa-fw"></i>Inventarios<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../Inventario/Inventario.html">Inventario general</a>
+                                <a href="Inventario/Inventario.jsp">Inventario general</a>
                             </li>
                             <li>
-                                <a href="../Inventario/AÃ±adir.html">Producto inicial</a>
+                                <a href="Inventario/Añadir.jsp">Producto inicial</a>
                             </li>
                             <li>
-                                <a href="../Inventario/Editar.html">Producto en proceso</a>
+                                <a href="Inventario/Editar.jsp">Producto en proceso</a>
                             </li>
                             <li>
-                                <a href="../Inventario/Eliminar.html">Producto final</a>
+                                <a href="Inventario/Eliminar.jsp">Producto final</a>
                             </li>
                         </ul>
                     </li>
@@ -141,29 +141,29 @@
                         <a><i class="fa fa-bar-chart-o fa-fw"></i>Ventas<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="./Ventas/Registrar.html">Registrar</a>
+                                <a href="Ventas/Registrar.jsp">Registrar</a>
                             </li>
                             <li>
-                                <a href="./Ventas/Consultar.html">Consultar</a>
+                                <a href="Ventas/Consultar.jsp">Consultar</a>
                             </li>
                             <li>
-                                <a href="./Ventas/Modificar.html">Modificar</a>
+                                <a href="Ventas/Modificar.jsp">Modificar</a>
                             </li>
                             <li>
-                                <a href="./Ventas/Historial de ventas.html">Historial de ventas</a>
+                                <a href="Ventas/Historial de ventas.jsp">Historial de ventas</a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="./Catalogo/Modificar.html"><i class="fa fa-edit fa-fw"></i>Gestor del Catalogo
+                        <a href="Catalogo/Modificar.jsp"><i class="fa fa-edit fa-fw"></i>Gestor del Catalogo
                         </a>
                     </li>
                     <li>
-                        <a href="./Reservaciones.html"><i class="fa fa-edit fa-fw"></i> Reservas de los Clientes
+                        <a href="Reservaciones.jsp"><i class="fa fa-edit fa-fw"></i> Reservas de los Clientes
                         </a>
                     </li>
                     <li>
-                        <a href="./Usuarios.html"><i class="fa fa-edit fa-fw"></i> Usuarios
+                        <a href="Usuarios.jsp"><i class="fa fa-edit fa-fw"></i> Usuarios
                         </a>
                     </li>
                 </ul>
@@ -339,15 +339,20 @@
 
 
 </div>
-<script src="../../js/jquery.min.js"></script>
-<script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/metisMenu.min.js"></script>
-<script src="../../js/startmin.js"></script>
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/bootstrap.min.js"></script>
+<script src="../../assets/js/metisMenu.min.js"></script>
+<script src="../../assets/js/startmin.js"></script>
 
 <!-- Morris Charts JavaScript -->
-<script src="../../js/raphael.min.js"></script>
-<script src="../../js/morris.min.js"></script>
-<script src="../../js/morris-data.js"></script>
+<script src="../../assets/js/raphael.min.js"></script>
+<script src="../../assets/jss/morris.min.js"></script>
+<script src="../../assets/js/morris-data.js"></script>
+
+<script src="../../assets/js/jquery.min.js"></script>
+<script src="../../assets/js/bootstrap.min.js"></script>
+<script src="../../assets/js/metisMenu.min.js"></script>
+<script src="../../assets/js/startmin.js"></script>
         
 </body>
 </html>

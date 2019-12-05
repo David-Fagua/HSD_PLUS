@@ -110,7 +110,7 @@
 
     
       <label for="inputZip">Numero de telefono</label>
-      <input type="text" maxlength="10" class="form-control required=true" id="inputZip">
+      <input type="text" maxlength="10" class="form-control required" id="inputZip">
     
   </div>
 

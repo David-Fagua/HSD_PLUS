@@ -10,7 +10,7 @@
 
 	<title>Error500</title>
 
-	<link rel="icon" type="image/png" href="<%=request.getContextPath()%>/assets/Img/Logo.png">
+	<link rel="icon" type="image/png" href="../assets/Img/Logo.png">
 	<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/style.css" />
 
 </head>

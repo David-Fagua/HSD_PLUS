@@ -5,7 +5,7 @@
 <head>
 	<title>Registrar</title>
   
-  <link rel="icon" src="<%=request.getContextPath()%>/assets/Img/Logo.png">
+  <link rel="icon" type="image/png" href="../assets/Img/Logo.png">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <meta charset="utf-8">
@@ -52,7 +52,7 @@
             <input required="true" type="password" class="form-control" placeholder="Clave">
           </div>
           <div class="form-group">
-            <input  required="true" type="password" class="form-control" placeholder="Confirmar Clavee">
+            <input  required="true" type="password" class="form-control" placeholder="Confirmar Clave">
           </div>
         </center>
         </form>
