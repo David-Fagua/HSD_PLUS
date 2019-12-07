@@ -1,8 +1,0 @@
-﻿Tareas de programacion en java
-
--Hacer funcional el inicio de sesion y el registro
--Crear paginas faltantes (David)
-
-________________________
-
-
