@@ -1,0 +1,272 @@
+package org.apache.jsp;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+
+public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.List<String> _jspx_dependants;
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public java.util.List<String> getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html; charset=ISO-8859-1");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("\r\n");
+      out.write("<!DOCTYPE html>\r\n");
+      out.write("<html>\r\n");
+      out.write("\r\n");
+      out.write("<head>\r\n");
+      out.write("  <title>HSD PLUS</title>\r\n");
+      out.write(" <link rel=\"icon\" type=\"assets/img/png\" href=\"");
+      out.print(request.getContextPath());
+      out.write("/assets/Img/Logo.png\">\r\n");
+      out.write("\r\n");
+      out.write("  <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">\r\n");
+      out.write("  <meta charset=\"utf-8\">\r\n");
+      out.write("  \r\n");
+      out.write("</head>\r\n");
+      out.write("\r\n");
+      out.write("<body>\r\n");
+      out.write("  \r\n");
+      out.write("<br/>\r\n");
+      out.write("<br/>\r\n");
+      out.write("<br/>\r\n");
+      out.write("\r\n");
+      out.write("<div>\r\n");
+      out.write("  <nav class=\"navbar navbar-expand-lg fixed-top navbar-light bg-light\">\r\n");
+      out.write("    <a href=\"index.jsp\" class=\"navbar-brand\" href=\"#\">\r\n");
+      out.write("    <img src=\"assets/Img/Logo.png\" width=\"40\" height=\"40\" alt=\"HSD PLUS\"></a>\r\n");
+      out.write("    <a href=\"index.jsp\" class=\"navbar-brand\" href=\"#\">HSD PLUS</a>\r\n");
+      out.write("   <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n");
+      out.write("    <span class=\"navbar-toggler-icon\"></span>\r\n");
+      out.write("    </button>\r\n");
+      out.write("    <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\r\n");
+      out.write("      <ul class=\"navbar-nav mr-auto\">\r\n");
+      out.write("          <a href=\"Catalogo.jsp\" class=\"nav-link\" style=\"color: #47A5B4;\">Catalogo\r\n");
+      out.write("          </a>\r\n");
+      out.write("          <a href=\"Contactenos.jsp\" class=\"nav-link\" style=\"color: #47A5B4;\">Contactenos\r\n");
+      out.write("          </a>\r\n");
+      out.write("          <a href=\"quienessomos.jsp\" class=\"nav-link\" style=\"color: #47A5B4;\">¿Quienes Somos?\r\n");
+      out.write("          </a>\r\n");
+      out.write("          <a href=\"Mision y Vision.jsp\" class=\"nav-link\" style=\"color: #47A5B4;\">Misión y Visión\r\n");
+      out.write("          </a>\r\n");
+      out.write("          <a href=\"Portafolio.jsp\" class=\"nav-link\" style=\"color: #47A5B4;\">Portafolio\r\n");
+      out.write("          </a>\r\n");
+      out.write("        </li>\r\n");
+      out.write("      </ul>\r\n");
+      out.write("      <nav class=\"navbar navbar-light bg-light\">\r\n");
+      out.write("        <form class=\"form-inline\">\r\n");
+      out.write("          <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Buscar\" aria-label=\"Search\">\r\n");
+      out.write("          <button style=\"color:#47A5B4;\" class=\"btn btn-outline-info my-2 my-sm-0\" type=\"submit\">Buscar</button>\r\n");
+      out.write("        </form>\r\n");
+      out.write("      </div>\r\n");
+      out.write("      <div class=\"btn-group dropleft\">\r\n");
+      out.write("        <button style=\"background-color: #ffffff;\" class=\"button\" class=\"btn btn-sec btn-secondary dropdown-toggle\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\r\n");
+      out.write("          <img src=\"assets/Img/Usuario.png\" width=\"40\" height=\"40\" alt=\"\">\r\n");
+      out.write("        </button>\r\n");
+      out.write("        <div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">\r\n");
+      out.write("          <a class=\"dropdown-item\" href=\"esp/InicioSesion.jsp\">Iniciar Sesión</a>\r\n");
+      out.write("          <a class=\"dropdown-item\" href=\"esp/Registrar.jsp\">Registrar</a>\r\n");
+      out.write("        </div>\r\n");
+      out.write("      </div>\r\n");
+      out.write("    </div>\r\n");
+      out.write("  </nav>\r\n");
+      out.write("</div>\r\n");
+      out.write("\r\n");
+      out.write("</br>\r\n");
+      out.write("\r\n");
+      out.write("<div class=\"container\">\r\n");
+      out.write("  <div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-ride=\"carousel\">\r\n");
+      out.write("    <ol class=\"carousel-indicators\">\r\n");
+      out.write("      <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"0\" class=\"active\"></li>\r\n");
+      out.write("      <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"1\"></li>\r\n");
+      out.write("      <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"2\"></li>\r\n");
+      out.write("      <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"3\"></li>\r\n");
+      out.write("      <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"4\"></li>\r\n");
+      out.write("      <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"5\"></li>\r\n");
+      out.write("      <li data-target=\"#carouselExampleIndicators\" data-slide-to=\"6\"></li>\r\n");
+      out.write("    </ol>\r\n");
+      out.write("  <div class=\"carousel-inner\">\r\n");
+      out.write("    <div class=\"carousel-item active\">\r\n");
+      out.write("      <img type=\"image/jpg\" src=\"assets/Img/1.jpg\" width=\"100\" height=\"400px whilt \" class=\"d-block w-100\" alt=\"...\">\r\n");
+      out.write("    </div>\r\n");
+      out.write("    <div class=\"carousel-item\">\r\n");
+      out.write("      <img src=\"assets/Img/2.jpg\" width=\"100\" height=\"400px \" class=\"d-block w-100\" alt=\"...\">\r\n");
+      out.write("    </div>\r\n");
+      out.write("    <div class=\"carousel-item\">\r\n");
+      out.write("      <img src=\"assets/Img/3.jpg\" width=\"100\" height=\"400px \" class=\"d-block w-100\" alt=\"...\">\r\n");
+      out.write("    </div>\r\n");
+      out.write("     <div class=\"carousel-item\">\r\n");
+      out.write("      <img src=\"assets/Img/4.jpg\" width=\"100\" height=\"400px \" class=\"d-block w-100\" alt=\"...\">\r\n");
+      out.write("    </div>\r\n");
+      out.write("     <div class=\"carousel-item\">\r\n");
+      out.write("      <img src=\"assets/Img/5.jpg\" width=\"100\" height=\"400px \" class=\"d-block w-100\" alt=\"...\">\r\n");
+      out.write("    </div>\r\n");
+      out.write("     <div class=\"carousel-item\">\r\n");
+      out.write("      <img src=\"assets/Img/6.jpg\" width=\"100\" height=\"400px \" class=\"d-block w-100\" alt=\"...\">\r\n");
+      out.write("    </div>\r\n");
+      out.write("     <div class=\"carousel-item\">\r\n");
+      out.write("      <img src=\"assets/Img/7.jpg\" width=\"100\" height=\"400px \" class=\"d-block w-100\" alt=\"...\">\r\n");
+      out.write("    </div>\r\n");
+      out.write("    </div>\r\n");
+      out.write("    <a class=\"carousel-control-prev\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"prev\">\r\n");
+      out.write("    <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\r\n");
+      out.write("    <span class=\"sr-only\">Previous</span>\r\n");
+      out.write("    </a>\r\n");
+      out.write("    <a class=\"carousel-control-next\" href=\"#carouselExampleIndicators\" role=\"button\" data-slide=\"next\">\r\n");
+      out.write("    <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\r\n");
+      out.write("    <span class=\"sr-only\">Next</span>\r\n");
+      out.write("    </a>\r\n");
+      out.write("  </div>\r\n");
+      out.write("</div>  \r\n");
+      out.write("\r\n");
+      out.write("<div class=\"container\">\r\n");
+      out.write("    </br>\r\n");
+      out.write("      <div class=\"row featurette\">\r\n");
+      out.write("        <div class=\"col-md-6 order-md-2\">\r\n");
+      out.write("          <h3 class=\"featurette-heading\">Hilo de algodón</h3>\r\n");
+      out.write("          <h6 href=\"Productos.html\" class=\"lead\">este tipo de hilo sirve para cualquier tipo de costura pero es muy aconsejado para coser a mano, ya que es suave y fácil de sacar y romper.</h6>\r\n");
+      out.write("          <div class=\"col-6 col-md\">\r\n");
+      out.write("          <a href=\"#\" class=\"badge badge-info\">Destacado</a>\r\n");
+      out.write("        </div>\r\n");
+      out.write("      </div>\r\n");
+      out.write("      <div class=\"col-md-2 order-md-4\">\r\n");
+      out.write("        <h3 class=\"text-right\" class=\"featurette-heading\">$25.000</h3>\r\n");
+      out.write("      </div>\r\n");
+      out.write("      <div class=\"col-md-1 order-md-3\">\r\n");
+      out.write("        <small  class=\"d-block mb-3 text-right text-muted\">6 Jun</small>\r\n");
+      out.write("      </div>\r\n");
+      out.write("      <div class=\"col-md-3 order-md-1\">\r\n");
+      out.write("        <img src=\"assets/Img/2.jpg\" class=\"card-img-top\" alt=\"img\">\r\n");
+      out.write("      </div>\r\n");
+      out.write("    </div>\r\n");
+      out.write("    </br>\r\n");
+      out.write("      <div class=\"row featurette\">\r\n");
+      out.write("        <div class=\"col-md-6 order-md-2\">\r\n");
+      out.write("          <h3 class=\"featurette-heading\">Hilos sintéticos</h3>\r\n");
+      out.write("          <h6 href=\"Productos.html\" class=\"lead\">elásticos y por norma general fabricados con poliéster. Existen modelos también de algodón y fibra sintética. Este tipo es de los más resistentes para todo tipo de telas.</h6>\r\n");
+      out.write("          <div class=\"col-6 col-md\">\r\n");
+      out.write("          <a href=\"#\" class=\"badge badge-info\">Destacado</a>\r\n");
+      out.write("        </div>\r\n");
+      out.write("      </div>\r\n");
+      out.write("      <div class=\"col-md-2 order-md-4\">\r\n");
+      out.write("        <h3 class=\"text-right\" class=\"featurette-heading\">$18.000</h3>\r\n");
+      out.write("      </div>\r\n");
+      out.write("      <div class=\"col-md-1 order-md-3\">\r\n");
+      out.write("        <small  class=\"d-block mb-3 text-right text-muted\">1 Jun</small>\r\n");
+      out.write("      </div>\r\n");
+      out.write("      <div class=\"col-md-3 order-md-1\">\r\n");
+      out.write("        <img src=\"assets/Img/3.jpg\" class=\"card-img-top\" alt=\"img\">\r\n");
+      out.write("      </div>\r\n");
+      out.write("    </div>\r\n");
+      out.write("    </br>\r\n");
+      out.write("      <div class=\"row featurette\">\r\n");
+      out.write("        <div class=\"col-md-6 order-md-2\">\r\n");
+      out.write("          <h3 class=\"featurette-heading\">Hilo de algodón perlé</h3>\r\n");
+      out.write("          <h6 href=\"Productos.html\" class=\"lead\">este tipo de hilo es ideal para coser lana, algodón y tiene un tono brillante. Sirven para coser tanto a máquina como a mano. Este tipo de hilo es mucho más resistente a los lavados y planchados.</h6>\r\n");
+      out.write("\r\n");
+      out.write("          <div class=\"col-6 col-md\">\r\n");
+      out.write("          <a href=\"#\" class=\"badge badge-info\">Destacado</a>\r\n");
+      out.write("        </div>\r\n");
+      out.write("      </div>\r\n");
+      out.write("      <div class=\"col-md-2 order-md-4\">\r\n");
+      out.write("        <h3 class=\"text-right\" class=\"featurette-heading\">$10.000</h3>\r\n");
+      out.write("      </div>\r\n");
+      out.write("      <div class=\"col-md-1 order-md-3\">\r\n");
+      out.write("        <small  class=\"d-block mb-3 text-right text-muted\">29 May</small>\r\n");
+      out.write("      </div>\r\n");
+      out.write("      <div class=\"col-md-3 order-md-1\">\r\n");
+      out.write("        <img src=\"assets/Img/4.jpg\" class=\"card-img-top\" alt=\"img\">\r\n");
+      out.write("      </div>\r\n");
+      out.write("      </br>\r\n");
+      out.write("</div>\r\n");
+      out.write("\r\n");
+      out.write("</br>\r\n");
+      out.write("  \r\n");
+      out.write("<div class=\"container\">\r\n");
+      out.write("  <footer class=\"pt-5 my-md-5 pt-md-5 border-top\">\r\n");
+      out.write("    <div class=\"row\">\r\n");
+      out.write("      <div class=\"col-6 col-md\">\r\n");
+      out.write("        <h5 style=\"color:#47A5B4;\">Información Útil</h5>\r\n");
+      out.write("        <ul class=\"list-unstyled text-small\">\r\n");
+      out.write("          <li><a class=\"text-muted\" href=\"#\">Contacto & Ayuda</a></li>\r\n");
+      out.write("          <li><a class=\"text-muted\" href=\"#\">Consejos de seguridad</a></li>\r\n");
+      out.write("          <li><a class=\"text-muted\" href=\"#\">Terminos & Condiciones</a></li>\r\n");
+      out.write("          <li><a class=\"text-muted\" href=\"#\">Acerca de HSD Plus</a></li>\r\n");
+      out.write("          <li><a class=\"text-muted\" href=\"#\">Sumate a nosotros</a></li>\r\n");
+      out.write("        </ul>\r\n");
+      out.write("      </div>\r\n");
+      out.write("      <div class=\"col-6 col-md\">\r\n");
+      out.write("        <h5 style=\"color:#47A5B4;\">Servicios</h5>\r\n");
+      out.write("        <ul class=\"list-unstyled text-small\">\r\n");
+      out.write("          <li><a class=\"text-muted\" href=\"Registrar.jsp\">Registrar</a></li>\r\n");
+      out.write("          <li><a class=\"text-muted\" href=\"#\">Reserva</a></li>\r\n");
+      out.write("          <li><a class=\"text-muted\" href=\"#\">Consulta</a></li>\r\n");
+      out.write("        </ul>\r\n");
+      out.write("      </div>\r\n");
+      out.write("      <div class=\"col-6 col-md\">\r\n");
+      out.write("        <h5 style=\"color:#47A5B4;\">Contactenos</h5>\r\n");
+      out.write("        <ul class=\"list-unstyled text-small\">\r\n");
+      out.write("          <li><a class=\"text-muted\" href=\"#\">Equipo</a></li>\r\n");
+      out.write("          <li><a class=\"text-muted\" href=\"#\">Localización</a></li>\r\n");
+      out.write("          <li><a class=\"text-muted\" href=\"#\">Privacidad</a></li>\r\n");
+      out.write("          <li><a class=\"text-muted\" href=\"#\">Terminos</a></li>\r\n");
+      out.write("        </ul>\r\n");
+      out.write("      </div>\r\n");
+      out.write("    </div>\r\n");
+      out.write("    <div class=\"col-12 col-md\">\r\n");
+      out.write("      <small class=\"d-block mb-3 text-center text-muted\">Copyright &copy; 2018-2019 HSD Plus</small>\r\n");
+      out.write("    </div>\r\n");
+      out.write("  </footer>\r\n");
+      out.write("</div>\r\n");
+      out.write("\r\n");
+      out.write("<script src=\"https://code.jquery.com/jquery-3.3.1.slim.min.js\" integrity=\"sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo\" crossorigin=\"anonymous\"></script>\r\n");
+      out.write("<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js\" integrity=\"sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1\" crossorigin=\"anonymous\"></script>\r\n");
+      out.write("<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\" integrity=\"sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM\" crossorigin=\"anonymous\"></script>\r\n");
+      out.write("\r\n");
+      out.write("</body>\r\n");
+      out.write("\r\n");
+      out.write("</html>");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}
