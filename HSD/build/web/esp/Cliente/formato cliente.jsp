@@ -46,7 +46,8 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="Cliente.jsp">Cliente</a>
           <a class="dropdown-item" href="Cliente.jsp">Configuración</a>
-          <a class="dropdown-item" href="../../assets/Index.jsp">Cerrar sesión</a>
+          <a class="dropdown-item" href="../../i ndex.jsp">Cerrar sesión</a>
+          <a href="../../index.jsp"></a>
         </div>
       </nav>
     </div>

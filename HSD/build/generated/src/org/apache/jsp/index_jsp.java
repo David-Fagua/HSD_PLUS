@@ -84,7 +84,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("          </a>\r\n");
       out.write("        </li>\r\n");
       out.write("      </ul>\r\n");
-      out.write("      <span><a style=\"float:left;\" href=\"./ingles/start.html\">Ingles</a></span>\r\n");
+      out.write("      <span><a style=\"float:left;\" href=\"Ingles/Start.jsp\">Ingles</a></span>\r\n");
       out.write("      <nav class=\"navbar navbar-light bg-light\">\r\n");
       out.write("        <form class=\"form-inline\">\r\n");
       out.write("          <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Buscar\" aria-label=\"Search\">\r\n");

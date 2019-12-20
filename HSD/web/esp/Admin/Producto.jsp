@@ -19,6 +19,7 @@
     <link href="../../assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+    
  <div id="wrapper">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
