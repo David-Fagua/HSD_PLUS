@@ -2,14 +2,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>HSD PLUS</title>
+    <title>HSD PLUS</title>
 
-	<link rel="icon" type="image/png" href="../Img/Logo.png">
-
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<meta charset="utf-8">
+    <link rel="icon" type="image/png" href="../assets/Img/Logo.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="Content-Tipe" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
 </head>
-
 
 <body>
 
@@ -19,23 +21,23 @@
 
 <div>
   <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-    <a href="start.html" class="navbar-brand" href="#">
-    <img src="../img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
-    <a href="start.html" class="navbar-brand">HSD PLUS</a>
+    <a href="Start.jsp" class="navbar-brand">
+    <img src="../assets/Img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
+    <a href="Start.jsp" class="navbar-brand">HSD PLUS</a>
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-          <a href="Catalog.html" class="nav-link" style="color: #47A5B4;">Catalog
+          <a href="Catalog.jsp" class="nav-link" style="color: #47A5B4;">Catalog
           </a>
-          <a href="Contact Us.html" class="nav-link" style="color: #47A5B4;">Contact Us
+          <a href="Contact Us.jsp" class="nav-link" style="color: #47A5B4;">Contact Us
           </a>
-          <a href="About us.html" class="nav-link" style="color: #47A5B4;">About Us
+          <a href="About us.jsp" class="nav-link" style="color: #47A5B4;">About Us?
           </a>
-          <a href="Mission and vision.html" class="nav-link" style="color: #47A5B4;">Mission and vision
+          <a href="Mission and vision.jsp" class="nav-link" style="color: #47A5B4;">Mission and vision
           </a>
-          <a href="Briefcase.html" class="nav-link" style="color: #47A5B4;">Briefcase
+          <a href="Briefcase.jsp" class="nav-link" style="color: #47A5B4;">Briefcase
           </a>
         </li>
       </ul>
@@ -48,11 +50,11 @@
       </div>
       <div class="btn-group dropleft">
         <button style="background-color: #ffffff;" class="button" class="btn btn-sec btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img src="../img/Usuario.png" width="40" height="40" alt="">
+          <img src="../assets/Img/Usuario.png" width="40" height="40" alt="">
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="Log in.html">Log in</a>
-          <a class="dropdown-item" href="Register.html">Create account</a>
+          <a class="dropdown-item" href="Log in.jsp">Log in</a>
+          <a class="dropdown-item" href="Register.jsp">Create account</a>
         </div>
       </div>
     </div>
@@ -74,25 +76,25 @@
 		</ol>
 	<div class="carousel-inner">
     <div class="carousel-item active">
-      <img  src="../Img/1.jpg" width="100" height="400px whilt " class="d-block w-100" alt="...">
+      <img  src="../assets/Img/1.jpg" width="100" height="400px whilt " class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="../Img/2.jpg" width="100" height="400px " class="d-block w-100" alt="...">
+      <img src="../assets/Img/2.jpg" width="100" height="400px " class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="../Img/3.jpg" width="100" height="400px " class="d-block w-100" alt="...">
+      <img src="../assets/Img/3.jpg" width="100" height="400px " class="d-block w-100" alt="...">
     </div>
      <div class="carousel-item">
-      <img src="../Img/4.jpg" width="100" height="400px " class="d-block w-100" alt="...">
+      <img src="../assets/Img/4.jpg" width="100" height="400px " class="d-block w-100" alt="...">
     </div>
      <div class="carousel-item">
-      <img src="../Img/5.jpg" width="100" height="400px " class="d-block w-100" alt="...">
+      <img src="../assets/Img/5.jpg" width="100" height="400px " class="d-block w-100" alt="...">
     </div>
      <div class="carousel-item">
-      <img src="../Img/6.jpg" width="100" height="400px " class="d-block w-100" alt="...">
+      <img src="../assets/Img/6.jpg" width="100" height="400px " class="d-block w-100" alt="...">
     </div>
      <div class="carousel-item">
-      <img src="../Img/7.jpg" width="100" height="400px " class="d-block w-100" alt="...">
+      <img src="../assets/Img/7.jpg" width="100" height="400px " class="d-block w-100" alt="...">
     </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -124,7 +126,7 @@
     <small  class="d-block mb-3 text-right text-muted">14 Jun</small>
   </div>
   <div class="col-md-3 order-md-1">
-    <img src="../img/1.jpg" class="card-img-top" alt="img">
+    <img src="../assets/Img/1.jpg" class="card-img-top" alt="img">
   </div>
 </div>
 </br>
@@ -143,7 +145,7 @@
     <small  class="d-block mb-3 text-right text-muted">6 Jun</small>
   </div>
   <div class="col-md-3 order-md-1">
-    <img src="../img/2.jpg" class="card-img-top" alt="img">
+    <img src="../assets/Img/2.jpg" class="card-img-top" alt="img">
   </div>
 </div>
 </br>
@@ -162,13 +164,13 @@
     <small  class="d-block mb-3 text-right text-muted">1 Jun</small>
   </div>
   <div class="col-md-3 order-md-1">
-    <img src="../img/3.jpg" class="card-img-top" alt="img">
+    <img src="../assets/Img/3.jpg" class="card-img-top" alt="img">
   </div>
 </div>
 </br>
   <div class="row featurette">
     <div class="col-md-6 order-md-2">
-      <h3 class="featurette-heading">PerlÃ© cotton thread</h3>
+      <h3 class="featurette-heading">Perla cotton thread</h3>
       <h6 href="Productos.html" class="lead">This type of thread is ideal for sewing wool, cotton and has a bright tone. They are used to sew both machine and hand. This type of thread is much more resistant to washing and ironing.</h6>
       <div class="col-6 col-md">
       <a href="#" class="badge badge-info">Offer</a>
@@ -181,7 +183,7 @@
     <small  class="d-block mb-3 text-right text-muted">29 May</small>
   </div>
   <div class="col-md-3 order-md-1">
-    <img src="../img/4.jpg" class="card-img-top" alt="img">
+    <img src="../assets/Img/4.jpg" class="card-img-top" alt="img">
   </div>
 </div>
 
