@@ -39,7 +39,7 @@
           </a>
         </li>
       </ul>
-      <span><a style="float:left;" href="../inicio.html">EspaÃ±ol</a></span>
+      <span><a style="float:left;" href="../index.jsp">Español</a></span>
       <nav class="navbar navbar-light bg-light">
         <form class="form-inline">
           <input class="form-control mr-sm-2" type="Search" placeholder="Search" aria-label="Search">

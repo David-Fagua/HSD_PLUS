@@ -29,7 +29,11 @@
             <span class="icon-bar"></span>
         </button>
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="Inicio.jsp"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
+            <li>
+                <a href="Inicio.jsp" class="navbar-brand">
+                <img src="../../assets/Img/Logo.png" width="25" height="25" alt="HSD PLUS"></a>   
+            </li>
+            <li><a href="Inicio.jsp"><i class="fa fa-home fa-fw"></i>Inicio</a></li>
         </ul>
         <ul class="nav navbar-right navbar-top-links">
             <li class="dropdown navbar-inverse">
@@ -96,19 +100,13 @@
                     <li><a href="../Error 404.jsp"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="../../index.jsp"><i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión</a>
+                    <li><a href="../../index.jsp"><i class="dropdown-item" class="fa fa-sign-out fa-fw"></i>Cerrar Sesión</a>
                     </li>
                 </ul>
             </li>
         </ul>
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
-                <a href="Inicio.jsp" class="navbar-brand" href="#">
-                    <img src="../../assets/Img/Logo.png" width="40" height="40" alt="HSD PLUS"></a>
-                    <a href="Inicio.jsp" class="navbar-brand" href="#">HSD PLUS</a>
-                </br>
-                </br>
-                </br>
                 <ul class="nav" id="side-menu">
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">

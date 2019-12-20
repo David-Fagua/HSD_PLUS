@@ -40,6 +40,7 @@
           </a>
         </li>
       </ul>
+      <span><a style="float:left;" href="Ingles/Start.jsp">Ingles</a></span>
       <nav class="navbar navbar-light bg-light">
         <form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
