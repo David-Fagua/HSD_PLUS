@@ -94,12 +94,12 @@
                     <i class="fa fa-user fa-fw"></i> Samuel Sanches <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="Usuario.jsp"><i class="fa fa-user fa-fw"></i>Usuario</a>
+                    <li><a href="../Usuario.jsp"><i class="fa fa-user fa-fw"></i>Usuario</a>
                     </li>
-                    <li><a href="../Error 404.jsp"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
+                    <li><a href="../../Error 404.jsp"><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="../../index.jsp"><i class="dropdown-item" class="fa fa-sign-out fa-fw"></i>Cerrar Sesión</a>
+                    <li><a href="../../../index.jsp"><i class="dropdown-item" class="fa fa-sign-out fa-fw"></i>Cerrar Sesión</a>
                     </li>
                 </ul>
             </li>
