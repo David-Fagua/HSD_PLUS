@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>InicioSesion</servlet-name>
+        <servlet-class>Config.InicioSesion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorCiudad</servlet-name>
+        <servlet-class>Controller.ControladorCiudad</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorTotal</servlet-name>
+        <servlet-class>Controller.ControladorTotal</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InicioSesion</servlet-name>
+        <url-pattern>/InicioSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorCiudad</servlet-name>
+        <url-pattern>/ControladorCiudad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorTotal</servlet-name>
+        <url-pattern>/ControladorTotal</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

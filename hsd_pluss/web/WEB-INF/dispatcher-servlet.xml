@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
+    <!--
+    Most controllers will use the ControllerClassNameHandlerMapping above, but
+    for the index controller we are using ParameterizableViewController, so we must
+    define an explicit mapping for it.
+    -->
+    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="index.htm">indexController</prop>
+                <prop key="Catalogo.htm">CatalogoController</prop>
+                <prop key="Contactenos.htm">ContactenosController</prop>
+                <prop key="Mision y Vision.htm">indexController</prop>
+                <prop key="Portafolio.htm">PortafolioController</prop>
+                <prop key="quienessomos.htm">quienessomosController</prop>
+                <prop key="esp/Registrar.htm">ControladorRegistrar</prop>
+                <prop key="esp/Registrorealizado.htm">ControladorRegistrarR</prop>
+                <prop key="esp/InicioSesion.htm">Validar</prop>
+                <prop key="esp/InicioSesion_1.htm">ControladorUsuario</prop>
+                <prop key="esp/Recordar.htm">RecordarController</prop>  
+                <prop key="esp/Admin/Inicio.htm">InicioController</prop>  
+                <prop key="esp/Error 404.htm">404Controller</prop>  
+            </props>
+        </property>
+    </bean>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/jsp/"
+          p:suffix=".jsp" />
+
+    <!--
+    The index controller.
+    -->
+    <bean name="indexController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="index" />
+    
+    <bean name="CatalogoController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="Catalogo" />
+    
+    <bean name="ContactenosController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="Contactenos" />
+    
+    <bean name="PortafolioController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="Portafolio" />
+    
+    <bean name="quienessomosController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="quienessomos" />
+    
+    <bean name="ControladorRegistrar" class="Controller.ControladorRegistrar"/>
+         
+    
+    <bean name="ControladorRegistrarR"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="esp/Registrorealizado" />
+    
+    <bean name="Validar"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="esp/InicioSesion" />
+    
+    <bean name="ControladorUsuario"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="esp/InicioSesion_1" />
+    
+    
+    
+    <bean name="RecordarController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="esp/Recordar" />
+    
+   <bean name="InicioController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="esp/Admin/Inicio" />
+   
+   <bean name="404Controller"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="esp/Error 404" />
+   
+
+</beans>

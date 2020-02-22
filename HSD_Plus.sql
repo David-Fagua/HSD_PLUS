@@ -1,329 +1,645 @@
-CREATE DATABASE IF NOT EXISTS HSD_Plus;
-USE HSD_Plus;
-
-CREATE TABLE IF NOT EXISTS ciudad(
-	id_ciudad INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(45) NOT NULL    
-)ENGINE=INNODB;
-
-
-
-
-CREATE TABLE IF NOT EXISTS tipo_documento(
-	id_tipo_documento INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(45) NOT NULL
-)ENGINE=INNODB;
-
-
-
-
-CREATE TABLE IF NOT EXISTS roles(
-	id_rol INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(45) NOT NULL,
-    fecha_de_apertura DATE
-)ENGINE=INNODB;
-
-
-
-
-CREATE TABLE IF NOT EXISTS grosor_hilo(
-	id_grosor INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    medida INT(10) NOT NULL,
-    fecha_aprobacion DATE
-)ENGINE=INNODB;
-
-
-
-
-CREATE TABLE IF NOT EXISTS proveedores(
-	nit INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    razon_social VARCHAR(45) NOT NULL,
-    telefono VARCHAR(11) NOT NULL,
-    email VARCHAR(45) NOT NULL,
-    direccion VARCHAR(45) NOT NULL,
-    ciudad_sucursal_principal INT NOT NULL,
-    
-    CONSTRAINT fknit_ciudad FOREIGN KEY(ciudad_sucursal_principal) REFERENCES ciudad(id_ciudad)
-)ENGINE=INNODB;
-
-
-
-CREATE TABLE IF NOT EXISTS usuarios(
-	id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nombre1 VARCHAR(45) NOT NULL,
-    nombre2 VARCHAR(45),
-    apellido1 VARCHAR(45) NOT NULL,
-    apellido2 VARCHAR(45),
-    numero_documento INT(20) NOT NULL,
-	id_tipo_documento INT NOT NULL,
-    telefono VARCHAR (11),
-    celular VARCHAR (15),
-    email VARCHAR(45) NOT NULL,
-    fecha_de_ingreso DATE,
-    ciudad_de_residencia INT NOT NULL,
-    id_rol INT NOT NULL,
-    
-    CONSTRAINT fkusuario_tipo_documento FOREIGN KEY(id_tipo_documento) REFERENCES tipo_documento(id_tipo_documento),
-    CONSTRAINT fkusuario_ciudad FOREIGN KEY(ciudad_de_residencia) REFERENCES ciudad(id_ciudad),
-	CONSTRAINT fkusuario_rol FOREIGN KEY(id_rol) REFERENCES roles(id_rol)
-)ENGINE=INNODB;
-
-
-
-CREATE TABLE IF NOT EXISTS tipo_de_inventario(
-	id_inventario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(45) NOT NULL,
-    fecha_de_apertura DATE,
-	id_del_Responsable INT NOT NULL,
-    
-    CONSTRAINT fkinventario_usuario FOREIGN KEY(id_del_Responsable) REFERENCES usuarios(id_usuario)
-)ENGINE=INNODB;
-
-
-
-
-CREATE TABLE IF NOT EXISTS inventario_general(
-	id_articulo INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(45) NOT NULL,
-    fecha_de_entrada DATE,
-    precio_de_compra DECIMAL,
-    disponibilidad BOOLEAN,
-    peso_en_lbr DECIMAL,
-    cantidad_unitaria INT,
-    color VARCHAR(20),
-    estado BOOLEAN,
-	tipo_de_inventario_id_inventario INT NOT NULL,
-    id_proveedor INT NOT NULL,
-    id_Responsable INT NOT NULL,
-
-    CONSTRAINT fkarticulo_inventario FOREIGN KEY(tipo_de_inventario_id_inventario) REFERENCES tipo_de_inventario(id_inventario),
-	CONSTRAINT fkarticulo_nit FOREIGN KEY(id_proveedor) REFERENCES proveedores(nit),
-    CONSTRAINT fkarticulo_usuario FOREIGN KEY(id_Responsable ) REFERENCES usuarios(id_usuario)
-)ENGINE=INNODB;
-
-
-
-
-CREATE TABLE IF NOT EXISTS producto_final(
-	id_productofinal INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    fecha_de_apertura DATE,
-    precio_por_unidad DECIMAL,
-    disponibilidad BOOLEAN,
-    cantidad INT,
-    id_grosor INT NOT NULL,
-    id_Articulo INT NOT NULL,
-    id_Responsable  INT NOT NULL,
-    Numeración_perteneciente_del_Inventario INT NOT NULL,
-    
-    CONSTRAINT fkproductofinal_grosor FOREIGN KEY(id_grosor) REFERENCES grosor_hilo(id_grosor),
-	CONSTRAINT fkproductofinal_inventario_general FOREIGN KEY(id_Articulo) REFERENCES inventario_general(id_articulo),
-	CONSTRAINT fkproductofinal_usuario FOREIGN KEY(id_Responsable) REFERENCES usuarios(id_usuario),
-	CONSTRAINT fkproductofinal_inventario FOREIGN KEY(Numeración_perteneciente_del_Inventario ) REFERENCES tipo_de_inventario(id_inventario)
-)ENGINE=INNODB;
-
-
-
-CREATE TABLE IF NOT EXISTS producto_proceso(
-	id_proceso INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    fecha_de_apertura DATE,
-    estado_del_proceso ENUM('iniciando','medio','terminado'),
-    cantidad INT,
-	id_articulo INT NOT NULL,
-    id_producto_final INT NOT NULL,
-    id_Responsable INT NOT NULL,
-    Numeración_perteneciente_del_Inventario INT NOT NULL,
-    
-    CONSTRAINT fkproceso_inventario_general FOREIGN KEY(id_articulo) REFERENCES inventario_general(id_articulo),
-	CONSTRAINT fkproceso_producto_final FOREIGN KEY(id_producto_final) REFERENCES producto_final(id_productofinal),
-	CONSTRAINT fkproceso_usuario FOREIGN KEY(id_Responsable) REFERENCES usuarios(id_usuario),
-	CONSTRAINT fkproceso_inventario FOREIGN KEY(Numeración_perteneciente_del_Inventario ) REFERENCES tipo_de_inventario(id_inventario)
-)ENGINE=INNODB;
-
-
-
-
-CREATE TABLE IF NOT EXISTS sobrantes(
-	id_sobrante INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    fecha_de_apertura DATE,
-    cantidad INT,
-    estado BOOLEAN,
-	disponibilidad BOOLEAN,
-	id_articulo INT NOT NULL,
-	observaciones VARCHAR(200),
-    id_Responsable INT NOT NULL,
-    Numeración_perteneciente_del_Inventario INT NOT NULL,
-    
-    CONSTRAINT fksobrante_inventario_general FOREIGN KEY(id_articulo) REFERENCES inventario_general(id_articulo),
-	CONSTRAINT fksobrante_usuario FOREIGN KEY(id_Responsable) REFERENCES usuarios(id_usuario),
-	CONSTRAINT fksobrante_inventario FOREIGN KEY(Numeración_perteneciente_del_Inventario ) REFERENCES tipo_de_inventario(id_inventario)
-)ENGINE=INNODB;
-
-
-
-CREATE TABLE IF NOT EXISTS desechos(
-	id_desecho INT NOT NULL AUTO_INCREMENT  PRIMARY KEY,
-    fecha_de_apertura DATE,
-    cantidad INT,
-    observaciones VARCHAR(200),
-	id_del_sobrante INT NOT NULL,
-        
-    CONSTRAINT fkdesecho_sobrante FOREIGN KEY(id_del_sobrante ) REFERENCES sobrantes(id_sobrante)
-)ENGINE=INNODB;
-
-
-
-
-CREATE TABLE IF NOT EXISTS reservas(
-	id_reserva INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    fecha_de_reserva DATE,
-    cantidad INT,
-    precio_por_unidad DECIMAL,
-    precio_total DECIMAL,
-    estado ENUM('iniciada','proceso','finalizada'),
-    observaciones VARCHAR(200),
-	id_productofinal INT NOT NULL,
-    id_usuario_cliente INT NOT NULL,
-
-    CONSTRAINT fkreserva_producto_final FOREIGN KEY(id_productofinal) REFERENCES producto_final(id_productofinal),
-    CONSTRAINT fkreserva_usuario FOREIGN KEY(id_usuario_cliente) REFERENCES usuarios(id_usuario)
-)ENGINE=INNODB;
-
-
-
-
-CREATE TABLE IF NOT EXISTS Registro_Ventas(
-	id_venta INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    fecha_de_la_venta DATE,
-    cantidad INT,
-	precio_por_unidad DECIMAL,
-    precio_total DECIMAL,
-    observaciones VARCHAR(200),
-    id_productofinal INT NOT NULL,
-    id_reserva INT NOT NULL,
-   	id_usuario_cliente INT NOT NULL,
-	
-    CONSTRAINT fkventa_producto_final FOREIGN KEY(id_productofinal) REFERENCES producto_final(id_productofinal),
-    CONSTRAINT fkventa_reserva FOREIGN KEY(id_reserva) REFERENCES reservas(id_reserva),
-    CONSTRAINT fkventa_usuario FOREIGN KEY(id_usuario_cliente) REFERENCES usuarios(id_usuario)
-    
-)ENGINE=INNODB;
-
-
-CREATE TABLE IF NOT EXISTS productofinal_reservas(
-	reservas_id_reserva INT NOT NULL,
-    producto_final_id_productofinal  INT NOT NULL,
-    cantidad INT NOT NULL,
-    PRIMARY KEY(reservas_id_reserva, producto_final_id_productofinal ),
-    CONSTRAINT fkproductofinal_reservas_productofinal
-    FOREIGN KEY(producto_final_id_productofinal)
-    REFERENCES producto_final(id_productofinal),
-    CONSTRAINT fkproductofinal_productofinal_reservas
-    FOREIGN KEY(reservas_id_reserva)
-    REFERENCES reservas(id_reserva)
-)ENGINE=INNODB;
-
-
-
-INSERT INTO ciudad (`nombre`) VALUES ('Bogota'),
- ('Medellin'),
- ('Cali'),
- ('Boyaca');
- 
-INSERT INTO tipo_documento (`nombre`) 
-VALUES  ('Cedula de cidadania'),
-		('Cedula de Extranjeria '),
-		('Tarjeta de Identidad');
-        
-INSERT INTO roles (`nombre`, `fecha_de_apertura`) VALUES ('Administrador ', '2000/01/01'), ('Cliente', '2000/01/01');
-
-INSERT INTO grosor_hilo (`medida`, `fecha_aprobacion`) 
-VALUES  ('1', '2000/01/02'),
-		('2', '2000/01/02'),
-		('3', '2000/01/02');
-        
-INSERT INTO proveedores (`razon_social`, `telefono`, `email`, `direccion`, `ciudad_sucursal_principal`) 
-VALUES  ('algodones esperanza', '1234567', 'algodonesperanz@gmail.com', 'calle73 ', '1'),
-		('algodonmax', '7894562', 'algomax@hotmail.com', 'calle734', '2'),
-		('Dotamax', '2583694', 'dota@hotmail.com', 'calle735 ', '3');
-        
-        
-INSERT INTO usuarios (`nombre1`, `nombre2`, `apellido1`, `apellido2`, `numero_documento`, `id_tipo_documento`, `telefono`, `celular`, `email`, `fecha_de_ingreso`, `ciudad_de_residencia`, `id_rol`) 
-VALUES ('samuel', 'junior ', 'salguero', 'carrillo', '1030621769', '1', '2583694', '3125375124', 'ssalguero@gmail.com', '2000/01/01', '1', '1'),
-		('Harold ', 'Giovany', 'Rojas', 'Laguna', '1236547452', '1', '2587415', '3115365589', 'hrojas@gmail.com', '2000/01/01', '1', '1'),
-		('Juan ', 'David ', 'Fagua', 'Murillo', '1254789632', '1', '9632584', '3114578965', 'jfagua@hotmail.com', '2000/01/01', '1', '1'),
-		('yolanda ', 'yaneth', 'carrillo ', 'pedraza', '169852445', '1', '8523694', '3218596754', 'yola@hotmail.com', '2000/02/01', '3', '2'),
-		('lizeth', 'nathalia', 'vargas', 'congo', '1234567895', '3', '8529634', '3105278451', 'nata@hotmail.com', '2000/03/01', '1', '2'),
-		('juan', 'felipe', 'vanegas', 'charro', '1216478541', '2', '2583695', '3115375124', 'juanf@hotmail.com', '2000/04/01', '2', '2');
-
-INSERT INTO tipo_de_inventario (`nombre`, `fecha_de_apertura`, `id_del_Responsable`) 
-VALUES  ('inventario_general', '2000/01/02', '1'),
-		('producto_final', '2000/01/03', '2'),
-		('producto_proceso', '2000/01/04', '3'),
-		('sobrantes', '2000/01/05', '1');
-        
-
-
-
-
-
-INSERT INTO inventario_general (`nombre`, `fecha_de_entrada`, `precio_de_compra`, `disponibilidad`, `peso_en_lbr`, `cantidad_unitaria`, `color`, `estado`, `tipo_de_inventario_id_inventario`, `id_proveedor`, `id_Responsable`) 
-VALUES  ('algodon normal', '2000/06/01', '100000', '1', '100000', '1', 'blanco', '1', '1', '1', '1'),
-		('algodon poliester', '2000/06/15', '150000', '1', '150000', '1', 'amarillo', '1', '1', '2', '2'),
-		('algodon perchero', '2000/07/01', '200000', '1', '200000', '1', 'azul', '1', '1', '3', '3'),
-		('redma de papel', '2000/07/15', '50000', '1', '100000', '40', 'rojo', '1', '1', '1', '1'),
-		('volcanes de carton', '2000/08/01', '100000', '1', '120000', '500', 'verde', '1', '1', '2', '2'),
-		('hilo crochet', '2000/08/15', '0', '1', '100000', '120', 'blanco', '1', '1', '3', '3'),
-		('hilo poliester', '2000/08/30', '0', '0', '140000', '0', 'amarillo', '1', '1', '1', '1'),
-		('hilo para camisa fina', '2000/09/01', '0', '1', '180000', '180', 'blanco', '1', '1', '2', '2'),
-		('hilo para trapero', '2000/09/15', '0', '0', '190000', '0', 'blanco', '0', '1', '3', '3'),
-		('palo de escoba', '2000/10/01', '100000', '0', '190000', '0', 'cafe', '1', '1', '1', '1');
-        
-INSERT INTO producto_final (`fecha_de_apertura`, `precio_por_unidad`, `disponibilidad`, `cantidad`, `id_grosor`, `id_Articulo`, `id_Responsable`, `Numeración_perteneciente_del_Inventario`) 
-VALUES  ('2000/09/01', '2000', '1', '120', '1', '6', '1', '1'),
-		('2000/09/15', '3000', '0', '0', '2', '7', '2', '1'),
-		('2000/10/01', '4000', '1', '180', '3', '8', '3', '1'),
-		('2000/10/15', '5000', '0', '0', '1', '9', '1', '1');
-        
-        
-INSERT INTO producto_proceso (`fecha_de_apertura`, `estado_del_proceso`, `cantidad`, `id_articulo`, `id_producto_final`, `id_Responsable`, `Numeración_perteneciente_del_Inventario`) 
-VALUES  ('2000/08/15', 'iniciando', '25', '1', '2', '1', '3'),
-		('2000/09/15', 'medio', '15', '2', '4', '2', '3'),
-		('2000/06/01', 'terminado', '120', '3', '1', '3', '3');
-
-
-
-INSERT INTO sobrantes (`fecha_de_apertura`, `cantidad`, `estado`, `disponibilidad`, `id_articulo`, `observaciones`, `id_Responsable`, `Numeración_perteneciente_del_Inventario`) 
-VALUES  ('2000/10/01', '1', '1', '1', '1', 'ninguna', '1', '4'),
-		('2000/10/15', '2', '1', '1', '2', 'ninguna', '2', '4'),
-		('2000/10/31', '3', '1', '1', '3', 'ninguna', '3', '4'),
-		('2000/11/01', '5', '0', '0', '4', 'se pasara para desechos', '1', '4');
-        
-INSERT INTO desechos (`fecha_de_apertura`, `cantidad`, `observaciones`, `id_del_sobrante`) VALUES ('2000/11/01', '1', 'niguna', '4');
-
-
-INSERT INTO reservas (`fecha_de_reserva`, `cantidad`, `precio_por_unidad`, `precio_total`, `estado`, `observaciones`, `id_productofinal`, `id_usuario_cliente`) 
-VALUES  ('2000/11/01', '10', '2000', '2000', 'iniciada', 'ninguna', '1', '4'),
-		('2000/11/02', '20', '3000', '60000', 'iniciada', 'ninguna', '2', '5'),
-		('2000/11/03', '30', '4000', '120000', 'iniciada', 'ninguna', '3', '6'),
-		('2000/11/03', '50', '5000', '250000', 'proceso', 'ninguna', '4', '4'),
-		('2000/11/04', '40', '2000', '80000', 'iniciada', 'ninguna', '1', '5'),
-		('2000/11/05', '60', '3000', '180000', 'proceso', 'ninguna', '2', '6'),
-		('2000/11/06', '70', '4000', '280000', 'proceso', 'ninguna', '3', '4'),
-		('2000/11/07', '80', '5000', '400000', 'proceso', 'ninguna', '4', '5'),
-		('2000/11/08', '90', '2000', '180000', 'proceso', 'ninguna', '1', '6'),
-		('2000/11/09', '25', '3000', '75000', 'proceso', 'ninguna', '2', '4'),
-		('2000/11/10', '30', '4000', '120000', 'proceso', 'ninguna', '3', '5'),
-		('2000/11/11', '36', '5000', '180000', 'proceso', 'ninguna', '4', '6'),
-		('2000/11/12', '40', '2000', '80000', 'finalizada', 'ninguna', '1', '4'),
-		('2000/11/12', '45', '3000', '135000', 'finalizada', 'ninguna', '2', '5'),
-		('2000/11/13', '65', '4000', '260000', 'finalizada', 'ninguna', '3', '6'),
-		('2000/11/14', '78', '5000', '390000', 'finalizada', 'ninguna', '4', '4'),
-		('2000/11/15', '55', '2000', '110000', 'proceso', 'ninguna', '1', '5');
-        
-        
-        
-INSERT INTO registro_ventas (`fecha_de_la_venta`, `cantidad`, `precio_por_unidad`, `precio_total`, `observaciones`, `id_productofinal`, `id_reserva`, `id_usuario_cliente`) 
-VALUES  ('2000/12/01', '40', '2000', '80000', 'ninguna', '1', '13', '4'),
-		('2000/12/02', '45', '3000', '135000', 'ninguna', '2', '14', '5'),
-		('2000/12/03', '65', '4000', '260000', 'ninguna', '3', '15', '6'),
-		('2000/12/04', '78', '5000', '390000', 'ninguna', '4', '16', '4');
+-- phpMyAdmin SQL Dump
+-- version 4.9.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 30-01-2020 a las 02:38:46
+-- Versión del servidor: 10.4.8-MariaDB
+-- Versión de PHP: 7.1.33
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `hsd_plus`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ciudad`
+--
+
+CREATE TABLE `ciudad` (
+  `id_ciudad` int(11) NOT NULL,
+  `nombre` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `ciudad`
+--
+
+INSERT INTO `ciudad` (`id_ciudad`, `nombre`) VALUES
+(1, 'Bogota'),
+(2, 'Cali'),
+(3, 'Medellin'),
+(4, 'Cartagena'),
+(15, 'Barranquilla'),
+(26, 'nose');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `desechos`
+--
+
+CREATE TABLE `desechos` (
+  `id_desecho` int(11) NOT NULL,
+  `fecha_llegada` date DEFAULT NULL,
+  `id_sobrante` int(11) NOT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `id_Responsable` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `desechos`
+--
+
+INSERT INTO `desechos` (`id_desecho`, `fecha_llegada`, `id_sobrante`, `cantidad`, `id_Responsable`) VALUES
+(1, '0000-00-00', 2, 1, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `grosor_hilo`
+--
+
+CREATE TABLE `grosor_hilo` (
+  `id_grosor` int(11) NOT NULL,
+  `medida` int(11) NOT NULL,
+  `fecha_aprobacion` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `grosor_hilo`
+--
+
+INSERT INTO `grosor_hilo` (`id_grosor`, `medida`, `fecha_aprobacion`) VALUES
+(1, 10, '2000-01-11'),
+(2, 20, '2000-02-22'),
+(3, 30, '2000-03-31'),
+(4, 40, '2000-05-05'),
+(12, 200, '2019-12-11'),
+(13, 220, '2019-12-11');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `inventario_general`
+--
+
+CREATE TABLE `inventario_general` (
+  `id_articulo` int(11) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `fecha_entrada` date DEFAULT NULL,
+  `precio_de_compra` decimal(10,0) DEFAULT NULL,
+  `disponibilidad` tinyint(1) DEFAULT NULL,
+  `peso_libra` decimal(10,0) DEFAULT NULL,
+  `cantidad_unitaria` int(11) DEFAULT NULL,
+  `color` varchar(20) DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT NULL,
+  `nit_proveedor` int(11) NOT NULL,
+  `id_Responsable` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `inventario_general`
+--
+
+INSERT INTO `inventario_general` (`id_articulo`, `nombre`, `fecha_entrada`, `precio_de_compra`, `disponibilidad`, `peso_libra`, `cantidad_unitaria`, `color`, `estado`, `nit_proveedor`, `id_Responsable`) VALUES
+(1, 'algodon perchero', '2000-02-01', '50000', 1, '500', 1, 'blanco', 1, 1, 1),
+(2, 'poliester', '2001-01-01', '100000', 1, '5500', 500, 'azul', 1, 2, 1),
+(3, 'croche', '2002-02-10', '210000', 1, '10000', 1500, 'rojo', 1, 3, 1),
+(4, 'hilo poliester', '2005-05-11', '2000', 2, '5000', 2000, 'verde', 2, 1, 3),
+(5, 'hilo delgado', '2006-02-11', '250000', 1, '2500', 6000, 'azul', 1, 2, 3),
+(6, 'hilo trapero', '0000-00-00', '200000', 1, '3000', 10000, 'morado', 1, 1, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productofinal_reservas`
+--
+
+CREATE TABLE `productofinal_reservas` (
+  `reservas_id_reserva` int(11) NOT NULL,
+  `producto_final_id_productofinal` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `producto_final`
+--
+
+CREATE TABLE `producto_final` (
+  `id_productofinal` int(11) NOT NULL,
+  `fecha_obtencion` date DEFAULT NULL,
+  `precio_unitario` decimal(10,0) DEFAULT NULL,
+  `disponibilidad` tinyint(1) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `grosor` int(11) NOT NULL,
+  `articulo` int(11) NOT NULL,
+  `responsable` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `producto_final`
+--
+
+INSERT INTO `producto_final` (`id_productofinal`, `fecha_obtencion`, `precio_unitario`, `disponibilidad`, `cantidad`, `grosor`, `articulo`, `responsable`) VALUES
+(1, '2001-01-01', '5000', 1, 10, 1, 4, 1),
+(2, '2002-02-12', '6000', 1, 50, 2, 5, 3),
+(3, '2003-12-01', '7000', 1, 20, 3, 6, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `producto_proceso`
+--
+
+CREATE TABLE `producto_proceso` (
+  `id_proceso` int(11) NOT NULL,
+  `fecha_produccion` date DEFAULT NULL,
+  `estado_proceso` enum('iniciando','medio','terminado') DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `articulo` int(11) NOT NULL,
+  `producto_final` int(11) NOT NULL,
+  `responsable` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `producto_proceso`
+--
+
+INSERT INTO `producto_proceso` (`id_proceso`, `fecha_produccion`, `estado_proceso`, `cantidad`, `articulo`, `producto_final`, `responsable`) VALUES
+(4, '0000-00-00', 'iniciando', 10, 1, 1, 1),
+(5, '0000-00-00', 'medio', 20, 2, 2, 3),
+(6, '0000-00-00', 'terminado', 30, 3, 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedor`
+--
+
+CREATE TABLE `proveedor` (
+  `id_proveedor` int(11) NOT NULL,
+  `nit` varchar(45) NOT NULL,
+  `razon_social` varchar(45) NOT NULL,
+  `telefono` varchar(13) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `direccion` varchar(45) NOT NULL,
+  `ciudad` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `proveedor`
+--
+
+INSERT INTO `proveedor` (`id_proveedor`, `nit`, `razon_social`, `telefono`, `email`, `direccion`, `ciudad`) VALUES
+(1, '12345rdc', 'cultivos las Rosas', '1234567', 'rosasa@gmail.com', 'calle85csur', 2),
+(2, '789746cultivo', 'Cultivos de algodonmax', '8523695', 'algodonmax@hotmail.com', 'calle102norte 29', 1),
+(3, '852369cult', 'insumosculti', '741258', 'insumos@gmail.com', 'calle73 sur ', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `registro_ventas`
+--
+
+CREATE TABLE `registro_ventas` (
+  `id_venta` int(11) NOT NULL,
+  `fecha_venta` date DEFAULT NULL,
+  `productofinal` int(11) NOT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `precio` decimal(10,0) DEFAULT NULL,
+  `cliente` int(11) NOT NULL,
+  `observaciones` varchar(200) DEFAULT NULL,
+  `reserva` int(11) NOT NULL,
+  `vendedor` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `registro_ventas`
+--
+
+INSERT INTO `registro_ventas` (`id_venta`, `fecha_venta`, `productofinal`, `cantidad`, `precio`, `cliente`, `observaciones`, `reserva`, `vendedor`) VALUES
+(2, '2010-10-02', 1, 10, '1000', 2, 'ninguna', 2, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reservas`
+--
+
+CREATE TABLE `reservas` (
+  `id_reserva` int(11) NOT NULL,
+  `fecha_reserva` date DEFAULT NULL,
+  `productofinal` int(11) NOT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `precio_total` decimal(10,0) DEFAULT NULL,
+  `estado` enum('iniciada','proceso','finalizada') DEFAULT NULL,
+  `observaciones` varchar(200) DEFAULT NULL,
+  `cliente` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `reservas`
+--
+
+INSERT INTO `reservas` (`id_reserva`, `fecha_reserva`, `productofinal`, `cantidad`, `precio_total`, `estado`, `observaciones`, `cliente`) VALUES
+(1, '0000-00-00', 1, 20, '20000', 'proceso', 'ninguna', 2),
+(2, '0000-00-00', 2, 30, '30000', 'iniciada', 'nada ', 2),
+(3, '0000-00-00', 3, 50, '50000', 'iniciada', 'ninguna', 2),
+(4, '0000-00-00', 1, 60, '60000', 'iniciada', 'nada', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `roles`
+--
+
+CREATE TABLE `roles` (
+  `id_rol` int(11) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `fecha_apertura` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`id_rol`, `nombre`, `fecha_apertura`) VALUES
+(1, 'Administrador', '2000-02-01'),
+(2, 'Cliente', '2000-02-03'),
+(3, 'nose', '2019-12-05'),
+(4, 'asdasd', '2019-12-18');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `sobrantes`
+--
+
+CREATE TABLE `sobrantes` (
+  `id_sobrante` int(11) NOT NULL,
+  `fecha_sobrante` date DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `estado` tinyint(1) DEFAULT NULL,
+  `disponibilidad` tinyint(1) DEFAULT NULL,
+  `articulo` int(11) NOT NULL,
+  `observaciones` varchar(200) DEFAULT NULL,
+  `responsable` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `sobrantes`
+--
+
+INSERT INTO `sobrantes` (`id_sobrante`, `fecha_sobrante`, `cantidad`, `estado`, `disponibilidad`, `articulo`, `observaciones`, `responsable`) VALUES
+(1, '2001-10-10', 1, 1, 1, 1, 'ninguna', 1),
+(2, '0000-00-00', 2, 2, 2, 2, 'nada', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipo_documento`
+--
+
+CREATE TABLE `tipo_documento` (
+  `id_tdocumento` int(11) NOT NULL,
+  `abrebiatura` varchar(5) NOT NULL,
+  `nombre` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tipo_documento`
+--
+
+INSERT INTO `tipo_documento` (`id_tdocumento`, `abrebiatura`, `nombre`) VALUES
+(1, 'TI', 'Targeta de Identidad'),
+(2, 'CC', 'Cedula de Ciudadania'),
+(3, 'CE', 'Cedula de Extranjeria ');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id_user` int(3) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `apellidos` varchar(45) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `clave1` varchar(50) NOT NULL,
+  `clave2` varchar(50) NOT NULL,
+  `rol` int(11) NOT NULL,
+  `tipo_documento` int(11) NOT NULL,
+  `numero_documento` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `telefono` varchar(13) NOT NULL,
+  `foto` varchar(100) DEFAULT NULL,
+  `ciudad` int(11) NOT NULL,
+  `status` enum('activo','bloqueado') DEFAULT 'activo'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_user`, `nombre`, `apellidos`, `username`, `clave1`, `clave2`, `rol`, `tipo_documento`, `numero_documento`, `email`, `telefono`, `foto`, `ciudad`, `status`) VALUES
+(1, '', '', 'admin', '123456789', '', 1, 2, '1030621769', 'adminciu@gmail.com', '1234567', 'user-default.png', 2, 'activo'),
+(2, '', '', 'juance', '456789231', '', 2, 2, '9632584174', 'juan@gmail.com', '789456321', 'default.png', 3, 'activo'),
+(3, '', '', 'adminciu', '456123789', '', 1, 3, '1235468978', 'admin@hotmail.com', '123456789', 'default.png', 4, 'activo'),
+(13, 'Samuel', 'Salguero Carrillo', 'ssalguero9', '1234567890', '0987654321', 1, 2, '1030621769', 'ssalguero9@misena.edu.co', '7894562', NULL, 2, 'activo'),
+(14, 'Barranquilla', 'vanegas', 'karen@misena', '1234567890', 'lkjhgfds', 1, 2, '1030621769', 'leumas.samo.93@hotmail.com', '8521475', NULL, 2, 'activo'),
+(15, 'Barranquilla', 'vanegas', 'karen@misena', '1234567890', 'hjkl', 1, 2, '1030621769', 'salguerito14@gmail.com', '9632584', NULL, 2, 'activo'),
+(20, 'Barranquilla', 'vanegas', 'karen', '1234567890', 'ssalguero9', 1, 2, '1030621769', 'jskdd@gmail.com', '7894562', NULL, 2, 'activo'),
+(21, 'vanedsa', 'Salguero Carrillo', 'vanedsa@misena', '1030645128vane', '1030645128vane', 1, 2, '1030621769', 'vanedsa@misena', '3195144643', NULL, 2, 'activo');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `ciudad`
+--
+ALTER TABLE `ciudad`
+  ADD PRIMARY KEY (`id_ciudad`);
+
+--
+-- Indices de la tabla `desechos`
+--
+ALTER TABLE `desechos`
+  ADD PRIMARY KEY (`id_desecho`),
+  ADD KEY `fkdesecho_sobrante` (`id_sobrante`),
+  ADD KEY `fkdesecho_user` (`id_Responsable`);
+
+--
+-- Indices de la tabla `grosor_hilo`
+--
+ALTER TABLE `grosor_hilo`
+  ADD PRIMARY KEY (`id_grosor`);
+
+--
+-- Indices de la tabla `inventario_general`
+--
+ALTER TABLE `inventario_general`
+  ADD PRIMARY KEY (`id_articulo`),
+  ADD KEY `fkarticulo_nit` (`nit_proveedor`),
+  ADD KEY `fkarticulo_user` (`id_Responsable`);
+
+--
+-- Indices de la tabla `productofinal_reservas`
+--
+ALTER TABLE `productofinal_reservas`
+  ADD PRIMARY KEY (`reservas_id_reserva`,`producto_final_id_productofinal`),
+  ADD KEY `fkproductofinal_reservas_productofinal` (`producto_final_id_productofinal`);
+
+--
+-- Indices de la tabla `producto_final`
+--
+ALTER TABLE `producto_final`
+  ADD PRIMARY KEY (`id_productofinal`),
+  ADD KEY `fkproductofinal_grosor` (`grosor`),
+  ADD KEY `fkproductofinal_articulo` (`articulo`),
+  ADD KEY `fkproductofinal_user` (`responsable`);
+
+--
+-- Indices de la tabla `producto_proceso`
+--
+ALTER TABLE `producto_proceso`
+  ADD PRIMARY KEY (`id_proceso`),
+  ADD KEY `fkproceso_articulo` (`articulo`),
+  ADD KEY `fkproceso_productofinal` (`producto_final`),
+  ADD KEY `fkproceso_user` (`responsable`);
+
+--
+-- Indices de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD PRIMARY KEY (`id_proveedor`),
+  ADD KEY `fknit_ciudad` (`ciudad`);
+
+--
+-- Indices de la tabla `registro_ventas`
+--
+ALTER TABLE `registro_ventas`
+  ADD PRIMARY KEY (`id_venta`),
+  ADD KEY `fkventa_productofinal` (`productofinal`),
+  ADD KEY `fk1venta_reserva` (`reserva`),
+  ADD KEY `fk2reserva_user` (`cliente`),
+  ADD KEY `fk3reserva_user` (`vendedor`);
+
+--
+-- Indices de la tabla `reservas`
+--
+ALTER TABLE `reservas`
+  ADD PRIMARY KEY (`id_reserva`),
+  ADD KEY `fkreserva_productofinal` (`productofinal`),
+  ADD KEY `fk1reserva_user` (`cliente`);
+
+--
+-- Indices de la tabla `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id_rol`);
+
+--
+-- Indices de la tabla `sobrantes`
+--
+ALTER TABLE `sobrantes`
+  ADD PRIMARY KEY (`id_sobrante`),
+  ADD KEY `fksobrante_articulo` (`articulo`),
+  ADD KEY `fksobrante_user` (`responsable`);
+
+--
+-- Indices de la tabla `tipo_documento`
+--
+ALTER TABLE `tipo_documento`
+  ADD PRIMARY KEY (`id_tdocumento`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `fkuser_rol` (`rol`),
+  ADD KEY `fkuser_ciudad` (`ciudad`),
+  ADD KEY `fkuser_tdocumento` (`tipo_documento`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `ciudad`
+--
+ALTER TABLE `ciudad`
+  MODIFY `id_ciudad` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT de la tabla `desechos`
+--
+ALTER TABLE `desechos`
+  MODIFY `id_desecho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `grosor_hilo`
+--
+ALTER TABLE `grosor_hilo`
+  MODIFY `id_grosor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT de la tabla `inventario_general`
+--
+ALTER TABLE `inventario_general`
+  MODIFY `id_articulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `producto_final`
+--
+ALTER TABLE `producto_final`
+  MODIFY `id_productofinal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `producto_proceso`
+--
+ALTER TABLE `producto_proceso`
+  MODIFY `id_proceso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `registro_ventas`
+--
+ALTER TABLE `registro_ventas`
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `reservas`
+--
+ALTER TABLE `reservas`
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `sobrantes`
+--
+ALTER TABLE `sobrantes`
+  MODIFY `id_sobrante` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `tipo_documento`
+--
+ALTER TABLE `tipo_documento`
+  MODIFY `id_tdocumento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `desechos`
+--
+ALTER TABLE `desechos`
+  ADD CONSTRAINT `fkdesecho_sobrante` FOREIGN KEY (`id_sobrante`) REFERENCES `sobrantes` (`id_sobrante`),
+  ADD CONSTRAINT `fkdesecho_user` FOREIGN KEY (`id_Responsable`) REFERENCES `usuarios` (`id_user`);
+
+--
+-- Filtros para la tabla `inventario_general`
+--
+ALTER TABLE `inventario_general`
+  ADD CONSTRAINT `fkarticulo_nit` FOREIGN KEY (`nit_proveedor`) REFERENCES `proveedor` (`id_proveedor`),
+  ADD CONSTRAINT `fkarticulo_user` FOREIGN KEY (`id_Responsable`) REFERENCES `usuarios` (`id_user`);
+
+--
+-- Filtros para la tabla `productofinal_reservas`
+--
+ALTER TABLE `productofinal_reservas`
+  ADD CONSTRAINT `fkproductofinal_productofinal_reservas` FOREIGN KEY (`reservas_id_reserva`) REFERENCES `reservas` (`id_reserva`),
+  ADD CONSTRAINT `fkproductofinal_reservas_productofinal` FOREIGN KEY (`producto_final_id_productofinal`) REFERENCES `producto_final` (`id_productofinal`);
+
+--
+-- Filtros para la tabla `producto_final`
+--
+ALTER TABLE `producto_final`
+  ADD CONSTRAINT `fkproductofinal_articulo` FOREIGN KEY (`articulo`) REFERENCES `inventario_general` (`id_articulo`),
+  ADD CONSTRAINT `fkproductofinal_grosor` FOREIGN KEY (`grosor`) REFERENCES `grosor_hilo` (`id_grosor`),
+  ADD CONSTRAINT `fkproductofinal_user` FOREIGN KEY (`responsable`) REFERENCES `usuarios` (`id_user`);
+
+--
+-- Filtros para la tabla `producto_proceso`
+--
+ALTER TABLE `producto_proceso`
+  ADD CONSTRAINT `fkproceso_articulo` FOREIGN KEY (`articulo`) REFERENCES `inventario_general` (`id_articulo`),
+  ADD CONSTRAINT `fkproceso_productofinal` FOREIGN KEY (`producto_final`) REFERENCES `producto_final` (`id_productofinal`),
+  ADD CONSTRAINT `fkproceso_user` FOREIGN KEY (`responsable`) REFERENCES `usuarios` (`id_user`);
+
+--
+-- Filtros para la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD CONSTRAINT `fknit_ciudad` FOREIGN KEY (`ciudad`) REFERENCES `ciudad` (`id_ciudad`);
+
+--
+-- Filtros para la tabla `registro_ventas`
+--
+ALTER TABLE `registro_ventas`
+  ADD CONSTRAINT `fk1venta_reserva` FOREIGN KEY (`reserva`) REFERENCES `reservas` (`id_reserva`),
+  ADD CONSTRAINT `fk2reserva_user` FOREIGN KEY (`cliente`) REFERENCES `usuarios` (`id_user`),
+  ADD CONSTRAINT `fk3reserva_user` FOREIGN KEY (`vendedor`) REFERENCES `usuarios` (`id_user`),
+  ADD CONSTRAINT `fkventa_productofinal` FOREIGN KEY (`productofinal`) REFERENCES `producto_final` (`id_productofinal`);
+
+--
+-- Filtros para la tabla `reservas`
+--
+ALTER TABLE `reservas`
+  ADD CONSTRAINT `fk1reserva_user` FOREIGN KEY (`cliente`) REFERENCES `usuarios` (`id_user`),
+  ADD CONSTRAINT `fkreserva_productofinal` FOREIGN KEY (`productofinal`) REFERENCES `producto_final` (`id_productofinal`);
+
+--
+-- Filtros para la tabla `sobrantes`
+--
+ALTER TABLE `sobrantes`
+  ADD CONSTRAINT `fksobrante_articulo` FOREIGN KEY (`articulo`) REFERENCES `inventario_general` (`id_articulo`),
+  ADD CONSTRAINT `fksobrante_user` FOREIGN KEY (`responsable`) REFERENCES `usuarios` (`id_user`);
+
+--
+-- Filtros para la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `fkuser_ciudad` FOREIGN KEY (`ciudad`) REFERENCES `ciudad` (`id_ciudad`),
+  ADD CONSTRAINT `fkuser_rol` FOREIGN KEY (`rol`) REFERENCES `roles` (`id_rol`),
+  ADD CONSTRAINT `fkuser_tdocumento` FOREIGN KEY (`tipo_documento`) REFERENCES `tipo_documento` (`id_tdocumento`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
