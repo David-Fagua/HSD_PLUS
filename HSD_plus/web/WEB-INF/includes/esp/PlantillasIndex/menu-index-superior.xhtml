@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <div>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+            <a href="index.xhtml" class="navbar-brand">
+                <img src="resources/assets/Img/Logo.png" width="40" height="40" alt="HSD PLUS"></img></a>
+            <a href="index.xhtml" class="navbar-brand">HSD PLUS</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <a href="Catalogo.xhtml" class="nav-link" style="color: #47A5B4;">Catalogo
+                    </a>
+                    <a href="Contactenos.xhtml" class="nav-link" style="color: #47A5B4;">Contactenos
+                    </a>
+                    <a href="quienessomos.xhtml" class="nav-link" style="color: #47A5B4;">¿Quienes Somos?
+                    </a>
+                    <a href="MisionyVision.xhtml" class="nav-link" style="color: #47A5B4;">Misión y Visión
+                    </a>
+                    <a href="Portafolio.xhtml" class="nav-link" style="color: #47A5B4;">Portafolio
+                    </a>
+                </ul>
+
+                <span><a style="float:left;" href="#{request.contextPath}/English/Start.xhtml">English</a></span>
+                <nav class="navbar navbar-light bg-light">
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search"/>
+                        <button style="color:#47A5B4;" class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
+                    </form>
+                </nav> 
+            </div>
+            <div class="btn-group dropleft">
+                <button style="background-color: #ffffff;" class="button"  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="resources/assets/Img/Usuario.png" width="40" height="40" alt=""></img>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="sesion/InicioSesion.xhtml">Iniciar Sesión</a>
+                    <a class="dropdown-item" href="sesion/Registrar.xhtml">Registrar</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</ui:composition>
+

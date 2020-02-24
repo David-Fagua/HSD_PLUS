@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Producto en Proceso</title>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+    </h:head>
+    <h:body>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"></ui:include>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Producto en Proceso</h1>
+                        <!-- /.row -->
+                           
+                        <h3>  <h:messages showDetail="true" layout="table" 
+                                   style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                   errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                        </h3>
+                        <h:form prependId="false">
+                                    <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nuevo Proceso</a>
+                                    <br></br>
+                                    <br></br>
+                                    <h:dataTable class="table table-striped" value="#{productoProcesoController.productoProceso}"
+                                                 var="pp">
+                                        <h:column>
+                                            <f:facet name="header">ID </f:facet>
+                                            <h:outputText value="#{pp.idProceso}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">FECHA</f:facet>
+                                            <h:outputText value="#{pp.fechaProceso}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">ARTICULO INICIAL</f:facet>
+                                            <h:outputText value="#{pp.articuloInicial.nombre}"/>
+                                        </h:column>
+
+                                        <h:column>
+                                            <f:facet name="header">PRODUCTO FINAL </f:facet>
+                                            <h:outputText value="#{pp.productoFinal.articulo.nombre}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">CANTIDAD</f:facet>
+                                            <h:outputText value="#{pp.cantidad}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">RESPONSABLE</f:facet>
+                                            <h:outputText value="#{pp.responsable.nombres}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">OPCIONES</f:facet>
+                                            
+                                            <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoProceso" 
+                                                           action="#{productoProcesoController.selecionarProceso(pp)}">
+                                                <i class="fa fa-eye"></i>
+                                                <f:ajax render=":verInfoProcesoContent"/>
+                                            </h:commandLink>
+                                            
+                                            <h:commandLink class="btn btn-warning"
+                                                           action="#{productoProcesoController.selecionarProceso(pp)}"
+                                                           a:data-toggle="modal" a:data-target="#editarInfoProceso">
+                                                <i class="fa fa-pencil" ></i>
+                                                <f:ajax render=":editarInfoProcesoContent"/>
+                                            </h:commandLink>
+                                            
+                                            <h:commandLink class="btn btn-danger" 
+                                                           action="#{productoProcesoController.selecionarProceso(pp)}"
+                                                           a:data-toggle="modal" a:data-target="#eliminarProceso">
+                                                <i class="fa fa-trash"></i>
+                                                <f:ajax render=":confirmEmiliminarProceso"/>
+                                            </h:commandLink>
+                                         
+                                        </h:column>
+                                    </h:dataTable>
+                        </h:form>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Producproceso/ver-info-proceso.xhtml"></ui:include>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Producproceso/confirmar_eliminar.xhtml"></ui:include>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Producproceso/editar-info-proceso.xhtml"></ui:include>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </h:body>
+</html>
+

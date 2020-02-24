@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Registrar Catalogo</title>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+    </h:head>
+    <h:body>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"></ui:include>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Registrar Catalogo</h1>
+                        <!-- /.row -->
+
+
+
+
+                        <h3>  <h:messages showDetail="true" layout="table" 
+                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                        </h3>
+                        <h:form enctype="multipart/form-data" prependId="false">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <div class="form-group col-md-12">
+                                        <label for="codigo" class="form-control-label">Codigo</label>
+                                        <h:inputText id="codigo" class="form-control" 
+                                                     pt:aria-required="true" pt:aria-invalid="false" value="#{catalogoController.nuevoCatalogo.codigo}"
+                                                     pt:placeholder="Ingrece el codigo para el producto"/>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="nombre" class="form-control-label">Nuevo Nombre</label>
+                                        <h:inputText id="nombre" class="form-control" 
+                                                     pt:aria-required="true" pt:aria-invalid="false"  value="#{catalogoController.nuevoCatalogo.nombre}"
+                                                     pt:placeholder="Ingrece el Nuevo Nombre para el producto"/>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label>Articulo de Inv Final</label>
+                                        <h:selectOneMenu class="form-control" value="#{catalogoController.nuevoCatalogo.articulofinal}">
+                                            <f:selectItem itemLabel="Seleciona el Nombre del Producto" itemValue=""/>
+                                            <f:selectItems value="#{productoFinalController.productoFinal}" var="pf" itemLabel="#{pf.articulo.nombre}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="descripcion" class="form-control-label" >Descripcion</label>
+                                        <h:inputTextarea id="descripcion" class="form-control"  
+                                                        pt:aria-required="true" pt:aria-invalid="false"  value="#{catalogoController.nuevoCatalogo.descripcion}"
+                                                        pt:placeholder="Describa el Producto para promocionar"/>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="fecha" class="form-control-label" >Fecha</label>
+                                        <h:inputText pt:type="date" id="fecha" class="form-control" 
+                                                    pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.nuevoCatalogo.fecha}"/>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="preciounitario" class="form-control-label" >Precio</label>
+                                        <h:inputText id="precio" class="form-control" 
+                                                    pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.nuevoCatalogo.precioUnitario}"
+                                                    pt:placeholder="1000.00"/>
+                                    </div>
+
+
+                                    <div class="form-group col-md-12">
+                                        <label for="stock" class="form-control-label" >Stock</label>
+                                        <h:inputText id="stock" class="form-control" 
+                                                    pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.nuevoCatalogo.stock}"
+                                                    pt:placeholder="123"/>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label for="imagen" class="form-control-label">Imagen</label>
+                                        <h:inputFile id="imagen" class="form-control" value="#{catalogoController.imgNuevoCatalogo}"
+                                                     pt:aria-required="true" pt:aria-invalid="false"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <a class="btn btn-secondary" href="listar.xhtml">Cancelar</a>
+                                <h:commandButton class="btn btn-primary" value="Registrar" action="#{catalogoController.registrarCatalogo()}"/>
+                            </div>
+
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </h:body>
+</html>

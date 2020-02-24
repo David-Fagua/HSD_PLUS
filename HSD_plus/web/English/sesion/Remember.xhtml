@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Recordar</title>
+
+        <link rel="icon" type="resources/assets/img/png" href="#{request.contextPath}/resources/assets/Img/Logo.png"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+        <meta charset="utf-8"></meta>
+    </h:head>
+    <h:body>
+        <ui:include src="../../WEB-INF/includes/Eng/sesion/Templates-higher-startsesion.xhtml"></ui:include>
+
+        <br/>
+        <br/>
+        <br/>
+        <center>
+            <h1>Remember Password</h1>
+        </center>
+        <br/>
+        <br/>
+
+        <form>
+            <div class="form-row" style="margin: 0px 200px">
+                <div class="form-group col-md-12">
+                    <form action="" method="post">
+                        <label for="email">Email:</label>
+                        <input name="email" type="email" required=""><br /></input>
+                        <div class="g-recaptcha" data-sitekey="6LcePAATAAAAAGPRWgx90814DTjgt5sXnNbV5WaW"></div>
+                        <input type="submit" value="Submit" />
+                    </form>
+                </div>
+            </div>
+        </form>
+
+
+        <ui:include src="../../WEB-INF/includes/Eng/TemplateStart/menu-start-lower.xhtml"></ui:include>
+    </h:body>
+
+</html>
+

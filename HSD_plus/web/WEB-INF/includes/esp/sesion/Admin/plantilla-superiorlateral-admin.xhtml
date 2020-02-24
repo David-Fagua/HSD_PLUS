@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{sessionController.validarSesion()}"/>
+    </f:metadata>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <ul class="nav navbar-nav navbar-left navbar-top-links">
+            <li><a href="InicioA.xhtml"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
+        </ul>
+        <ul class="nav navbar-right navbar-top-links">
+            
+            <h:form>
+                <li class="dropdown">
+                    <br></br>
+                    <a class="dropdown-toggle"  data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw" style="color:#FFFFFF"></i>#{sessionController.user.nombres} #{sessionController.user.primerApellido} #{sessionController.user.segundoApellido}<b class="caret" ></b>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a><i class="fa fa-user fa-fw"></i>#{sessionController.user.correo}</a>
+                        </li>
+                        <li><a><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
+                        </li>
+                        <li class="divider"></li>
+                        <h:commandLink class="fa fa-sign-out fa-fw" style="color:black" action="#{sessionController.endSession()}" value="Cerrar"/>
+                    </ul>    
+                </li>
+            </h:form>
+        </ul>
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <a href="InicioA.xhtml" class="navbar-brand" >
+                    <img src="#{request.contextPath}/resources/assets/Img/Logo.png" width="40" height="40" alt="HSD PLUS"></img></a>
+                <a href="InicioA.xhtml" class="navbar-brand" >HSD PLUS</a>
+                <span class="nav-link-text">#{sessionController.rolSelecionado.nombre}</span>
+                <br></br>
+                <ul class="nav" id="side-menu">
+                    <li class="sidebar-search">
+                        <div class="input-group custom-search-form">
+                            <input type="text" class="form-control" placeholder="Buscar">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </input>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle"><i class="menu-icon fa fa-shopping-cart"></i><span class="menu-text"></span> Registro de Reservas<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Registro Reservas</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle">
+                            <i class="menu-icon fa  fa-file-text"></i>
+                            <span class="menu-text"></span>
+                            Registro de Ventas<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="ControladorProducto_proceso?accion=listar"><i class="menu-icon fa fa-caret-right"></i>Registro Ventas</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle"><i class="menu-icon fa fa-list-ol"></i><span class="menu-text"></span>Inventario<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+
+                            <li>
+                                <a href="#{request.contextPath}/sesion/Admin/InGeneral/listar.xhtml"><i class="menu-icon fa fa-caret-right"></i>Inventario General</a>
+                            </li>
+                            <li>
+                                <a href="#{request.contextPath}/sesion/Admin/Producproceso/listar.xhtml"><i class="menu-icon fa fa-caret-right"></i>Producto en Proceso</a>
+                            </li>                            
+                            <li>
+                                <a href="#{request.contextPath}/sesion/Admin/Productfinal/listar.xhtml"><i class="menu-icon fa fa-caret-right"></i>Producto Final</a>
+                            </li>
+
+                            <li>
+                                <a href="#{request.contextPath}/sesion/Admin/Desechos/listar.xhtml"><i class="menu-icon fa fa-caret-right"></i>Desechos</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-toggle"><i class="menu-icon fa fa-sitemap"></i><span class="menu-text"></span>Componentes<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="#{request.contextPath}/sesion/Admin/TipoDocumento/listar.xhtml"><i class="menu-icon fa fa-caret-right"></i>Tipo Documento</a>
+                            </li>
+                            <li>
+                                <a href="#{request.contextPath}/sesion/Admin/Roles/listar.xhtml"><i class="menu-icon fa fa-caret-right"></i>Registrar Rol</a>
+                            </li>
+                            <li>
+                                <a href="#{request.contextPath}/sesion/Admin/Proveedores/listar.xhtml"><i class="menu-icon fa fa-caret-right"></i>Registrar Proveedor</a>
+                            </li>
+                            <li>
+                                <a href="#{request.contextPath}/sesion/Admin/Ciudades/listar.xhtml"><i class="menu-icon fa fa-caret-right"></i>Lista de Ciudades</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#{request.contextPath}/sesion/Admin/Catalogo/listar.xhtml"><i class="fa fa-bar-chart-o fa-fw"></i>Gestor del Catalogo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#{request.contextPath}/sesion/Admin/Usuarios/listar.xhtml"><i class="fa fa-edit fa-fw"></i> Usuarios
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <script src="#{request.contextPath}/resources/assets/js/jquery.min.js"></script>
+    <script src="#{request.contextPath}/resources/assets/js/bootstrap.min.js"></script>
+    <script src="#{request.contextPath}/resources/assets/js/metisMenu.min.js"></script>
+    <script src="#{request.contextPath}/resources/assets/js/startmin.js"></script>
+
+
+</ui:composition>
+

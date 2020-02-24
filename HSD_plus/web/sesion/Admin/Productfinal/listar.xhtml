@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Producto Final</title>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+    </h:head>
+    <h:body>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"></ui:include>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Producto Final</h1>
+                        <!-- /.row -->
+                           
+                        <h3>  <h:messages showDetail="true" layout="table" 
+                                   style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                   errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                        </h3>
+                        <h:form prependId="false">
+                                    <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nuevo Producto</a>
+                                    <br></br>
+                                    <br></br>
+                                    <h:dataTable class="table table-striped" value="#{productoFinalController.productoFinal}"
+                                                 var="pf">
+                                        <h:column>
+                                            <f:facet name="header">ID </f:facet>
+                                            <h:outputText value="#{pf.idProductof}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">ARTICULO</f:facet>
+                                            <h:outputText value="#{pf.articulo.nombre}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">GROSOR</f:facet>
+                                            <h:outputText value="#{pf.grosor}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">EXISTENCIAS</f:facet>
+                                            <h:outputText value="#{pf.existencias}"/>
+                                        </h:column>
+
+                                        <h:column>
+                                            <f:facet name="header">FECHA </f:facet>
+                                            <h:outputText value="#{pf.fechaPromocion}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">OPCIONES</f:facet>
+                                            
+                                            <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoProducto" 
+                                                           action="#{productoFinalController.selecionarProducto(pf)}">
+                                                <i class="fa fa-eye"></i>
+                                                <f:ajax render=":verInfoProductoContent"/>
+                                            </h:commandLink>
+                                            
+                                            <h:commandLink class="btn btn-warning"
+                                                           action="#{productoFinalController.selecionarProducto(pf)}"
+                                                           a:data-toggle="modal" a:data-target="#editarInfoProducto">
+                                                <i class="fa fa-pencil" ></i>
+                                                <f:ajax render=":editarInfoProductoContent"/>
+                                            </h:commandLink>
+                                            
+                                            <h:commandLink class="btn btn-danger" 
+                                                           action="#{productoFinalController.selecionarProducto(pf)}"
+                                                           a:data-toggle="modal" a:data-target="#eliminarProducto">
+                                                <i class="fa fa-trash"></i>
+                                                <f:ajax render=":confirmEmiliminarProducto"/>
+                                            </h:commandLink>
+                                         
+                                        </h:column>
+                                    </h:dataTable>
+                        </h:form>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Productfinal/ver-info-producto.xhtml"></ui:include>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Productfinal/editar-info-producto.xhtml"></ui:include>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Productfinal/confirmar_eliminar.xhtml"></ui:include>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </h:body>
+</html>
+

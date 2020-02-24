@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Registrar Producto</title>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+    </h:head>
+    <h:body>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"></ui:include>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Registrar Producto</h1>
+                        <!-- /.row -->
+
+
+
+
+                        <h3>  <h:messages showDetail="true" layout="table" 
+                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                        </h3>
+                        <h:form prependId="false">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <div class="form-group col-md-12">
+                                        <label>Articulo</label>
+                                        <h:selectOneMenu class="form-control" value="#{productoFinalController.nuevoProducto.articulo}">
+                                            <f:selectItem itemLabel="Seleciona un Producto" itemValue=""/>
+                                            <f:selectItems value="#{inventarioGeneralController.inventarioGeneral}" var="ig" itemLabel="#{ig.nombre}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label>Grosor de Hilo</label>
+                                        <h:selectOneMenu class="form-control" value="#{productoFinalController.nuevoProducto.grosor}">
+                                            <f:selectItem itemLabel="No Aplica" itemValue="NA"/>
+                                            <f:selectItem itemLabel="10" itemValue="10"/>
+                                            <f:selectItem itemLabel="20" itemValue="20"/>
+                                            <f:selectItem itemLabel="30" itemValue="30"/>
+                                        </h:selectOneMenu>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label>Fecha de Promocion</label>
+                                        <h:inputText pt:type="date" class="form-control" value="#{productoFinalController.nuevoProducto.fechaPromocion}"/>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label>disponibilidad</label>
+                                        <h:selectOneRadio class="form-check" value="#{productoFinalController.nuevoProducto.disponibilidad}">
+                                            <f:selectItem itemLabel="Actvo" itemValue="true"/>
+                                            <f:selectItem itemLabel="Inactivo" itemValue="false"/>
+                                        </h:selectOneRadio>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label>Existencias </label>
+                                        <h:inputText class="form-control" value="#{productoFinalController.nuevoProducto.existencias}"/>
+                                    </div>                             
+
+                                    <div class="form-group col-md-12">
+                                        <label>Responsable</label>
+                                        <h:selectOneMenu class="form-control" value="#{productoFinalController.nuevoProducto.responsable}">
+                                            <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
+                                            <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres} -- #{us.rol.nombre}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <a class="btn btn-secondary" href="listar.xhtml">Cancelar</a>
+                                <h:commandButton class="btn btn-primary" value="Registrar" action="#{productoFinalController.registrar()}"/>
+                            </div>
+
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </h:body>
+</html>

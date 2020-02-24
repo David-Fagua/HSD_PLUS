@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Producto en Proceso</title>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+    </h:head>
+    <h:body>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"></ui:include>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Catalogo</h1>
+                        <!-- /.row -->
+
+                        <h3>  <h:messages showDetail="true" layout="table" 
+                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                        </h3>
+                        <h:form prependId="false">
+                            <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nuevo Proceso</a>
+                            <br></br>
+                            <br></br>
+                            <h:dataTable class="table " value="#{catalogoController.catalogo}"
+                                         var="cl">
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
+                                    <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="300" height="150px " class="d-block w-100" alt="..."/>
+                                    
+                                </h:column>
+                                
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
+                                    <h3><b><h:outputText value="#{cl.nombre}"/></b></h3>
+                                    <br></br>
+                                    <h4><h:outputText value="#{cl.descripcion}"/></h4>
+                                </h:column>
+
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
+                                    <h:outputText value="#{cl.fecha}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
+                                    <h3><b><h:outputText value="#{cl.precioUnitario}"/></b></h3>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
+                                    <h:outputText value="#{cl.stock}"/>
+                                </h:column>
+                                
+                            </h:dataTable>
+                        </h:form>
+
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Producproceso/confirmar_eliminar.xhtml"></ui:include>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Producproceso/editar-info-proceso.xhtml"></ui:include>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </h:body>
+</html>
+

@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Tipo Documento</title>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+    </h:head>
+    <h:body>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"></ui:include>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Tipo Docuemnto</h1>
+                        <!-- /.row -->
+
+                        <h3>  <h:messages showDetail="true" layout="table" 
+                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                        </h3>
+                        <h:form prependId="false">
+                            <h:commandLink class="btn btn-primary"
+                                           a:data-toggle="modal" a:data-target="#registrarDocumento">
+                                <i class="fa fa-primary" >Agregar Documento</i>
+                                <f:ajax render=":registrarDocumentoContent"/>
+                            </h:commandLink>
+                            <h:dataTable class="table table-striped" value="#{tipoDocumentosController.tipodocumentos}"
+                                         var="td">
+                                <h:column>
+                                    <f:facet name="header">ID </f:facet>
+                                    <h:outputText value="#{td.idTdocumento}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">NOMBRE </f:facet>
+                                    <h:outputText value="#{td.nombre}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">ABREBIATURA</f:facet>
+                                    <h:outputText value="#{td.abrebiatura}"/>
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">OPCIONES</f:facet>
+
+
+
+                                    <h:commandLink class="btn btn-warning"
+                                                   action="#{tipoDocumentosController.selecionarTipoDocumento(td)}"
+                                                   a:data-toggle="modal" a:data-target="#editarInfoDocumento">
+                                        <i class="fa fa-pencil" ></i>
+                                        <f:ajax render=":editarInfoDocumentoContent"/>
+                                    </h:commandLink>
+
+                                    <h:commandLink class="btn btn-danger" 
+                                                   action="#{tipoDocumentosController.selecionarTipoDocumento(td)}"
+                                                   a:data-toggle="modal" a:data-target="#eliminarDocumento">
+                                        <i class="fa fa-trash"></i>
+                                        <f:ajax render=":confirmEmiliminarDocumento"/>
+                                    </h:commandLink> 
+                                </h:column>
+                                
+                            </h:dataTable>
+                        </h:form>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/TipoDocumento/registrar.xhtml"></ui:include>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/TipoDocumento/confirmar_eliminar.xhtml"></ui:include>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/TipoDocumento/editar-info-tdocumento.xhtml"></ui:include>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </h:body>
+</html>
+

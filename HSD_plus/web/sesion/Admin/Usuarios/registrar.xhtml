@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Registrar Usuario</title>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+    </h:head>
+    <h:body>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"></ui:include>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Registrar Usuario</h1>
+                        <!-- /.row -->
+
+
+                            
+
+                        <h3>  <h:messages showDetail="true" layout="table" 
+                                   style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                   errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                        </h3>
+                        <h:form prependId="false">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label>Tipo de Documento</label>
+                                        <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.tipoDocumento}">
+                                            <f:selectItem itemLabel="Selecione un Tipo de Documento" itemValue=""/>
+                                            <f:selectItems value="#{tipoDocumentosController.tipodocumentos}" var="td" itemLabel="#{td.nombre}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label>Numero de Documento</label>
+                                        <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.numerodocumento}"/>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-4">
+                                        <label>Nombres</label>
+                                        <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.nombres}"/>
+                                    </div>
+                                    <div class="form-group col-md-4" >
+                                        <label>Primer Apellido</label>
+                                        <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.primerApellido}"/>
+                                    </div>
+                                    <div class="form-group col-md-4" >
+                                        <label>Segundo Apellido</label>
+                                        <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.segundoApellido}"/>
+                                    </div>
+                                    <div class="form-group col-md-6" >
+                                        <label>Correo</label>
+                                        <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.correo}"/>
+                                    </div>
+                                    <div class="form-group col-md-6" >
+                                        <label>Clave</label>
+                                        <h:inputSecret class="form-control" value="#{usuariosController.nuevoUsuario.clave}"/>
+                                    </div>
+                                    
+                                
+                                    <div class="form-group col-md-6">
+                                        <label>Ciudad</label>
+                                        <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.ciudad}">
+                                            <f:selectItem itemLabel="Selecione una ciudad" itemValue=""/>
+                                            <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label>Rol</label>
+                                        <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.rol}">
+                                            <f:selectItem itemLabel="Selecione un Rol" itemValue=""/>
+                                            <f:selectItems value="#{RolesController.roles}" var="rls" itemLabel="#{rls.nombre}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label>Telefono</label>
+                                        <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.telefono}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <a class="btn btn-secondary" href="listar.xhtml">Cancelar</a>
+                                <h:commandButton class="btn btn-primary" value="Registrar" action="#{usuariosController.registrar()}"/>
+                            </div>
+
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </h:body>
+</html>

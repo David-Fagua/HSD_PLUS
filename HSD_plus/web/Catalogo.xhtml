@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="icon" type="resources/assets/img/png" href="#{request.contextPath}/resources/assets/Img/Logo.png"/>
+        <title>Catalogo</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+        <meta charset="utf-8"/>
+    </h:head>
+    <h:body>
+        <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-superior.xhtml"></ui:include>
+
+        <h:dataTable class="table " value="#{catalogoController.catalogo}"
+                     var="cl">
+            <h:column>
+                <f:facet name="header"></f:facet>
+                <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="300" height="150px " class="d-block w-100" alt="..."/>
+
+            </h:column>
+
+            <h:column>
+                <f:facet name="header"></f:facet>
+                <h3><b><h:outputText value="#{cl.nombre}"/></b></h3>
+                <br></br>
+                <h4><h:outputText value="#{cl.descripcion}"/></h4>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header"></f:facet>
+                <h:outputText value="#{cl.fecha}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"></f:facet>
+                <h3><b><h:outputText value="#{cl.precioUnitario}"/></b></h3>
+            </h:column>
+            <h:column>
+                <f:facet name="header"></f:facet>
+                <h:outputText value="#{cl.stock}"/>
+            </h:column>
+
+        </h:dataTable>
+
+
+
+
+
+
+        <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-inferior.xhtml"></ui:include>
+    </h:body>
+</html>
+

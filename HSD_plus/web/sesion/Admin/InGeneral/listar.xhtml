@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Inventario General</title>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+    </h:head>
+    <h:body>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"></ui:include>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Inventario General</h1>
+                        <!-- /.row -->
+                           
+                        <h3>  <h:messages showDetail="true" layout="table" 
+                                   style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                   errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                        </h3>
+                        <h:form prependId="false">
+                                    <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nuevo Ingreso</a>
+                                    <br></br>
+                                    <br></br>
+                                    <h:dataTable class="table table-striped" value="#{inventarioGeneralController.inventarioGeneral}"
+                                                 var="ig">
+                                        <h:column>
+                                            <f:facet name="header">ID </f:facet>
+                                            <h:outputText value="#{ig.idArticulo}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">NOMBRE</f:facet>
+                                            <h:outputText value="#{ig.nombre}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">CANTIDAD</f:facet>
+                                            <h:outputText value="#{ig.cantidadUnitaria}"/>
+                                        </h:column>
+
+                                        <h:column>
+                                            <f:facet name="header">PRECIO DE COMPRA </f:facet>
+                                            <h:outputText value="#{ig.preciodeCompra}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">COLOR</f:facet>
+                                            <h:outputText value="#{ig.color}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">OPCIONES</f:facet>
+                                            
+                                            <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoArticulo" 
+                                                           action="#{inventarioGeneralController.selecionarArticulo(ig)}">
+                                                <i class="fa fa-eye"></i>
+                                                <f:ajax render=":verInfoArticuloContent"/>
+                                            </h:commandLink>
+                                            
+                                            <h:commandLink class="btn btn-warning"
+                                                           action="#{inventarioGeneralController.selecionarArticulo(ig)}"
+                                                           a:data-toggle="modal" a:data-target="#editarInfoAriculo">
+                                                <i class="fa fa-pencil" ></i>
+                                                <f:ajax render=":editarInfoArticuloContent"/>
+                                            </h:commandLink>
+                                            
+                                            <h:commandLink class="btn btn-danger" 
+                                                           action="#{inventarioGeneralController.selecionarArticulo(ig)}"
+                                                           a:data-toggle="modal" a:data-target="#eliminarArticulo">
+                                                <i class="fa fa-trash"></i>
+                                                <f:ajax render=":confirmEmiliminarArticulo"/>
+                                            </h:commandLink>
+                                         
+                                        </h:column>
+                                    </h:dataTable>
+                        </h:form>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/InventarioGeneral/ver-info-articulos.xhtml"></ui:include>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/InventarioGeneral/confirmar_eliminar.xhtml"></ui:include>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/InventarioGeneral/editar-info-articulos.xhtml"></ui:include>
+                        
+                        
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </h:body>
+</html>
+
