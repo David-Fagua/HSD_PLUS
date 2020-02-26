@@ -113,4 +113,13 @@ public class SessionController implements Serializable {
             ec.redirect(ec.getRequestContextPath());
         }
     }
+    
+    public long graficaUsu(boolean consultUsu){
+        
+        try {
+            return uDAO.cantidadUsuario(consultUsu);
+        } catch (Exception e) {
+        }
+        return 0;
+    }
 }

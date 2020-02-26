@@ -16,9 +16,12 @@ import javax.ejb.Local;
 @Local
 public interface IUsuariosDAO  extends DAO<Usuarios>{
 
+    
+
     Usuarios findByEmailAndPassword(String email, String password);
     
     public List<Usuarios> findAll(int i);
     
+     public int cantidadUsuario(boolean estado); 
     
 }

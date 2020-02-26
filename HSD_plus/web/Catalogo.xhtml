@@ -14,35 +14,37 @@
     <h:body>
         <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-superior.xhtml"></ui:include>
 
-        <h:dataTable class="table " value="#{catalogoController.catalogo}"
-                     var="cl">
-            <h:column>
-                <f:facet name="header"></f:facet>
-                <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="300" height="150px " class="d-block w-100" alt="..."/>
+        <div class="container">
+            <h:dataTable class="table " value="#{catalogoController.catalogo}"
+                         var="cl">
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="300" height="150px " class="d-block w-100" alt="..."/>
 
-            </h:column>
+                </h:column>
 
-            <h:column>
-                <f:facet name="header"></f:facet>
-                <h3><b><h:outputText value="#{cl.nombre}"/></b></h3>
-                <br></br>
-                <h4><h:outputText value="#{cl.descripcion}"/></h4>
-            </h:column>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    <h3><b><h:outputText value="#{cl.nombre}"/></b></h3>
+                    <br></br>
+                    <h4><h:outputText value="#{cl.descripcion}"/></h4>
+                </h:column>
 
-            <h:column>
-                <f:facet name="header"></f:facet>
-                <h:outputText value="#{cl.fecha}"/>
-            </h:column>
-            <h:column>
-                <f:facet name="header"></f:facet>
-                <h3><b><h:outputText value="#{cl.precioUnitario}"/></b></h3>
-            </h:column>
-            <h:column>
-                <f:facet name="header"></f:facet>
-                <h:outputText value="#{cl.stock}"/>
-            </h:column>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    <h:outputText value="#{cl.fecha}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    <h3><b><h:outputText value="#{cl.precioUnitario}"/></b></h3>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    <h:outputText value="#{cl.stock}"/>
+                </h:column>
 
-        </h:dataTable>
+            </h:dataTable>
+        </div>
 
 
 

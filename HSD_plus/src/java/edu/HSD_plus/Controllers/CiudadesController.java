@@ -17,7 +17,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
-import org.glassfish.soteria.Utils;
 
 /**
  *

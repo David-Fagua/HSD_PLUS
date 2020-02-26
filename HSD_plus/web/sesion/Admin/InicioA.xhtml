@@ -11,17 +11,45 @@
     </h:head>
     <h:body>
         <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
-                      <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"/>
+            <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"/>
         </h:panelGroup>
         <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-                      <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/plantilla-superiorlateral-client.xhtml"/>
+            <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/plantilla-superiorlateral-client.xhtml"/>
         </h:panelGroup>
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Bienvenido Señor@ #{sessionController.user.nombres} #{sessionController.user.primerApellido}</h1>
+                        <h1 class="page-header">Bienvenido #{sessionController.user.nombres} #{sessionController.user.primerApellido}</h1>
                         <!-- /.row -->
+
+
+
+                        <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                            <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/GraficaUsuarios.xhtml"/>
+                        </h:panelGroup>
+
+
+                        <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                            <img src="#{request.contextPath}/resources/assets/Img/Logo.png" width="900" height="400" style="opacity: 90" alt="HSD PLUS"></img>
+                        </h:panelGroup>
+
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -37,8 +65,8 @@
 
 
 
-        <script src="../../resources/assets/js/morris.min.js"></script>
-        <script src="../../resources/assets/js/morris-data.js"></script>
+
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> 
     </h:body>
 </html>
 

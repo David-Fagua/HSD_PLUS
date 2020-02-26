@@ -9,6 +9,7 @@ import edu.HSD_plus.modelo.dao.IUsuariosDAO;
 import edu.HSD_plus.modelo.entities.Usuarios;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -41,6 +42,19 @@ public class UsuariosDAO extends AbstractDAO<Usuarios> implements IUsuariosDAO {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public int cantidadUsuario(boolean estado) {
+    int cantidad = 0;
+        try {
+            Query q = em.createNativeQuery("SELECT COUNT(id_usuario) FROM Usuarios WHERE Usuarios.estado= ?");
+            q.setParameter(1, estado);
+           long cantidadL = (long) q.getSingleResult();
+           cantidad = (int) cantidadL;
+        } catch (Exception e) {
+        }
+    return cantidad;
     }
     
 }

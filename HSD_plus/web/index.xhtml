@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <link rel="icon" type="resources/assets/img/png" href="#{request.contextPath}/resources/assets/Img/Logo.png"/>
         <title>HSD plus</title>
@@ -58,73 +59,45 @@
             </div>
         </div> 
         <br></br>
-        
-        
+
+
 
         <div class="container">
+            <h:dataTable class="table " value="#{catalogoController.catalogo}"
+                         var="cl">
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="300" height="150px " class="d-block w-100" alt="..."/>
 
-            <div class="row featurette">
-                <div class="col-md-6 order-md-2">
-                    <h3 class="featurette-heading">Hilo de algodón</h3>
-                    <h6 href="Productos.html" class="lead">este tipo de hilo sirve para cualquier tipo de costura pero es muy aconsejado para coser a mano, ya que es suave y fácil de sacar y romper.</h6>
-                    <div class="col-6 col-md">
-                        <a href="#" class="badge badge-info">Destacado</a>
-                    </div>
-                </div>
-                <div class="col-md-2 order-md-4">
-                    <h3 class="text-right featurette-heading">$25.000</h3>
-                </div>
-                <div class="col-md-1 order-md-3">
-                    <small  class="d-block mb-3 text-right text-muted">6 Jun</small>
-                </div>
-                <div class="col-md-3 order-md-1">
-                    <img src="resources/assets/Img/2.jpg" class="card-img-top" alt="img"></img>
-                </div>
-            </div>
+                </h:column>
 
-            <div class="row featurette">
-                <div class="col-md-6 order-md-2">
-                    <h3 class="featurette-heading">Hilos sintéticos</h3>
-                    <h6 href="Productos.html" class="lead">elásticos y por norma general fabricados con poliéster. Existen modelos también de algodón y fibra sintética. Este tipo es de los más resistentes para todo tipo de telas.</h6>
-                    <div class="col-6 col-md">
-                        <a href="#" class="badge badge-info">Destacado</a>
-                    </div>
-                </div>
-                <div class="col-md-2 order-md-4">
-                    <h3 class="text-right featurette-heading">$18.000</h3>
-                </div>
-                <div class="col-md-1 order-md-3">
-                    <small  class="d-block mb-3 text-right text-muted">1 Jun</small>
-                </div>
-                <div class="col-md-3 order-md-1">
-                    <img src="resources/assets/Img/3.jpg" class="card-img-top" alt="img"></img>
-                </div>
-            </div>
-            <div class="row featurette">
-                <div class="col-md-6 order-md-2">
-                    <h3 class="featurette-heading">Hilo de algodón perlé</h3>
-                    <h6 href="Productos.html" class="lead">este tipo de hilo es ideal para coser lana, algodón y tiene un tono brillante. Sirven para coser tanto a máquina como a mano. Este tipo de hilo es mucho más resistente a los lavados y planchados.</h6>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    <h3><b><h:outputText value="#{cl.nombre}"/></b></h3>
+                    <br></br>
+                    <h4><h:outputText value="#{cl.descripcion}"/></h4>
+                </h:column>
 
-                    <div class="col-6 col-md">
-                        <a href="#" class="badge badge-info">Destacado</a>
-                    </div>
-                </div>
-                <div class="col-md-2 order-md-4">
-                    <h3 class="text-right featurette-heading">$10.000</h3>
-                </div>
-                <div class="col-md-1 order-md-3">
-                    <small  class="d-block mb-3 text-right text-muted">29 May</small>
-                </div>
-                <div class="col-md-3 order-md-1">
-                    <img src="resources/assets/Img/4.jpg" class="card-img-top" alt="img"></img>
-                </div>
-            </div>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    <h:outputText value="#{cl.fecha}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    <h3><b><h:outputText value="#{cl.precioUnitario}"/></b></h3>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"></f:facet>
+                    <h:outputText value="#{cl.stock}"/>
+                </h:column>
+
+            </h:dataTable>
         </div>
 
 
         <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-inferior.xhtml"></ui:include>
-       
-        
+
+
 
     </h:body>
 </html>

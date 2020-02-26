@@ -16,7 +16,7 @@
             <span class="icon-bar"></span>
         </button>
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="InicioA.xhtml"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
+            <li><a href="#{request.contextPath}/sesion/Admin/InicioA.xhtml"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
         </ul>
         <ul class="nav navbar-right navbar-top-links">
             
@@ -39,11 +39,13 @@
         </ul>
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
-                <a href="InicioA.xhtml" class="navbar-brand" >
+                <a href="#{request.contextPath}/sesion/Admin/InicioA.xhtml" class="navbar-brand" >
                     <img src="#{request.contextPath}/resources/assets/Img/Logo.png" width="40" height="40" alt="HSD PLUS"></img></a>
-                <a href="InicioA.xhtml" class="navbar-brand" >HSD PLUS</a>
-                <span class="nav-link-text">#{sessionController.rolSelecionado.nombre}</span>
+                <a href="#{request.contextPath}/sesion/Admin/InicioA.xhtml" class="navbar-brand" >HSD PLUS</a>
                 <br></br>
+                <br></br>
+                <br></br>
+                <h4 style="margin: 2px 15px">#{sessionController.rolSelecionado.nombre}</h4>
                 <ul class="nav" id="side-menu">
                     <li class="sidebar-search">
                         <div class="input-group custom-search-form">

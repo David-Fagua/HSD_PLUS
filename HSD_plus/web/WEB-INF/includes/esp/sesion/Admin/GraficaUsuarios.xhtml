@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core"
+                 xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <div class="col-lg-12 bg-white">
+        <div class="form d-flex align-items-center" >
+            <div class="content" >
+                <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+                <script>
+                    window.onload = function () {
+
+                        var chart = new CanvasJS.Chart("chartContainer", {
+                            theme: "light1", // "light1", "light2", "dark1", "dark2"
+                            exportEnabled: true,
+                            animationEnabled: true,
+                            title: {
+                                text: "Usuarios Activos e Inactivos o Bloqueados"
+                            },
+                            data: [{
+                                    type: "pie",
+                                    startAngle: 25,
+                                    toolTipContent: "<b>{label}</b>: {y}%",
+                                    showInLegend: "true",
+                                    legendText: "{label}",
+                                    indexLabelFontSize: 16,
+                                    indexLabel: "{label} = {y}%",
+                                    dataPoints: [
+                                        {y: #{sessionController.graficaUsu(true)}, label: "Activos"},
+                                        {y: #{sessionController.graficaUsu(false)}, label: "Inactivo"},
+                                    ]
+                                }]
+                        });
+                        chart.render();
+                    }
+                </script>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</ui:composition>
+
