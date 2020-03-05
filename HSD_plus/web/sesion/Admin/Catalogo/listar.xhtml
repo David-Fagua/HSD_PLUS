@@ -6,11 +6,20 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <title>Producto en Proceso</title>
+        <title>Catalogo</title>
         <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
     </h:head>
     <h:body>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"></ui:include>
+        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+            <div style="position: absolute" >
+                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                </h:panelGroup>
+            </div>
+        </nav>    
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -22,18 +31,22 @@
                                           style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
                                           errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
                         </h3>
-                        <h:form prependId="false">
-                            <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nuevo Proceso</a>
+                        <h:form prependId="false" enctype="multipart/form-data" >
+                            <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Anadir</a>
                             <br></br>
                             <br></br>
                             <h:dataTable class="table " value="#{catalogoController.catalogo}"
                                          var="cl">
                                 <h:column>
                                     <f:facet name="header"></f:facet>
-                                    <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="300" height="150px " class="d-block w-100" alt="..."/>
-                                    
+                                    <h:outputText value="#{cl.codigo}"/>
                                 </h:column>
-                                
+                                <h:column>
+                                    <f:facet name="header"></f:facet>
+                                    <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="300" height="150px " class="d-block w-100" alt="..."/>
+
+                                </h:column>
+
                                 <h:column>
                                     <f:facet name="header"></f:facet>
                                     <h3><b><h:outputText value="#{cl.nombre}"/></b></h3>
@@ -53,22 +66,26 @@
                                     <f:facet name="header"></f:facet>
                                     <h:outputText value="#{cl.stock}"/>
                                 </h:column>
-                                
+
+                                <h:column>
+                                    <f:facet name="header">ELIMINAR</f:facet>                                    
+
+
+                                    <h:commandLink class="btn btn-danger" 
+                                                   action="espor medio de otro controller"
+                                                   a:data-toggle="modal" a:data-target="#eliminarCatalogo">
+                                        <i class="fa fa-trash"></i>
+                                        <f:ajax render="#{catalogoController.selecionarCatalogo(cl)}"/>
+                                    </h:commandLink> 
+                                </h:column>
+
                             </h:dataTable>
                         </h:form>
-
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Producproceso/confirmar_eliminar.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Producproceso/editar-info-proceso.xhtml"></ui:include>
-
-
-
-
+                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Catalogo/confirmar_eliminar.xhtml"></ui:include>
                     </div>
                 </div>
             </div>
         </div>
-
-
     </h:body>
 </html>
 

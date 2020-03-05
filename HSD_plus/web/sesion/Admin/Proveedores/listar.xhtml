@@ -4,84 +4,139 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Proveedor</title>
         <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
     </h:head>
     <h:body>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"></ui:include>
+        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+            <div style="position: absolute" >
+                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                </h:panelGroup>
+            </div>
+        </nav>    
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">Proveedor</h1>
                         <!-- /.row -->
-                           
-                        <h3>  <h:messages showDetail="true" layout="table" 
-                                   style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
-                                   errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
-                        </h3>
-                        <h:form prependId="false">
-                                    <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nuevo Proveedor</a>
-                                    <br></br>
-                                    <br></br>
-                                    <h:dataTable class="table table-striped" value="#{proveedoresController.proveedor}"
-                                                 var="pr">
-                                        <h:column>
-                                            <f:facet name="header">ID </f:facet>
-                                            <h:outputText value="#{pr.idProveedor}"/>
-                                        </h:column>
-                                        <h:column>
-                                            <f:facet name="header">NIT</f:facet>
-                                            <h:outputText value="#{pr.nit}"/>
-                                        </h:column>
-                                        <h:column>
-                                            <f:facet name="header">RAZON SOCIAL</f:facet>
-                                            <h:outputText value="#{pr.razonSocial}"/>
-                                        </h:column>
 
-                                        <h:column>
-                                            <f:facet name="header">TELEFONO </f:facet>
-                                            <h:outputText value="#{pr.telefono}"/>
-                                        </h:column>
-                                        <h:column>
-                                            <f:facet name="header">EMAIL</f:facet>
-                                            <h:outputText value="#{pr.email}"/>
-                                        </h:column>
-                                        <h:column>
-                                            <f:facet name="header">DIRECCIÓN</f:facet>
-                                            <h:outputText value="#{pr.direccion}"/>
-                                        </h:column>
-                                        <h:column>
-                                            <f:facet name="header">CIUDAD</f:facet>
-                                            <h:outputText value="#{pr.ciudad.nombre}"/>
-                                        </h:column>
-                                        <h:column>
-                                            <f:facet name="header">OPCIONES</f:facet>
-                                                                                        
-                                            <h:commandLink class="btn btn-warning"
-                                                           action="#{proveedoresController.selecionarProveedor(pr)}"
-                                                           a:data-toggle="modal" a:data-target="#editarInfoProveedor">
-                                                <i class="fa fa-pencil" ></i>
-                                                <f:ajax render=":editarInfoProveedorContent"/>
-                                            </h:commandLink>
-                                            
-                                            <h:commandLink class="btn btn-danger" 
-                                                           action="#{proveedoresController.selecionarProveedor(pr)}"
-                                                           a:data-toggle="modal" a:data-target="#eliminarProveedor">
-                                                <i class="fa fa-trash"></i>
-                                                <f:ajax render=":confirmEmiliminarProveedor"/>
-                                            </h:commandLink>
-                                         
-                                        </h:column>
-                                    </h:dataTable>
+                        <h3>  <h:messages showDetail="true" layout="table" 
+                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                        </h3>
+
+                        <h:form prependId="false">
+                            <div>
+                                <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nuevo Proveedor</a>
+                            </div>
+                            <p></p>
+                            <div class="btn-group" style="position: absolute">
+                                <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Accion
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
+                                    <label>Imprimir </label>
+                                    <br></br>                                    
+                                    <h:commandLink>
+                                        <h:graphicImage url="/resources/assets/Img/Excel.png"/>
+                                        <p:dataExporter type="xls" target="proveedores" fileName="Proveedores"/>
+                                        <label>Exportar a Excel </label>
+                                    </h:commandLink><br></br>
+                                    <h:commandLink>
+                                        <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
+                                        <p:dataExporter type="pdf" target="proveedores" fileName="Proveedores"/>
+                                        <label>Exportar a Pdf </label>
+                                    </h:commandLink><br></br>
+
+                                </div>
+                            </div>
+                            <br></br>
+                            <br></br>
+
+                            <style type="text/css">
+                                .ui-paginator-page{
+                                    background-color:white !important;   
+                                }
+                                .ui-paginator{ 
+                                    background-color:black !important;   
+                                }
+                            </style>
+                            <p:dataTable id="proveedores" var="pr" value="#{proveedoresController.proveedor}" rows="10"
+                                         paginator="true"
+                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                                         rowsPerPageTemplate="5,10,15"
+                                         >
+                                <p:column headerText="Id">
+                                    <h:outputText value="#{pr.idProveedor}" />
+                                </p:column>
+
+                                <p:column headerText="Nit">
+                                    <h:outputText value=" #{pr.nit}" />
+                                </p:column>
+                                
+                                <p:column headerText="Razon Social">
+                                    <h:outputText value="#{pr.razonSocial}" />
+                                </p:column>
+
+                                <p:column headerText="Telefono">
+                                    <h:outputText value="#{pr.telefono}" />
+                                </p:column>
+
+                                <p:column headerText="Email">
+                                    <h:outputText value="#{pr.email}" />
+                                </p:column>
+                                
+                                <p:column headerText="Direcci{on">
+                                    <h:outputText value="#{pr.direccion}" />
+                                </p:column>
+                                
+                                <p:column headerText="Ciudad">
+                                    <h:outputText value="#{pr.ciudad.nombre}" />
+                                </p:column>
+                                                          
+
+                                <p:column exportable="false">
+                                    <f:facet name="header">OPCIONES</f:facet>
+
+                                    <h:commandLink class="btn btn-warning"
+                                                   action="#{proveedoresController.selecionarProveedor(pr)}"
+                                                   a:data-toggle="modal" a:data-target="#editarInfoProveedor">
+                                        <i class="fa fa-pencil" ></i>
+                                        <f:ajax render=":editarInfoProveedorContent"/>
+                                    </h:commandLink>
+
+                                    <h:commandLink class="btn btn-danger" 
+                                                   action="#{proveedoresController.selecionarProveedor(pr)}"
+                                                   a:data-toggle="modal" a:data-target="#eliminarProveedor">
+                                        <i class="fa fa-trash"></i>
+                                        <f:ajax render=":confirmEmiliminarProveedor"/>
+                                    </h:commandLink>
+                                </p:column>
+
+                                <f:facet name="paginatorTopLeft">
+                                    <p:commandButton type="button" icon="pi pi-refresh" />
+                                </f:facet>
+
+                                <f:facet name="paginatorBottomRight">
+                                    <p:commandButton type="button" icon="pi pi-cloud-upload" />
+                                </f:facet>
+
+                            </p:dataTable>
+
+
                         </h:form>
                         <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Proveedores/confirmar_eliminar.xhtml"></ui:include>
                         <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Proveedores/editar-info-proveedor.xhtml"></ui:include>
-                        
-                        
-                        
 
                     </div>
                 </div>

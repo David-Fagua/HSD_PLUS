@@ -89,20 +89,20 @@ public class Roles implements Serializable {
         this.fechaApertura = fechaApertura;
     }
 
-    public List<Usuarios> getUsuarios() {
+    public List<Usuarios> getUsuariosList() {
         return usuarios;
     }
 
-    public void setUsuarios(List<Usuarios> usuarios) {
-        this.usuarios = usuarios;
+    public void setUsuariosList(List<Usuarios> usuariosList) {
+        this.usuarios = usuariosList;
     }
 
-    public List<Usuarios> getUsuarios1() {
+    public List<Usuarios> getUsuariosList1() {
         return usuarios1;
     }
 
-    public void setUsuarios1(List<Usuarios> usuarios1) {
-        this.usuarios1 = usuarios1;
+    public void setUsuariosList1(List<Usuarios> usuariosList1) {
+        this.usuarios1 = usuariosList1;
     }
 
     @Override

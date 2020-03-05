@@ -78,8 +78,8 @@ public class SessionController implements Serializable {
                  password != null && password.trim().length()>0){
             user = uDAO.findByEmailAndPassword(email, password);
             if(user != null){
-                if(!user.getRoles().isEmpty()){
-                    RolSelecionado = user.getRoles().get(0);
+                if(!user.getRolesList().isEmpty()){
+                    RolSelecionado = user.getRolesList().get(0);
                     return "/sesion/Admin/InicioA.xhtml?faces-redirect=true";
                 }else{
                     user = null;
@@ -122,4 +122,7 @@ public class SessionController implements Serializable {
         }
         return 0;
     }
+    
+   
+    
 }

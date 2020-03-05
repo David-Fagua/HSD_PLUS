@@ -23,5 +23,7 @@ public class CatalogoDAO extends AbstractDAO<Catalogo> implements ICatalogoDAO {
     public CatalogoDAO() {
         super(Catalogo.class);
     }
+
+    
     
 }

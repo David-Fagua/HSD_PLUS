@@ -4,24 +4,24 @@
                  xmlns:h="http://xmlns.jcp.org/jsf/html"
                  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-    <div class="modal fade" id="eliminarProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal fade" id="eliminarCatalogo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog " role="document">
             <div class="modal-content">
                 <h:form prependId="false">
-                    <h:panelGroup id="confirmEmiliminarProducto" layout="block">
+                    <h:panelGroup id="confirmEmiliminarCatalogo" layout="block">
                         <div id=""></div>
                         <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel" >Eliminar Producto -  #{productoFinalController.productoSelecionado.idProductof}</h4>
+                            <h4 class="modal-title" id="exampleModalLabel" >Eliminar Producto -  #{catalogoController.catalogoSelecionado.nombre} </h4>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h5>¿ Esta Seguro de Eliminar el Producto - #{productoFinalController.productoSelecionado.articulo.nombre}?</h5>
+                            <h5>¿ Esta Seguro de Eliminar el Producto - #{catalogoController.catalogoSelecionado.nombre} del Catalogo?</h5>
 
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                <h:commandButton class="btn btn-danger" value="Eliminar" action="#{productoFinalController.eliminar()}"/>
+                                <h:commandButton class="btn btn-danger" value="Eliminar" action="#{catalogoController.eliminar()}"/>
 
                             </div>
                         </div>    

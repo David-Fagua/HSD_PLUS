@@ -137,12 +137,12 @@ public class Proveedores implements Serializable {
         this.ciudad = ciudad;
     }
 
-    public List<InventarioGeneral> getInventarioGeneral() {
+    public List<InventarioGeneral> getInventarioGeneralList() {
         return inventarioGeneral;
     }
 
-    public void setInventarioGeneral(List<InventarioGeneral> inventarioGeneral) {
-        this.inventarioGeneral = inventarioGeneral;
+    public void setInventarioGeneralList(List<InventarioGeneral> inventarioGeneralList) {
+        this.inventarioGeneral = inventarioGeneralList;
     }
 
     @Override

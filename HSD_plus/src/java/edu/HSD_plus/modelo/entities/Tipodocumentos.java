@@ -85,12 +85,12 @@ public class Tipodocumentos implements Serializable {
         this.nombre = nombre;
     }
 
-    public List<Usuarios> getUsuarios() {
+    public List<Usuarios> getUsuariosList() {
         return usuarios;
     }
 
-    public void setUsuarios(List<Usuarios> usuarios) {
-        this.usuarios = usuarios;
+    public void setUsuariosList(List<Usuarios> usuariosList) {
+        this.usuarios = usuariosList;
     }
 
     @Override

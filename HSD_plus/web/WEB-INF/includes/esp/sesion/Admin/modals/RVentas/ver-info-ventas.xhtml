@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core"
+                 xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <div class="modal fade" id="verInfoVentas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-content">
+                <h:form prependId="false">
+                    <h:panelGroup id="verInfoVentasContent">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="exampleModalLabel" >Información de la Venta Nro #{RventasController.ventaSelecionada.idVenta}</h3>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"></span>
+                            </button>
+                        </div>
+
+
+
+                        <div class="row  col-md-10" style="margin: 10px 45px" >
+                            <div class="form-group">
+                                <label>Fecha de la Venta</label>
+                                <span class="form-control">#{RventasController.ventaSelecionada.fechaVenta}</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Datos de Reserva</label>
+                                <span class="form-control"> id = #{RventasController.ventaSelecionada.reserva.idReserva}</span>
+                                <span class="form-control"> Producto = #{RventasController.ventaSelecionada.reserva.producto.articulo.nombre}</span>
+                                <span class="form-control"> Cantidad = #{RventasController.ventaSelecionada.reserva.cantidad}</span>
+                                <span class="form-control"> Precio total = #{RventasController.ventaSelecionada.reserva.precioTotal}</span>
+                                <span class="form-control"> Observaciones = #{RventasController.ventaSelecionada.reserva.observaciones}</span>
+                                <span class="form-control"> Clienete = #{RventasController.ventaSelecionada.reserva.cliente.nombres} #{RventasController.ventaSelecionada.reserva.cliente.primerApellido}</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Observaciones</label>
+                                <span class="form-control">#{RventasController.ventaSelecionada.observaciones} </span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Cantidad</label>
+                                <span class="form-control">#{RventasController.ventaSelecionada.cantidad}</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Precio Total</label>
+                                <span class="form-control">#{RventasController.ventaSelecionada.presioTotal}</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Resposable</label>
+                                <span class="form-control">#{RventasController.ventaSelecionada.responsable.nombres} #{RventasController.ventaSelecionada.responsable.primerApellido}</span>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-secondary" href="#{request.contextPath}/sesion/Admin/RVentas/listar.xhtml" type="button" data-dismiss="modal">Volver</a>
+                            <input class="btn btn-success" type="button" onclick="printDiv('verInfoVentasContent')" value="imprimir " />
+                        </div>
+                    </h:panelGroup>
+                </h:form>
+            </div>
+        </div>
+    </div>
+
+
+
+</ui:composition>
+

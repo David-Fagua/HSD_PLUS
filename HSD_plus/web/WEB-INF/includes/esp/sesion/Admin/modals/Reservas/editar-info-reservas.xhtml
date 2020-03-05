@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <div class="modal fade" id="editarInfoReserva" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <h:form prependId="false">
+                    <h:panelGroup id="editarInfoReservaContent">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="exampleModalLabel" >Editar Información del Proceso  #{ReservasController.reservaSelecionada.idReserva}</h3>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"></span>
+                            </button>
+                        </div>
+
+                        <div class="row  col-md-10" style="margin: 0px 45px" >
+                            <div class="form-group">
+                                <label>Fecha del Proceso</label>
+                                <h:inputText pt:type="date" class="form-control" value="#{ReservasController.reservaSelecionada.fechaReserva}"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Producto</label>
+                                <h:selectOneMenu class="form-control" value="#{ReservasController.reservaSelecionada.producto}">
+                                    <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
+                                    <f:selectItems value="#{productoFinalController.productoFinal}" var="pr" itemLabel="#{pr.articulo.nombre}"/>
+                                </h:selectOneMenu>
+                            </div>
+
+                            <div class="form-group ">
+                                <label>Cantidad</label>
+                                <h:inputText class="form-control" value="#{ReservasController.reservaSelecionada.cantidad}"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Precio Total</label>
+                                <h:inputText class="form-control" value="#{ReservasController.reservaSelecionada.precioTotal}"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Cliente</label>
+                                <h:selectOneMenu class="form-control" value="#{ReservasController.reservaSelecionada.cliente}">
+                                    <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
+                                    <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
+                                </h:selectOneMenu>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Observaciones</label>
+                                <h:inputTextarea class="form-control" value="#{ReservasController.reservaSelecionada.observaciones}"/>
+                            </div>
+
+
+
+                        </div>
+
+
+
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <h:commandLink class="btn btn-warning" value="Guardar"
+                                           action="#{ReservasController.actualizar()}">
+                                <i class="fa fa-save"></i>
+                            </h:commandLink>
+                        </div>
+                    </h:panelGroup>
+                </h:form>
+            </div>
+        </div>
+    </div>
+
+
+
+</ui:composition>
+

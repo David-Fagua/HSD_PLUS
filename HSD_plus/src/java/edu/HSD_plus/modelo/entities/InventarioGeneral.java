@@ -174,20 +174,20 @@ public class InventarioGeneral implements Serializable {
         this.estado = estado;
     }
 
-    public List<Desechos> getDesechos() {
+    public List<Desechos> getDesechosList() {
         return desechos;
     }
 
-    public void setDesechos(List<Desechos> desechos) {
-        this.desechos = desechos;
+    public void setDesechosList(List<Desechos> desechosList) {
+        this.desechos = desechosList;
     }
 
-    public List<ProductoFinal> getProductoFinal() {
+    public List<ProductoFinal> getProductoFinalList() {
         return productoFinal;
     }
 
-    public void setProductoFinal(List<ProductoFinal> productoFinal) {
-        this.productoFinal = productoFinal;
+    public void setProductoFinalList(List<ProductoFinal> productoFinalList) {
+        this.productoFinal = productoFinalList;
     }
 
     public Proveedores getProveedor() {
@@ -206,20 +206,20 @@ public class InventarioGeneral implements Serializable {
         this.responsable = responsable;
     }
 
-    public List<ProductoProceso> getProductoProceso() {
+    public List<ProductoProceso> getProductoProcesoList() {
         return productoProceso;
     }
 
-    public void setProductoProceso(List<ProductoProceso> productoProceso) {
-        this.productoProceso = productoProceso;
+    public void setProductoProcesoList(List<ProductoProceso> productoProcesoList) {
+        this.productoProceso = productoProcesoList;
     }
 
-    public List<ProductoProceso> getProductoProceso1() {
+    public List<ProductoProceso> getProductoProcesoList1() {
         return productoProceso1;
     }
 
-    public void setProductoProceso1(List<ProductoProceso> productoProceso1) {
-        this.productoProceso1 = productoProceso1;
+    public void setProductoProcesoList1(List<ProductoProceso> productoProcesoList1) {
+        this.productoProceso1 = productoProcesoList1;
     }
 
     @Override

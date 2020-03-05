@@ -33,6 +33,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u")
     , @NamedQuery(name = "Usuarios.findByIdUsuario", query = "SELECT u FROM Usuarios u WHERE u.idUsuario = :idUsuario")
+    , @NamedQuery(name = "Usuarios.findByImagen", query = "SELECT u FROM Usuarios u WHERE u.imagen = :imagen")
     , @NamedQuery(name = "Usuarios.findByNumerodocumento", query = "SELECT u FROM Usuarios u WHERE u.numerodocumento = :numerodocumento")
     , @NamedQuery(name = "Usuarios.findByNombres", query = "SELECT u FROM Usuarios u WHERE u.nombres = :nombres")
     , @NamedQuery(name = "Usuarios.findByPrimerApellido", query = "SELECT u FROM Usuarios u WHERE u.primerApellido = :primerApellido")
@@ -49,6 +50,8 @@ public class Usuarios implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_usuario")
     private Integer idUsuario;
+    @Column(name = "imagen")
+    private String imagen;
     @Basic(optional = false)
     @Column(name = "numerodocumento")
     private String numerodocumento;
@@ -79,9 +82,11 @@ public class Usuarios implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente", fetch = FetchType.LAZY)
     private List<Reservas> reservas;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
+    private List<Desechos> desechos;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
     private List<RegistroVentas> registroVentas;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cliente", fetch = FetchType.LAZY)
-    private List<RegistroVentas> registroVentas1;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
+    private List<ProductoFinal> productoFinal;
     @JoinColumn(name = "ciudad", referencedColumnName = "id_ciudad")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Ciudades ciudad;
@@ -91,10 +96,6 @@ public class Usuarios implements Serializable {
     @JoinColumn(name = "tipo_documento", referencedColumnName = "id_tdocumento")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tipodocumentos tipoDocumento;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
-    private List<Desechos> desechos;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
-    private List<ProductoFinal> productoFinal;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
     private List<InventarioGeneral> inventarioGeneral;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
@@ -123,6 +124,14 @@ public class Usuarios implements Serializable {
 
     public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public String getNumerodocumento() {
@@ -189,36 +198,44 @@ public class Usuarios implements Serializable {
         this.estado = estado;
     }
 
-    public List<Roles> getRoles() {
+    public List<Roles> getRolesList() {
         return roles;
     }
 
-    public void setRoles(List<Roles> roles) {
-        this.roles = roles;
+    public void setRolesList(List<Roles> rolesList) {
+        this.roles = rolesList;
     }
 
-    public List<Reservas> getReservas() {
+    public List<Reservas> getReservasList() {
         return reservas;
     }
 
-    public void setReservas(List<Reservas> reservas) {
-        this.reservas = reservas;
+    public void setReservasList(List<Reservas> reservasList) {
+        this.reservas = reservasList;
     }
 
-    public List<RegistroVentas> getRegistroVentas() {
+    public List<Desechos> getDesechosList() {
+        return desechos;
+    }
+
+    public void setDesechosList(List<Desechos> desechosList) {
+        this.desechos = desechosList;
+    }
+
+    public List<RegistroVentas> getRegistroVentasList() {
         return registroVentas;
     }
 
-    public void setRegistroVentas(List<RegistroVentas> registroVentas) {
-        this.registroVentas = registroVentas;
+    public void setRegistroVentasList(List<RegistroVentas> registroVentasList) {
+        this.registroVentas = registroVentasList;
     }
 
-    public List<RegistroVentas> getRegistroVentas1() {
-        return registroVentas1;
+    public List<ProductoFinal> getProductoFinalList() {
+        return productoFinal;
     }
 
-    public void setRegistroVentas1(List<RegistroVentas> registroVentas1) {
-        this.registroVentas1 = registroVentas1;
+    public void setProductoFinalList(List<ProductoFinal> productoFinalList) {
+        this.productoFinal = productoFinalList;
     }
 
     public Ciudades getCiudad() {
@@ -245,36 +262,20 @@ public class Usuarios implements Serializable {
         this.tipoDocumento = tipoDocumento;
     }
 
-    public List<Desechos> getDesechos() {
-        return desechos;
-    }
-
-    public void setDesechos(List<Desechos> desechos) {
-        this.desechos = desechos;
-    }
-
-    public List<ProductoFinal> getProductoFinal() {
-        return productoFinal;
-    }
-
-    public void setProductoFinal(List<ProductoFinal> productoFinal) {
-        this.productoFinal = productoFinal;
-    }
-
-    public List<InventarioGeneral> getInventarioGeneral() {
+    public List<InventarioGeneral> getInventarioGeneralList() {
         return inventarioGeneral;
     }
 
-    public void setInventarioGeneral(List<InventarioGeneral> inventarioGeneral) {
-        this.inventarioGeneral = inventarioGeneral;
+    public void setInventarioGeneralList(List<InventarioGeneral> inventarioGeneralList) {
+        this.inventarioGeneral = inventarioGeneralList;
     }
 
-    public List<ProductoProceso> getProductoProceso() {
+    public List<ProductoProceso> getProductoProcesoList() {
         return productoProceso;
     }
 
-    public void setProductoProceso(List<ProductoProceso> productoProceso) {
-        this.productoProceso = productoProceso;
+    public void setProductoProcesoList(List<ProductoProceso> productoProcesoList) {
+        this.productoProceso = productoProcesoList;
     }
 
     @Override

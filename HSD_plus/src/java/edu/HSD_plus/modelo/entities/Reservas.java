@@ -17,6 +17,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -52,12 +54,20 @@ public class Reservas implements Serializable {
     @Basic(optional = false)
     @Column(name = "cantidad")
     private int cantidad;
+    @Basic(optional = false)
     @Column(name = "precio_total")
-    private Long precioTotal;
+    private long precioTotal;
+    @Basic(optional = false)
     @Column(name = "estado")
-    private String estado;
+    private short estado;
+    @Basic(optional = false)
     @Column(name = "observaciones")
     private String observaciones;
+    @JoinTable(name = "productofinal_reservas", joinColumns = {
+        @JoinColumn(name = "id_reserva_reserva", referencedColumnName = "id_reserva")}, inverseJoinColumns = {
+        @JoinColumn(name = "id_productofina_final", referencedColumnName = "id_productof")})
+    @ManyToMany(fetch = FetchType.LAZY)
+    private List<ProductoFinal> productoFinal;
     @JoinColumn(name = "producto", referencedColumnName = "id_productof")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private ProductoFinal producto;
@@ -66,8 +76,6 @@ public class Reservas implements Serializable {
     private Usuarios cliente;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "reserva", fetch = FetchType.LAZY)
     private List<RegistroVentas> registroVentas;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "reservas", fetch = FetchType.LAZY)
-    private List<ProductofinalReservas> productofinalReservas;
 
     public Reservas() {
     }
@@ -76,9 +84,12 @@ public class Reservas implements Serializable {
         this.idReserva = idReserva;
     }
 
-    public Reservas(Integer idReserva, int cantidad) {
+    public Reservas(Integer idReserva, int cantidad, long precioTotal, short estado, String observaciones) {
         this.idReserva = idReserva;
         this.cantidad = cantidad;
+        this.precioTotal = precioTotal;
+        this.estado = estado;
+        this.observaciones = observaciones;
     }
 
     public Integer getIdReserva() {
@@ -105,19 +116,19 @@ public class Reservas implements Serializable {
         this.cantidad = cantidad;
     }
 
-    public Long getPrecioTotal() {
+    public long getPrecioTotal() {
         return precioTotal;
     }
 
-    public void setPrecioTotal(Long precioTotal) {
+    public void setPrecioTotal(long precioTotal) {
         this.precioTotal = precioTotal;
     }
 
-    public String getEstado() {
+    public short getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(short estado) {
         this.estado = estado;
     }
 
@@ -127,6 +138,14 @@ public class Reservas implements Serializable {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    public List<ProductoFinal> getProductoFinalList() {
+        return productoFinal;
+    }
+
+    public void setProductoFinalList(List<ProductoFinal> productoFinalList) {
+        this.productoFinal = productoFinalList;
     }
 
     public ProductoFinal getProducto() {
@@ -145,20 +164,12 @@ public class Reservas implements Serializable {
         this.cliente = cliente;
     }
 
-    public List<RegistroVentas> getRegistroVentas() {
+    public List<RegistroVentas> getRegistroVentasList() {
         return registroVentas;
     }
 
-    public void setRegistroVentas(List<RegistroVentas> registroVentas) {
-        this.registroVentas = registroVentas;
-    }
-
-    public List<ProductofinalReservas> getProductofinalReservas() {
-        return productofinalReservas;
-    }
-
-    public void setProductofinalReservas(List<ProductofinalReservas> productofinalReservas) {
-        this.productofinalReservas = productofinalReservas;
+    public void setRegistroVentasList(List<RegistroVentas> registroVentasList) {
+        this.registroVentas = registroVentasList;
     }
 
     @Override

@@ -32,6 +32,7 @@ public class UsuariosController implements Serializable {
     private List<Usuarios> usuarios;
     private Usuarios usuarioSelecionado;
     private Usuarios nuevoUsuario;
+    private Usuarios clave;
 
     /**
      * Creates a new instance of UsuariosController
@@ -152,4 +153,9 @@ public class UsuariosController implements Serializable {
         }
         return "";
     }
+
+    
+    
+    
+    
 }

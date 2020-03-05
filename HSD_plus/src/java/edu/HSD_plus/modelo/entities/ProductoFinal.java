@@ -17,6 +17,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -56,10 +57,10 @@ public class ProductoFinal implements Serializable {
     @Basic(optional = false)
     @Column(name = "existencias")
     private int existencias;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "productoFinal", fetch = FetchType.LAZY)
     private List<Reservas> reservas;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoFinal", fetch = FetchType.LAZY)
-    private List<ProductofinalReservas> productofinalReservas;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto", fetch = FetchType.LAZY)
+    private List<Reservas> reservas1;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "articulofinal", fetch = FetchType.LAZY)
     private List<Catalogo> catalogo;
     @JoinColumn(name = "articulo", referencedColumnName = "id_articulo")
@@ -124,28 +125,28 @@ public class ProductoFinal implements Serializable {
         this.existencias = existencias;
     }
 
-    public List<Reservas> getReservas() {
+    public List<Reservas> getReservasList() {
         return reservas;
     }
 
-    public void setReservas(List<Reservas> reservas) {
-        this.reservas = reservas;
+    public void setReservasList(List<Reservas> reservasList) {
+        this.reservas = reservasList;
     }
 
-    public List<ProductofinalReservas> getProductofinalReservas() {
-        return productofinalReservas;
+    public List<Reservas> getReservasList1() {
+        return reservas1;
     }
 
-    public void setProductofinalReservas(List<ProductofinalReservas> productofinalReservas) {
-        this.productofinalReservas = productofinalReservas;
+    public void setReservasList1(List<Reservas> reservasList1) {
+        this.reservas1 = reservasList1;
     }
 
-    public List<Catalogo> getCatalogo() {
+    public List<Catalogo> getCatalogoList() {
         return catalogo;
     }
 
-    public void setCatalogo(List<Catalogo> catalogo) {
-        this.catalogo = catalogo;
+    public void setCatalogoList(List<Catalogo> catalogoList) {
+        this.catalogo = catalogoList;
     }
 
     public InventarioGeneral getArticulo() {
@@ -164,12 +165,12 @@ public class ProductoFinal implements Serializable {
         this.responsable = responsable;
     }
 
-    public List<ProductoProceso> getProductoProceso() {
+    public List<ProductoProceso> getProductoProcesoList() {
         return productoProceso;
     }
 
-    public void setProductoProceso(List<ProductoProceso> productoProceso) {
-        this.productoProceso = productoProceso;
+    public void setProductoProcesoList(List<ProductoProceso> productoProcesoList) {
+        this.productoProceso = productoProcesoList;
     }
 
     @Override

@@ -5,42 +5,54 @@
                  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                  xmlns:f="http://xmlns.jcp.org/jsf/core"
                  xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <div id="page-wrapper">
+        <div class="container-fluid" >
+            <div class="row" >
+                <div class="col-lg-12" >
+                    <h1 class="page-header">Bienvenido #{sessionController.user.nombres} #{sessionController.user.primerApellido}</h1>
+                    <!-- /.row -->
 
-    <div class="col-lg-12 bg-white">
-        <div class="form d-flex align-items-center" >
-            <div class="content" >
-                <div id="chartContainer" style="height: 400px; width: 100%;"></div>
-                <script>
-                    window.onload = function () {
+                    <div class="col-lg-12 bg-white" style="position: absolute">
+                        <div class="form d-flex align-items-center" >
+                            <div class="content" >
+                                <div id="chartContainer" style="height: 400px; width: 75%;"></div>
+                                <script>
+                                    window.onload = function () {
 
-                        var chart = new CanvasJS.Chart("chartContainer", {
-                            theme: "light1", // "light1", "light2", "dark1", "dark2"
-                            exportEnabled: true,
-                            animationEnabled: true,
-                            title: {
-                                text: "Usuarios Activos e Inactivos o Bloqueados"
-                            },
-                            data: [{
-                                    type: "pie",
-                                    startAngle: 25,
-                                    toolTipContent: "<b>{label}</b>: {y}%",
-                                    showInLegend: "true",
-                                    legendText: "{label}",
-                                    indexLabelFontSize: 16,
-                                    indexLabel: "{label} = {y}%",
-                                    dataPoints: [
-                                        {y: #{sessionController.graficaUsu(true)}, label: "Activos"},
-                                        {y: #{sessionController.graficaUsu(false)}, label: "Inactivo"},
-                                    ]
-                                }]
-                        });
-                        chart.render();
-                    }
-                </script>
+                                        var chart = new CanvasJS.Chart("chartContainer", {
+                                            theme: "light1", // "light1", "light2", "dark1", "dark2"
+                                            exportEnabled: true,
+                                            animationEnabled: true,
+                                            title: {
+                                                text: "Usuarios Activos e Inactivos o Bloqueados"
+                                            },
+                                            data: [{
+                                                    type: "pie",
+                                                    startAngle: 25,
+                                                    toolTipContent: "<b>{label}</b>: {y}%",
+                                                    showInLegend: "true",
+                                                    legendText: "{label}",
+                                                    indexLabelFontSize: 16,
+                                                    indexLabel: "{label} = {y}%",
+                                                    dataPoints: [
+                                                        {y: #{sessionController.graficaUsu(true)}, label: "Activos"},
+                                                        {y: #{sessionController.graficaUsu(false)}, label: "Inactivo"},
+                                                    ]
+                                                }]
+                                        });
+                                        chart.render();
+                                    }
+                                </script>
+                                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> 
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
             </div>
         </div>
     </div>
+
 
 
 

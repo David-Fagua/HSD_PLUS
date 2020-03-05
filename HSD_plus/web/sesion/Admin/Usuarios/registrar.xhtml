@@ -9,7 +9,16 @@
         <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
     </h:head>
     <h:body>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"></ui:include>
+        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+            <div style="position: absolute" >
+                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                </h:panelGroup>
+            </div>
+        </nav>    
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -18,16 +27,16 @@
                         <!-- /.row -->
 
 
-                            
+
 
                         <h3>  <h:messages showDetail="true" layout="table" 
-                                   style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
-                                   errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
                         </h3>
                         <h:form prependId="false">
                             <div class="row">
                                 <div class="col-md-12">
-                                    
+
                                     <div class="form-group col-md-6">
                                         <label>Tipo de Documento</label>
                                         <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.tipoDocumento}">
@@ -35,12 +44,12 @@
                                             <f:selectItems value="#{tipoDocumentosController.tipodocumentos}" var="td" itemLabel="#{td.nombre}"/>
                                         </h:selectOneMenu>
                                     </div>
-                                    
+
                                     <div class="form-group col-md-6">
                                         <label>Numero de Documento</label>
                                         <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.numerodocumento}"/>
                                     </div>
-                                    
+
                                     <div class="form-group col-md-4">
                                         <label>Nombres</label>
                                         <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.nombres}"/>
@@ -61,8 +70,8 @@
                                         <label>Clave</label>
                                         <h:inputSecret class="form-control" value="#{usuariosController.nuevoUsuario.clave}"/>
                                     </div>
-                                    
-                                
+
+
                                     <div class="form-group col-md-6">
                                         <label>Ciudad</label>
                                         <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.ciudad}">
@@ -70,7 +79,7 @@
                                             <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
                                         </h:selectOneMenu>
                                     </div>
-                                    
+
                                     <div class="form-group col-md-6">
                                         <label>Rol</label>
                                         <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.rol}">

@@ -10,7 +10,16 @@
         <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
     </h:head>
     <h:body>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"></ui:include>
+        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+            <div style="position: absolute" >
+                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                </h:panelGroup>
+            </div>
+        </nav>    
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">

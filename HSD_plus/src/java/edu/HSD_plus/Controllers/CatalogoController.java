@@ -9,6 +9,7 @@ import edu.HSD_plus.Upload.FileUploadUtil;
 import edu.HSD_plus.modelo.dao.ICatalogoDAO;
 import edu.HSD_plus.modelo.entities.Catalogo;
 import edu.HSD_plus.util.MessageUtil;
+import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -23,16 +24,16 @@ import javax.servlet.http.Part;
  * @author SAM
  */
 @Named(value = "catalogoController")
-@RequestScoped
-public class CatalogoController{
+@ViewScoped
+public class CatalogoController implements Serializable {
 
     private final static String PATH_FOLDER_IMG_CATALOGO = "/resources/assets/Img/ImgCatalogo/";
     @EJB
     private ICatalogoDAO clDAO;
     private List<Catalogo> catalogo;
-    private Catalogo catalogoSelecionado;
     private Catalogo nuevoCatalogo;
     private Part imgNuevoCatalogo;
+    private Catalogo catalogoSelecionado;
 
     public CatalogoController() {
     }
@@ -44,7 +45,7 @@ public class CatalogoController{
 
     public List<Catalogo> getCatalogo() {
         if (catalogo == null || catalogo.isEmpty()) {
-            catalogo  = clDAO.findAll();
+            catalogo = clDAO.findAll();
         }
         return catalogo;
     }
@@ -61,8 +62,6 @@ public class CatalogoController{
         this.imgNuevoCatalogo = imgNuevoCatalogo;
     }
 
-    
-    
     public String getPathImagenCatalogo(Catalogo cl) {
         String img = (cl.getImagen() == null || cl.getImagen().length() == 0) ? "default.png" : cl.getCodigo() + "/" + cl.getImagen();
         return FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath()
@@ -71,10 +70,10 @@ public class CatalogoController{
 
     public void registrarCatalogo() {
         try {
-            if (nuevoCatalogo.getCodigo() != null && nuevoCatalogo.getNombre()!= null && nuevoCatalogo.getNombre().length() > 0) {
-                if(imgNuevoCatalogo != null){
+            if (nuevoCatalogo.getCodigo() != null && nuevoCatalogo.getNombre() != null && nuevoCatalogo.getNombre().length() > 0) {
+                if (imgNuevoCatalogo != null) {
                     FileUploadUtil.saveFile(imgNuevoCatalogo,
-                            FacesContext.getCurrentInstance().getExternalContext().getRealPath("") + PATH_FOLDER_IMG_CATALOGO + nuevoCatalogo.getCodigo() +"/",
+                            FacesContext.getCurrentInstance().getExternalContext().getRealPath("") + PATH_FOLDER_IMG_CATALOGO + nuevoCatalogo.getCodigo() + "/",
                             imgNuevoCatalogo.getSubmittedFileName());
                     nuevoCatalogo.setImagen(imgNuevoCatalogo.getSubmittedFileName());
                 }
@@ -86,6 +85,34 @@ public class CatalogoController{
         } catch (Exception e) {
             e.printStackTrace(System.err);
             MessageUtil.sendError(null, " Error al Registrar al Catalogo porfavor verifique bien sus datos ", e.getMessage(), false);
+        }
+
+    }
+
+    public void selecionarCatalogo(Catalogo cl) {
+        System.out.print("Se ha Selecionado el Catalogo");
+        System.out.print(cl);
+        this.catalogoSelecionado = cl;
+    }
+
+    public Catalogo getCatalogoSelecionado() {
+        return catalogoSelecionado;
+    }
+
+    public void setCatalogoSelecionado(Catalogo catalogoSelecionado) {
+        this.catalogoSelecionado = catalogoSelecionado;
+    }
+    
+    
+
+    public void eliminar() {
+        try {
+            clDAO.remove(catalogoSelecionado);
+            MessageUtil.sendInfo(null, "La Venta  se ha Eliminado Correctamente", "", false);
+            catalogo = null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            MessageUtil.sendError(null, "error al eliminar la Venta", e.getMessage(), false);
         }
 
     }

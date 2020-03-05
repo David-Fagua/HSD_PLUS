@@ -42,9 +42,9 @@ public class Ciudades implements Serializable {
     @Column(name = "nombre")
     private String nombre;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudad", fetch = FetchType.LAZY)
-    private List<Usuarios> usuarios;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudad", fetch = FetchType.LAZY)
     private List<Proveedores> proveedores;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ciudad", fetch = FetchType.LAZY)
+    private List<Usuarios> usuarios;
 
     public Ciudades() {
     }
@@ -74,20 +74,20 @@ public class Ciudades implements Serializable {
         this.nombre = nombre;
     }
 
-    public List<Usuarios> getUsuarios() {
-        return usuarios;
-    }
-
-    public void setUsuarios(List<Usuarios> usuarios) {
-        this.usuarios = usuarios;
-    }
-
-    public List<Proveedores> getProveedores() {
+    public List<Proveedores> getProveedoresList() {
         return proveedores;
     }
 
-    public void setProveedores(List<Proveedores> proveedores) {
-        this.proveedores = proveedores;
+    public void setProveedoresList(List<Proveedores> proveedoresList) {
+        this.proveedores = proveedoresList;
+    }
+
+    public List<Usuarios> getUsuariosList() {
+        return usuarios;
+    }
+
+    public void setUsuariosList(List<Usuarios> usuariosList) {
+        this.usuarios = usuariosList;
     }
 
     @Override

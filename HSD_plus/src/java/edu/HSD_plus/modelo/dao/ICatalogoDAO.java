@@ -15,4 +15,5 @@ import javax.ejb.Local;
  */
 @Local
 public interface ICatalogoDAO extends DAO<Catalogo>{
+    
 }

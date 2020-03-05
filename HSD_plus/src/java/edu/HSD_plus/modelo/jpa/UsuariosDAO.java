@@ -56,5 +56,7 @@ public class UsuariosDAO extends AbstractDAO<Usuarios> implements IUsuariosDAO {
         }
     return cantidad;
     }
+
+       
     
 }

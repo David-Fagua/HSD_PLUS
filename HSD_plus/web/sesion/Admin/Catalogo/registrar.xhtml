@@ -10,7 +10,16 @@
         <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
     </h:head>
     <h:body>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"></ui:include>
+        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+            <div style="position: absolute" >
+                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                </h:panelGroup>
+            </div>
+        </nav>    
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -25,18 +34,18 @@
                                           style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
                                           errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
                         </h3>
-                        <h:form enctype="multipart/form-data" prependId="false">
+                        <h:form enctype="multipart/form-data" prependId="false" >
                             <div class="row">
                                 <div class="col-md-12">
 
                                     <div class="form-group col-md-12">
                                         <label for="codigo" class="form-control-label">Codigo</label>
-                                        <h:inputText id="codigo" class="form-control" 
+                                        <h:inputText id="codigo" class="form-control"
                                                      pt:aria-required="true" pt:aria-invalid="false" value="#{catalogoController.nuevoCatalogo.codigo}"
-                                                     pt:placeholder="Ingrece el codigo para el producto"/>
+                                                     pt:placeholder="Escribe el codigo siguienete de la tabla de catalogo"/>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label for="nombre" class="form-control-label">Nuevo Nombre</label>
+                                        <label for="nombre" class="form-control-label">Nuevo Nombre del producto para el Catalogo</label>
                                         <h:inputText id="nombre" class="form-control" 
                                                      pt:aria-required="true" pt:aria-invalid="false"  value="#{catalogoController.nuevoCatalogo.nombre}"
                                                      pt:placeholder="Ingrece el Nuevo Nombre para el producto"/>
@@ -53,29 +62,29 @@
                                     <div class="form-group col-md-12">
                                         <label for="descripcion" class="form-control-label" >Descripcion</label>
                                         <h:inputTextarea id="descripcion" class="form-control"  
-                                                        pt:aria-required="true" pt:aria-invalid="false"  value="#{catalogoController.nuevoCatalogo.descripcion}"
-                                                        pt:placeholder="Describa el Producto para promocionar"/>
+                                                         pt:aria-required="true" pt:aria-invalid="false"  value="#{catalogoController.nuevoCatalogo.descripcion}"
+                                                         pt:placeholder="Describa el Producto para promocionar"/>
                                     </div>
 
                                     <div class="form-group col-md-12">
                                         <label for="fecha" class="form-control-label" >Fecha</label>
                                         <h:inputText pt:type="date" id="fecha" class="form-control" 
-                                                    pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.nuevoCatalogo.fecha}"/>
+                                                     pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.nuevoCatalogo.fecha}"/>
                                     </div>
 
                                     <div class="form-group col-md-12">
                                         <label for="preciounitario" class="form-control-label" >Precio</label>
                                         <h:inputText id="precio" class="form-control" 
-                                                    pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.nuevoCatalogo.precioUnitario}"
-                                                    pt:placeholder="1000.00"/>
+                                                     pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.nuevoCatalogo.precioUnitario}"
+                                                     pt:placeholder="1000.00"/>
                                     </div>
 
 
                                     <div class="form-group col-md-12">
                                         <label for="stock" class="form-control-label" >Stock</label>
                                         <h:inputText id="stock" class="form-control" 
-                                                    pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.nuevoCatalogo.stock}"
-                                                    pt:placeholder="123"/>
+                                                     pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.nuevoCatalogo.stock}"
+                                                     pt:placeholder="123"/>
                                     </div>
 
                                     <div class="form-group col-md-12">
@@ -86,7 +95,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-12">
-                                <a class="btn btn-secondary" href="listar.xhtml">Cancelar</a>
+                                <a class="btn btn-secondary" href="listar.xhtml">Volver</a>
                                 <h:commandButton class="btn btn-primary" value="Registrar" action="#{catalogoController.registrarCatalogo()}"/>
                             </div>
 

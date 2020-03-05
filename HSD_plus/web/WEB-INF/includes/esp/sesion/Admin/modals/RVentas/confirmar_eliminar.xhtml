@@ -4,24 +4,24 @@
                  xmlns:h="http://xmlns.jcp.org/jsf/html"
                  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-    <div class="modal fade" id="eliminarProceso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal fade" id="eliminarVentas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog " role="document">
             <div class="modal-content">
                 <h:form prependId="false">
-                    <h:panelGroup id="confirmEmiliminarProceso" layout="block">
+                    <h:panelGroup id="confirmEmiliminarVentas" layout="block">
                         <div id=""></div>
                         <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel" >Eliminar Proceso -  #{productoProcesoController.procesoSelecionado.idProceso}</h4>
+                            <h4 class="modal-title" id="exampleModalLabel" >Eliminar Venta -  #{RventasController.ventaSelecionada.idVenta}</h4>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h5>¿ Esta Seguro de Eliminar el Proceso Selecionado?</h5>
+                            <h5>¿ Esta Seguro de Eliminar la Venta Selecionado?</h5>
 
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                <h:commandButton class="btn btn-danger" value="Eliminar" action="#{productoProcesoController.eliminar()}"/>
+                                <h:commandButton class="btn btn-danger" value="Eliminar" action="#{RventasController.eliminar()}"/>
 
                             </div>
                         </div>    

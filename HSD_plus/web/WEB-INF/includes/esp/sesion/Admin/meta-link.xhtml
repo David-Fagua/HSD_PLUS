@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
     <meta name="description" content=""></meta>
     <meta name="author" content=""></meta>
-    
+
     <link rel="icon" type="image/png" href="#{request.contextPath}/resources/assets/Img/Logo.png"></link>
     <link href="#{request.contextPath}/resources/assets/css/bootstrap.min.css" rel="stylesheet"></link>
     <link href="#{request.contextPath}/resources/assets/css/metisMenu.min.css" rel="stylesheet"></link>
@@ -17,7 +17,18 @@
     <link href="#{request.contextPath}/resources/assets/css/startmin.css" rel="stylesheet"></link>
     <link href="#{request.contextPath}/resources/assets/css/morris.css" rel="stylesheet"></link>
     <link href="#{request.contextPath}/resources/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css"></link>
+    <script language="Javascript">
+        function printDiv(nombreDiv) {
+            var contenido = document.getElementById(nombreDiv).innerHTML;
+            var contenidoOriginal = document.body.innerHTML;
 
+            document.body.innerHTML = contenido;
+
+            window.print();
+
+            document.body.innerHTML = contenidoOriginal;
+        }
+    </script>
 
 </ui:composition>
 

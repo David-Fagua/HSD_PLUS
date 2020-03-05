@@ -32,7 +32,9 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "RegistroVentas.findAll", query = "SELECT r FROM RegistroVentas r")
     , @NamedQuery(name = "RegistroVentas.findByIdVenta", query = "SELECT r FROM RegistroVentas r WHERE r.idVenta = :idVenta")
     , @NamedQuery(name = "RegistroVentas.findByFechaVenta", query = "SELECT r FROM RegistroVentas r WHERE r.fechaVenta = :fechaVenta")
-    , @NamedQuery(name = "RegistroVentas.findByObservaciones", query = "SELECT r FROM RegistroVentas r WHERE r.observaciones = :observaciones")})
+    , @NamedQuery(name = "RegistroVentas.findByObservaciones", query = "SELECT r FROM RegistroVentas r WHERE r.observaciones = :observaciones")
+    , @NamedQuery(name = "RegistroVentas.findByCantidad", query = "SELECT r FROM RegistroVentas r WHERE r.cantidad = :cantidad")
+    , @NamedQuery(name = "RegistroVentas.findByPresioTotal", query = "SELECT r FROM RegistroVentas r WHERE r.presioTotal = :presioTotal")})
 public class RegistroVentas implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,21 +47,28 @@ public class RegistroVentas implements Serializable {
     private String fechaVenta;
     @Column(name = "observaciones")
     private String observaciones;
+    @Basic(optional = false)
+    @Column(name = "cantidad")
+    private int cantidad;
+    @Column(name = "presio_total")
+    private Long presioTotal;
     @JoinColumn(name = "responsable", referencedColumnName = "id_usuario")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Usuarios responsable;
     @JoinColumn(name = "reserva", referencedColumnName = "id_reserva")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Reservas reserva;
-    @JoinColumn(name = "cliente", referencedColumnName = "id_usuario")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Usuarios cliente;
 
     public RegistroVentas() {
     }
 
     public RegistroVentas(Integer idVenta) {
         this.idVenta = idVenta;
+    }
+
+    public RegistroVentas(Integer idVenta, int cantidad) {
+        this.idVenta = idVenta;
+        this.cantidad = cantidad;
     }
 
     public Integer getIdVenta() {
@@ -86,6 +95,22 @@ public class RegistroVentas implements Serializable {
         this.observaciones = observaciones;
     }
 
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public Long getPresioTotal() {
+        return presioTotal;
+    }
+
+    public void setPresioTotal(Long presioTotal) {
+        this.presioTotal = presioTotal;
+    }
+
     public Usuarios getResponsable() {
         return responsable;
     }
@@ -100,14 +125,6 @@ public class RegistroVentas implements Serializable {
 
     public void setReserva(Reservas reserva) {
         this.reserva = reserva;
-    }
-
-    public Usuarios getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Usuarios cliente) {
-        this.cliente = cliente;
     }
 
     @Override

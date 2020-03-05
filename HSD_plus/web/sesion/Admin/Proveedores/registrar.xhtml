@@ -10,7 +10,16 @@
         <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
     </h:head>
     <h:body>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"></ui:include>
+        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+            <div style="position: absolute" >
+                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                </h:panelGroup>
+            </div>
+        </nav>    
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -32,27 +41,27 @@
                                     <label>Nit</label>
                                     <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.nit}"/>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label>Razon social</label>
                                     <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.razonSocial}"/>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label>Telefono</label>
                                     <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.telefono}"/>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label>Email</label>
                                     <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.email}"/>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label>Dirección</label>
                                     <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.direccion}"/>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label>Ciudad</label>
                                     <h:selectOneMenu class="form-control" value="#{proveedoresController.nuevoProveedor.ciudad}">

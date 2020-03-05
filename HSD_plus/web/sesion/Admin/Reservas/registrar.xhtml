@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Registrar Reserva</title>
+        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+    </h:head>
+    <h:body>
+        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+            <div style="position: absolute" >
+                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                </h:panelGroup>
+                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                </h:panelGroup>
+            </div>
+        </nav>    
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">Registrar Reserva</h1>
+                        <!-- /.row -->
+
+
+
+
+                        <h3>  <h:messages showDetail="true" layout="table" 
+                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                        </h3>
+                        <h:form prependId="false">
+                            <div class="row  col-md-10" style="margin: 0px 45px" >
+                                <div class="form-group">
+                                    <label>Fecha del Proceso</label>
+                                    <h:inputText pt:type="date" class="form-control" value="#{ReservasController.nuevaReseva.fechaReserva}"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Producto</label>
+                                    <h:selectOneMenu class="form-control" value="#{ReservasController.nuevaReseva.producto}">
+                                        <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
+                                        <f:selectItems value="#{productoFinalController.productoFinal}" var="pr" itemLabel="#{pr.articulo.nombre}"/>
+                                    </h:selectOneMenu>
+                                </div>
+
+                                <div class="form-group ">
+                                    <label>Cantidad</label>
+                                    <h:inputText class="form-control" value="#{ReservasController.nuevaReseva.cantidad}"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Precio Total</label>
+                                    <h:inputText class="form-control" value="#{ReservasController.nuevaReseva.precioTotal}"/>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Cliente</label>
+                                    <h:selectOneMenu class="form-control" value="#{ReservasController.nuevaReseva.cliente}">
+                                        <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
+                                        <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
+                                    </h:selectOneMenu>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Observaciones</label>
+                                    <h:inputTextarea class="form-control" value="#{ReservasController.nuevaReseva.observaciones}"/>
+                                </div>
+
+
+
+                            </div>
+                            <div class="col-sm-12" style="margin: 0px 45px" >
+                                <a class="btn btn-secondary" href="listar.xhtml">Cancelar</a>
+                                <h:commandButton class="btn btn-primary" value="Registrar" action="#{ReservasController.registrar()}"/>
+                            </div>
+
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </h:body>
+</html>
