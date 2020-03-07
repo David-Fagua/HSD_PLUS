@@ -13,6 +13,7 @@ import java.io.IOException;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -29,8 +30,10 @@ public class SessionController implements Serializable {
     private IUsuariosDAO uDAO;
 
     private String email;
-    private String password;
+    private String password;    
+    private Usuarios usuarioSelecionado;
     private Usuarios user;
+    private List<Usuarios> usuarios;
     private Roles RolSelecionado;
 
     /**
@@ -70,59 +73,88 @@ public class SessionController implements Serializable {
     public void setRolSelecionado(Roles RolSelecionado) {
         this.RolSelecionado = RolSelecionado;
     }
-    
-    
 
     public String startSession() {
-        if (email!=null && email.trim().length()>0&&
-                 password != null && password.trim().length()>0){
+        if (email != null && email.trim().length() > 0
+                && password != null && password.trim().length() > 0) {
             user = uDAO.findByEmailAndPassword(email, password);
-            if(user != null){
-                if(!user.getRolesList().isEmpty()){
-                    RolSelecionado = user.getRolesList().get(0);
-                    return "/sesion/Admin/InicioA.xhtml?faces-redirect=true";
-                }else{
+            if (user != null) {
+                if (user.getEstado() == 0 ){
+                    
+                    if (!user.getRolesList().isEmpty()) {
+                        RolSelecionado = user.getRolesList().get(0);
+                        return "/sesion/Admin/InicioA.xhtml?faces-redirect=true";
+                    } else {
+                        user = null;
+                        MessageUtil.sendInfo(null, "El Usuario no tiene Rol", "Contacte al Administrador", Boolean.FALSE);
+                    }
+                } else {
                     user = null;
-                    MessageUtil.sendInfo(null, "El Usuario no tiene Rol", "Contacte al Administrador", Boolean.FALSE);
+                    MessageUtil.sendInfo(null, "El Usuario esta Bloqueado", "Contacte al Administrador", Boolean.FALSE);
                 }
-            }else{
+            } else {
                 MessageUtil.sendInfo(null, "Datos Incorrectos", "Verifique sus Datos y Vuelva a Intentar", Boolean.FALSE);
-            } 
+            }
         } else {
             MessageUtil.sendInfo(null, "Datos Obligatorios", "Debe diligenciar todos los Campos", Boolean.FALSE);
         }
         return "";
     }
-    
-    
-    public  void endSession() throws IOException{
+
+    public void endSession() throws IOException {
         FacesContext fc = FacesContext.getCurrentInstance();
         ExternalContext ec = fc.getExternalContext();
         ec.invalidateSession();
         ec.redirect(ec.getRequestContextPath() + "/index.xhtml");
     }
-    
-    public boolean isStartSession(){
-        return user!=null;
+
+    public boolean isStartSession() {
+        return user != null;
     }
-    
-    public void validarSesion() throws IOException{
-        if(!isStartSession()){
+
+    public void validarSesion() throws IOException {
+        if (!isStartSession()) {
             FacesContext fc = FacesContext.getCurrentInstance();
             ExternalContext ec = fc.getExternalContext();
             ec.redirect(ec.getRequestContextPath());
         }
     }
-    
-    public long graficaUsu(boolean consultUsu){
-        
+
+    public long graficaUsu(boolean consultUsu) {
+
         try {
             return uDAO.cantidadUsuario(consultUsu);
         } catch (Exception e) {
         }
         return 0;
     }
+
+    public Usuarios getUsuarioSelecionado() {
+        return usuarioSelecionado;
+    }
+
+    public void setUsuarioSelecionado(Usuarios usuarioSelecionado) {
+        this.usuarioSelecionado = usuarioSelecionado;
+    }
     
-   
+    public void selecionarUsuario(Usuarios u) {
+        System.out.print("Se ha Selecionado el Usuario");
+        System.out.print(u);
+        this.usuarioSelecionado = u;
+    }
     
+    public void actualizar(){
+        try {
+            if(usuarioSelecionado != null){
+                uDAO.edit(usuarioSelecionado);
+                MessageUtil.sendInfo(null, "La Información del Usuario se ha Modificado Correctamente", "", false);
+                usuarios = null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            MessageUtil.sendError(null, "Error al Modificar la Información del usuario", e.getMessage(), false);
+        }
+    }
+    
+
 }

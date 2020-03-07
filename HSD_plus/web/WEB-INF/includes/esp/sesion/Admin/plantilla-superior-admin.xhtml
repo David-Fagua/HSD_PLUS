@@ -10,7 +10,7 @@
     </f:metadata>
 
     <div>
-        <a href="InicioA.xhtml" class="navbar-brand" >
+        <a href="#{request.contextPath}/sesion/Admin/InicioA.xhtml" class="navbar-brand" >
             <img src="#{request.contextPath}/resources/assets/Img/Logo.png" width="30" height="30" alt="HSD PLUS"></img></a>
         <ul class="nav navbar-nav navbar-left navbar-top-links">
             <li><a href="#{request.contextPath}/sesion/Admin/InicioA.xhtml"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
@@ -26,7 +26,7 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a><i class="fa fa-user fa-fw"></i>#{sessionController.user.correo}</a>
                         </li>
-                        <li><a><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
+                        <li><a href="#{request.contextPath}/sesion/Admin/configurar.xhtml"><i class="fa fa-gear fa-fw" ></i> Configuraciones</a>
                         </li>
                         <li class="divider"></li>
                         <h:commandLink class="fa fa-sign-out fa-fw" style="color:black" action="#{sessionController.endSession()}" value="Cerrar"/>

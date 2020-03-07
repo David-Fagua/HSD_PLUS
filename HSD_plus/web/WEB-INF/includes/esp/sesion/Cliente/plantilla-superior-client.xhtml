@@ -9,7 +9,7 @@
         <f:event type="preRenderView" listener="#{sessionController.validarSesion()}"/>
     </f:metadata>
     <div>
-        <a href="InicioA.xhtml" class="navbar-brand" >
+        <a href="#{request.contextPath}/sesion/Admin/InicioA.xhtml" class="navbar-brand" >
             <img src="#{request.contextPath}/resources/assets/Img/Logo.png" width="30" height="30" alt="HSD PLUS"></img></a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only"></span>
@@ -18,8 +18,8 @@
             <span class="icon-bar"></span>
         </button>
         <ul class="nav navbar-nav navbar-left navbar-top-links">
-            <li><a href="InicioA.xhtml"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
-            <li><a href="#{request.contextPath}/sesion/Admin/Catalogo/listar.xhtml" class="nav-link" style="color: #47A5B4;">Catalogo</a></li>
+            <li><a href="#{request.contextPath}/sesion/Admin/InicioA.xhtml"><i class="fa fa-home fa-fw"></i> Inicio</a></li>
+            <li><a href="#{request.contextPath}/sesion/Cliente/catalogo.xhtml" class="nav-link" style="color: #47A5B4;">Catalogo</a></li>
             <li><a href="InicioA.xhtml" class="nav-link" style="color: #47A5B4;">Consultar Compras</a></li>
             <li><a href="ControladorProducto_proceso?accion=listar" class="nav-link" style="color: #47A5B4;">Reservaciones</a></li>
         </ul>
@@ -35,7 +35,7 @@
                     <ul class="dropdown-menu dropdown-user">
                         <li><a><i class="fa fa-user fa-fw"></i>#{sessionController.user.correo}</a>
                         </li>
-                        <li><a><i class="fa fa-gear fa-fw"></i> Configuraciones</a>
+                        <li><a href="#{request.contextPath}/sesion/Admin/configurar.xhtml"><i class="fa fa-gear fa-fw" ></i> Configuraciones</a>
                         </li>
                         <li class="divider"></li>
                         <h:commandLink class="fa fa-sign-out fa-fw" style="color:black" action="#{sessionController.endSession()}" value="Cerrar"/>

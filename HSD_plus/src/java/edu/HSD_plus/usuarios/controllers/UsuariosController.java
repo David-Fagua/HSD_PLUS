@@ -32,7 +32,7 @@ public class UsuariosController implements Serializable {
     private List<Usuarios> usuarios;
     private Usuarios usuarioSelecionado;
     private Usuarios nuevoUsuario;
-    private Usuarios clave;
+    private String clave;
 
     /**
      * Creates a new instance of UsuariosController
@@ -75,6 +75,16 @@ public class UsuariosController implements Serializable {
         this.usuarioSelecionado = u;
     }
 
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+    
+    
+
     public void registrar() {
         try {
             System.out.print("Nombre: " + nuevoUsuario.getNombres());
@@ -86,7 +96,7 @@ public class UsuariosController implements Serializable {
             nuevoUsuario.setIdUsuario(uDAO.count() + 100);
             nuevoUsuario.setEstado(Short.valueOf("0"));
             uDAO.create(nuevoUsuario);
-            MessageUtil.sendInfo(null, " Su Registro Exitoso ", "", false);
+            MessageUtil.sendInfo(null, " Su Registro Fue Exitoso ", "", false);
         } catch (Exception e) {
             MessageUtil.sendError(null, " Error al Registrar el Usuario porfavor verifique bien sus datos ", e.getMessage(), false);
         }
@@ -147,9 +157,9 @@ public class UsuariosController implements Serializable {
         if (usuarioSelecionado != null) {
             if (usuarioSelecionado.getEstado() != null
                     && (usuarioSelecionado.getEstado() != 0)) {
-                return "Bloquear";
+                return "Desbloquear";
             }
-            return "Desbloquear";
+            return "Bloquear";
         }
         return "";
     }

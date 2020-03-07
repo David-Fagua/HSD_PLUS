@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+                 xmlns:h="http://xmlns.jcp.org/jsf/html"
+                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <div class="modal fade" id="editarInfoUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content modal-lg">
+                <h:form prependId="false">
+                    <h:panelGroup id="editarInfoUsuarioContent">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="exampleModalLabel" >Editar Información del usuario  #{usuariosController.usuarioSelecionado.idUsuario}</h3><p></p>
+                            <h5 class="modal-title" id="exampleModalLabel" >En caso de querer editar el Correo o el Rol Porfavor pongase en contacto con su Administrador</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"></span>
+                            </button>
+                        </div>
+
+
+
+                        <div class="row">
+                                <div class="col-md-12">
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label>Tipo de Documento</label>
+                                        <h:selectOneMenu class="form-control" value="#{usuariosController.usuarioSelecionado.tipoDocumento}">
+                                            <f:selectItem itemLabel="Selecione un Tipo de Documento" itemValue=""/>
+                                            <f:selectItems value="#{tipoDocumentosController.tipodocumentos}" var="td" itemLabel="#{td.nombre}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label>Numero de Documento</label>
+                                        <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.numerodocumento}"/>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-4">
+                                        <label>Nombres</label>
+                                        <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.nombres}"/>
+                                    </div>
+                                    <div class="form-group col-md-4" >
+                                        <label>Primer Apellido</label>
+                                        <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.primerApellido}"/>
+                                    </div>
+                                    <div class="form-group col-md-4" >
+                                        <label>Segundo Apellido</label>
+                                        <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.segundoApellido}"/>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label>Ciudad</label>
+                                        <h:selectOneMenu class="form-control" value="#{usuariosController.usuarioSelecionado.ciudad}">
+                                            <f:selectItem itemLabel="Selecione una ciudad" itemValue=""/>
+                                            <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label>Telefono</label>
+                                        <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.telefono}"/>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label>Ingrece su Clave para Actualizar</label>
+                                        <h:inputText class="form-control" value="#{usuariosController.clave}"/>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label>Telefono</label>
+                                        <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.telefono}"/>
+                                    </div>
+                                                                        
+                                </div>
+                            </div>
+
+
+
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <h:commandLink class="btn btn-warning" value="Guardar"
+                                           action="#{usuariosController.actualizar()}">
+                                <i class="fa fa-save"></i>
+                            </h:commandLink>
+                        </div>
+                    </h:panelGroup>
+                </h:form>
+            </div>
+        </div>
+    </div>
+
+
+
+</ui:composition>
+
