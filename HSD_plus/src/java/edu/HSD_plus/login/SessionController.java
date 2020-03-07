@@ -81,8 +81,8 @@ public class SessionController implements Serializable {
             if (user != null) {
                 if (user.getEstado() == 0 ){
                     
-                    if (!user.getRolesList().isEmpty()) {
-                        RolSelecionado = user.getRolesList().get(0);
+                    if (!user.getRoles().isEmpty()) {
+                        RolSelecionado = user.getRoles().get(0);
                         return "/sesion/Admin/InicioA.xhtml?faces-redirect=true";
                     } else {
                         user = null;

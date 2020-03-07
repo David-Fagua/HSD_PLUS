@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,10 +18,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,6 +30,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "roles")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Roles.findAll", query = "SELECT r FROM Roles r")
     , @NamedQuery(name = "Roles.findByIdRol", query = "SELECT r FROM Roles r WHERE r.idRol = :idRol")
@@ -47,11 +48,10 @@ public class Roles implements Serializable {
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "fecha_apertura")
-    private String fechaApertura;
+    @Temporal(TemporalType.DATE)
+    private Date fechaApertura;
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private List<Usuarios> usuarios;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rol", fetch = FetchType.LAZY)
-    private List<Usuarios> usuarios1;
 
     public Roles() {
     }
@@ -81,28 +81,21 @@ public class Roles implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getFechaApertura() {
+    public Date getFechaApertura() {
         return fechaApertura;
     }
 
-    public void setFechaApertura(String fechaApertura) {
+    public void setFechaApertura(Date fechaApertura) {
         this.fechaApertura = fechaApertura;
     }
 
+    @XmlTransient
     public List<Usuarios> getUsuariosList() {
         return usuarios;
     }
 
     public void setUsuariosList(List<Usuarios> usuariosList) {
         this.usuarios = usuariosList;
-    }
-
-    public List<Usuarios> getUsuariosList1() {
-        return usuarios1;
-    }
-
-    public void setUsuariosList1(List<Usuarios> usuariosList1) {
-        this.usuarios1 = usuariosList1;
     }
 
     @Override

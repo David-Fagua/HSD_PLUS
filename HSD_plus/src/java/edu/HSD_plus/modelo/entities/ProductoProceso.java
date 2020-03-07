@@ -21,6 +21,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -28,6 +29,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "producto_proceso")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "ProductoProceso.findAll", query = "SELECT p FROM ProductoProceso p")
     , @NamedQuery(name = "ProductoProceso.findByIdProceso", query = "SELECT p FROM ProductoProceso p WHERE p.idProceso = :idProceso")
@@ -43,9 +45,10 @@ public class ProductoProceso implements Serializable {
     @Column(name = "id_proceso")
     private Integer idProceso;
     @Column(name = "fecha_proceso")
-    private String fechaProceso;
+    @Temporal(TemporalType.DATE)
+    private Date fechaProceso;
     @Column(name = "estado")
-    private Boolean estado;
+    private Short estado;
     @Basic(optional = false)
     @Column(name = "cantidad")
     private int cantidad;
@@ -82,19 +85,19 @@ public class ProductoProceso implements Serializable {
         this.idProceso = idProceso;
     }
 
-    public String getFechaProceso() {
+    public Date getFechaProceso() {
         return fechaProceso;
     }
 
-    public void setFechaProceso(String fechaProceso) {
+    public void setFechaProceso(Date fechaProceso) {
         this.fechaProceso = fechaProceso;
     }
 
-    public Boolean getEstado() {
+    public Short getEstado() {
         return estado;
     }
 
-    public void setEstado(Boolean estado) {
+    public void setEstado(Short estado) {
         this.estado = estado;
     }
 

@@ -5,7 +5,6 @@
  */
 package edu.HSD_plus.converters;
 
-
 import edu.HSD_plus.modelo.dao.IRolesDAO;
 import edu.HSD_plus.modelo.entities.Roles;
 import javax.enterprise.inject.spi.CDI;
@@ -19,33 +18,29 @@ import javax.faces.convert.FacesConverter;
  * @author SAM
  */
 @FacesConverter(forClass = Roles.class)
-public class RolesConverter implements Converter{
-    
-    private     IRolesDAO rlDAO;
+public class RolesConverter implements Converter<Roles>{
 
-    public RolesConverter() {
-        rlDAO = CDI.current().select(IRolesDAO.class).get();
+    private IRolesDAO rDAO;
+    
+    public RolesConverter(){
+        rDAO = CDI.current().select(IRolesDAO.class).get();
+    }
+    
+    @Override
+    public Roles getAsObject(FacesContext context, UIComponent component, String value) {
+        try {
+            return  rDAO.find(Integer.valueOf(value));
+        } catch (NumberFormatException numberFormatException) {
+            return  null;
+        }
     }
 
     @Override
-    public Object getAsObject(FacesContext context, UIComponent component, String value) {
-        if(value != null){
-            try {
-                Integer id = Integer.valueOf(value);  
-                return rlDAO.find(id);
-            } catch (NumberFormatException numberFormatException) {
-            }
+    public String getAsString(FacesContext arg0, UIComponent arg1, Roles obj) {
+        if(obj != null){
+            return obj.getIdRol().toString();
         }
         return null;
-    }
-
-    @Override
-    public String getAsString(FacesContext arg0, UIComponent arg1, Object obj) {
-        if(obj != null && obj instanceof Roles){
-            Roles td = (Roles) obj;
-            return td.getIdRol().toString();
-        }
-        return "";
     }
     
 }

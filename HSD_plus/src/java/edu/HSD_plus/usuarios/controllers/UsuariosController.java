@@ -6,6 +6,7 @@
 package edu.HSD_plus.usuarios.controllers;
 
 import edu.HSD_plus.modelo.dao.IUsuariosDAO;
+import edu.HSD_plus.modelo.entities.Roles;
 import edu.HSD_plus.modelo.entities.Usuarios;
 import edu.HSD_plus.util.MessageUtil;
 import java.io.Serializable;
@@ -53,7 +54,7 @@ public class UsuariosController implements Serializable {
     }
 
     public Usuarios getUsuarioSelecionado() {
-        
+
         return usuarioSelecionado;
     }
 
@@ -82,8 +83,6 @@ public class UsuariosController implements Serializable {
     public void setClave(String clave) {
         this.clave = clave;
     }
-    
-    
 
     public void registrar() {
         try {
@@ -91,12 +90,18 @@ public class UsuariosController implements Serializable {
             System.out.print("Apellidos: " + nuevoUsuario.getPrimerApellido());
             System.out.print("Correo: " + nuevoUsuario.getSegundoApellido());
             System.out.print("Clave: " + nuevoUsuario.getCorreo());
-            System.out.print("Rol: " + nuevoUsuario.getRol());
             System.out.print("Estado: " + nuevoUsuario.getEstado());
-            nuevoUsuario.setIdUsuario(uDAO.count() + 100);
-            nuevoUsuario.setEstado(Short.valueOf("0"));
-            uDAO.create(nuevoUsuario);
-            MessageUtil.sendInfo(null, " Su Registro Fue Exitoso ", "", false);
+            for (Roles roles : nuevoUsuario.getRoles()) {
+                System.out.println(roles);
+            }
+            if (clave != null && clave.trim().length() > 0 && clave.equals(nuevoUsuario.getClave())) {
+                nuevoUsuario.setIdUsuario(uDAO.count() + 1);
+                nuevoUsuario.setEstado((short) 2);
+                uDAO.create(nuevoUsuario);
+                MessageUtil.sendInfo(null, " Su Registro Fue Exitoso ", "", false);
+            } else {
+                MessageUtil.sendError(null, " Error al Registrar el Usuario porfavor verifique bien sus datos ", "", false);
+            }
         } catch (Exception e) {
             MessageUtil.sendError(null, " Error al Registrar el Usuario porfavor verifique bien sus datos ", e.getMessage(), false);
         }
@@ -114,10 +119,10 @@ public class UsuariosController implements Serializable {
         }
 
     }
-    
-    public void actualizar(){
+
+    public void actualizar() {
         try {
-            if(usuarioSelecionado != null){
+            if (usuarioSelecionado != null) {
                 uDAO.edit(usuarioSelecionado);
                 MessageUtil.sendInfo(null, "La Información del Usuario se ha Modificado Correctamente", "", false);
                 usuarios = null;
@@ -127,15 +132,15 @@ public class UsuariosController implements Serializable {
             MessageUtil.sendError(null, "Error al Modificar la Información del usuario", e.getMessage(), false);
         }
     }
-    
-    public void bloquearODesbloquear(){
+
+    public void bloquearODesbloquear() {
         try {
-            if(usuarioSelecionado != null){
-                if(usuarioSelecionado.getEstado() != null
-                    && (usuarioSelecionado.getEstado() != 0)){
+            if (usuarioSelecionado != null) {
+                if (usuarioSelecionado.getEstado() != null
+                        && (usuarioSelecionado.getEstado() != 0)) {
                     usuarioSelecionado.setEstado((short) 0);
-                } else{
-                    usuarioSelecionado.setEstado((short)1);
+                } else {
+                    usuarioSelecionado.setEstado((short) 1);
                 }
                 uDAO.edit(usuarioSelecionado);
                 MessageUtil.sendInfo(null, "El Estado se ha Modificado Correctamente", "", false);
@@ -146,8 +151,6 @@ public class UsuariosController implements Serializable {
             MessageUtil.sendError(null, "Error al Modificar el Estado del usuario", e.getMessage(), false);
         }
     }
-    
-    
 
     public boolean renderedBtnBloquear(Usuarios u) {
         return (u.getEstado() != null && u.getEstado() != 0);
@@ -164,8 +167,4 @@ public class UsuariosController implements Serializable {
         return "";
     }
 
-    
-    
-    
-    
 }

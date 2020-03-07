@@ -11,8 +11,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,6 +19,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -28,6 +27,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "catalogo")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Catalogo.findAll", query = "SELECT c FROM Catalogo c")
     , @NamedQuery(name = "Catalogo.findByCodigo", query = "SELECT c FROM Catalogo c WHERE c.codigo = :codigo")
@@ -41,7 +41,6 @@ public class Catalogo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "codigo")
     private Integer codigo;
@@ -50,7 +49,8 @@ public class Catalogo implements Serializable {
     @Column(name = "descripcion")
     private String descripcion;
     @Column(name = "fecha")
-    private String fecha;
+    @Temporal(TemporalType.DATE)
+    private Date fecha;
     @Basic(optional = false)
     @Column(name = "precio_unitario")
     private long precioUnitario;
@@ -100,11 +100,11 @@ public class Catalogo implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

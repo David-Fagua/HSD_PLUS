@@ -71,7 +71,11 @@
                                         <h:inputSecret class="form-control" value="#{usuariosController.nuevoUsuario.clave}"/>
                                     </div>
 
-
+                                    <div class="form-group col-md-6" style="float: left" >
+                                        <label style="color: white">Confirmar Clave*</label>
+                                        <h:inputSecret id="calve" class="form-control" value="#{usuariosController.clave}"/>
+                                    </div>
+                                    
                                     <div class="form-group col-md-6">
                                         <label>Ciudad</label>
                                         <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.ciudad}">
@@ -82,10 +86,9 @@
 
                                     <div class="form-group col-md-6">
                                         <label>Rol</label>
-                                        <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.rol}">
-                                            <f:selectItem itemLabel="Selecione un Rol" itemValue=""/>
-                                            <f:selectItems value="#{RolesController.roles}" var="rls" itemLabel="#{rls.nombre}"/>
-                                        </h:selectOneMenu>
+                                        <h:selectManyListbox value="#{usuariosController.nuevoUsuario.roles}">
+                                            <f:selectItems value="#{rolesController.roles}" var="r" itemLabel="#{r.nombre}"/>
+                                        </h:selectManyListbox>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Telefono</label>

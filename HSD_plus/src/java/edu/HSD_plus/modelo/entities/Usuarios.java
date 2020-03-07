@@ -23,6 +23,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,6 +32,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "usuarios")
+@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u")
     , @NamedQuery(name = "Usuarios.findByIdUsuario", query = "SELECT u FROM Usuarios u WHERE u.idUsuario = :idUsuario")
@@ -85,19 +88,12 @@ public class Usuarios implements Serializable {
     private List<Desechos> desechos;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
     private List<RegistroVentas> registroVentas;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
-    private List<ProductoFinal> productoFinal;
     @JoinColumn(name = "ciudad", referencedColumnName = "id_ciudad")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Ciudades ciudad;
-    @JoinColumn(name = "rol", referencedColumnName = "id_rol")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Roles rol;
     @JoinColumn(name = "tipo_documento", referencedColumnName = "id_tdocumento")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tipodocumentos tipoDocumento;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
-    private List<InventarioGeneral> inventarioGeneral;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
     private List<ProductoProceso> productoProceso;
 
@@ -198,14 +194,16 @@ public class Usuarios implements Serializable {
         this.estado = estado;
     }
 
-    public List<Roles> getRolesList() {
+    @XmlTransient
+    public List<Roles> getRoles() {
         return roles;
     }
 
-    public void setRolesList(List<Roles> rolesList) {
+    public void setRoles(List<Roles> rolesList) {
         this.roles = rolesList;
     }
 
+    @XmlTransient
     public List<Reservas> getReservasList() {
         return reservas;
     }
@@ -214,6 +212,7 @@ public class Usuarios implements Serializable {
         this.reservas = reservasList;
     }
 
+    @XmlTransient
     public List<Desechos> getDesechosList() {
         return desechos;
     }
@@ -222,20 +221,13 @@ public class Usuarios implements Serializable {
         this.desechos = desechosList;
     }
 
+    @XmlTransient
     public List<RegistroVentas> getRegistroVentasList() {
         return registroVentas;
     }
 
     public void setRegistroVentasList(List<RegistroVentas> registroVentasList) {
         this.registroVentas = registroVentasList;
-    }
-
-    public List<ProductoFinal> getProductoFinalList() {
-        return productoFinal;
-    }
-
-    public void setProductoFinalList(List<ProductoFinal> productoFinalList) {
-        this.productoFinal = productoFinalList;
     }
 
     public Ciudades getCiudad() {
@@ -246,14 +238,6 @@ public class Usuarios implements Serializable {
         this.ciudad = ciudad;
     }
 
-    public Roles getRol() {
-        return rol;
-    }
-
-    public void setRol(Roles rol) {
-        this.rol = rol;
-    }
-
     public Tipodocumentos getTipoDocumento() {
         return tipoDocumento;
     }
@@ -262,14 +246,7 @@ public class Usuarios implements Serializable {
         this.tipoDocumento = tipoDocumento;
     }
 
-    public List<InventarioGeneral> getInventarioGeneralList() {
-        return inventarioGeneral;
-    }
-
-    public void setInventarioGeneralList(List<InventarioGeneral> inventarioGeneralList) {
-        this.inventarioGeneral = inventarioGeneralList;
-    }
-
+    @XmlTransient
     public List<ProductoProceso> getProductoProcesoList() {
         return productoProceso;
     }
