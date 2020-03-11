@@ -279,5 +279,5 @@ public class Usuarios implements Serializable {
     public String toString() {
         return "edu.HSD_plus.modelo.entities.Usuarios[ idUsuario=" + idUsuario + " ]";
     }
-    
+
 }

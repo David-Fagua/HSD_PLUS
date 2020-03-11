@@ -20,59 +20,58 @@
 
 
                         <div class="row">
-                                <div class="col-md-12">
-                                    
-                                    <div class="form-group col-md-6">
-                                        <label>Tipo de Documento</label>
-                                        <h:selectOneMenu class="form-control" value="#{usuariosController.usuarioSelecionado.tipoDocumento}">
-                                            <f:selectItem itemLabel="Selecione un Tipo de Documento" itemValue=""/>
-                                            <f:selectItems value="#{tipoDocumentosController.tipodocumentos}" var="td" itemLabel="#{td.nombre}"/>
-                                        </h:selectOneMenu>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-6">
-                                        <label>Numero de Documento</label>
-                                        <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.numerodocumento}"/>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-4">
-                                        <label>Nombres</label>
-                                        <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.nombres}"/>
-                                    </div>
-                                    <div class="form-group col-md-4" >
-                                        <label>Primer Apellido</label>
-                                        <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.primerApellido}"/>
-                                    </div>
-                                    <div class="form-group col-md-4" >
-                                        <label>Segundo Apellido</label>
-                                        <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.segundoApellido}"/>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-6">
-                                        <label>Ciudad</label>
-                                        <h:selectOneMenu class="form-control" value="#{usuariosController.usuarioSelecionado.ciudad}">
-                                            <f:selectItem itemLabel="Selecione una ciudad" itemValue=""/>
-                                            <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
-                                        </h:selectOneMenu>
-                                    </div>
-                                    <div class="form-group col-md-6" >
-                                        <label>Correo</label>
-                                        <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.correo}"/>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Telefono</label>
-                                        <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.telefono}"/>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label>Rol</label>
-                                        <h:selectOneMenu class="form-control" value="#{usuariosController.usuarioSelecionado.rol}">
-                                            <f:selectItem itemLabel="Selecione un Rol" itemValue=""/>
-                                            <f:selectItems value="#{rolesController.roles}" var="rls" itemLabel="#{rls.nombre}"/>
-                                        </h:selectOneMenu>
-                                    </div>
-                                    
+                            <div class="col-md-12">
+
+                                <div class="form-group col-md-6">
+                                    <label>Tipo de Documento</label>
+                                    <h:selectOneMenu class="form-control" value="#{usuariosController.usuarioSelecionado.tipoDocumento}">
+                                        <f:selectItem itemLabel="Selecione un Tipo de Documento" itemValue=""/>
+                                        <f:selectItems value="#{tipoDocumentosController.tipodocumentos}" var="td" itemLabel="#{td.nombre}"/>
+                                    </h:selectOneMenu>
                                 </div>
+
+                                <div class="form-group col-md-6">
+                                    <label>Numero de Documento</label>
+                                    <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.numerodocumento}"/>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label>Nombres</label>
+                                    <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.nombres}"/>
+                                </div>
+                                <div class="form-group col-md-4" >
+                                    <label>Primer Apellido</label>
+                                    <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.primerApellido}"/>
+                                </div>
+                                <div class="form-group col-md-4" >
+                                    <label>Segundo Apellido</label>
+                                    <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.segundoApellido}"/>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label>Ciudad</label>
+                                    <h:selectOneMenu class="form-control" value="#{usuariosController.usuarioSelecionado.ciudad}">
+                                        <f:selectItem itemLabel="Selecione una ciudad" itemValue=""/>
+                                        <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
+                                    </h:selectOneMenu>
+                                </div>
+                                <div class="form-group col-md-6" >
+                                    <label>Correo</label>
+                                    <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.correo}"/>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Telefono</label>
+                                    <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.telefono}"/>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Rol</label>
+                                    <h:selectManyListbox class="form-control" value="#{usuariosController.usuarioSelecionado.roles}">
+                                        <f:selectItems value="#{rolesController.roles}" var="r" itemLabel="#{r.nombre}"/>
+                                    </h:selectManyListbox>
+                                </div>
+
                             </div>
+                        </div>
 
 
 

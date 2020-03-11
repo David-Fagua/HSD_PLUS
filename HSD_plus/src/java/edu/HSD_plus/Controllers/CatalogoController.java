@@ -108,13 +108,32 @@ public class CatalogoController implements Serializable {
     public void eliminar() {
         try {
             clDAO.remove(catalogoSelecionado);
-            MessageUtil.sendInfo(null, "La Venta  se ha Eliminado Correctamente", "", false);
+            MessageUtil.sendInfo(null, "El Dato  se ha Eliminado Correctamente Catalogo", "", false);
             catalogo = null;
         } catch (Exception e) {
             e.printStackTrace();
-            MessageUtil.sendError(null, "error al eliminar la Venta", e.getMessage(), false);
+            MessageUtil.sendError(null, "error al eliminar el dato del Catalogo", e.getMessage(), false);
         }
 
+    }
+    
+    public void actualizar() {
+        try {
+            if (catalogoSelecionado != null) {
+                if (imgNuevoCatalogo != null) {
+                    FileUploadUtil.saveFile(imgNuevoCatalogo,
+                            FacesContext.getCurrentInstance().getExternalContext().getRealPath("") + PATH_FOLDER_IMG_CATALOGO + nuevoCatalogo.getCodigo() + "/",
+                            imgNuevoCatalogo.getSubmittedFileName());
+                    nuevoCatalogo.setImagen(imgNuevoCatalogo.getSubmittedFileName());
+                }
+                clDAO.edit(catalogoSelecionado);
+                MessageUtil.sendInfo(null, "La Información se ha Modificado Correctamente en el Catalogo", "", false);
+                catalogo = null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            MessageUtil.sendError(null, "Error al Modificar la Información del Catalogo", e.getMessage(), false);
+        }
     }
 
 }

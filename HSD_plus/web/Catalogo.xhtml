@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <link rel="icon" type="resources/assets/img/png" href="#{request.contextPath}/resources/assets/Img/Logo.png"/>
         <title>Catalogo</title>
@@ -15,35 +16,35 @@
         <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-superior.xhtml"></ui:include>
 
         <div class="container">
-            <h:dataTable class="table " value="#{catalogoController.catalogo}"
+            <p:dataTable class="table " value="#{catalogoController.catalogo}"
                          var="cl">
-                <h:column>
+                <p:column style="width: 400px; background-color: white; border-color: white">
                     <f:facet name="header"></f:facet>
-                    <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="300" height="150px " class="d-block w-100" alt="..."/>
+                    <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="300" height="200px " class="d-block w-100" alt="..."/>
 
-                </h:column>
+                </p:column>
 
-                <h:column>
+                <p:column style="width: 400px; background-color: white; border-color: white">
                     <f:facet name="header"></f:facet>
                     <h3><b><h:outputText value="#{cl.nombre}"/></b></h3>
                     <br></br>
                     <h4><h:outputText value="#{cl.descripcion}"/></h4>
-                </h:column>
+                </p:column>
 
-                <h:column>
+                <p:column style="width: 120px; background-color: white; border-color: white">
                     <f:facet name="header"></f:facet>
                     <h:outputText value="#{cl.fecha}"/>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column style="background-color: white; border-color: white">
                     <f:facet name="header"></f:facet>
                     <h3><b><h:outputText value="#{cl.precioUnitario}"/></b></h3>
-                </h:column>
-                <h:column>
+                </p:column>
+                <p:column style="width: 50px; background-color: white; border-color: white">
                     <f:facet name="header"></f:facet>
                     <h:outputText value="#{cl.stock}"/>
-                </h:column>
+                </p:column>
 
-            </h:dataTable>
+            </p:dataTable>
         </div>
 
 

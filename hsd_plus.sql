@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-03-2020 a las 11:08:18
+-- Tiempo de generación: 11-03-2020 a las 06:18:32
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.1.33
 
@@ -38,6 +38,13 @@ CREATE TABLE `catalogo` (
   `stock` int(11) NOT NULL,
   `imagen` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `catalogo`
+--
+
+INSERT INTO `catalogo` (`codigo`, `nombre`, `articulofinal`, `descripcion`, `fecha`, `precio_unitario`, `stock`, `imagen`) VALUES
+(10, 'Hilo', 6, 'hljrorhljfgnkesjigr', '2020-03-18', '20000', 200, 'hilo.jpg');
 
 -- --------------------------------------------------------
 
@@ -216,13 +223,6 @@ CREATE TABLE `registro_ventas` (
   `responsable` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `registro_ventas`
---
-
-INSERT INTO `registro_ventas` (`id_venta`, `fecha_venta`, `reserva`, `observaciones`, `cantidad`, `presio_total`, `responsable`) VALUES
-(4, '2020-03-18', 4, 'Exitoso', 100, '1000000', 35);
-
 -- --------------------------------------------------------
 
 --
@@ -239,13 +239,6 @@ CREATE TABLE `reservas` (
   `observaciones` varchar(200) NOT NULL,
   `cliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `reservas`
---
-
-INSERT INTO `reservas` (`id_reserva`, `fecha_reserva`, `producto`, `cantidad`, `precio_total`, `estado`, `observaciones`, `cliente`) VALUES
-(4, '2020-03-05', 6, 100, '1000000', 0, 'qwertyuidfghjklvbnm,rtyu', 13);
 
 -- --------------------------------------------------------
 
@@ -306,7 +299,6 @@ CREATE TABLE `usuarios` (
   `clave` varchar(45) NOT NULL,
   `telefono` varchar(20) DEFAULT NULL,
   `ciudad` int(11) NOT NULL,
-  `rol` int(11) DEFAULT 2,
   `estado` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -314,11 +306,11 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `imagen`, `tipo_documento`, `numerodocumento`, `nombres`, `primer_apellido`, `segundo_apellido`, `correo`, `clave`, `telefono`, `ciudad`, `rol`, `estado`) VALUES
-(13, NULL, 2, '12345648910', 'Karen Patricia', 'Salguero', 'carrillo', 'karen@hotmail', '3692586', '4561238', 3, 2, 0),
-(32, NULL, 1, '09876543245678', 'Harold Samuel', 'Sanchez', 'Marroco', 'ssalguero@misena', '1234567', '64347889', 17, 1, 0),
-(34, NULL, 1, '1234569', 'diana', 'rojas', 'bautias', 'drjas@misena', '', '1234567', 4, NULL, 1),
-(35, NULL, 1, '1030621769', 'Samuel', 'Salguero', 'Carrillo', 'ssalguero9@misena.edu.co', '123456789', '123456789', 5, NULL, 0);
+INSERT INTO `usuarios` (`id_usuario`, `imagen`, `tipo_documento`, `numerodocumento`, `nombres`, `primer_apellido`, `segundo_apellido`, `correo`, `clave`, `telefono`, `ciudad`, `estado`) VALUES
+(32, NULL, 1, '09876543245678', 'Harold Samuel', 'Sanchez', 'Marroco', 'ssalguero@misena', '1234567', '64347889', 17, 1),
+(35, NULL, 1, '1030621769', 'Samuel', 'Salguero', 'Carrillo', 'ssalguero9@misena.edu.co', '123456789', '123456789', 5, 0),
+(45, NULL, 1, '1030010606', 'Karen Patricia', 'Vanegas', 'Salguero', 'Karen@misena.edu.co', '12345', '123456789', 5, 0),
+(48, NULL, 1, '10987654321', 'Nathalia', 'Garcia', 'Congo', 'nata@misena.edu.co', '12345', '1234567', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -336,8 +328,9 @@ CREATE TABLE `usuarios_roles` (
 --
 
 INSERT INTO `usuarios_roles` (`roles_id_rol`, `usuarios_id_usuario`) VALUES
-(1, 32),
-(2, 13);
+(1, 35),
+(2, 45),
+(2, 48);
 
 --
 -- Índices para tablas volcadas
@@ -441,10 +434,8 @@ ALTER TABLE `tipodocumentos`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
-  ADD UNIQUE KEY `numerodocumento` (`numerodocumento`),
   ADD KEY `fkid_usuario_tipodocumentos` (`tipo_documento`),
-  ADD KEY `fkid_usuario_ciudades` (`ciudad`),
-  ADD KEY `fkid_usuario_roles` (`rol`);
+  ADD KEY `fkid_usuario_ciudades` (`ciudad`);
 
 --
 -- Indices de la tabla `usuarios_roles`
@@ -527,7 +518,7 @@ ALTER TABLE `tipodocumentos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- Restricciones para tablas volcadas
@@ -599,7 +590,6 @@ ALTER TABLE `reservas`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `fkid_usuario_ciudades` FOREIGN KEY (`ciudad`) REFERENCES `ciudades` (`id_ciudad`),
-  ADD CONSTRAINT `fkid_usuario_roles` FOREIGN KEY (`rol`) REFERENCES `roles` (`id_rol`),
   ADD CONSTRAINT `fkid_usuario_tipodocumentos` FOREIGN KEY (`tipo_documento`) REFERENCES `tipodocumentos` (`id_tdocumento`);
 
 --

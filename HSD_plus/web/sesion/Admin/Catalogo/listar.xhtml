@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Catalogo</title>
         <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
@@ -35,39 +36,39 @@
                             <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Anadir</a>
                             <br></br>
                             <br></br>
-                            <h:dataTable class="table " value="#{catalogoController.catalogo}"
+                            <p:dataTable class="table " value="#{catalogoController.catalogo}"
                                          var="cl">
-                                <h:column>
-                                    <f:facet name="header"></f:facet>
+                                <p:column style="width: 70px">
+                                    <f:facet name="header"> Codigo</f:facet>
                                     <h:outputText value="#{cl.codigo}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header"></f:facet>
-                                    <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="300" height="150px " class="d-block w-100" alt="..."/>
+                                </p:column>
+                                <p:column style="width: 150px">
+                                    <f:facet name="header">Imgen</f:facet>
+                                    <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="120" height="80px " class="d-block w-100" alt="..."/>
 
-                                </h:column>
+                                </p:column>
 
-                                <h:column>
-                                    <f:facet name="header"></f:facet>
+                                <p:column>
+                                    <f:facet name="header">Nombre</f:facet>
                                     <h3><b><h:outputText value="#{cl.nombre}"/></b></h3>
                                     <br></br>
                                     <h4><h:outputText value="#{cl.descripcion}"/></h4>
-                                </h:column>
+                                </p:column>
 
-                                <h:column>
-                                    <f:facet name="header"></f:facet>
+                                <p:column style="width: 60px">
+                                    <f:facet name="header">Fecha</f:facet>
                                     <h:outputText value="#{cl.fecha}"/>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header"></f:facet>
+                                </p:column>
+                                <p:column style="width: 100px">
+                                    <f:facet name="header">Precio</f:facet>
                                     <h3><b><h:outputText value="#{cl.precioUnitario}"/></b></h3>
-                                </h:column>
-                                <h:column>
-                                    <f:facet name="header"></f:facet>
+                                </p:column>
+                                <p:column style="width: 90px">
+                                    <f:facet name="header">Disponible</f:facet>
                                     <h:outputText value="#{cl.stock}"/>
-                                </h:column>
+                                </p:column>
 
-                                <h:column>
+                                <p:column style="width: 90px">
                                     <f:facet name="header">ELIMINAR</f:facet>                                    
 
 
@@ -77,11 +78,19 @@
                                         <i class="fa fa-trash"></i>
                                         <f:ajax render="#{catalogoController.selecionarCatalogo(cl)}"/>
                                     </h:commandLink> 
-                                </h:column>
+                                    
+                                    <h:commandLink class="btn btn-warning"
+                                                   action="#{usuariosController.selecionarUsuario(u)}"
+                                                   a:data-toggle="modal" a:data-target="#editarInfoCatalogo">
+                                        <i class="fa fa-pencil" ></i>
+                                        <f:ajax render=":editarInfoCatalogoContent"/>
+                                    </h:commandLink>
+                                </p:column>
 
-                            </h:dataTable>
+                            </p:dataTable>
                         </h:form>
                     <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Catalogo/confirmar_eliminar.xhtml"></ui:include>
+                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Catalogo/editar-info-catalogo.xhtml"></ui:include>
                     </div>
                 </div>
             </div>

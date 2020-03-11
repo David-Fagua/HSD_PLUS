@@ -21,5 +21,6 @@ public interface IUsuariosDAO  extends DAO<Usuarios>{
     public List<Usuarios> findAll(int i);
     
     public int cantidadUsuario(boolean estado); 
-
+    
+    public int ingresarUsuarioRol(Usuarios usu);
 }

@@ -58,5 +58,18 @@ public class UsuariosDAO extends AbstractDAO<Usuarios> implements IUsuariosDAO {
     }
 
        
+     @Override
+ public int ingresarUsuarioRol(Usuarios  usu) {
+        int salida1 = 0;
+        try {
+            Query q = em.createNativeQuery("INSERT INTO `usuarios_roles`(`roles_id_rol`, `usuarios_id_usuario`) "
+                    + " VALUES ('2',?);");
+            q.setParameter(1, usu.getIdUsuario());
+            salida1 = q.executeUpdate();
+        } catch (Exception e) {
+        }
+
+        return salida1;
+    }
     
 }

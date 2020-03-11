@@ -37,7 +37,7 @@
                             <div class="row">
                                 <div class="col-md-12">
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-6" >
                                         <label>Tipo de Documento</label>
                                         <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.tipoDocumento}">
                                             <f:selectItem itemLabel="Selecione un Tipo de Documento" itemValue=""/>
@@ -45,12 +45,12 @@
                                         </h:selectOneMenu>
                                     </div>
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-6" >
                                         <label>Numero de Documento</label>
                                         <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.numerodocumento}"/>
                                     </div>
 
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-4" >
                                         <label>Nombres</label>
                                         <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.nombres}"/>
                                     </div>
@@ -62,38 +62,41 @@
                                         <label>Segundo Apellido</label>
                                         <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.segundoApellido}"/>
                                     </div>
-                                    <div class="form-group col-md-6" >
+                                    <div class="form-group col-md-4">
                                         <label>Correo</label>
                                         <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.correo}"/>
                                     </div>
-                                    <div class="form-group col-md-6" >
+                                    <div class="form-group col-md-4" >
                                         <label>Clave</label>
                                         <h:inputSecret class="form-control" value="#{usuariosController.nuevoUsuario.clave}"/>
                                     </div>
 
-                                    <div class="form-group col-md-6" style="float: left" >
-                                        <label style="color: white">Confirmar Clave*</label>
+                                    <div class="form-group col-md-4">
+                                        <label>Confirmación Clave</label>
                                         <h:inputSecret id="calve" class="form-control" value="#{usuariosController.clave}"/>
                                     </div>
                                     
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4" >
                                         <label>Ciudad</label>
                                         <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.ciudad}">
                                             <f:selectItem itemLabel="Selecione una ciudad" itemValue=""/>
                                             <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
                                         </h:selectOneMenu>
                                     </div>
-
-                                    <div class="form-group col-md-6">
-                                        <label>Rol</label>
-                                        <h:selectManyListbox value="#{usuariosController.nuevoUsuario.roles}">
-                                            <f:selectItems value="#{rolesController.roles}" var="r" itemLabel="#{r.nombre}"/>
-                                        </h:selectManyListbox>
-                                    </div>
-                                    <div class="form-group col-md-6">
+                                    
+                                    <div class="form-group col-md-4" style="float: left">
                                         <label>Telefono</label>
                                         <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.telefono}"/>
                                     </div>
+                                    
+                                    <div class="form-group col-md-4" style="float: right">
+                                        <label>Rol</label>
+                                        <h:selectManyListbox class="form-control" value="#{usuariosController.nuevoUsuario.roles}">
+                                            <f:selectItems  value="#{rolesController.roles}" var="r" itemLabel="#{r.nombre}"/>
+                                        </h:selectManyListbox>
+                                    </div>
+
+
                                 </div>
                             </div>
                             <div class="col-sm-12">

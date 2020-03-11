@@ -49,8 +49,7 @@ public class Catalogo implements Serializable {
     @Column(name = "descripcion")
     private String descripcion;
     @Column(name = "fecha")
-    @Temporal(TemporalType.DATE)
-    private Date fecha;
+    private String fecha;
     @Basic(optional = false)
     @Column(name = "precio_unitario")
     private long precioUnitario;
@@ -100,11 +99,11 @@ public class Catalogo implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
