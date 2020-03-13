@@ -65,15 +65,17 @@ public class DesechoController implements Serializable{
         this.desechoSelecionado = ds;
     }
 
-    public void registrar(){
+    public String registrar(){
         try {
             nuevoDesecho.setIdDesecho(dsDAO.count() + 100);
             nuevoDesecho.setIdDesecho(dsDAO.count() + 100);
             dsDAO.create(nuevoDesecho);
             MessageUtil.sendInfo(null, " Su Registro Fue Exitoso ", "", false);
+            return "/sesion/Admin/Desechos/listar.xhtml";
         } catch (Exception e) {
             MessageUtil.sendError(null, " Error al Registrar el Desecho porfavor verifique bien sus datos ", e.getMessage(), false);
         }
+        return null;
     }
     
     public void eliminar() {

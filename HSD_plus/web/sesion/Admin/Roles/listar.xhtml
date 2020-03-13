@@ -74,43 +74,43 @@
                                     background-color:black !important;   
                                 }
                             </style>
-                            <p:dataTable id="roles" var="rl" value="#{RolesController.roles}" rows="10"
+                            <p:dataTable id="roles" var="rl" value="#{rolesController.roles}" rows="10"
                                          paginator="true"
                                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                          currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                                          rowsPerPageTemplate="5,10,15"
                                          >
-                                <p:column headerText="Id">
+                                <p:column headerText="Id" style="width: 50px">
                                     <h:outputText value="#{rl.idRol}" />
                                 </p:column>
 
                                 <p:column headerText="Nombre">
                                     <h:outputText value="#{rl.nombre}" />
                                 </p:column>
-                                
+
                                 <p:column headerText="Fecha">
                                     <h:outputText value="#{rl.fechaApertura}" />
                                 </p:column>
 
                                 
-                                <p:column exportable="false">
-                                    <f:facet name="header">OPCIONES</f:facet>
+                                    <p:column exportable="false" style="width: 150px">
+                                        <f:facet name="header">OPCIONES</f:facet>
 
-                                    <h:commandLink class="btn btn-warning"
-                                                   action="#{RolesController.selecionarRol(rl)}"
-                                                   a:data-toggle="modal" a:data-target="#editarInfoRoles">
-                                        <i class="fa fa-pencil" ></i>
-                                        <f:ajax render=":editarInfoRolesContent"/>
-                                    </h:commandLink>
-
-                                    <h:commandLink class="btn btn-danger" 
-                                                   action="#{RolesController.selecionarRol(rl)}" 
-                                                   a:data-toggle="modal" a:data-target="#eliminarRoles">
-                                        <i class="fa fa-trash"></i>
-                                        <f:ajax render=":confirmEmiliminarRoles"/>
-                                    </h:commandLink> 
-                                </p:column>
-
+                                        <h:commandLink class="btn btn-warning"
+                                                       action="#{rolesController.selecionarRol(rl)}"
+                                                       a:data-toggle="modal" a:data-target="#editarInfoRoles">
+                                            <i class="fa fa-pencil" ></i>
+                                            <f:ajax render=":editarInfoRolesContent"/>
+                                        </h:commandLink>
+                                        &nbsp;
+                                        <h:commandLink class="btn btn-danger" 
+                                                       action="#{rolesController.selecionarRol(rl)}" 
+                                                       a:data-toggle="modal" a:data-target="#eliminarRoles">
+                                            <i class="fa fa-trash"></i>
+                                            <f:ajax render=":confirmEmiliminarRoles"/>
+                                        </h:commandLink> 
+                                    </p:column>
+                                
                                 <f:facet name="paginatorTopLeft">
                                     <p:commandButton type="button" icon="pi pi-refresh" />
                                 </f:facet>

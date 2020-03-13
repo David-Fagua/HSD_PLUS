@@ -24,8 +24,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -33,7 +31,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "inventario_general")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "InventarioGeneral.findAll", query = "SELECT i FROM InventarioGeneral i")
     , @NamedQuery(name = "InventarioGeneral.findByIdArticulo", query = "SELECT i FROM InventarioGeneral i WHERE i.idArticulo = :idArticulo")
@@ -44,8 +41,7 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "InventarioGeneral.findByPesoLibra", query = "SELECT i FROM InventarioGeneral i WHERE i.pesoLibra = :pesoLibra")
     , @NamedQuery(name = "InventarioGeneral.findByCantidadUnitaria", query = "SELECT i FROM InventarioGeneral i WHERE i.cantidadUnitaria = :cantidadUnitaria")
     , @NamedQuery(name = "InventarioGeneral.findByColor", query = "SELECT i FROM InventarioGeneral i WHERE i.color = :color")
-    , @NamedQuery(name = "InventarioGeneral.findByEstado", query = "SELECT i FROM InventarioGeneral i WHERE i.estado = :estado")
-    , @NamedQuery(name = "InventarioGeneral.findByResponsable", query = "SELECT i FROM InventarioGeneral i WHERE i.responsable = :responsable")})
+    , @NamedQuery(name = "InventarioGeneral.findByEstado", query = "SELECT i FROM InventarioGeneral i WHERE i.estado = :estado")})
 public class InventarioGeneral implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -59,8 +55,7 @@ public class InventarioGeneral implements Serializable {
     private String nombre;
     @Basic(optional = false)
     @Column(name = "fecha_entrada")
-    @Temporal(TemporalType.DATE)
-    private Date fechaEntrada;
+    private String fechaEntrada;
     @Basic(optional = false)
     @Column(name = "preciode_compra")
     private long preciodeCompra;
@@ -76,9 +71,6 @@ public class InventarioGeneral implements Serializable {
     private String color;
     @Column(name = "estado")
     private Short estado;
-    @Basic(optional = false)
-    @Column(name = "responsable")
-    private int responsable;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "articulo", fetch = FetchType.LAZY)
     private List<Desechos> desechos;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "articulo", fetch = FetchType.LAZY)
@@ -86,6 +78,9 @@ public class InventarioGeneral implements Serializable {
     @JoinColumn(name = "proveedor", referencedColumnName = "id_proveedor")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Proveedores proveedor;
+    @JoinColumn(name = "responsable", referencedColumnName = "id_usuario")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Usuarios responsable;
     @OneToMany(mappedBy = "articuloInicial2", fetch = FetchType.LAZY)
     private List<ProductoProceso> productoProceso;
     @OneToMany(mappedBy = "articuloInicial", fetch = FetchType.LAZY)
@@ -98,14 +93,13 @@ public class InventarioGeneral implements Serializable {
         this.idArticulo = idArticulo;
     }
 
-    public InventarioGeneral(Integer idArticulo, String nombre, Date fechaEntrada, long preciodeCompra, int cantidadUnitaria, String color, int responsable) {
+    public InventarioGeneral(Integer idArticulo, String nombre, String fechaEntrada, long preciodeCompra, int cantidadUnitaria, String color) {
         this.idArticulo = idArticulo;
         this.nombre = nombre;
         this.fechaEntrada = fechaEntrada;
         this.preciodeCompra = preciodeCompra;
         this.cantidadUnitaria = cantidadUnitaria;
         this.color = color;
-        this.responsable = responsable;
     }
 
     public Integer getIdArticulo() {
@@ -124,11 +118,11 @@ public class InventarioGeneral implements Serializable {
         this.nombre = nombre;
     }
 
-    public Date getFechaEntrada() {
+    public String getFechaEntrada() {
         return fechaEntrada;
     }
 
-    public void setFechaEntrada(Date fechaEntrada) {
+    public void setFechaEntrada(String fechaEntrada) {
         this.fechaEntrada = fechaEntrada;
     }
 
@@ -180,15 +174,6 @@ public class InventarioGeneral implements Serializable {
         this.estado = estado;
     }
 
-    public int getResponsable() {
-        return responsable;
-    }
-
-    public void setResponsable(int responsable) {
-        this.responsable = responsable;
-    }
-
-    @XmlTransient
     public List<Desechos> getDesechosList() {
         return desechos;
     }
@@ -197,7 +182,6 @@ public class InventarioGeneral implements Serializable {
         this.desechos = desechosList;
     }
 
-    @XmlTransient
     public List<ProductoFinal> getProductoFinalList() {
         return productoFinal;
     }
@@ -214,7 +198,14 @@ public class InventarioGeneral implements Serializable {
         this.proveedor = proveedor;
     }
 
-    @XmlTransient
+    public Usuarios getResponsable() {
+        return responsable;
+    }
+
+    public void setResponsable(Usuarios responsable) {
+        this.responsable = responsable;
+    }
+
     public List<ProductoProceso> getProductoProcesoList() {
         return productoProceso;
     }
@@ -223,7 +214,6 @@ public class InventarioGeneral implements Serializable {
         this.productoProceso = productoProcesoList;
     }
 
-    @XmlTransient
     public List<ProductoProceso> getProductoProcesoList1() {
         return productoProceso1;
     }

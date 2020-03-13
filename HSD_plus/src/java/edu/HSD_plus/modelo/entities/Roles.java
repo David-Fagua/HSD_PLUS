@@ -21,8 +21,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -30,7 +28,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "roles")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Roles.findAll", query = "SELECT r FROM Roles r")
     , @NamedQuery(name = "Roles.findByIdRol", query = "SELECT r FROM Roles r WHERE r.idRol = :idRol")
@@ -48,8 +45,7 @@ public class Roles implements Serializable {
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "fecha_apertura")
-    @Temporal(TemporalType.DATE)
-    private Date fechaApertura;
+    private String fechaApertura;
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private List<Usuarios> usuarios;
 
@@ -81,15 +77,14 @@ public class Roles implements Serializable {
         this.nombre = nombre;
     }
 
-    public Date getFechaApertura() {
+    public String getFechaApertura() {
         return fechaApertura;
     }
 
-    public void setFechaApertura(Date fechaApertura) {
+    public void setFechaApertura(String fechaApertura) {
         this.fechaApertura = fechaApertura;
     }
 
-    @XmlTransient
     public List<Usuarios> getUsuariosList() {
         return usuarios;
     }

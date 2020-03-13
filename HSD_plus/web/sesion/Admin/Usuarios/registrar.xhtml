@@ -91,7 +91,7 @@
                                     
                                     <div class="form-group col-md-4" style="float: right">
                                         <label>Rol</label>
-                                        <h:selectManyListbox class="form-control" value="#{usuariosController.nuevoUsuario.roles}">
+                                        <h:selectManyListbox class="form-control" value="#{usuariosController.nuevoUsuario.rolesList}">
                                             <f:selectItems  value="#{rolesController.roles}" var="r" itemLabel="#{r.nombre}"/>
                                         </h:selectManyListbox>
                                     </div>

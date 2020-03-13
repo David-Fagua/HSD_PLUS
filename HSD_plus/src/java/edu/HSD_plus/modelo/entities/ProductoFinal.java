@@ -25,8 +25,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,15 +32,13 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "producto_final")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "ProductoFinal.findAll", query = "SELECT p FROM ProductoFinal p")
     , @NamedQuery(name = "ProductoFinal.findByIdProductof", query = "SELECT p FROM ProductoFinal p WHERE p.idProductof = :idProductof")
     , @NamedQuery(name = "ProductoFinal.findByGrosor", query = "SELECT p FROM ProductoFinal p WHERE p.grosor = :grosor")
     , @NamedQuery(name = "ProductoFinal.findByFechaPromocion", query = "SELECT p FROM ProductoFinal p WHERE p.fechaPromocion = :fechaPromocion")
     , @NamedQuery(name = "ProductoFinal.findByDisponibilidad", query = "SELECT p FROM ProductoFinal p WHERE p.disponibilidad = :disponibilidad")
-    , @NamedQuery(name = "ProductoFinal.findByExistencias", query = "SELECT p FROM ProductoFinal p WHERE p.existencias = :existencias")
-    , @NamedQuery(name = "ProductoFinal.findByResponsable", query = "SELECT p FROM ProductoFinal p WHERE p.responsable = :responsable")})
+    , @NamedQuery(name = "ProductoFinal.findByExistencias", query = "SELECT p FROM ProductoFinal p WHERE p.existencias = :existencias")})
 public class ProductoFinal implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -55,25 +51,22 @@ public class ProductoFinal implements Serializable {
     @Column(name = "grosor")
     private String grosor;
     @Column(name = "fecha_promocion")
-    @Temporal(TemporalType.DATE)
-    private Date fechaPromocion;
+    private String fechaPromocion;
     @Column(name = "disponibilidad")
     private Boolean disponibilidad;
     @Basic(optional = false)
     @Column(name = "existencias")
     private int existencias;
-    @Basic(optional = false)
-    @Column(name = "responsable")
-    private int responsable;
     @ManyToMany(mappedBy = "productoFinal", fetch = FetchType.LAZY)
     private List<Reservas> reservas;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "producto", fetch = FetchType.LAZY)
-    private List<Reservas> reservas1;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "articulofinal", fetch = FetchType.LAZY)
     private List<Catalogo> catalogo;
     @JoinColumn(name = "articulo", referencedColumnName = "id_articulo")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private InventarioGeneral articulo;
+    @JoinColumn(name = "responsable", referencedColumnName = "id_usuario")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Usuarios responsable;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "productoFinal", fetch = FetchType.LAZY)
     private List<ProductoProceso> productoProceso;
 
@@ -84,11 +77,10 @@ public class ProductoFinal implements Serializable {
         this.idProductof = idProductof;
     }
 
-    public ProductoFinal(Integer idProductof, String grosor, int existencias, int responsable) {
+    public ProductoFinal(Integer idProductof, String grosor, int existencias) {
         this.idProductof = idProductof;
         this.grosor = grosor;
         this.existencias = existencias;
-        this.responsable = responsable;
     }
 
     public Integer getIdProductof() {
@@ -107,11 +99,11 @@ public class ProductoFinal implements Serializable {
         this.grosor = grosor;
     }
 
-    public Date getFechaPromocion() {
+    public String getFechaPromocion() {
         return fechaPromocion;
     }
 
-    public void setFechaPromocion(Date fechaPromocion) {
+    public void setFechaPromocion(String fechaPromocion) {
         this.fechaPromocion = fechaPromocion;
     }
 
@@ -131,15 +123,6 @@ public class ProductoFinal implements Serializable {
         this.existencias = existencias;
     }
 
-    public int getResponsable() {
-        return responsable;
-    }
-
-    public void setResponsable(int responsable) {
-        this.responsable = responsable;
-    }
-
-    @XmlTransient
     public List<Reservas> getReservasList() {
         return reservas;
     }
@@ -148,16 +131,6 @@ public class ProductoFinal implements Serializable {
         this.reservas = reservasList;
     }
 
-    @XmlTransient
-    public List<Reservas> getReservasList1() {
-        return reservas1;
-    }
-
-    public void setReservasList1(List<Reservas> reservasList1) {
-        this.reservas1 = reservasList1;
-    }
-
-    @XmlTransient
     public List<Catalogo> getCatalogoList() {
         return catalogo;
     }
@@ -174,7 +147,14 @@ public class ProductoFinal implements Serializable {
         this.articulo = articulo;
     }
 
-    @XmlTransient
+    public Usuarios getResponsable() {
+        return responsable;
+    }
+
+    public void setResponsable(Usuarios responsable) {
+        this.responsable = responsable;
+    }
+
     public List<ProductoProceso> getProductoProcesoList() {
         return productoProceso;
     }

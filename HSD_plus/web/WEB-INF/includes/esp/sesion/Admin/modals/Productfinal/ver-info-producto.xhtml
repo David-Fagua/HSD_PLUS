@@ -41,14 +41,14 @@
                                         <f:selectItem itemLabel="Inactivo" itemValue="false"/>
                                     </h:selectOneRadio>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-lg-6">
                                     <label>Existencias</label>
                                     <span class="form-control">#{productoFinalController.productoSelecionado.existencias}</span>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group col-lg-6">
                                     <label>Resposable</label>
-                                    <span class="form-control">#{productoFinalController.productoSelecionado.responsable.nombres}</span>
+                                    <span class="form-control">#{productoFinalController.productoSelecionado.responsable.nombres} #{productoFinalController.productoSelecionado.responsable.primerApellido}</span>
                                 </div>
                             </div>
 

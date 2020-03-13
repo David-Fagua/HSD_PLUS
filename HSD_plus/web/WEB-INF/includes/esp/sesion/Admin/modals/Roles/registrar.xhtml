@@ -25,12 +25,12 @@
 
                             <div class="form-group">
                                 <label>Nombre Rol</label>
-                                <h:inputText class="form-control" value="#{RolesController.nuevoRol.nombre}"/>
+                                <h:inputText class="form-control" value="#{rolesController.nuevoRol.nombre}"/>
                             </div>
                             
                             <div class="form-group">
                                 <label>Fecha de Apertura</label>
-                                <h:inputText pt:type="date" class="form-control" value="#{RolesController.nuevoRol.fechaApertura}"/>
+                                <h:inputText pt:type="date" class="form-control" value="#{rolesController.nuevoRol.fechaApertura}"/>
                             </div>
 
                         </div>
@@ -38,7 +38,7 @@
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                             <h:commandLink class="btn btn-primary" value="Guardar"
-                                           action="#{RolesController.registrar()}">
+                                           action="#{rolesController.registrar()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>
                         </div>

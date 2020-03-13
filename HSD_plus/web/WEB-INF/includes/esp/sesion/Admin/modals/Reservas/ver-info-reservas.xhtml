@@ -19,36 +19,39 @@
                         </div>
 
                         <div class="row  col-md-10" style="margin: 0px 45px" >
-                            <div class="form-group">
+                            <div class="form-group col-lg-6">
                                 <label>Fecha del Proceso</label>
                                 <span  class="form-control">#{ReservasController.reservaSelecionada.fechaReserva}</span>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-12">
                                 <label>Producto</label>
-                                <span  class="form-control">#{ReservasController.reservaSelecionada.producto.articulo.nombre}</span>
+                                <h:selectManyMenu  style="height: 100px" class="form-control" value="#{ReservasController.reservaSelecionada.productoFinalList}">
+                                    <f:selectItem itemLabel="Seleciona los Aticulos de su Interes" itemValue=""/>
+                                    <f:selectItems value="#{productoFinalController.productoFinal}" var="pr" itemLabel="#{pr.articulo.nombre}"/>
+                                </h:selectManyMenu>
                             </div>
 
-                            <div class="form-group ">
+                            <div class="form-group col-lg-6">
                                 <label>Cantidad</label>
                                 <span  class="form-control">#{ReservasController.reservaSelecionada.cantidad}</span>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-6">
                                 <label>Precio Total</label>
                                 <span  class="form-control">#{ReservasController.reservaSelecionada.precioTotal}</span>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-6">
                                 <label>Cliente</label>
                                 <span  class="form-control">#{ReservasController.reservaSelecionada.cliente.nombres} #{ReservasController.reservaSelecionada.cliente.primerApellido}</span>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-6">
                                 <label>Observaciones</label>
                                 <span  class="form-control">#{ReservasController.reservaSelecionada.observaciones}</span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-lg-6">
                                 <label>Estado</label>
                                 <h:selectOneRadio class="form-check" value="#{ReservasController.reservaSelecionada.estado}">
                                     <f:selectItem itemLabel="Iniciada" itemValue="0"/>

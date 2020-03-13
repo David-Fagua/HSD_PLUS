@@ -3,6 +3,7 @@
 <ui:composition  xmlns="http://www.w3.org/1999/xhtml"
                  xmlns:h="http://xmlns.jcp.org/jsf/html"
                  xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                 xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
                  xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <div class="modal fade" id="editarInfoCatalogo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -11,74 +12,77 @@
                 <h:form prependId="false">
                     <h:panelGroup id="editarInfoCatalogoContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Editar Información del usuario  #{usuariosController.usuarioSelecionado.idUsuario}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >Editar Información de  #{catalogoController.catalogoSelecionado.nombre}</h3>
+                            <h5 class="modal-title" id="exampleModalLabel" >Tenga en Cuenta que Solo puedes Modificar la Información</h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
 
-
-
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
 
-                                <div class="form-group col-md-6">
-                                    <label>Tipo de Documento</label>
-                                    <h:selectOneMenu class="form-control" value="#{usuariosController.usuarioSelecionado.tipoDocumento}">
-                                        <f:selectItem itemLabel="Selecione un Tipo de Documento" itemValue=""/>
-                                        <f:selectItems value="#{tipoDocumentosController.tipodocumentos}" var="td" itemLabel="#{td.nombre}"/>
-                                    </h:selectOneMenu>
-                                </div>
-
-                                <div class="form-group col-md-6">
-                                    <label>Numero de Documento</label>
-                                    <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.numerodocumento}"/>
+                                <div class="form-group col-md-12" style="float: left">
+                                    <label for="codigo" class="form-control-label">Codigo</label>
+                                    <h:inputText id="codigo" class="form-control"
+                                                 pt:aria-required="true" pt:aria-invalid="false" value="#{catalogoController.catalogoSelecionado.codigo}"
+                                                 pt:placeholder="Escribe el codigo siguienete de la tabla de catalogo"/>
                                 </div>
 
-                                <div class="form-group col-md-4">
-                                    <label>Nombres</label>
-                                    <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.nombres}"/>
-                                </div>
-                                <div class="form-group col-md-4" >
-                                    <label>Primer Apellido</label>
-                                    <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.primerApellido}"/>
-                                </div>
-                                <div class="form-group col-md-4" >
-                                    <label>Segundo Apellido</label>
-                                    <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.segundoApellido}"/>
+
+                                <div class="form-group col-md-12" style="float: left">
+                                    <label for="fecha" class="form-control-label" >Fecha</label>
+                                    <h:inputText pt:type="date" id="fecha" class="form-control" 
+                                                 pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.catalogoSelecionado.fecha}"/>
                                 </div>
 
-                                <div class="form-group col-md-6">
-                                    <label>Ciudad</label>
-                                    <h:selectOneMenu class="form-control" value="#{usuariosController.usuarioSelecionado.ciudad}">
-                                        <f:selectItem itemLabel="Selecione una ciudad" itemValue=""/>
-                                        <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
-                                    </h:selectOneMenu>
+                                <div class="form-group col-md-12" style="float: left">
+                                    <label for="nombre" class="form-control-label">Nuevo Nombre del producto para el Catalogo</label>
+                                    <h:inputText id="nombre" class="form-control" 
+                                                 pt:aria-required="true" pt:aria-invalid="false"  value="#{catalogoController.catalogoSelecionado.nombre}"
+                                                 pt:placeholder="Ingrece el Nuevo Nombre para el producto"/>
                                 </div>
-                                <div class="form-group col-md-6" >
-                                    <label>Correo</label>
-                                    <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.correo}"/>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Telefono</label>
-                                    <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.telefono}"/>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label>Rol</label>
-                                    <h:selectManyListbox class="form-control" value="#{usuariosController.usuarioSelecionado.roles}">
-                                        <f:selectItems value="#{rolesController.roles}" var="r" itemLabel="#{r.nombre}"/>
-                                    </h:selectManyListbox>
-                                </div>
-
                             </div>
+                            <div class="col-md-6">
+
+                                <div class="form-group col-md-12" style="float: left">
+                                    <label>Articulo de Inv Final</label>
+                                    <h:selectOneMenu class="form-control" value="#{catalogoController.catalogoSelecionado.articulofinal}">
+                                        <f:selectItem itemLabel="Seleciona el Nombre del Producto" itemValue=""/>
+                                        <f:selectItems value="#{productoFinalController.productoFinal}" var="pf" itemLabel="#{pf.articulo.nombre}"/>
+                                    </h:selectOneMenu>
+                                </div>
+
+                                <div class="form-group col-md-12" style="float: left" >
+                                    <label for="preciounitario" class="form-control-label" >Precio</label>
+                                    <h:inputText id="precio" class="form-control" 
+                                                 pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.catalogoSelecionado.precioUnitario}"
+                                                 pt:placeholder="1000.00"/>
+                                </div>
+
+
+                                <div class="form-group col-md-12" style="float: left" >
+                                    <label for="stock" class="form-control-label" >Stock</label>
+                                    <h:inputText id="stock" class="form-control" 
+                                                 pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.catalogoSelecionado.stock}"
+                                                 pt:placeholder="123"/>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group col-md-12" style="float: left" >
+                                    <label for="descripcion" class="form-control-label" >Descripcion</label>
+                                    <h:inputTextarea id="descripcion" class="form-control"  
+                                                     pt:aria-required="true" pt:aria-invalid="false"  value="#{catalogoController.catalogoSelecionado.descripcion}"
+                                                     pt:placeholder="Describa el Producto para promocionar"/>
+                                </div>
+                            </div>
+                            
                         </div>
-
-
 
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                             <h:commandLink class="btn btn-warning" value="Guardar"
-                                           action="#{usuariosController.actualizar()}">
+                                           action="#{catalogoController.actualizar()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>
                         </div>

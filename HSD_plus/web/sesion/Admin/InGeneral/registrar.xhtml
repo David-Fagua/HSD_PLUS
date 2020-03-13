@@ -35,6 +35,7 @@
                                           errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
                         </h3>
                         <h:form prependId="false">
+
                             <div class="row">
                                 <div class="col-md-12">
 
@@ -79,11 +80,15 @@
                                             <f:selectItems value="#{proveedoresController.proveedor}" var="pro" itemLabel="#{pro.razonSocial}"/>
                                         </h:selectOneMenu>
                                     </div>
+
+
+
+
                                     <div class="form-group col-md-6">
                                         <label>Responsable</label>
                                         <h:selectOneMenu class="form-control" value="#{inventarioGeneralController.nuevoAriculo.responsable}">
                                             <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
-                                            <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres} -- #{us.rol.nombre}"/>
+                                            <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
                                         </h:selectOneMenu>
                                     </div>
 
@@ -105,6 +110,7 @@
 
                                 </div>
                             </div>
+
                             <div class="col-sm-12">
                                 <a class="btn btn-secondary" href="listar.xhtml">Volver</a>
                                 <h:commandButton class="btn btn-primary" value="Registrar" action="#{inventarioGeneralController.registrar()}"/>

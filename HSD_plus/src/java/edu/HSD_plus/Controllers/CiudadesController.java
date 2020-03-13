@@ -8,6 +8,7 @@ package edu.HSD_plus.Controllers;
 
 import edu.HSD_plus.modelo.dao.ICiudadesDAO;
 import edu.HSD_plus.modelo.entities.Ciudades;
+import edu.HSD_plus.modelo.jpa.CiudadesDAO;
 import edu.HSD_plus.util.MessageUtil;
 import java.io.Serializable;
 import java.util.List;
@@ -32,6 +33,24 @@ public class CiudadesController implements Serializable{
     private List<Ciudades> ciudad;
     private Ciudades ciudadSelecionada;
     private Ciudades nuevaCiudad;
+    private String textoBuscar="";
+
+    public List<Ciudades> getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(List<Ciudades> ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getTextoBuscar() {
+        return textoBuscar;
+    }
+
+    public void setTextoBuscar(String textoBuscar) {
+        this.textoBuscar = textoBuscar;
+    }
+ 
     
     /**
      * Creates a new instance of CiudadesController
@@ -111,4 +130,17 @@ public class CiudadesController implements Serializable{
         }
     }
     
+    public void probarMetodo(String cadena){
+        for(Ciudades ciu:cdDAO.obtenerciudadBusquedaxCadena(cadena)){
+            System.out.println(ciu);
+        }
+    }
+
+    public void setListaCiudades(List<Ciudades> listaCiudades) {
+        this.ciudad = listaCiudades;
+    }
+    
+    public void llenarCiudades(){
+        ciudad=cdDAO.obtenerciudadBusquedaxCadena(textoBuscar);
+    }
 }

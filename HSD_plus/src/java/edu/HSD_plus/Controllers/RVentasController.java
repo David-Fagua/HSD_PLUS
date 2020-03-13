@@ -66,15 +66,17 @@ public class RVentasController implements Serializable{
         this.ventaSelecionada = rv;
     }   
     
-    public void registrar(){
+    public String registrar(){
         try {
             nuevaVenta.setIdVenta(rvDAO.count() + 100);
             nuevaVenta.setIdVenta(rvDAO.count() + 100);
             rvDAO.create(nuevaVenta);
             MessageUtil.sendInfo(null, " El Registro de la Venta Fue Exitoso ", "", false);
+            return "/sesion/Admin/RVentas/listar.xhtml";
         } catch (Exception e) {
             MessageUtil.sendError(null, " Error al Registrar la Venta porfavor verifique bien los datos ", e.getMessage(), false);
         }
+        return null;
     }
     
     public void eliminar() {

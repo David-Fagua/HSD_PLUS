@@ -21,37 +21,51 @@
 
 
                         <div class="row  col-md-10" style="margin: 10px 45px" >
-                            <div class="form-group">
+                            <div class="form-group col-lg-7">
                                 <label>Fecha de la Venta</label>
                                 <span class="form-control">#{RventasController.ventaSelecionada.fechaVenta}</span>
                             </div>
 
-                            <div class="form-group">
-                                <label>Datos de Reserva</label>
-                                <span class="form-control"> id = #{RventasController.ventaSelecionada.reserva.idReserva}</span>
-                                <span class="form-control"> Producto = #{RventasController.ventaSelecionada.reserva.producto.articulo.nombre}</span>
-                                <span class="form-control"> Cantidad = #{RventasController.ventaSelecionada.reserva.cantidad}</span>
-                                <span class="form-control"> Precio total = #{RventasController.ventaSelecionada.reserva.precioTotal}</span>
-                                <span class="form-control"> Observaciones = #{RventasController.ventaSelecionada.reserva.observaciones}</span>
-                                <span class="form-control"> Clienete = #{RventasController.ventaSelecionada.reserva.cliente.nombres} #{RventasController.ventaSelecionada.reserva.cliente.primerApellido}</span>
+                            <div class="form-group col-lg-12">
+                                <label class="col-lg-12">Datos de Reserva</label>
+                                <div class="col-lg-6">
+                                    <span class="form-control "> id = #{RventasController.ventaSelecionada.reserva.idReserva}</span>
+                                </div>
+                                <div class="col-lg-12">
+                                    <span class="form-control "> Clienete = #{RventasController.ventaSelecionada.reserva.cliente.nombres} #{RventasController.ventaSelecionada.reserva.cliente.primerApellido}</span>
+                                </div>
+                                <div class="col-lg-6">
+                                    <span class="form-control "> Cantidad = #{RventasController.ventaSelecionada.reserva.cantidad}</span>
+                                </div>
+                                <div class="col-lg-6">
+                                    <span class="form-control "> Precio total = #{RventasController.ventaSelecionada.reserva.precioTotal}</span>
+                                </div>
+                                <div class="col-lg-12">
+                                    <span class="form-control "> Observaciones = #{RventasController.ventaSelecionada.reserva.observaciones}</span>
+                                </div>
+                                
+                                
+                                
+                                
+                                
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-12">
                                 <label>Observaciones</label>
                                 <span class="form-control">#{RventasController.ventaSelecionada.observaciones} </span>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-6">
                                 <label>Cantidad</label>
                                 <span class="form-control">#{RventasController.ventaSelecionada.cantidad}</span>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-6">
                                 <label>Precio Total</label>
                                 <span class="form-control">#{RventasController.ventaSelecionada.presioTotal}</span>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-12">
                                 <label>Resposable</label>
                                 <span class="form-control">#{RventasController.ventaSelecionada.responsable.nombres} #{RventasController.ventaSelecionada.responsable.primerApellido}</span>
                             </div>

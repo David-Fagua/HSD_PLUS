@@ -26,8 +26,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -35,7 +33,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "reservas")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Reservas.findAll", query = "SELECT r FROM Reservas r")
     , @NamedQuery(name = "Reservas.findByIdReserva", query = "SELECT r FROM Reservas r WHERE r.idReserva = :idReserva")
@@ -71,9 +68,6 @@ public class Reservas implements Serializable {
         @JoinColumn(name = "id_productofina_final", referencedColumnName = "id_productof")})
     @ManyToMany(fetch = FetchType.LAZY)
     private List<ProductoFinal> productoFinal;
-    @JoinColumn(name = "producto", referencedColumnName = "id_productof")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private ProductoFinal producto;
     @JoinColumn(name = "cliente", referencedColumnName = "id_usuario")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Usuarios cliente;
@@ -143,21 +137,12 @@ public class Reservas implements Serializable {
         this.observaciones = observaciones;
     }
 
-    @XmlTransient
     public List<ProductoFinal> getProductoFinalList() {
         return productoFinal;
     }
 
     public void setProductoFinalList(List<ProductoFinal> productoFinalList) {
         this.productoFinal = productoFinalList;
-    }
-
-    public ProductoFinal getProducto() {
-        return producto;
-    }
-
-    public void setProducto(ProductoFinal producto) {
-        this.producto = producto;
     }
 
     public Usuarios getCliente() {
@@ -168,7 +153,6 @@ public class Reservas implements Serializable {
         this.cliente = cliente;
     }
 
-    @XmlTransient
     public List<RegistroVentas> getRegistroVentasList() {
         return registroVentas;
     }

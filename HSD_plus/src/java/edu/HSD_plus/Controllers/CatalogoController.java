@@ -68,7 +68,7 @@ public class CatalogoController implements Serializable {
                 + "/resources/assets/Img/ImgCatalogo/" + img;
     }
 
-    public void registrarCatalogo() {
+    public String registrarCatalogo() {
         try {
             if (nuevoCatalogo.getCodigo() != null && nuevoCatalogo.getNombre() != null && nuevoCatalogo.getNombre().length() > 0) {
                 if (imgNuevoCatalogo != null) {
@@ -79,6 +79,7 @@ public class CatalogoController implements Serializable {
                 }
                 clDAO.create(nuevoCatalogo);
                 MessageUtil.sendInfo(null, " Su Registro Fue Exitoso ", "", false);
+                return "/sesion/Admin/Catalogo/listar.xhtml";
             } else {
                 MessageUtil.sendInfo(null, "los campos son obligatoros", "", false);
             }
@@ -86,6 +87,7 @@ public class CatalogoController implements Serializable {
             e.printStackTrace(System.err);
             MessageUtil.sendError(null, " Error al Registrar al Catalogo porfavor verifique bien sus datos ", e.getMessage(), false);
         }
+        return null;
 
     }
 
@@ -108,7 +110,7 @@ public class CatalogoController implements Serializable {
     public void eliminar() {
         try {
             clDAO.remove(catalogoSelecionado);
-            MessageUtil.sendInfo(null, "El Dato  se ha Eliminado Correctamente Catalogo", "", false);
+            MessageUtil.sendInfo(null, "El Dato  se ha Eliminado Correctamente del Catalogo", "", false);
             catalogo = null;
         } catch (Exception e) {
             e.printStackTrace();
@@ -120,12 +122,6 @@ public class CatalogoController implements Serializable {
     public void actualizar() {
         try {
             if (catalogoSelecionado != null) {
-                if (imgNuevoCatalogo != null) {
-                    FileUploadUtil.saveFile(imgNuevoCatalogo,
-                            FacesContext.getCurrentInstance().getExternalContext().getRealPath("") + PATH_FOLDER_IMG_CATALOGO + nuevoCatalogo.getCodigo() + "/",
-                            imgNuevoCatalogo.getSubmittedFileName());
-                    nuevoCatalogo.setImagen(imgNuevoCatalogo.getSubmittedFileName());
-                }
                 clDAO.edit(catalogoSelecionado);
                 MessageUtil.sendInfo(null, "La Información se ha Modificado Correctamente en el Catalogo", "", false);
                 catalogo = null;

@@ -31,7 +31,7 @@
                                     <f:selectItem itemLabel="Selecione datos de reservas" itemValue=""/>
                                     <f:selectItems value="#{ReservasController.reservas}" var="rs" 
                                                    itemLabel="#{rs.idReserva}  ||
-                                                   #{rs.producto.articulo.nombre}  ||
+                                                   #{rs.productoFinalList}  ||
                                                    #{rs.cliente.nombres}
                                                    #{rs.cliente.primerApellido} ||
                                                    #{rs.precioTotal}

@@ -4,7 +4,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Registrar Reserva</title>
         <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
@@ -26,7 +27,9 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">Registrar Reserva</h1>
                         <!-- /.row -->
-
+                        <ui:repeat value = "#{ReservasController.nuevaReseva.productoFinalList}" var = "pr">		
+                            #{pr.articulo.nombre}
+                        </ui:repeat>
 
 
 
@@ -36,30 +39,8 @@
                         </h3>
                         <h:form prependId="false">
                             <div class="row  col-md-10" style="margin: 0px 45px" >
-                                <div class="form-group">
-                                    <label>Fecha del Proceso</label>
-                                    <h:inputText pt:type="date" class="form-control" value="#{ReservasController.nuevaReseva.fechaReserva}"/>
-                                </div>
 
-                                <div class="form-group">
-                                    <label>Producto</label>
-                                    <h:selectOneMenu class="form-control" value="#{ReservasController.nuevaReseva.producto}">
-                                        <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
-                                        <f:selectItems value="#{productoFinalController.productoFinal}" var="pr" itemLabel="#{pr.articulo.nombre}"/>
-                                    </h:selectOneMenu>
-                                </div>
-
-                                <div class="form-group ">
-                                    <label>Cantidad</label>
-                                    <h:inputText class="form-control" value="#{ReservasController.nuevaReseva.cantidad}"/>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Precio Total</label>
-                                    <h:inputText class="form-control" value="#{ReservasController.nuevaReseva.precioTotal}"/>
-                                </div>
-
-                                <div class="form-group">
+                                <div class="form-group col-lg-6">
                                     <label>Cliente</label>
                                     <h:selectOneMenu class="form-control" value="#{ReservasController.nuevaReseva.cliente}">
                                         <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
@@ -67,7 +48,33 @@
                                     </h:selectOneMenu>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group col-lg-6">
+                                    <label>Fecha del Proceso</label>
+                                    <h:inputText pt:type="date" class="form-control" value="#{ReservasController.nuevaReseva.fechaReserva}"/>
+                                </div>
+
+                                <div class="form-group col-lg-12">
+                                    <label>En El caso de querer selecionar mas de un producto porfavor Oprima Ctrl antes de selecionar</label>
+
+                                    <h:selectManyListbox style="height: 200px" class="form-control" value="#{ReservasController.nuevaReseva.productoFinalList}">
+                                        <f:selectItems value="#{productoFinalController.productoFinal}" var="pr" itemLabel="#{pr.articulo.nombre}"/>
+                                    </h:selectManyListbox>
+                                </div>
+
+
+                                <div class="form-group col-lg-6">
+                                    <label>Precio Total</label>
+                                    <h:inputText class="form-control" value="#{ReservasController.nuevaReseva.precioTotal}"/>
+                                </div>
+
+                                <div class="form-group col-lg-6">
+                                    <label>Cantidad</label>
+                                    <h:inputText class="form-control" value="#{ReservasController.nuevaReseva.cantidad}"/>
+                                </div>
+
+
+
+                                <div class="form-group col-lg-12">
                                     <label>Observaciones</label>
                                     <h:inputTextarea class="form-control" value="#{ReservasController.nuevaReseva.observaciones}"/>
                                 </div>

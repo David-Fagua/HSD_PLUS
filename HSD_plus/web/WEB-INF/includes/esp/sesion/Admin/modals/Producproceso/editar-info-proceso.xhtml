@@ -27,8 +27,8 @@
                             <div class="form-group">
                                 <label>Estado</label>
                                 <h:selectOneRadio class="form-check" value="#{productoProcesoController.procesoSelecionado.estado}">
-                                    <f:selectItem itemLabel="Iniciado" itemValue="true"/>
-                                    <f:selectItem itemLabel="Finalizado" itemValue="false"/>
+                                    <f:selectItem itemLabel="Iniciado" itemValue="0"/>
+                                    <f:selectItem itemLabel="Finalizado" itemValue="1"/>
                                 </h:selectOneRadio>
                             </div>
 
@@ -64,7 +64,7 @@
                                 <label>Responsable</label>
                                 <h:selectOneMenu class="form-control" value="#{productoProcesoController.procesoSelecionado.responsable}">
                                     <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
-                                    <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres} -- #{us.rol.nombre}"/>
+                                    <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
                                 </h:selectOneMenu>
                             </div>
 

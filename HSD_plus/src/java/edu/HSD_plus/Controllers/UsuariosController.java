@@ -85,14 +85,14 @@ public class UsuariosController implements Serializable {
         this.clave = clave;
     }
 
-    public void registrar() {
+    public String registrar() {
         try {
             System.out.print("Nombre: " + nuevoUsuario.getNombres());
             System.out.print("Apellidos: " + nuevoUsuario.getPrimerApellido());
             System.out.print("Correo: " + nuevoUsuario.getSegundoApellido());
             System.out.print("Clave: " + nuevoUsuario.getCorreo());
             System.out.print("Estado: " + nuevoUsuario.getEstado());
-            for (Roles roles : nuevoUsuario.getRoles()) {
+            for (Roles roles : nuevoUsuario.getRolesList()) {
                 System.out.println(roles);
             }
             if (clave != null && clave.trim().length() > 0 && clave.equals(nuevoUsuario.getClave())) {
@@ -100,12 +100,14 @@ public class UsuariosController implements Serializable {
                 nuevoUsuario.setEstado((short) 0);
                 uDAO.create(nuevoUsuario);
                 MessageUtil.sendInfo(null, " Su Registro Fue Exitoso ", "", false);
+                return "/sesion/Admin/Usuarios/listar.xhtml";
             } else {
                 MessageUtil.sendError(null, " Las Contraseñas no Coinciden Porfavor Volver a Ponerlas ", "", false);
             }
         } catch (Exception e) {
             MessageUtil.sendError(null, " Error al Registrar el Usuario porfavor verifique bien sus datos ", e.getMessage(), false);
         }
+        return null;
 
     }
 

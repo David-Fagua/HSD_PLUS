@@ -76,14 +76,14 @@
                                          currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                                          rowsPerPageTemplate="5,10,15"
                                          >
-                                <p:column headerText="Id">
+                                <p:column headerText="Id" style="width: 50px">
                                     <h:outputText value="#{pr.idProveedor}" />
                                 </p:column>
 
                                 <p:column headerText="Nit">
                                     <h:outputText value=" #{pr.nit}" />
                                 </p:column>
-                                
+
                                 <p:column headerText="Razon Social">
                                     <h:outputText value="#{pr.razonSocial}" />
                                 </p:column>
@@ -95,15 +95,15 @@
                                 <p:column headerText="Email">
                                     <h:outputText value="#{pr.email}" />
                                 </p:column>
-                                
+
                                 <p:column headerText="Direcci{on">
                                     <h:outputText value="#{pr.direccion}" />
                                 </p:column>
-                                
+
                                 <p:column headerText="Ciudad">
                                     <h:outputText value="#{pr.ciudad.nombre}" />
                                 </p:column>
-                                                          
+
 
                                 <p:column exportable="false">
                                     <f:facet name="header">OPCIONES</f:facet>
@@ -114,7 +114,7 @@
                                         <i class="fa fa-pencil" ></i>
                                         <f:ajax render=":editarInfoProveedorContent"/>
                                     </h:commandLink>
-
+                                    &nbsp;
                                     <h:commandLink class="btn btn-danger" 
                                                    action="#{proveedoresController.selecionarProveedor(pr)}"
                                                    a:data-toggle="modal" a:data-target="#eliminarProveedor">

@@ -35,37 +35,29 @@
                                           errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
                         </h3>
                         <h:form prependId="false">
-                            <div class="row  col-md-10" style="margin: 0px 45px" >
-                                <div class="form-group">
+                            <div class="row  col-md-10" style="margin: 0px 45px">
+                                <div class="form-group col-lg-7" style="float: left">
                                     <label>Fecha del Proceso</label>
                                     <h:inputText pt:type="date" class="form-control" value="#{productoProcesoController.nuevoProceso.fechaProceso}"/>
                                 </div>
 
-                                <div class="form-group">
-                                    <label>Estado</label>
-                                    <h:selectOneRadio class="form-check" value="#{productoProcesoController.nuevoProceso.estado}">
-                                        <f:selectItem itemLabel="Actvo" itemValue="true"/>
-                                        <f:selectItem itemLabel="Inactivo" itemValue="false"/>
-                                    </h:selectOneRadio>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Cantidad</label>
-                                    <h:inputText class="form-control" value="#{productoProcesoController.nuevoProceso.cantidad}"/>
-                                </div>
-                                <div class="form-group">
-                                    <label>Articulo Inicial</label>
+                               
+                                <div class="form-group col-lg-6" style="float: right">
+                                    <label>Articulo#2</label>                                   
                                     <h:selectOneMenu class="form-control" value="#{productoProcesoController.nuevoProceso.articuloInicial}">
+                                        <f:selectItem itemLabel="Seleciona articulo Secuandario de Materia Prima" itemValue=""/>
+                                        <f:selectItems value="#{inventarioGeneralController.inventarioGeneral}" var="ig" itemLabel="#{ig.nombre}"/>
+                                    </h:selectOneMenu>                                    
+                                </div>
+                                <div class="form-group col-lg-6" style="float: left">
+                                    <label>Ariculo#1</label>
+                                    <h:selectOneMenu class="form-control" value="#{productoProcesoController.nuevoProceso.articuloInicial2}">
                                         <f:selectItem itemLabel="Seleciona articulo Inicial de Materia Prima" itemValue=""/>
                                         <f:selectItems value="#{inventarioGeneralController.inventarioGeneral}" var="ig" itemLabel="#{ig.nombre}"/>
                                     </h:selectOneMenu>
-                                    <label></label>
-                                    <h:selectOneMenu class="form-control" value="#{productoProcesoController.nuevoProceso.articuloInicial2}">
-                                        <f:selectItem itemLabel="Seleciona articulo Secundario de Materia Prima" itemValue=""/>
-                                        <f:selectItems value="#{inventarioGeneralController.inventarioGeneral}" var="ig" itemLabel="#{ig.nombre}"/>
-                                    </h:selectOneMenu>
-                                </div>
-                                <div class="form-group">
+                                </div>  
+
+                                <div class="form-group col-lg-12">
                                     <label>Producto Final</label>
                                     <h:selectOneMenu class="form-control" value="#{productoProcesoController.nuevoProceso.productoFinal}">
                                         <f:selectItem itemLabel="Seleciona Producto" itemValue=""/>
@@ -73,7 +65,12 @@
                                     </h:selectOneMenu>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group col-lg-6">
+                                    <label>Cantidad</label>
+                                    <h:inputText class="form-control" value="#{productoProcesoController.nuevoProceso.cantidad}"/>
+                                </div>
+
+                                <div class="form-group col-lg-6">
                                     <label>Responsable</label>
                                     <h:selectOneMenu class="form-control" value="#{productoProcesoController.nuevoProceso.responsable}">
                                         <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>

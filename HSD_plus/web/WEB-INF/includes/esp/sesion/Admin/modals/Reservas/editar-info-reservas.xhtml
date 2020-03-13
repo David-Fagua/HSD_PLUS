@@ -19,30 +19,8 @@
                         </div>
 
                         <div class="row  col-md-10" style="margin: 0px 45px" >
-                            <div class="form-group">
-                                <label>Fecha del Proceso</label>
-                                <h:inputText pt:type="date" class="form-control" value="#{ReservasController.reservaSelecionada.fechaReserva}"/>
-                            </div>
 
-                            <div class="form-group">
-                                <label>Producto</label>
-                                <h:selectOneMenu class="form-control" value="#{ReservasController.reservaSelecionada.producto}">
-                                    <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
-                                    <f:selectItems value="#{productoFinalController.productoFinal}" var="pr" itemLabel="#{pr.articulo.nombre}"/>
-                                </h:selectOneMenu>
-                            </div>
-
-                            <div class="form-group ">
-                                <label>Cantidad</label>
-                                <h:inputText class="form-control" value="#{ReservasController.reservaSelecionada.cantidad}"/>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Precio Total</label>
-                                <h:inputText class="form-control" value="#{ReservasController.reservaSelecionada.precioTotal}"/>
-                            </div>
-
-                            <div class="form-group">
+                            <div class="form-group col-lg-6">
                                 <label>Cliente</label>
                                 <h:selectOneMenu class="form-control" value="#{ReservasController.reservaSelecionada.cliente}">
                                     <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
@@ -50,7 +28,33 @@
                                 </h:selectOneMenu>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-6">
+                                <label>Fecha del Proceso</label>
+                                <h:inputText pt:type="date" class="form-control" value="#{ReservasController.reservaSelecionada.fechaReserva}"/>
+                            </div>
+
+                            <div class="form-group col-lg-12">
+                                <label>Producto</label>
+                                <h:selectManyMenu  style="height: 100px" class="form-control" value="#{ReservasController.reservaSelecionada.productoFinalList}">
+                                    <f:selectItem itemLabel="Seleciona los Aticulos de su Interes" itemValue=""/>
+                                    <f:selectItems value="#{productoFinalController.productoFinal}" var="pr" itemLabel="#{pr.articulo.nombre}"/>
+                                </h:selectManyMenu>
+                            </div>
+
+
+                            <div class="form-group col-lg-6">
+                                <label>Precio Total</label>
+                                <h:inputText class="form-control" value="#{ReservasController.reservaSelecionada.precioTotal}"/>
+                            </div>
+
+                            <div class="form-group col-lg-6">
+                                <label>Cantidad</label>
+                                <h:inputText class="form-control" value="#{ReservasController.reservaSelecionada.cantidad}"/>
+                            </div>
+
+
+
+                            <div class="form-group col-lg-12">
                                 <label>Observaciones</label>
                                 <h:inputTextarea class="form-control" value="#{ReservasController.reservaSelecionada.observaciones}"/>
                             </div>

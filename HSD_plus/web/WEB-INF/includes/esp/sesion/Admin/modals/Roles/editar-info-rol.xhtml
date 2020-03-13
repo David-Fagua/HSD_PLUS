@@ -12,7 +12,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="editarInfoRolesContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Editar Rol  #{RolesController.rolSelecionado.idRol}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >Editar Rol  #{rolesController.rolSelecionado.idRol}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -24,11 +24,11 @@
 
                             <div class="form-group">
                                 <label>Nombre de la Ciudad</label>
-                                <h:inputText class="form-control" value="#{RolesController.rolSelecionado.nombre}"/>
+                                <h:inputText class="form-control" value="#{rolesController.rolSelecionado.nombre}"/>
                             </div>
                             <div class="form-group">
                                 <label>Fecha</label>
-                                <h:inputText pt:type="date" class="form-control" value="#{RolesController.rolSelecionado.fechaApertura}"/>
+                                <h:inputText pt:type="date" class="form-control" value="#{rolesController.rolSelecionado.fechaApertura}"/>
                             </div>
 
                         </div>
@@ -38,7 +38,7 @@
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
                             <h:commandLink class="btn btn-warning" value="Guardar"
-                                           action="#{RolesController.actualizar()}">
+                                           action="#{rolesController.actualizar()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>
                         </div>

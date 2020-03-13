@@ -21,7 +21,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -29,7 +28,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "registro_ventas")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "RegistroVentas.findAll", query = "SELECT r FROM RegistroVentas r")
     , @NamedQuery(name = "RegistroVentas.findByIdVenta", query = "SELECT r FROM RegistroVentas r WHERE r.idVenta = :idVenta")
@@ -46,8 +44,7 @@ public class RegistroVentas implements Serializable {
     @Column(name = "id_venta")
     private Integer idVenta;
     @Column(name = "fecha_venta")
-    @Temporal(TemporalType.DATE)
-    private Date fechaVenta;
+    private String fechaVenta;
     @Column(name = "observaciones")
     private String observaciones;
     @Basic(optional = false)
@@ -82,11 +79,11 @@ public class RegistroVentas implements Serializable {
         this.idVenta = idVenta;
     }
 
-    public Date getFechaVenta() {
+    public String getFechaVenta() {
         return fechaVenta;
     }
 
-    public void setFechaVenta(Date fechaVenta) {
+    public void setFechaVenta(String fechaVenta) {
         this.fechaVenta = fechaVenta;
     }
 

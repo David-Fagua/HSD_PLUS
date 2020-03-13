@@ -37,46 +37,48 @@
                         <h:form prependId="false">
                             <div class="row  col-md-10" style="margin: 0px 45px" >
 
-                                <div class="form-group">
+                                <div class="form-group col-lg-7">
                                     <label>Fecha del Proceso</label>
                                     <h:inputText pt:type="date" class="form-control" value="#{RventasController.nuevaVenta.fechaVenta}"/>
                                 </div>
 
-                                <div class="form-group">
-                                    <label>Numero de Reserva</label>
+                                <div class="form-group col-lg-6">
+                                    <label>Datos de Reserva</label>
                                     <h:selectOneMenu class="form-control" value="#{RventasController.nuevaVenta.reserva}">
                                         <f:selectItem itemLabel="Selecione datos de reservas" itemValue=""/>
                                         <f:selectItems value="#{ReservasController.reservas}" var="rs" 
                                                        itemLabel="#{rs.idReserva}  ||
-                                                       #{rs.producto.articulo.nombre}  ||
                                                        #{rs.cliente.nombres}
                                                        #{rs.cliente.primerApellido} ||
                                                        #{rs.precioTotal}
                                                        "/>
                                     </h:selectOneMenu>
                                 </div>
-                                <div class="form-group">
-                                    <label>Observaciones</label>
-                                    <h:inputTextarea class="form-control" value="#{RventasController.nuevaVenta.observaciones}"/>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Cantidad</label>
-                                    <h:inputText class="form-control" value="#{RventasController.nuevaVenta.cantidad}"/>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Precio Total</label>
-                                    <h:inputText class="form-control" value="#{RventasController.nuevaVenta.presioTotal}"/>
-                                </div>
-
-                                <div class="form-group">
+                                
+                                <div class="form-group col-lg-6">
                                     <label>Responsable  </label>
                                     <h:selectOneMenu class="form-control" value="#{RventasController.nuevaVenta.responsable}">
                                         <f:selectItem itemLabel="Seleciona el Responsable de la Venta" itemValue=""/>
                                         <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres} #{us.primerApellido}"/>
                                     </h:selectOneMenu>
                                 </div>
+                                
+                                <div class="form-group col-lg-12">
+                                    <label>Observaciones</label>
+                                    <h:inputTextarea class="form-control" value="#{RventasController.nuevaVenta.observaciones}"/>
+                                </div>
+
+                                <div class="form-group col-lg-6">
+                                    <label>Cantidad</label>
+                                    <h:inputText class="form-control" value="#{RventasController.nuevaVenta.cantidad}"/>
+                                </div>
+
+                                <div class="form-group col-lg-6">
+                                    <label>Precio Total</label>
+                                    <h:inputText class="form-control" value="#{RventasController.nuevaVenta.presioTotal}"/>
+                                </div>
+
+                                
                             </div>
                             <div class="col-sm-12" style="margin: 0px 45px" >
                                 <a class="btn btn-secondary" href="listar.xhtml">Volver</a>

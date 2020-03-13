@@ -48,8 +48,8 @@
                                 <div class="form-group col-md-12">
                                     <label>disponibilidad</label>
                                     <h:selectOneRadio class="form-check" value="#{productoFinalController.productoSelecionado.disponibilidad}">
-                                        <f:selectItem itemLabel="Actvo" itemValue="true"/>
-                                        <f:selectItem itemLabel="Inactivo" itemValue="false"/>
+                                        <f:selectItem itemLabel="Actva" itemValue="true"/>
+                                        <f:selectItem itemLabel="Inactiva" itemValue="false"/>
                                     </h:selectOneRadio>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -61,7 +61,7 @@
                                     <label>Responsable</label>
                                     <h:selectOneMenu class="form-control" value="#{productoFinalController.productoSelecionado.responsable}">
                                         <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
-                                        <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres} -- #{us.rol.nombre}"/>
+                                        <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
                                     </h:selectOneMenu>
                                 </div>
                             </div>

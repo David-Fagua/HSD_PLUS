@@ -43,7 +43,7 @@
                                     <h:outputText value="#{cl.codigo}"/>
                                 </p:column>
                                 <p:column style="width: 150px">
-                                    <f:facet name="header">Imgen</f:facet>
+                                    <f:facet name="header">Imagen</f:facet>
                                     <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="120" height="80px " class="d-block w-100" alt="..."/>
 
                                 </p:column>
@@ -69,18 +69,18 @@
                                 </p:column>
 
                                 <p:column style="width: 90px">
-                                    <f:facet name="header">ELIMINAR</f:facet>                                    
+                                    <f:facet name="header">Acciones</f:facet>                                    
 
 
                                     <h:commandLink class="btn btn-danger" 
-                                                   action="espor medio de otro controller"
+                                                   action="#{catalogoController.selecionarCatalogo(cl)}"
                                                    a:data-toggle="modal" a:data-target="#eliminarCatalogo">
                                         <i class="fa fa-trash"></i>
-                                        <f:ajax render="#{catalogoController.selecionarCatalogo(cl)}"/>
+                                        <f:ajax render=":confirmEmiliminarCatalogo"/>
                                     </h:commandLink> 
                                     
                                     <h:commandLink class="btn btn-warning"
-                                                   action="#{usuariosController.selecionarUsuario(u)}"
+                                                   action="#{catalogoController.selecionarCatalogo(cl)}"
                                                    a:data-toggle="modal" a:data-target="#editarInfoCatalogo">
                                         <i class="fa fa-pencil" ></i>
                                         <f:ajax render=":editarInfoCatalogoContent"/>

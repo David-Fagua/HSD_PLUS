@@ -36,22 +36,32 @@
                         </h3>
                         <h:form enctype="multipart/form-data" prependId="false" >
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
 
-                                    <div class="form-group col-md-12">
+                                    <div class="form-group col-md-12" style="float: left">
                                         <label for="codigo" class="form-control-label">Codigo</label>
                                         <h:inputText id="codigo" class="form-control"
                                                      pt:aria-required="true" pt:aria-invalid="false" value="#{catalogoController.nuevoCatalogo.codigo}"
                                                      pt:placeholder="Escribe el codigo siguienete de la tabla de catalogo"/>
                                     </div>
-                                    <div class="form-group col-md-12">
+                                    
+                                    
+                                    <div class="form-group col-md-12" style="float: left">
+                                        <label for="fecha" class="form-control-label" >Fecha</label>
+                                        <h:inputText pt:type="date" id="fecha" class="form-control" 
+                                                     pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.nuevoCatalogo.fecha}"/>
+                                    </div>
+
+                                    <div class="form-group col-md-12" style="float: left">
                                         <label for="nombre" class="form-control-label">Nuevo Nombre del producto para el Catalogo</label>
                                         <h:inputText id="nombre" class="form-control" 
                                                      pt:aria-required="true" pt:aria-invalid="false"  value="#{catalogoController.nuevoCatalogo.nombre}"
                                                      pt:placeholder="Ingrece el Nuevo Nombre para el producto"/>
                                     </div>
+                                </div>
+                                 <div class="col-md-6">
 
-                                    <div class="form-group col-md-12">
+                                    <div class="form-group col-md-12" style="float: left">
                                         <label>Articulo de Inv Final</label>
                                         <h:selectOneMenu class="form-control" value="#{catalogoController.nuevoCatalogo.articulofinal}">
                                             <f:selectItem itemLabel="Seleciona el Nombre del Producto" itemValue=""/>
@@ -59,20 +69,7 @@
                                         </h:selectOneMenu>
                                     </div>
 
-                                    <div class="form-group col-md-12">
-                                        <label for="descripcion" class="form-control-label" >Descripcion</label>
-                                        <h:inputTextarea id="descripcion" class="form-control"  
-                                                         pt:aria-required="true" pt:aria-invalid="false"  value="#{catalogoController.nuevoCatalogo.descripcion}"
-                                                         pt:placeholder="Describa el Producto para promocionar"/>
-                                    </div>
-
-                                    <div class="form-group col-md-12">
-                                        <label for="fecha" class="form-control-label" >Fecha</label>
-                                        <h:inputText pt:type="date" id="fecha" class="form-control" 
-                                                     pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.nuevoCatalogo.fecha}"/>
-                                    </div>
-
-                                    <div class="form-group col-md-12">
+                                    <div class="form-group col-md-12" style="float: left" >
                                         <label for="preciounitario" class="form-control-label" >Precio</label>
                                         <h:inputText id="precio" class="form-control" 
                                                      pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.nuevoCatalogo.precioUnitario}"
@@ -80,17 +77,25 @@
                                     </div>
 
 
-                                    <div class="form-group col-md-12">
+                                    <div class="form-group col-md-12" style="float: left" >
                                         <label for="stock" class="form-control-label" >Stock</label>
                                         <h:inputText id="stock" class="form-control" 
                                                      pt:aria-required="true" pt:aria-invalid="false"   value="#{catalogoController.nuevoCatalogo.stock}"
                                                      pt:placeholder="123"/>
                                     </div>
+                                 </div>
+                                <div class="col-md-12">
 
-                                    <div class="form-group col-md-12">
+                                    <div class="form-group col-md-12" style="float: left" >
                                         <label for="imagen" class="form-control-label">Imagen</label>
                                         <h:inputFile id="imagen" class="form-control" value="#{catalogoController.imgNuevoCatalogo}"
                                                      pt:aria-required="true" pt:aria-invalid="false"/>
+                                    </div>
+                                    <div class="form-group col-md-12" style="float: left" >
+                                        <label for="descripcion" class="form-control-label" >Descripcion</label>
+                                        <h:inputTextarea id="descripcion" class="form-control"  
+                                                         pt:aria-required="true" pt:aria-invalid="false"  value="#{catalogoController.nuevoCatalogo.descripcion}"
+                                                         pt:placeholder="Describa el Producto para promocionar"/>
                                     </div>
                                 </div>
                             </div>

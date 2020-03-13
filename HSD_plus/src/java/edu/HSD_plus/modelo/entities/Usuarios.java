@@ -23,8 +23,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,7 +30,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "usuarios")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Usuarios.findAll", query = "SELECT u FROM Usuarios u")
     , @NamedQuery(name = "Usuarios.findByIdUsuario", query = "SELECT u FROM Usuarios u WHERE u.idUsuario = :idUsuario")
@@ -88,12 +85,16 @@ public class Usuarios implements Serializable {
     private List<Desechos> desechos;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
     private List<RegistroVentas> registroVentas;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
+    private List<ProductoFinal> productoFinal;
     @JoinColumn(name = "ciudad", referencedColumnName = "id_ciudad")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Ciudades ciudad;
     @JoinColumn(name = "tipo_documento", referencedColumnName = "id_tdocumento")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Tipodocumentos tipoDocumento;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
+    private List<InventarioGeneral> inventarioGeneral;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "responsable", fetch = FetchType.LAZY)
     private List<ProductoProceso> productoProceso;
 
@@ -194,16 +195,14 @@ public class Usuarios implements Serializable {
         this.estado = estado;
     }
 
-    @XmlTransient
-    public List<Roles> getRoles() {
+    public List<Roles> getRolesList() {
         return roles;
     }
 
-    public void setRoles(List<Roles> rolesList) {
+    public void setRolesList(List<Roles> rolesList) {
         this.roles = rolesList;
     }
 
-    @XmlTransient
     public List<Reservas> getReservasList() {
         return reservas;
     }
@@ -212,7 +211,6 @@ public class Usuarios implements Serializable {
         this.reservas = reservasList;
     }
 
-    @XmlTransient
     public List<Desechos> getDesechosList() {
         return desechos;
     }
@@ -221,13 +219,20 @@ public class Usuarios implements Serializable {
         this.desechos = desechosList;
     }
 
-    @XmlTransient
     public List<RegistroVentas> getRegistroVentasList() {
         return registroVentas;
     }
 
     public void setRegistroVentasList(List<RegistroVentas> registroVentasList) {
         this.registroVentas = registroVentasList;
+    }
+
+    public List<ProductoFinal> getProductoFinalList() {
+        return productoFinal;
+    }
+
+    public void setProductoFinalList(List<ProductoFinal> productoFinalList) {
+        this.productoFinal = productoFinalList;
     }
 
     public Ciudades getCiudad() {
@@ -246,7 +251,14 @@ public class Usuarios implements Serializable {
         this.tipoDocumento = tipoDocumento;
     }
 
-    @XmlTransient
+    public List<InventarioGeneral> getInventarioGeneralList() {
+        return inventarioGeneral;
+    }
+
+    public void setInventarioGeneralList(List<InventarioGeneral> inventarioGeneralList) {
+        this.inventarioGeneral = inventarioGeneralList;
+    }
+
     public List<ProductoProceso> getProductoProcesoList() {
         return productoProceso;
     }
@@ -279,5 +291,5 @@ public class Usuarios implements Serializable {
     public String toString() {
         return "edu.HSD_plus.modelo.entities.Usuarios[ idUsuario=" + idUsuario + " ]";
     }
-
+    
 }

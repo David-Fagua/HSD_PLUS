@@ -16,4 +16,5 @@ import javax.ejb.Local;
 @Local
 public interface ICiudadesDAO  extends DAO<Ciudades>{
     
+    public List<Ciudades> obtenerciudadBusquedaxCadena(String cadena);
 }

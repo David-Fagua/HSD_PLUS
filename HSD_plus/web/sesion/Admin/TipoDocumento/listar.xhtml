@@ -40,7 +40,7 @@
                                     <f:ajax render=":registrarDocumentoContent"/>
                                 </h:commandLink>
                             </div>
-                            
+
                             <p></p>
 
                             <div class="btn-group" style="position: absolute">
@@ -81,7 +81,7 @@
                                          currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                                          rowsPerPageTemplate="5,10,15"
                                          >
-                                <p:column headerText="Id">
+                                <p:column headerText="Id" style="width: 50px">
                                     <h:outputText value="#{td.idTdocumento}" />
                                 </p:column>
 
@@ -93,7 +93,7 @@
                                     <h:outputText value="#{td.abrebiatura}" />
                                 </p:column>
 
-                                <p:column exportable="false">
+                                <p:column exportable="false" style="width: 120px">
                                     <f:facet name="header">OPCIONES</f:facet>
 
                                     <h:commandLink class="btn btn-warning"
@@ -102,7 +102,7 @@
                                         <i class="fa fa-pencil" ></i>
                                         <f:ajax render=":editarInfoDocumentoContent"/>
                                     </h:commandLink>
-
+                                    &nbsp;
                                     <h:commandLink class="btn btn-danger" 
                                                    action="#{tipoDocumentosController.selecionarTipoDocumento(td)}"
                                                    a:data-toggle="modal" a:data-target="#eliminarDocumento">

@@ -66,15 +66,18 @@ public class ProductoProcesoController implements Serializable{
         this.procesoSelecionado = pp;
     }
     
-    public void registrar(){
+    public String registrar(){
         try {
             nuevoProceso.setIdProceso(ppDAO.count() + 100);
             nuevoProceso.setIdProceso(ppDAO.count() + 100);
+            nuevoProceso.setEstado((short) 0);
             ppDAO.create(nuevoProceso);
             MessageUtil.sendInfo(null, " Su Registro Fue Exitoso ", "", false);
+            return "/sesion/Admin/Producproceso/listar.xhtml";
         } catch (Exception e) {
             MessageUtil.sendError(null, " Error al Registrar el Proceso porfavor verifique bien sus datos ", e.getMessage(), false);
         }
+        return null;
     }
     
     public void eliminar() {

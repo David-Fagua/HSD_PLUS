@@ -72,7 +72,7 @@
                                     <label>Responsable</label>
                                     <h:selectOneMenu class="form-control" value="#{inventarioGeneralController.articuloSelecionado.responsable}">
                                         <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
-                                        <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres} -- #{us.rol.nombre}"/>
+                                        <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
                                     </h:selectOneMenu>
                                 </div>
 

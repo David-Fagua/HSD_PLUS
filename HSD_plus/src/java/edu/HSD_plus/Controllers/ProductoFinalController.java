@@ -68,15 +68,17 @@ public class ProductoFinalController implements Serializable{
     }
     
     
-    public void registrar(){
+    public String registrar(){
         try {
             nuevoProducto.setIdProductof(pfDAO.count() + 100);
             nuevoProducto.setIdProductof(pfDAO.count() + 100);
             pfDAO.create(nuevoProducto);
             MessageUtil.sendInfo(null, " Su Registro Fue Exitoso ", "", false);
+            return "/sesion/Admin/Productfinal/listar.xhtml";
         } catch (Exception e) {
             MessageUtil.sendError(null, " Error al Registrar el Producto porfavor verifique bien sus datos ", e.getMessage(), false);
         }
+        return null;
     }
     
     public void eliminar() {

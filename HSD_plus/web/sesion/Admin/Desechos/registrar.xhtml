@@ -36,44 +36,40 @@
                         </h3>
                         <h:form prependId="false">
                             <div class="row  col-md-10" style="margin: 10px 45px" >
+                                <div class="form-group col-lg-7">
+                                    <label>Fecha</label>
+                                    <h:inputText pt:type="date" class="form-control" value="#{DesechoController.nuevoDesecho.fecha}"/>
+                                </div>
 
-
-                                <div class="form-group">
+                                <div class="form-group col-lg-6">
                                     <label>Articulo</label>
                                     <h:selectOneMenu class="form-control" value="#{DesechoController.nuevoDesecho.articulo}">
                                         <f:selectItem itemLabel="Seleciona Materia Prima" itemValue=""/>
                                         <f:selectItems value="#{inventarioGeneralController.inventarioGeneral}" var="ig" itemLabel="#{ig.nombre}"/>
                                     </h:selectOneMenu>
                                 </div>
-
-                                <div class="form-group">
-                                    <label>Fecha</label>
-                                    <h:inputText pt:type="date" class="form-control" value="#{DesechoController.nuevoDesecho.fecha}"/>
+                                
+                                <div class="form-group col-lg-6">
+                                    <label>Responsable</label>
+                                    <h:selectOneMenu class="form-control" value="#{DesechoController.nuevoDesecho.responsable}">
+                                        <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
+                                        <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
+                                    </h:selectOneMenu>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group col-lg-12">
                                     <label>Cantidad</label>
                                     <h:inputText class="form-control" value="#{DesechoController.nuevoDesecho.cantidad}"/>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group col-lg-12">
                                     <label>Observaciones</label>
                                     <h:inputTextarea class="form-control" value="#{DesechoController.nuevoDesecho.observaciones}"/>
                                 </div>
 
-
-
-                                <div class="form-group">
-                                    <label>Responsable</label>
-                                    <h:selectOneMenu class="form-control" value="#{DesechoController.nuevoDesecho.responsable}">
-                                        <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
-                                        <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres} -- #{us.rol.nombre}"/>
-                                    </h:selectOneMenu>
-                                </div>
-
                             </div>
                             <div class="col-sm-12" style="margin: 0px 45px" >
-                                <a class="btn btn-secondary" href="listar.xhtml">Cancelar</a>
+                                <a class="btn btn-secondary" href="listar.xhtml">Volver</a>
                                 <h:commandButton class="btn btn-primary" value="Registrar" action="#{DesechoController.registrar()}"/>
                             </div>
 

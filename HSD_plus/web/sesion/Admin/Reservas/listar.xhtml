@@ -74,7 +74,7 @@
                                          currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                                          rowsPerPageTemplate="5,10,15"
                                          >
-                                <p:column headerText="Id">
+                                <p:column headerText="Id" style="width: 50px">
                                     <h:outputText value="#{rs.idReserva}" />
                                 </p:column>
 
@@ -82,9 +82,6 @@
                                     <h:outputText value="#{rs.fechaReserva}" />
                                 </p:column>
 
-                                <p:column headerText="Producto">
-                                    <h:outputText value="#{rs.producto.articulo.nombre}" />
-                                </p:column>
 
                                 <p:column headerText="Cantidad">
                                     <h:outputText value="#{rs.cantidad}" />
@@ -101,7 +98,7 @@
                                 <p:column headerText="Observaciones">
                                     <h:outputText value="#{rs.observaciones}" />
                                 </p:column>
-                                <p:column exportable="false">
+                                <p:column exportable="false" >
                                     <f:facet name="header">OPCIONES</f:facet>
 
                                     <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoReserva" 

@@ -68,7 +68,7 @@ public class InventarioGeneralController implements Serializable{
         this.articuloSelecionado = ig;
     }
     
-    public void registrar(){
+    public String registrar(){
         try {
             System.out.print("Nombre: " + nuevoArticulo.getNombre());
             System.out.print("Apellidos: " + nuevoArticulo.getColor());
@@ -80,9 +80,11 @@ public class InventarioGeneralController implements Serializable{
             nuevoArticulo.setIdArticulo(igDAO.count() + 100);
             igDAO.create(nuevoArticulo);
             MessageUtil.sendInfo(null, " Su Registro Exitoso ", "", false);
+            return "/sesion/Admin/InGeneral/listar.xhtml";
         } catch (Exception e) {
             MessageUtil.sendError(null, " Error al Registrar el Articulo porfavor verifique bien sus datos ", e.getMessage(), false);
         }
+       return null;
     }
     
     public void eliminar() {

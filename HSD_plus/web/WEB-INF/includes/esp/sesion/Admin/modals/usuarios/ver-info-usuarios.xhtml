@@ -56,10 +56,10 @@
                                     <label>Ciudad</label>
                                     <span class="form-control">#{usuariosController.usuarioSelecionado.ciudad.nombre}</span>
                                 </div>
-                                <div class="form-group col-md-6">
+                                <div class="form-group">
                                     <label>Rol</label>
-                                    <h:selectManyListbox value="#{usuariosController.usuarioSelecionado.roles}">
-                                        <f:selectItems value="#{rolesController.roles}" var="r" itemLabel="#{r.nombre}"/>
+                                    <h:selectManyListbox class="form-control" value="#{usuariosController.usuarioSelecionado.rolesList}">
+                                        <f:selectItems class="form-control" value="#{rolesController.roles}" var="r" itemLabel="#{r.nombre}"/>
                                     </h:selectManyListbox>
                                 </div>
 

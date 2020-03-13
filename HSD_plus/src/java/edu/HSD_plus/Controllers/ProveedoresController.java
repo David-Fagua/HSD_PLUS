@@ -72,7 +72,7 @@ public class ProveedoresController implements Serializable{
         this.proveedorSelecionado = pr;
     }
     
-    public void registrar(){
+    public String registrar(){
         try {
             System.out.print("Nit: " + nuevoProveedor.getNit());
             System.out.print("Nombre: " + nuevoProveedor.getRazonSocial());
@@ -81,10 +81,12 @@ public class ProveedoresController implements Serializable{
             nuevoProveedor.setIdProveedor(proDAO.count() + 100);
             nuevoProveedor.setIdProveedor(proDAO.count() + 100);
             proDAO.create(nuevoProveedor);
-            MessageUtil.sendInfo(null, " Su Registro Exitoso ", "", false);
+            MessageUtil.sendInfo(null, " Su Registro Fue Exitoso ", "", false);
+            return "/sesion/Admin/Proveedores/listar.xhtml";
         } catch (Exception e) {
             MessageUtil.sendError(null, " Error al Registrar el Proveedor porfavor verifique bien sus datos ", e.getMessage(), false);
         }
+       return null;
     }
     
     public void eliminar() {

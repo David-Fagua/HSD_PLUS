@@ -73,8 +73,13 @@
                                     background-color:black !important;   
                                 }
                             </style>
+                            
+                            <p:outputLabel value="Digite un Texto:"/>
+                            <p:inputText value="#{CiudadesController.textoBuscar}"/>
+                            <p:commandButton value="Buscar" action="#{CiudadesController.llenarCiudades()}" update="ciudades"/>
+                            
                             <p:dataTable id="ciudades" var="cd" value="#{CiudadesController.ciudades}" rows="10"
-                                         paginator="true"
+                                         paginator="true" editable="true"
                                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                          currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                                          rowsPerPageTemplate="5,10,15"
@@ -83,28 +88,29 @@
                                     <h:outputText value="#{cd.idCiudad}" />
                                 </p:column>
 
-                                <p:column headerText="Nombre Ciudad">
+                                <p:column headerText="Nombre Ciudad" filterBy="#{cd.nombre}" filterMatchMode="contains">
                                     <h:outputText value="#{cd.nombre}" />
                                 </p:column>
 
 
 
                                 <p:column exportable="false">
-                                    <f:facet name="header">OPCIONES</f:facet>
-                                    <h:commandLink class="btn btn-warning"
-                                                   action="#{CiudadesController.selecionarCiudad(cd)}"
-                                                   a:data-toggle="modal" a:data-target="#editarInfoCiudad">
-                                        <i class="fa fa-pencil" ></i>
-                                        <f:ajax render=":editarInfoCiudadContent"/>
-                                    </h:commandLink>
-
-                                    <h:commandLink class="btn btn-danger" 
-                                                   action="#{CiudadesController.selecionarCiudad(cd)}"
-                                                   a:data-toggle="modal" a:data-target="#eliminarCiudad">
-                                        <i class="fa fa-trash"></i>
-                                        <f:ajax render=":confirmEmiliminarCiudad"/>
-                                    </h:commandLink> 
-
+                                    <center>
+                                        <f:facet name="header">OPCIONES</f:facet>
+                                        <h:commandLink class="btn btn-warning"
+                                                       action="#{CiudadesController.selecionarCiudad(cd)}"
+                                                       a:data-toggle="modal" a:data-target="#editarInfoCiudad">
+                                            <i class="fa fa-pencil" ></i>
+                                            <f:ajax render=":editarInfoCiudadContent"/>
+                                        </h:commandLink>
+                                        &nbsp;
+                                        <h:commandLink class="btn btn-danger" 
+                                                       action="#{CiudadesController.selecionarCiudad(cd)}"
+                                                       a:data-toggle="modal" a:data-target="#eliminarCiudad">
+                                            <i class="fa fa-trash"></i>
+                                            <f:ajax render=":confirmEmiliminarCiudad"/>
+                                        </h:commandLink> 
+                                    </center>
                                 </p:column>
 
                                 <f:facet name="paginatorTopLeft">
