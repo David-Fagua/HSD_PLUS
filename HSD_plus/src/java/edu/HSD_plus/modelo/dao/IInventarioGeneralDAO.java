@@ -15,4 +15,6 @@ import javax.ejb.Local;
  */
 @Local
 public interface IInventarioGeneralDAO extends DAO<InventarioGeneral>{
+    
+    public List<InventarioGeneral> obtenerIGeneralBusquedaxCadena(String cadena);
 }

@@ -29,11 +29,22 @@ public class RolesController implements Serializable{
     private List<Roles> roles;
     private Roles RolSelecionado;
     private Roles nuevoRol;
+    private String textoBuscar="";
     /**
      * Creates a new instance of RolesController
      */
     public RolesController() {
     }
+
+    public String getTextoBuscar() {
+        return textoBuscar;
+    }
+
+    public void setTextoBuscar(String textoBuscar) {
+        this.textoBuscar = textoBuscar;
+    }
+    
+    
     
     @PostConstruct
     public void init(){
@@ -104,5 +115,13 @@ public class RolesController implements Serializable{
             e.printStackTrace();
             MessageUtil.sendError(null, "Error al Modificar la Información del Rol", e.getMessage(), false);
         }
+    }
+    
+    public void setListaRolesA(List<Roles> listaCiudades) {
+        this.roles = listaCiudades;
+    }
+    
+    public void llenarRoles(){
+        roles=rDAO.obteneRolBusquedaxCadena(textoBuscar);
     }
 }

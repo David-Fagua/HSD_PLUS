@@ -7,21 +7,14 @@
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Reservas</title>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+        <title>Catalogo</title>
+        <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
     </h:head>
     <h:body>
-        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
-            <div style="position: absolute" >
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
-                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-                </h:panelGroup>
-            </div>
-        </nav>    
-        <div id="page-wrapper">
+        <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+            <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/plantilla-superior-client.xhtml"/>
+        </h:panelGroup>   
+        
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
@@ -32,6 +25,7 @@
                                           style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
                                           errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
                         </h3>
+                        
                         <h:form prependId="false">
                             <div>
                                 <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nueva Reserva</a>
@@ -58,7 +52,7 @@
 
                                 </div>
                             </div>
-                            
+
                             <br></br>
                             <br></br>
                             <style type="text/css">
@@ -133,17 +127,15 @@
 
                             </p:dataTable>
                         </h:form>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/ver-info-reservas.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/confirmar_eliminar.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/editar-info-reservas.xhtml"></ui:include>
+                        <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/ver-info-reservas.xhtml"></ui:include>
+                        <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/confirmar_eliminar.xhtml"></ui:include>
+                        <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/editar-info-reservas.xhtml"></ui:include>
 
 
                     </div>
                 </div>
             </div>
-        </div>
-
-
+       
     </h:body>
 </html>
 

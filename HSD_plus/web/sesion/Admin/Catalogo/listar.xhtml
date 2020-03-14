@@ -34,9 +34,16 @@
                         </h3>
                         <h:form prependId="false" enctype="multipart/form-data" >
                             <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Anadir</a>
+                            <div style="float: right">
+                                <p:inputText  a:placeholder="Digite un Texto" value="#{catalogoController.textoBuscar}"/>
+                                &nbsp;
+                                <p:commandButton value="Buscar" action="#{catalogoController.llenarCatalogo()}" update="catalogo"/>
+                                <br></br>
+
+                            </div>
                             <br></br>
                             <br></br>
-                            <p:dataTable class="table " value="#{catalogoController.catalogo}"
+                            <p:dataTable id="catalogo" class="table " value="#{catalogoController.catalogo}"
                                          var="cl">
                                 <p:column style="width: 70px">
                                     <f:facet name="header"> Codigo</f:facet>
@@ -78,7 +85,7 @@
                                         <i class="fa fa-trash"></i>
                                         <f:ajax render=":confirmEmiliminarCatalogo"/>
                                     </h:commandLink> 
-                                    
+
                                     <h:commandLink class="btn btn-warning"
                                                    action="#{catalogoController.selecionarCatalogo(cl)}"
                                                    a:data-toggle="modal" a:data-target="#editarInfoCatalogo">
@@ -89,8 +96,8 @@
 
                             </p:dataTable>
                         </h:form>
-                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Catalogo/confirmar_eliminar.xhtml"></ui:include>
-                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Catalogo/editar-info-catalogo.xhtml"></ui:include>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Catalogo/confirmar_eliminar.xhtml"></ui:include>
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Catalogo/editar-info-catalogo.xhtml"></ui:include>
                     </div>
                 </div>
             </div>

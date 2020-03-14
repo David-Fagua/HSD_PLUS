@@ -61,6 +61,13 @@
 
                                 </div>
                             </div>
+                            <div style="float: right">
+                                <p:inputText  a:placeholder="Digite un Texto" value="#{usuariosController.textoBuscar}"/>
+                                &nbsp;
+                                <p:commandButton value="Buscar" action="#{usuariosController.llenarUsuarios()}" update="usuarios"/>
+                                <br></br>
+
+                            </div>
                             <br></br>
                             <br></br>
 
@@ -69,7 +76,7 @@
                                     background-color:white !important;   
                                 }
                                 .ui-paginator{ 
-                                               background-color:black !important;   
+                                    background-color:black !important;   
                                 }
                             </style>
                             <p:dataTable id="usuarios" var="u" value="#{usuariosController.usuarios}" rows="10"

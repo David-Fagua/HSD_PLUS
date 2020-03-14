@@ -15,4 +15,6 @@ import javax.ejb.Local;
  */
 @Local
 public interface IRolesDAO  extends DAO<Roles>{
+    
+    public List<Roles> obteneRolBusquedaxCadena(String cadena);
 }

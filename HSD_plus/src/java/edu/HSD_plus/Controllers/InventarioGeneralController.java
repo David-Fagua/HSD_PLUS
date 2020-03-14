@@ -29,8 +29,17 @@ public class InventarioGeneralController implements Serializable{
     private List<InventarioGeneral> articulos;
     private InventarioGeneral articuloSelecionado;
     private InventarioGeneral nuevoArticulo;
+    private String textoBuscar="";
 
     public InventarioGeneralController() {
+    }
+
+    public String getTextoBuscar() {
+        return textoBuscar;
+    }
+
+    public void setTextoBuscar(String textoBuscar) {
+        this.textoBuscar = textoBuscar;
     }
     
     
@@ -110,5 +119,13 @@ public class InventarioGeneralController implements Serializable{
             e.printStackTrace();
             MessageUtil.sendError(null, "Error al Modificar la Información del articulo", e.getMessage(), false);
         }
+    }
+    
+    public void setListaArticulos(List<InventarioGeneral> listaArticulos) {
+        this.articulos = listaArticulos;
+    }
+    
+    public void llenarArticulos(){
+        articulos=igDAO.obtenerIGeneralBusquedaxCadena(textoBuscar);
     }
 }

@@ -29,8 +29,17 @@ public class ProveedoresController implements Serializable{
     private List<Proveedores>   proveedor;
     private Proveedores proveedorSelecionado;
     private Proveedores nuevoProveedor;
+    private String textoBuscar="";
 
     public ProveedoresController() {
+    }
+
+    public String getTextoBuscar() {
+        return textoBuscar;
+    }
+
+    public void setTextoBuscar(String textoBuscar) {
+        this.textoBuscar = textoBuscar;
     }
 
     
@@ -112,6 +121,20 @@ public class ProveedoresController implements Serializable{
             e.printStackTrace();
             MessageUtil.sendError(null, "Error al Modificar la Información del Proveedor", e.getMessage(), false);
         }
+    }
+    
+    public void probarMetodo(String cadena){
+        for(Proveedores ciu:proDAO.obtenerproveedorBusquedaxCadena(cadena)){
+            System.out.println(ciu);
+        }
+    }
+
+    public void setListaCiudades(List<Proveedores> listaProveedor) {
+        this.proveedor = listaProveedor;
+    }
+    
+    public void llenarProveedor(){
+        proveedor=proDAO.obtenerproveedorBusquedaxCadena(textoBuscar);
     }
 }
 

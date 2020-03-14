@@ -34,8 +34,17 @@ public class CatalogoController implements Serializable {
     private Catalogo nuevoCatalogo;
     private Part imgNuevoCatalogo;
     private Catalogo catalogoSelecionado;
+    private String textoBuscar="";
 
     public CatalogoController() {
+    }
+
+    public String getTextoBuscar() {
+        return textoBuscar;
+    }
+
+    public void setTextoBuscar(String textoBuscar) {
+        this.textoBuscar = textoBuscar;
     }
 
     @PostConstruct
@@ -132,4 +141,12 @@ public class CatalogoController implements Serializable {
         }
     }
 
+    
+    public void setListaCatalogo(List<Catalogo> listaCatalogo) {
+        this.catalogo = listaCatalogo;
+    }
+    
+    public void llenarCatalogo(){
+        catalogo=clDAO.obtenercatalogoBusquedaxCadena(textoBuscar);
+    }
 }

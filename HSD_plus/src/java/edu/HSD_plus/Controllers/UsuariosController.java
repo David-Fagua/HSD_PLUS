@@ -34,12 +34,20 @@ public class UsuariosController implements Serializable {
     private Usuarios usuarioSelecionado;
     private Usuarios nuevoUsuario;
     private String clave;
-    String rolusuario;
+    private String textoBuscar = "";
 
     /**
      * Creates a new instance of UsuariosController
      */
     public UsuariosController() {
+    }
+
+    public String getTextoBuscar() {
+        return textoBuscar;
+    }
+
+    public void setTextoBuscar(String textoBuscar) {
+        this.textoBuscar = textoBuscar;
     }
 
     @PostConstruct
@@ -170,12 +178,14 @@ public class UsuariosController implements Serializable {
         return "";
     }
     
-    public String getRolusuario() {
-        
-        return rolusuario;
+    public void setListaUsuarios(List<Usuarios> listaUsuarios) {
+        this.usuarios = listaUsuarios;
     }
+    
+    public void llenarUsuarios(){
+        usuarios=uDAO.obtenernombreUsuBusquedaxCadena(textoBuscar);
+    }
+    
+    
 
-    public void setRolusuario(String rolusuario) {
-        this.rolusuario = rolusuario;
-    }
 }

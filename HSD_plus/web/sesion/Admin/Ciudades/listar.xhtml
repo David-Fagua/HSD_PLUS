@@ -63,6 +63,13 @@
 
                                 </div>
                             </div>
+                            <div style="float: right">
+                                <p:inputText  a:placeholder="Digite un Texto" value="#{CiudadesController.textoBuscar}"/>
+                                &nbsp;
+                                <p:commandButton value="Buscar" action="#{CiudadesController.llenarCiudades()}" update="ciudades"/>
+                                <br></br>
+                                
+                            </div>
                             <br></br>
                             <br></br>
                             <style type="text/css">
@@ -74,10 +81,6 @@
                                 }
                             </style>
                             
-                            <p:outputLabel value="Digite un Texto:"/>
-                            <p:inputText value="#{CiudadesController.textoBuscar}"/>
-                            <p:commandButton value="Buscar" action="#{CiudadesController.llenarCiudades()}" update="ciudades"/>
-                            
                             <p:dataTable id="ciudades" var="cd" value="#{CiudadesController.ciudades}" rows="10"
                                          paginator="true" editable="true"
                                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
@@ -88,7 +91,7 @@
                                     <h:outputText value="#{cd.idCiudad}" />
                                 </p:column>
 
-                                <p:column headerText="Nombre Ciudad" filterBy="#{cd.nombre}" filterMatchMode="contains">
+                                <p:column headerText="Nombre Ciudad">
                                     <h:outputText value="#{cd.nombre}" />
                                 </p:column>
 

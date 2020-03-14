@@ -28,8 +28,17 @@ public class ReservasController implements Serializable{
     private List<Reservas> reserva;
     private Reservas reservaSelecionada;
     private Reservas nuevaReseva;
+    private String textoBuscar="";
 
     public ReservasController() {
+    }
+
+    public String getTextoBuscar() {
+        return textoBuscar;
+    }
+
+    public void setTextoBuscar(String textoBuscar) {
+        this.textoBuscar = textoBuscar;
     }
 
     @PostConstruct
@@ -106,5 +115,13 @@ public class ReservasController implements Serializable{
             e.printStackTrace();
             MessageUtil.sendError(null, "Error al Modificar la Información de la Reserva", e.getMessage(), false);
         }
+    }
+    
+    public void setListaReserva(List<Reservas> listaCiudades) {
+        this.reserva = listaCiudades;
+    }
+    
+    public void llenarReserva(){
+        reserva=rsDAO.obtenerreservaBusquedaxCadena(textoBuscar);
     }
 }

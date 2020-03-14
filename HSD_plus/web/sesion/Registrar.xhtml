@@ -3,8 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <link rel="icon" type="assets/img/png" href="#{request.contextPath}/resources/assets/Img/Logo.png"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
@@ -35,7 +36,7 @@
                         <div class="col-md-12">
 
                             <div class="form-group col-md-6" style="float: left" >
-                                <label>Tipo de Documento</label>
+                                <label style="color: white">Tipo de Documento</label>
                                 <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.tipoDocumento}">
                                     <f:selectItem itemLabel="Selecione un Tipo de Documento" itemValue=""/>
                                     <f:selectItems value="#{tipoDocumentosController.tipodocumentos}" var="td" itemLabel="#{td.nombre}"/>
@@ -43,28 +44,28 @@
                             </div>
 
                             <div class="form-group col-md-6" style="float: left">
-                                <label>Numero de Documento</label>
+                                <label style="color: white">Numero de Documento</label>
                                 <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.numerodocumento}"/>
                             </div>
 
                             <div class="form-group col-md-4" style="float: left">
-                                <label>Nombres</label>
+                                <label style="color: white">Nombres</label>
                                 <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.nombres}"/>
                             </div>
                             <div class="form-group col-md-4" style="float: left">
-                                <label>Primer Apellido</label>
+                                <label style="color: white">Primer Apellido</label>
                                 <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.primerApellido}"/>
                             </div>
                             <div class="form-group col-md-4" style="float: left">
-                                <label>Segundo Apellido</label>
+                                <label style="color: white">Segundo Apellido</label>
                                 <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.segundoApellido}"/>
                             </div>
                             <div class="form-group col-md-4" style="float: left">
-                                <label>Correo</label>
+                                <label style="color: white">Correo</label>
                                 <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.correo}"/>
                             </div>
                             <div class="form-group col-md-4" style="float: left">
-                                <label>Clave</label>
+                                <label style="color: white">Clave</label>
                                 <h:inputSecret class="form-control" value="#{usuariosController.nuevoUsuario.clave}"/>
                             </div>
 
@@ -74,7 +75,7 @@
                             </div>
 
                             <div class="form-group col-md-4" style="float: left">
-                                <label>Ciudad</label>
+                                <label style="color: white">Ciudad</label>
                                 <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.ciudad}">
                                     <f:selectItem itemLabel="Selecione una ciudad" itemValue=""/>
                                     <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
@@ -82,18 +83,36 @@
                             </div>
 
                             <div class="form-group col-md-4" style="float: left">
-                                <label>Telefono</label>
+                                <label style="color: white">Telefono</label>
                                 <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.telefono}"/>
                             </div>
 
-                            <div class="form-group col-md-4" style="float: right">
-                                <label>Rol</label>
-                                <h:selectManyListbox class="form-control" value="#{usuariosController.rolusuario}">
-                                    <f:selectItems  itemLabel="Cliente" itemValue="2"/>
-                                </h:selectManyListbox>
+
+
+                            <div class="form-group col-md-4" style="float: left">
+                                <label></label>
+                                <button type="button" class="btn btn-primary col-lg-12" value="Buscar" action="#{rolesController.llenarRoles()}" update="rolesa" data-toggle="modal" data-target="#rolesa">
+                                    Elegir Rol
+                                </button>
+
+                                <div class="modal fade bd-example-modal-sm" id="rolesa" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <div class="form-group" style="float: left">
+                                                    <label>Porfavor seleciona el Rol Cliente</label>
+                                                    <h:selectManyListbox class="form-control" value="#{usuariosController.nuevoUsuario.rolesList}">
+                                                        <f:selectItems id="rolesa" value="#{rolesController.roles}" var="cd"  itemLabel="#{cd.nombre}"/>
+                                                    </h:selectManyListbox>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Listo</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-
-
                         </div>
                     </div>
                     <div class="col-sm-12">

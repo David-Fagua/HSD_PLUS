@@ -59,6 +59,13 @@
 
                                 </div>
                             </div>
+                            <div style="float: right">
+                                <p:inputText  a:placeholder="Digite un Texto" value="#{inventarioGeneralController.textoBuscar}"/>
+                                &nbsp;
+                                <p:commandButton value="Buscar" action="#{inventarioGeneralController.llenarArticulos()}" update="inventariogeneral"/>
+                                <br></br>
+
+                            </div>
                             <br></br>
                             <br></br>
                             <style type="text/css">

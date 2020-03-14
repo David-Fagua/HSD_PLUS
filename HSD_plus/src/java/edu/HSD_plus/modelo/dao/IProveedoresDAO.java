@@ -15,4 +15,6 @@ import javax.ejb.Local;
  */
 @Local
 public interface IProveedoresDAO extends DAO<Proveedores>{
+    
+    public List<Proveedores> obtenerproveedorBusquedaxCadena(String cadena);
 }

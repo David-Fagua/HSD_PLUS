@@ -28,9 +28,20 @@ public class ProductoProcesoController implements Serializable{
     private List<ProductoProceso> proceso;
     private ProductoProceso procesoSelecionado;
     private ProductoProceso nuevoProceso;
+    private String textoBuscar="";
 
     public ProductoProcesoController() {
     }
+
+    public String getTextoBuscar() {
+        return textoBuscar;
+    }
+
+    public void setTextoBuscar(String textoBuscar) {
+        this.textoBuscar = textoBuscar;
+    }
+    
+    
     
     @PostConstruct
     public void init(){
@@ -103,5 +114,13 @@ public class ProductoProcesoController implements Serializable{
             e.printStackTrace();
             MessageUtil.sendError(null, "Error al Modificar la Información del Proceso", e.getMessage(), false);
         }
+    }
+    
+    public void setListaProceso(List<ProductoProceso> listaProceso) {
+        this.proceso = listaProceso;
+    }
+    
+    public void llenarProceso(){
+        proceso=ppDAO.obtenerprocesoBusquedaxCadena(textoBuscar);
     }
 }

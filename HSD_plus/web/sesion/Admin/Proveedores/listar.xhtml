@@ -59,6 +59,13 @@
 
                                 </div>
                             </div>
+                            <div style="float: right">
+                                <p:inputText  a:placeholder="Digite un Texto" value="#{proveedoresController.textoBuscar}"/>
+                                &nbsp;
+                                <p:commandButton value="Buscar" action="#{proveedoresController.llenarProveedor()}" update="proveedores"/>
+                                <br></br>
+
+                            </div>
                             <br></br>
                             <br></br>
 

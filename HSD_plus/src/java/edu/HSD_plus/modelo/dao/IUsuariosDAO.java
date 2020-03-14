@@ -23,4 +23,6 @@ public interface IUsuariosDAO  extends DAO<Usuarios>{
     public int cantidadUsuario(boolean estado); 
     
     public int ingresarUsuarioRol(Usuarios usu);
+    
+    public List<Usuarios> obtenernombreUsuBusquedaxCadena(String cadena);
 }

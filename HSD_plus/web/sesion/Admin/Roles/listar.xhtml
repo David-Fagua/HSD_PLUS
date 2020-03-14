@@ -92,25 +92,25 @@
                                     <h:outputText value="#{rl.fechaApertura}" />
                                 </p:column>
 
-                                
-                                    <p:column exportable="false" style="width: 150px">
-                                        <f:facet name="header">OPCIONES</f:facet>
 
-                                        <h:commandLink class="btn btn-warning"
-                                                       action="#{rolesController.selecionarRol(rl)}"
-                                                       a:data-toggle="modal" a:data-target="#editarInfoRoles">
-                                            <i class="fa fa-pencil" ></i>
-                                            <f:ajax render=":editarInfoRolesContent"/>
-                                        </h:commandLink>
-                                        &nbsp;
-                                        <h:commandLink class="btn btn-danger" 
-                                                       action="#{rolesController.selecionarRol(rl)}" 
-                                                       a:data-toggle="modal" a:data-target="#eliminarRoles">
-                                            <i class="fa fa-trash"></i>
-                                            <f:ajax render=":confirmEmiliminarRoles"/>
-                                        </h:commandLink> 
-                                    </p:column>
-                                
+                                <p:column exportable="false" style="width: 150px">
+                                    <f:facet name="header">OPCIONES</f:facet>
+
+                                    <h:commandLink class="btn btn-warning"
+                                                   action="#{rolesController.selecionarRol(rl)}"
+                                                   a:data-toggle="modal" a:data-target="#editarInfoRoles">
+                                        <i class="fa fa-pencil" ></i>
+                                        <f:ajax render=":editarInfoRolesContent"/>
+                                    </h:commandLink>
+                                    &nbsp;
+                                    <h:commandLink class="btn btn-danger" 
+                                                   action="#{rolesController.selecionarRol(rl)}" 
+                                                   a:data-toggle="modal" a:data-target="#eliminarRoles">
+                                        <i class="fa fa-trash"></i>
+                                        <f:ajax render=":confirmEmiliminarRoles"/>
+                                    </h:commandLink> 
+                                </p:column>
+
                                 <f:facet name="paginatorTopLeft">
                                     <p:commandButton type="button" icon="pi pi-refresh" />
                                 </f:facet>
