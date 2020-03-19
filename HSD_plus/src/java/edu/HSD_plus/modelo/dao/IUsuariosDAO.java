@@ -25,4 +25,8 @@ public interface IUsuariosDAO  extends DAO<Usuarios>{
     public int ingresarUsuarioRol(Usuarios usu);
     
     public List<Usuarios> obtenernombreUsuBusquedaxCadena(String cadena);
+    
+    public Usuarios consultaUsuario(String email, int numerodocumento);
+
+    
 }

@@ -5,91 +5,93 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>Registrar Venta</title>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
-    </h:head>
-    <h:body>
-        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
-            <div style="position: absolute" >
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
-                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-                </h:panelGroup>
-            </div>
-        </nav>    
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Registrar Venta</h1>
-                        <!-- /.row -->
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <title>Registrar Venta</title>
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+        </h:head>
+        <h:body>
+            <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+                <div style="position: absolute" >
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                    </h:panelGroup>
+                </div>
+            </nav>    
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Registrar Venta</h1>
+                            <!-- /.row -->
 
 
 
 
-                        <h3>  <h:messages showDetail="true" layout="table" 
-                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
-                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
-                        </h3>
-                        <h:form prependId="false">
-                            <div class="row  col-md-10" style="margin: 0px 45px" >
+                            <h3>  <h:messages showDetail="true" layout="table" 
+                                              style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                              errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                            </h3>
+                            <h:form prependId="false">
+                                <div class="row  col-md-10" style="margin: 0px 45px" >
 
-                                <div class="form-group col-lg-7">
-                                    <label>Fecha del Proceso</label>
-                                    <h:inputText pt:type="date" class="form-control" value="#{RventasController.nuevaVenta.fechaVenta}"/>
+                                    <div class="form-group col-lg-7">
+                                        <label>Fecha del Proceso</label>
+                                        <h:inputText pt:type="date" class="form-control" value="#{RventasController.nuevaVenta.fechaVenta}"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label>Datos de Reserva</label>
+                                        <h:selectOneMenu class="form-control" value="#{RventasController.nuevaVenta.reserva}">
+                                            <f:selectItem itemLabel="Selecione datos de reservas" itemValue=""/>
+                                            <f:selectItems value="#{ReservasController.reservas}" var="rs" 
+                                                           itemLabel="#{rs.idReserva}  ||
+                                                           #{rs.cliente.nombres}
+                                                           #{rs.cliente.primerApellido} ||
+                                                           #{rs.precioTotal}
+                                                           "/>
+                                        </h:selectOneMenu>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label>Responsable  </label>
+                                        <h:selectOneMenu class="form-control" value="#{RventasController.nuevaVenta.responsable}">
+                                            <f:selectItem itemLabel="Seleciona el Responsable de la Venta" itemValue=""/>
+                                            <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres} #{us.primerApellido}"/>
+                                        </h:selectOneMenu>
+                                    </div>
+
+                                    <div class="form-group col-lg-12">
+                                        <label>Observaciones</label>
+                                        <h:inputTextarea class="form-control" value="#{RventasController.nuevaVenta.observaciones}"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label>Cantidad</label>
+                                        <h:inputText class="form-control" value="#{RventasController.nuevaVenta.cantidad}"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label>Precio Total</label>
+                                        <h:inputText class="form-control" value="#{RventasController.nuevaVenta.presioTotal}"/>
+                                    </div>
+
+
                                 </div>
-
-                                <div class="form-group col-lg-6">
-                                    <label>Datos de Reserva</label>
-                                    <h:selectOneMenu class="form-control" value="#{RventasController.nuevaVenta.reserva}">
-                                        <f:selectItem itemLabel="Selecione datos de reservas" itemValue=""/>
-                                        <f:selectItems value="#{ReservasController.reservas}" var="rs" 
-                                                       itemLabel="#{rs.idReserva}  ||
-                                                       #{rs.cliente.nombres}
-                                                       #{rs.cliente.primerApellido} ||
-                                                       #{rs.precioTotal}
-                                                       "/>
-                                    </h:selectOneMenu>
+                                <div class="col-sm-12" style="margin: 0px 45px" >
+                                    <a class="btn btn-secondary" href="listar.xhtml">Volver</a>
+                                    <h:commandButton class="btn btn-primary" value="Registrar" action="#{RventasController.registrar()}"/>
                                 </div>
-                                
-                                <div class="form-group col-lg-6">
-                                    <label>Responsable  </label>
-                                    <h:selectOneMenu class="form-control" value="#{RventasController.nuevaVenta.responsable}">
-                                        <f:selectItem itemLabel="Seleciona el Responsable de la Venta" itemValue=""/>
-                                        <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres} #{us.primerApellido}"/>
-                                    </h:selectOneMenu>
-                                </div>
-                                
-                                <div class="form-group col-lg-12">
-                                    <label>Observaciones</label>
-                                    <h:inputTextarea class="form-control" value="#{RventasController.nuevaVenta.observaciones}"/>
-                                </div>
-
-                                <div class="form-group col-lg-6">
-                                    <label>Cantidad</label>
-                                    <h:inputText class="form-control" value="#{RventasController.nuevaVenta.cantidad}"/>
-                                </div>
-
-                                <div class="form-group col-lg-6">
-                                    <label>Precio Total</label>
-                                    <h:inputText class="form-control" value="#{RventasController.nuevaVenta.presioTotal}"/>
-                                </div>
-
-                                
-                            </div>
-                            <div class="col-sm-12" style="margin: 0px 45px" >
-                                <a class="btn btn-secondary" href="listar.xhtml">Volver</a>
-                                <h:commandButton class="btn btn-primary" value="Registrar" action="#{RventasController.registrar()}"/>
-                            </div>
-                        </h:form>
+                            </h:form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-    </h:body>
+        </h:body>
+    </f:view>
 </html>

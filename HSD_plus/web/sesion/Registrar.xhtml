@@ -6,144 +6,150 @@
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <link rel="icon" type="assets/img/png" href="#{request.contextPath}/resources/assets/Img/Logo.png"/>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
-        <title>Registrar</title>
-        <meta http-equiv="Content-Tipe" content="text/html; charset=UTF-8"></meta>
-        <meta charset="utf-8"></meta>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
-    </h:head>
-    <h:body style="background-color: black; position: relative; size:width: 100%; height: 450px; " id="particles-js">
-        <ui:include src="../WEB-INF/includes/esp/sesion/plantillas-superiores-iniciosesion.xhtml"></ui:include>
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <link rel="icon" type="assets/img/png" href="#{request.contextPath}/resources/assets/Img/Logo.png"/>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+            <title>#{msjUsuarios.RegistrarUsuariotitle}</title>
+            <meta http-equiv="Content-Tipe" content="text/html; charset=UTF-8"></meta>
+            <meta charset="utf-8"></meta>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></meta>
+        </h:head>
+        <h:body style="background-color: black; position: relative; size:width: 100%; height: 450px; " id="particles-js">
+            <ui:include src="../WEB-INF/includes/esp/sesion/plantillas-superiores-iniciosesion.xhtml"></ui:include>
 
 
-        <center>
-            <div class="col-lg-12" style="position: absolute" >
-                <h1 class="page-header col-lg-12" style="color: white">Registrar Usuario</h1>
-                <!-- /.row -->
-
-
-
-
-                <h3 class="col-md-11">  <h:messages showDetail="true" layout="table" 
-                                                    style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
-                                                    errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
-                </h3>
-                <h:form prependId="false">
-                    <div class="row">
-                        <div class="col-md-12">
-
-                            <div class="form-group col-md-6" style="float: left" >
-                                <label style="color: white">Tipo de Documento</label>
-                                <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.tipoDocumento}">
-                                    <f:selectItem itemLabel="Selecione un Tipo de Documento" itemValue=""/>
-                                    <f:selectItems value="#{tipoDocumentosController.tipodocumentos}" var="td" itemLabel="#{td.nombre}"/>
-                                </h:selectOneMenu>
-                            </div>
-
-                            <div class="form-group col-md-6" style="float: left">
-                                <label style="color: white">Numero de Documento</label>
-                                <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.numerodocumento}"/>
-                            </div>
-
-                            <div class="form-group col-md-4" style="float: left">
-                                <label style="color: white">Nombres</label>
-                                <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.nombres}"/>
-                            </div>
-                            <div class="form-group col-md-4" style="float: left">
-                                <label style="color: white">Primer Apellido</label>
-                                <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.primerApellido}"/>
-                            </div>
-                            <div class="form-group col-md-4" style="float: left">
-                                <label style="color: white">Segundo Apellido</label>
-                                <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.segundoApellido}"/>
-                            </div>
-                            <div class="form-group col-md-4" style="float: left">
-                                <label style="color: white">Correo</label>
-                                <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.correo}"/>
-                            </div>
-                            <div class="form-group col-md-4" style="float: left">
-                                <label style="color: white">Clave</label>
-                                <h:inputSecret class="form-control" value="#{usuariosController.nuevoUsuario.clave}"/>
-                            </div>
-
-                            <div class="form-group col-md-4" style="float: left">
-                                <label style="color: white">Confirmar Clave*</label>
-                                <h:inputSecret id="calve" class="form-control" value="#{usuariosController.clave}"/>
-                            </div>
-
-                            <div class="form-group col-md-4" style="float: left">
-                                <label style="color: white">Ciudad</label>
-                                <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.ciudad}">
-                                    <f:selectItem itemLabel="Selecione una ciudad" itemValue=""/>
-                                    <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
-                                </h:selectOneMenu>
-                            </div>
-
-                            <div class="form-group col-md-4" style="float: left">
-                                <label style="color: white">Telefono</label>
-                                <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.telefono}"/>
-                            </div>
+            <center>
+                <div class="col-lg-12" style="position: absolute" >
+                    <h1 class="page-header col-lg-12" style="color: white">#{msjUsuarios.RegistrarUsuariotitle}</h1>
+                    <!-- /.row -->
 
 
 
-                            <div class="form-group col-md-4" style="float: left">
-                                <label></label>
-                                <button type="button" class="btn btn-primary col-lg-12" value="Buscar" action="#{rolesController.llenarRoles()}" update="rolesa" data-toggle="modal" data-target="#rolesa">
-                                    Elegir Rol
-                                </button>
 
-                                <div class="modal fade bd-example-modal-sm" id="rolesa" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-sm" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <div class="form-group" style="float: left">
-                                                    <label>Porfavor seleciona el Rol Cliente</label>
-                                                    <h:selectManyListbox class="form-control" value="#{usuariosController.nuevoUsuario.rolesList}">
-                                                        <f:selectItems id="rolesa" value="#{rolesController.roles}" var="cd"  itemLabel="#{cd.nombre}"/>
-                                                    </h:selectManyListbox>
+                    <h3 class="col-md-11">  <h:messages showDetail="true" layout="table" 
+                                                        style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                                        errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                    </h3>
+                    <h:form prependId="false">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group col-md-6" style="float: left" >
+                                    <label style="color: white">#{msjUsuarios.TipoDocumentolabel}</label>
+                                    <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.tipoDocumento}">
+                                        <f:selectItem itemLabel="#{msjUsuarios.TipoDocumentoPlaceholder}" itemValue=""/>
+                                        <f:selectItems value="#{tipoDocumentosController.tipodocumentos}" var="td" itemLabel="#{td.nombre}"/>
+                                    </h:selectOneMenu>
+                                </div>
+
+                                <div class="form-group col-md-6" style="float: left">
+                                    <label style="color: white">#{msjUsuarios.NumeroDocumentolabel}</label>
+                                    <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.numerodocumento}"/>
+                                </div>
+
+                                <div class="form-group col-md-4" style="float: left">
+                                    <label style="color: white">#{msjUsuarios.Nombreslabel}</label>
+                                    <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.nombres}"/>
+                                </div>
+                                <div class="form-group col-md-4" style="float: left">
+                                    <label style="color: white">#{msjUsuarios.PrimerApellidolabel}</label>
+                                    <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.primerApellido}"/>
+                                </div>
+                                <div class="form-group col-md-4" style="float: left">
+                                    <label style="color: white">#{msjUsuarios.SegundoApellidolabel}</label>
+                                    <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.segundoApellido}"/>
+                                </div>
+                                <div class="form-group col-md-4" style="float: left">
+                                    <label style="color: white">#{msjUsuarios.CorreoLabel}</label>
+                                    <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.correo}"/>
+                                </div>
+                                <div class="form-group col-md-4" style="float: left">
+                                    <label style="color: white">#{msjUsuarios.ClaveSecret}</label>
+                                    <h:inputSecret class="form-control" value="#{usuariosController.nuevoUsuario.clave}"/>
+                                </div>
+
+                                <div class="form-group col-md-4" style="float: left">
+                                    <label style="color: white">#{msjUsuarios.ConfirmaciónClaveSecret}</label>
+                                    <h:inputSecret id="calve" class="form-control" value="#{usuariosController.clave}"/>
+                                </div>
+
+                                <div class="form-group col-md-4" style="float: left">
+                                    <label style="color: white">#{msjUsuarios.Ciudadlabel}</label>
+                                    <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.ciudad}">
+                                        <f:selectItem itemLabel="#{msjUsuarios.SelecioneCiudadPlaceholder}" itemValue=""/>
+                                        <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
+                                    </h:selectOneMenu>
+                                </div>
+
+                                <div class="form-group col-md-4" style="float: left">
+                                    <label style="color: white">#{msjUsuarios.Telefonolabel}</label>
+                                    <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.telefono}"/>
+                                </div>
+
+
+
+                                <div class="form-group col-md-4" style="float: left">
+                                    <label></label>
+                                    <button type="button" class="btn btn-primary col-lg-12" value="Buscar" action="#{rolesController.llenarRoles()}" update="rolesa" data-toggle="modal" data-target="#rolesa">
+                                        #{msjUsuarios.btnElegirRol}
+                                    </button>
+
+                                    <div class="modal fade bd-example-modal-sm" id="rolesa" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-sm" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <div class="form-group" style="float: left">
+                                                        <label>#{msjUsuarios.btnElegirRol}</label>
+                                                        <h:selectManyListbox class="form-control" value="#{usuariosController.nuevoUsuario.rolesList}">
+                                                            <f:selectItems id="rolesa" value="#{rolesController.roles}" var="cd"  itemLabel="#{cd.nombre}"/>
+                                                        </h:selectManyListbox>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal">Listo</button>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">#{msjUsuarios.btnGuardar}</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <a class="btn btn-secondary" href="InicioSesion.xhtml">Cancelar</a>
-                        <h:commandButton class="btn btn-primary" value="Registrar" action="#{usuariosController.registrar()}"/>
-                    </div>
+                        <div class="col-sm-12">
+                            <a class="btn btn-secondary" href="InicioSesion.xhtml">#{msjUsuarios.btnVolver}</a>
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                            <h:commandButton class="btn btn-primary" value="#{msjUsuarios.btnRegistrarlabel}" action="#{usuariosController.registrar()}"/>
+                        </div>
 
-                </h:form>
-            </div>
-
-
-        </center>
-
-
+                    </h:form>
+                </div>
 
 
-
+            </center>
 
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-        <!-- stats.js -->
 
-        <script src="#{request.contextPath}/resources/assets/js/lib/stats.js" type="text/javascript"></script>
-        <script src="#{request.contextPath}/resources/assets/js/particles.min.js" type="text/javascript"></script>
-        <script src="#{request.contextPath}/resources/assets/js/particulas.js" type="text/javascript"></script>
 
-    </h:body>
+
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+            <!-- stats.js -->
+
+            <script src="#{request.contextPath}/resources/assets/js/lib/stats.js" type="text/javascript"></script>
+            <script src="#{request.contextPath}/resources/assets/js/particles.min.js" type="text/javascript"></script>
+            <script src="#{request.contextPath}/resources/assets/js/particulas.js" type="text/javascript"></script>
+
+        </h:body>
+    </f:view>
 </html>
 

@@ -108,7 +108,7 @@ public class UsuariosController implements Serializable {
                 nuevoUsuario.setEstado((short) 0);
                 uDAO.create(nuevoUsuario);
                 MessageUtil.sendInfo(null, " Su Registro Fue Exitoso ", "", false);
-                return "/sesion/Admin/Usuarios/listar.xhtml";
+                return "/sesion/Registrorealizado.xhtml";
             } else {
                 MessageUtil.sendError(null, " Las Contraseñas no Coinciden Porfavor Volver a Ponerlas ", "", false);
             }
@@ -187,5 +187,19 @@ public class UsuariosController implements Serializable {
     }
     
     
-
+    public void actualizarConf() {
+        try {
+            if (clave != null && clave.equals(usuarioSelecionado.getClave())) {
+                uDAO.edit(usuarioSelecionado);
+                MessageUtil.sendInfo(null, "La Información del Usuario se ha Modificado Correctamente", "", false);
+                usuarios = null;
+            }else{
+                MessageUtil.sendError(null, "No se Actualizo la Informacion del Usuario, Contraseña Incorrecta","",false);
+            } 
+        } catch (Exception e) {
+            e.printStackTrace();
+            MessageUtil.sendError(null, "Error al Modificar la Información del usuario", e.getMessage(), false);
+        }
+    }
+    
 }

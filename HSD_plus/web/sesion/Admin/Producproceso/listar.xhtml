@@ -6,143 +6,167 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Producto en Proceso</title>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
-    </h:head>
-    <h:body>
-        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
-            <div style="position: absolute" >
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
-                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-                </h:panelGroup>
-            </div>
-        </nav>    
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Producto en Proceso</h1>
-                        <!-- /.row -->
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <title>Producto en Proceso</title>
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+        </h:head>
+        <h:body>
+            <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+                <div style="position: absolute" >
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                    </h:panelGroup>
+                </div>
+            </nav>    
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Producto en Proceso</h1>
+                            <!-- /.row -->
 
-                        <h3>  <h:messages showDetail="true" layout="table" 
-                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
-                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
-                        </h3>
-                        <h:form prependId="false">
-                            <div>
-                                <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nuevo Proceso</a>
-                            </div>
-                            <p></p>
-                            <div class="btn-group" style="position: absolute">
-                                <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Accion
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
-                                    <label>Imprimir </label>
-                                    <br></br>                                    
-                                    <h:commandLink>
-                                        <h:graphicImage url="/resources/assets/Img/Excel.png"/>
-                                        <p:dataExporter type="xls" target="productoproceso" fileName="productos en Procesos"/>
-                                        <label>Exportar a Excel </label>
-                                    </h:commandLink><br></br>
-                                    <h:commandLink>
-                                        <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
-                                        <p:dataExporter type="pdf" target="productoproceso" fileName="Productos en Procesos"/>
-                                        <label>Exportar a Pdf </label>
-                                    </h:commandLink><br></br>
+                            <h3>  <h:messages showDetail="true" layout="table" 
+                                              style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                              errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                            </h3>
+                            <h:form prependId="false">
+                                <div>
+                                    <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nuevo Proceso</a>
+                                </div>
+                                <p></p>
+                                <div class="btn-group" style="position: absolute">
+                                    <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Accion
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
+                                        <label>Imprimir </label>
+                                        <br></br>                                    
+                                        <h:commandLink>
+                                            <h:graphicImage url="/resources/assets/Img/Excel.png"/>
+                                            <p:dataExporter type="xls" target="productoproceso" fileName="productos en Procesos"/>
+                                            <label>Exportar a Excel </label>
+                                        </h:commandLink><br></br>
+                                        <h:commandLink>
+                                            <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
+                                            <p:dataExporter type="pdf" target="productoproceso" fileName="Productos en Procesos"/>
+                                            <label>Exportar a Pdf </label>
+                                        </h:commandLink><br></br>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="form-group col-lg-12">
+                                        <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Coloque un Texto"></input>
+                                    </div>
+
+                                    <script>
+                                        // Write on keyup event of keyword input element
+                                        $(document).ready(function () {
+                                            $("#search").keyup(function () {
+                                                _this = this;
+                                                // Show only matching TR, hide rest of them
+                                                $.each($("#productoproceso tbody tr"), function () {
+                                                    if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                                                        $(this).hide();
+                                                    else
+                                                        $(this).show();
+                                                });
+                                            });
+                                        });
+                                    </script>
 
                                 </div>
-                            </div>
-                           
-                            <br></br>
-                            <br></br>
 
-                            <style type="text/css">
-                                .ui-paginator-page{
-                                    background-color:white !important;   
-                                }
-                                .ui-paginator{ 
-                                    background-color:black !important;   
-                                }
-                            </style>
-                            <p:dataTable id="productoproceso" var="pp" value="#{productoProcesoController.productoProceso}" rows="10"
-                                         paginator="true"
-                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
-                                         rowsPerPageTemplate="5,10,15"
-                                         >
-                                <p:column headerText="Id" style="width: 50px">
-                                    <h:outputText value="#{pp.idProceso}" />
-                                </p:column>
+                                <br></br>
+                                <br></br>
 
-                                <p:column headerText="Fecha del Proceso">
-                                    <h:outputText value="#{pp.fechaProceso}" />
-                                </p:column>
+                                <style type="text/css">
+                                    .ui-paginator-page{
+                                        background-color:white !important;   
+                                    }
+                                    .ui-paginator{ 
+                                        background-color:black !important;   
+                                    }
+                                </style>
+                                <p:dataTable id="productoproceso" var="pp" value="#{productoProcesoController.productoProceso}" rows="10"
+                                             paginator="true"
+                                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                             currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                                             rowsPerPageTemplate="5,10,15"
+                                             >
+                                    <p:column headerText="Id" style="width: 50px">
+                                        <h:outputText value="#{pp.idProceso}" />
+                                    </p:column>
 
-                                <p:column headerText="Articulos Iniciales">
-                                    <h:outputText value="#{pp.articuloInicial.nombre} - #{pp.articuloInicial2.nombre}" />
-                                </p:column>
+                                    <p:column headerText="Fecha del Proceso">
+                                        <h:outputText value="#{pp.fechaProceso}" />
+                                    </p:column>
 
-                                <p:column headerText="Producto Final">
-                                    <h:outputText value="#{pp.productoFinal.articulo.nombre}" />
-                                </p:column>
-                                <p:column headerText="Cantidad Optenida">
-                                    <h:outputText value="#{pp.cantidad}" />
-                                </p:column>
+                                    <p:column headerText="Articulos Iniciales">
+                                        <h:outputText value="#{pp.articuloInicial.nombre} - #{pp.articuloInicial2.nombre}" />
+                                    </p:column>
 
-                                <p:column exportable="false">
-                                    <f:facet name="header">OPCIONES</f:facet>
+                                    <p:column headerText="Producto Final">
+                                        <h:outputText value="#{pp.productoFinal.articulo.nombre}" />
+                                    </p:column>
+                                    <p:column headerText="Cantidad Optenida">
+                                        <h:outputText value="#{pp.cantidad}" />
+                                    </p:column>
 
-                                    <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoProceso" 
-                                                   action="#{productoProcesoController.selecionarProceso(pp)}">
-                                        <i class="fa fa-eye"></i>
-                                        <f:ajax render=":verInfoProcesoContent"/>
-                                    </h:commandLink>
+                                    <p:column exportable="false">
+                                        <f:facet name="header">OPCIONES</f:facet>
 
-                                    <h:commandLink class="btn btn-warning"
-                                                   action="#{productoProcesoController.selecionarProceso(pp)}"
-                                                   a:data-toggle="modal" a:data-target="#editarInfoProceso">
-                                        <i class="fa fa-pencil" ></i>
-                                        <f:ajax render=":editarInfoProcesoContent"/>
-                                    </h:commandLink>
+                                        <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoProceso" 
+                                                       action="#{productoProcesoController.selecionarProceso(pp)}">
+                                            <i class="fa fa-eye"></i>
+                                            <f:ajax render=":verInfoProcesoContent"/>
+                                        </h:commandLink>
 
-                                    <h:commandLink class="btn btn-danger" 
-                                                   action="#{productoProcesoController.selecionarProceso(pp)}"
-                                                   a:data-toggle="modal" a:data-target="#eliminarProceso">
-                                        <i class="fa fa-trash"></i>
-                                        <f:ajax render=":confirmEmiliminarProceso"/>
-                                    </h:commandLink>
-                                </p:column>
+                                        <h:commandLink class="btn btn-warning"
+                                                       action="#{productoProcesoController.selecionarProceso(pp)}"
+                                                       a:data-toggle="modal" a:data-target="#editarInfoProceso">
+                                            <i class="fa fa-pencil" ></i>
+                                            <f:ajax render=":editarInfoProcesoContent"/>
+                                        </h:commandLink>
 
-                                <f:facet name="paginatorTopLeft">
-                                    <p:commandButton type="button" icon="pi pi-refresh" />
-                                </f:facet>
+                                        <h:commandLink class="btn btn-danger" 
+                                                       action="#{productoProcesoController.selecionarProceso(pp)}"
+                                                       a:data-toggle="modal" a:data-target="#eliminarProceso">
+                                            <i class="fa fa-trash"></i>
+                                            <f:ajax render=":confirmEmiliminarProceso"/>
+                                        </h:commandLink>
+                                    </p:column>
 
-                                <f:facet name="paginatorBottomRight">
-                                    <p:commandButton type="button" icon="pi pi-cloud-upload" />
-                                </f:facet>
+                                    <f:facet name="paginatorTopLeft">
+                                        <p:commandButton type="button" icon="pi pi-refresh" />
+                                    </f:facet>
 
-                            </p:dataTable>
+                                    <f:facet name="paginatorBottomRight">
+                                        <p:commandButton type="button" icon="pi pi-cloud-upload" />
+                                    </f:facet>
 
-                        </h:form>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Producproceso/ver-info-proceso.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Producproceso/confirmar_eliminar.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Producproceso/editar-info-proceso.xhtml"></ui:include>
+                                </p:dataTable>
 
+                            </h:form>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Producproceso/ver-info-proceso.xhtml"></ui:include>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Producproceso/confirmar_eliminar.xhtml"></ui:include>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Producproceso/editar-info-proceso.xhtml"></ui:include>
 
 
 
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-    </h:body>
+        </h:body>
+    </f:view>
 </html>
 

@@ -6,153 +6,155 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Inventario General</title>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
-    </h:head>
-    <h:body>
-        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
-            <div style="position: absolute" >
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
-                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-                </h:panelGroup>
-            </div>
-        </nav>    
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Inventario General</h1>
-                        <!-- /.row -->
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <title>Inventario General</title>
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+        </h:head>
+        <h:body>
+            <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+                <div style="position: absolute" >
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                    </h:panelGroup>
+                </div>
+            </nav>    
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Inventario General</h1>
+                            <!-- /.row -->
 
-                        <h3>  <h:messages showDetail="true" layout="table" 
-                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
-                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
-                        </h3>
-                        <h:form prependId="false">
-                            <div>
-                                <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nuevo Ingreso</a>
-                            </div>
-                            <p></p>
-                            <div class="btn-group" style="position: absolute">
-                                <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Accion
-                                </button>
+                            <h3>  <h:messages showDetail="true" layout="table" 
+                                              style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                              errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                            </h3>
+                            <h:form prependId="false">
+                                <div>
+                                    <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nuevo Ingreso</a>
+                                </div>
+                                <p></p>
+                                <div class="btn-group" style="position: absolute">
+                                    <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Accion
+                                    </button>
 
-                                <div class="dropdown-menu">
-                                    <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
-                                    <label>Imprimir </label>
-                                    <br></br>                                    
-                                    <h:commandLink>
-                                        <h:graphicImage url="/resources/assets/Img/Excel.png"/>
-                                        <p:dataExporter type="xls" target="inventariogeneral" fileName="Inventario General"/>
-                                        <label>Exportar a Excel </label>
-                                    </h:commandLink><br></br>
-                                    <h:commandLink>
-                                        <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
-                                        <p:dataExporter type="pdf" target="inventariogeneral" fileName="Inventario General"/>
-                                        <label>Exportar a Pdf </label>
-                                    </h:commandLink><br></br>
+                                    <div class="dropdown-menu">
+                                        <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
+                                        <label>Imprimir </label>
+                                        <br></br>                                    
+                                        <h:commandLink>
+                                            <h:graphicImage url="/resources/assets/Img/Excel.png"/>
+                                            <p:dataExporter type="xls" target="inventariogeneral" fileName="Inventario General"/>
+                                            <label>Exportar a Excel </label>
+                                        </h:commandLink><br></br>
+                                        <h:commandLink>
+                                            <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
+                                            <p:dataExporter type="pdf" target="inventariogeneral" fileName="Inventario General"/>
+                                            <label>Exportar a Pdf </label>
+                                        </h:commandLink><br></br>
+
+                                    </div>
+                                </div>
+                                <div style="float: right">
+                                    <p:inputText  a:placeholder="Digite un Texto" value="#{inventarioGeneralController.textoBuscar}"/>
+                                    &nbsp;
+                                    <p:commandButton value="Buscar" action="#{inventarioGeneralController.llenarArticulos()}" update="inventariogeneral"/>
+                                    <br></br>
 
                                 </div>
-                            </div>
-                            <div style="float: right">
-                                <p:inputText  a:placeholder="Digite un Texto" value="#{inventarioGeneralController.textoBuscar}"/>
-                                &nbsp;
-                                <p:commandButton value="Buscar" action="#{inventarioGeneralController.llenarArticulos()}" update="inventariogeneral"/>
                                 <br></br>
+                                <br></br>
+                                <style type="text/css">
+                                    .ui-paginator-page{
+                                        background-color:white !important;   
+                                    }
+                                    .ui-paginator{ 
+                                        background-color:black !important;   
+                                    }
+                                </style>
+                                <p:dataTable id="inventariogeneral" var="ig" value="#{inventarioGeneralController.inventarioGeneral}" rows="10"
+                                             paginator="true"
+                                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                             currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                                             rowsPerPageTemplate="5,10,15"
+                                             >
+                                    <p:column headerText="Id" style="width: 50px">
+                                        <h:outputText value="#{ig.idArticulo}" />
+                                    </p:column>
 
-                            </div>
-                            <br></br>
-                            <br></br>
-                            <style type="text/css">
-                                .ui-paginator-page{
-                                    background-color:white !important;   
-                                }
-                                .ui-paginator{ 
-                                    background-color:black !important;   
-                                }
-                            </style>
-                            <p:dataTable id="inventariogeneral" var="ig" value="#{inventarioGeneralController.inventarioGeneral}" rows="10"
-                                         paginator="true"
-                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
-                                         rowsPerPageTemplate="5,10,15"
-                                         >
-                                <p:column headerText="Id" style="width: 50px">
-                                    <h:outputText value="#{ig.idArticulo}" />
-                                </p:column>
+                                    <p:column headerText="Nombre">
+                                        <h:outputText value="#{ig.nombre}" />
+                                    </p:column>
 
-                                <p:column headerText="Nombre">
-                                    <h:outputText value="#{ig.nombre}" />
-                                </p:column>
+                                    <p:column headerText="Cantidad">
+                                        <h:outputText value="#{ig.cantidadUnitaria}" />
+                                    </p:column>
 
-                                <p:column headerText="Cantidad">
-                                    <h:outputText value="#{ig.cantidadUnitaria}" />
-                                </p:column>
+                                    <p:column headerText="Precio de Compra">
+                                        <h:outputText value="#{ig.preciodeCompra}" />
+                                    </p:column>
 
-                                <p:column headerText="Precio de Compra">
-                                    <h:outputText value="#{ig.preciodeCompra}" />
-                                </p:column>
+                                    <p:column headerText="Peso en Libra">
+                                        <h:outputText value="#{ig.pesoLibra}" />
+                                    </p:column>
+                                    <p:column headerText="Color">
+                                        <h:outputText value="#{ig.color}" />
+                                    </p:column>
 
-                                <p:column headerText="Peso en Libra">
-                                    <h:outputText value="#{ig.pesoLibra}" />
-                                </p:column>
-                                <p:column headerText="Color">
-                                    <h:outputText value="#{ig.color}" />
-                                </p:column>
+                                    <p:column exportable="false">
+                                        <f:facet name="header">OPCIONES</f:facet>
 
-                                <p:column exportable="false">
-                                    <f:facet name="header">OPCIONES</f:facet>
+                                        <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoArticulo" 
+                                                       action="#{inventarioGeneralController.selecionarArticulo(ig)}">
+                                            <i class="fa fa-eye"></i>
+                                            <f:ajax render=":verInfoArticuloContent"/>
+                                        </h:commandLink>
 
-                                    <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoArticulo" 
-                                                   action="#{inventarioGeneralController.selecionarArticulo(ig)}">
-                                        <i class="fa fa-eye"></i>
-                                        <f:ajax render=":verInfoArticuloContent"/>
-                                    </h:commandLink>
+                                        <h:commandLink class="btn btn-warning"
+                                                       action="#{inventarioGeneralController.selecionarArticulo(ig)}"
+                                                       a:data-toggle="modal" a:data-target="#editarInfoAriculo">
+                                            <i class="fa fa-pencil" ></i>
+                                            <f:ajax render=":editarInfoArticuloContent"/>
+                                        </h:commandLink>
 
-                                    <h:commandLink class="btn btn-warning"
-                                                   action="#{inventarioGeneralController.selecionarArticulo(ig)}"
-                                                   a:data-toggle="modal" a:data-target="#editarInfoAriculo">
-                                        <i class="fa fa-pencil" ></i>
-                                        <f:ajax render=":editarInfoArticuloContent"/>
-                                    </h:commandLink>
+                                        <h:commandLink class="btn btn-danger" 
+                                                       action="#{inventarioGeneralController.selecionarArticulo(ig)}"
+                                                       a:data-toggle="modal" a:data-target="#eliminarArticulo">
+                                            <i class="fa fa-trash"></i>
+                                            <f:ajax render=":confirmEmiliminarArticulo"/>
+                                        </h:commandLink>
+                                    </p:column>
 
-                                    <h:commandLink class="btn btn-danger" 
-                                                   action="#{inventarioGeneralController.selecionarArticulo(ig)}"
-                                                   a:data-toggle="modal" a:data-target="#eliminarArticulo">
-                                        <i class="fa fa-trash"></i>
-                                        <f:ajax render=":confirmEmiliminarArticulo"/>
-                                    </h:commandLink>
-                                </p:column>
+                                    <f:facet name="paginatorTopLeft">
+                                        <p:commandButton type="button" icon="pi pi-refresh" />
+                                    </f:facet>
 
-                                <f:facet name="paginatorTopLeft">
-                                    <p:commandButton type="button" icon="pi pi-refresh" />
-                                </f:facet>
+                                    <f:facet name="paginatorBottomRight">
+                                        <p:commandButton type="button" icon="pi pi-cloud-upload" />
+                                    </f:facet>
 
-                                <f:facet name="paginatorBottomRight">
-                                    <p:commandButton type="button" icon="pi pi-cloud-upload" />
-                                </f:facet>
+                                </p:dataTable>
 
-                            </p:dataTable>
-
-                        </h:form>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/InventarioGeneral/ver-info-articulos.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/InventarioGeneral/confirmar_eliminar.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/InventarioGeneral/editar-info-articulos.xhtml"></ui:include>
+                            </h:form>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/InventarioGeneral/ver-info-articulos.xhtml"></ui:include>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/InventarioGeneral/confirmar_eliminar.xhtml"></ui:include>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/InventarioGeneral/editar-info-articulos.xhtml"></ui:include>
 
 
 
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-    </h:body>
+        </h:body>
+    </f:view>
 </html>
 

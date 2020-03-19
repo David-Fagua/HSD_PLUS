@@ -37,4 +37,16 @@ public class ProductoProcesoDAO extends AbstractDAO<ProductoProceso> implements 
         List<ProductoProceso> lst = q.getResultList();
         return lst;
     }
+    
+    public int cantidadProcesos(boolean estado) {
+        int cantidad = 0;
+        try {
+            Query q = em.createNativeQuery("SELECT COUNT(id_proceso) FROM producto_proceso WHERE producto_proceso.estado= ?");
+            q.setParameter(1, estado);
+            long cantidadL = (long) q.getSingleResult();
+            cantidad = (int) cantidadL;
+        } catch (Exception e) {
+        }
+        return cantidad;
+    }
 }

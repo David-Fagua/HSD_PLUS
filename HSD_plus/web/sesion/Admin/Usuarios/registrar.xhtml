@@ -4,112 +4,114 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>Registrar Usuario</title>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
-    </h:head>
-    <h:body>
-        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
-            <div style="position: absolute" >
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
-                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-                </h:panelGroup>
-            </div>
-        </nav>    
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Registrar Usuario</h1>
-                        <!-- /.row -->
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <title>Registrar Usuario</title>
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+        </h:head>
+        <h:body>
+            <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+                <div style="position: absolute" >
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                    </h:panelGroup>
+                </div>
+            </nav>    
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Registrar Usuario</h1>
+                            <!-- /.row -->
 
 
 
 
-                        <h3>  <h:messages showDetail="true" layout="table" 
-                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
-                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
-                        </h3>
-                        <h:form prependId="false">
-                            <div class="row">
-                                <div class="col-md-12">
+                            <h3>  <h:messages showDetail="true" layout="table" 
+                                              style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                              errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                            </h3>
+                            <h:form prependId="false">
+                                <div class="row">
+                                    <div class="col-md-12">
 
-                                    <div class="form-group col-md-6" >
-                                        <label>Tipo de Documento</label>
-                                        <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.tipoDocumento}">
-                                            <f:selectItem itemLabel="Selecione un Tipo de Documento" itemValue=""/>
-                                            <f:selectItems value="#{tipoDocumentosController.tipodocumentos}" var="td" itemLabel="#{td.nombre}"/>
-                                        </h:selectOneMenu>
-                                    </div>
+                                        <div class="form-group col-md-6" >
+                                            <label>Tipo de Documento</label>
+                                            <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.tipoDocumento}">
+                                                <f:selectItem itemLabel="Selecione un Tipo de Documento" itemValue=""/>
+                                                <f:selectItems value="#{tipoDocumentosController.tipodocumentos}" var="td" itemLabel="#{td.nombre}"/>
+                                            </h:selectOneMenu>
+                                        </div>
 
-                                    <div class="form-group col-md-6" >
-                                        <label>Numero de Documento</label>
-                                        <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.numerodocumento}"/>
-                                    </div>
+                                        <div class="form-group col-md-6" >
+                                            <label>Numero de Documento</label>
+                                            <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.numerodocumento}"/>
+                                        </div>
 
-                                    <div class="form-group col-md-4" >
-                                        <label>Nombres</label>
-                                        <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.nombres}"/>
-                                    </div>
-                                    <div class="form-group col-md-4" >
-                                        <label>Primer Apellido</label>
-                                        <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.primerApellido}"/>
-                                    </div>
-                                    <div class="form-group col-md-4" >
-                                        <label>Segundo Apellido</label>
-                                        <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.segundoApellido}"/>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label>Correo</label>
-                                        <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.correo}"/>
-                                    </div>
-                                    <div class="form-group col-md-4" >
-                                        <label>Clave</label>
-                                        <h:inputSecret class="form-control" value="#{usuariosController.nuevoUsuario.clave}"/>
-                                    </div>
+                                        <div class="form-group col-md-4" >
+                                            <label>Nombres</label>
+                                            <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.nombres}"/>
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label>Primer Apellido</label>
+                                            <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.primerApellido}"/>
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label>Segundo Apellido</label>
+                                            <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.segundoApellido}"/>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label>Correo</label>
+                                            <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.correo}"/>
+                                        </div>
+                                        <div class="form-group col-md-4" >
+                                            <label>Clave</label>
+                                            <h:inputSecret class="form-control" value="#{usuariosController.nuevoUsuario.clave}"/>
+                                        </div>
 
-                                    <div class="form-group col-md-4">
-                                        <label>Confirmación Clave</label>
-                                        <h:inputSecret id="calve" class="form-control" value="#{usuariosController.clave}"/>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-4" >
-                                        <label>Ciudad</label>
-                                        <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.ciudad}">
-                                            <f:selectItem itemLabel="Selecione una ciudad" itemValue=""/>
-                                            <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
-                                        </h:selectOneMenu>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-4" style="float: left">
-                                        <label>Telefono</label>
-                                        <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.telefono}"/>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-4" style="float: right">
-                                        <label>Rol</label>
-                                        <h:selectManyListbox class="form-control" value="#{usuariosController.nuevoUsuario.rolesList}">
-                                            <f:selectItems  value="#{rolesController.roles}" var="r" itemLabel="#{r.nombre}"/>
-                                        </h:selectManyListbox>
-                                    </div>
+                                        <div class="form-group col-md-4">
+                                            <label>Confirmación Clave</label>
+                                            <h:inputSecret id="calve" class="form-control" value="#{usuariosController.clave}"/>
+                                        </div>
+
+                                        <div class="form-group col-md-4" >
+                                            <label>Ciudad</label>
+                                            <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.ciudad}">
+                                                <f:selectItem itemLabel="Selecione una ciudad" itemValue=""/>
+                                                <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
+                                            </h:selectOneMenu>
+                                        </div>
+
+                                        <div class="form-group col-md-4" style="float: left">
+                                            <label>Telefono</label>
+                                            <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.telefono}"/>
+                                        </div>
+
+                                        <div class="form-group col-md-4" style="float: right">
+                                            <label>Rol</label>
+                                            <h:selectManyListbox class="form-control" value="#{usuariosController.nuevoUsuario.rolesList}">
+                                                <f:selectItems  value="#{rolesController.roles}" var="r" itemLabel="#{r.nombre}"/>
+                                            </h:selectManyListbox>
+                                        </div>
 
 
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <a class="btn btn-secondary" href="listar.xhtml">Cancelar</a>
-                                <h:commandButton class="btn btn-primary" value="Registrar" action="#{usuariosController.registrar()}"/>
-                            </div>
+                                <div class="col-sm-12">
+                                    <a class="btn btn-secondary" href="listar.xhtml">Cancelar</a>
+                                    <h:commandButton class="btn btn-primary" value="Registrar" action="#{usuariosController.registrar()}"/>
+                                </div>
 
-                        </h:form>
+                            </h:form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-    </h:body>
+        </h:body>
+    </f:view>
 </html>

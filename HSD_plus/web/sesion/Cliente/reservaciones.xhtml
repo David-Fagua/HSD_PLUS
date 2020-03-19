@@ -7,7 +7,7 @@
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Catalogo</title>
+        <title>Reservaciones</title>
         <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
     </h:head>
     <h:body>
@@ -26,13 +26,13 @@
                     </h3>
                     <h:form prependId="false">
                         <div style="float: right">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-2">
                                 <h:selectOneMenu class="form-control" value="#{ReservasController.textoBuscar}">
                                     <f:selectItem itemLabel="Usuario" itemValue="#{sessionController.user.idUsuario}"/>
                                 </h:selectOneMenu>
                             </div>
                             &nbsp;
-                            <p:commandButton value="Buscar" action="#{ReservasController.llenarReserva()}" update="reservas"/>
+                            <p:commandButton value="Consultar Mis Reservas" id="lista" action="#{ReservasController.llenarReserva()}" update="reservas"/>
                             <br></br>
 
                         </div>
@@ -40,28 +40,6 @@
                             <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nueva Reserva</a>
                         </div>
                         <p></p>
-                        
-                        <div class="btn-group" style="position: absolute">
-                            <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Accion
-                            </button>
-                            <div class="dropdown-menu">
-                                <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
-                                <label>Imprimir </label>
-                                <br></br>                                    
-                                <h:commandLink>
-                                    <h:graphicImage url="/resources/assets/Img/Excel.png"/>
-                                    <p:dataExporter type="xls" target="reservas" fileName="Reservas"/>
-                                    <label>Exportar a Excel </label>
-                                </h:commandLink><br></br>
-                                <h:commandLink>
-                                    <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
-                                    <p:dataExporter type="pdf" target="reservas" fileName="Reservas"/>
-                                    <label>Exportar a Pdf </label>
-                                </h:commandLink><br></br>
-
-                            </div>
-                        </div>
 
                         <br></br>
                         <br></br>
@@ -73,7 +51,7 @@
                                 background-color:black !important;   
                             }
                         </style>
-                        <p:dataTable id="reservas" var="rs" value="#{ReservasController.reservas}" rows="10"
+                            <p:dataTable id="reservas" var="rs" value="#{ReservasController.reservas}" rows="10"
                                      paginator="true"
                                      paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                      currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
@@ -85,16 +63,7 @@
 
                             <p:column headerText="Fecha">
                                 <h:outputText value="#{rs.fechaReserva}" />
-                            </p:column>
-
-
-                            <p:column headerText="Cantidad">
-                                <h:outputText value="#{rs.cantidad}" />
-                            </p:column>
-
-                            <p:column headerText="Precio Total">
-                                <h:outputText value="#{rs.precioTotal}" />
-                            </p:column>
+                            </p:column>                      
 
                             <p:column headerText="Cliente">
                                 <h:outputText value="#{rs.cliente.nombres} #{rs.cliente.primerApellido}" />
@@ -103,29 +72,7 @@
                             <p:column headerText="Observaciones">
                                 <h:outputText value="#{rs.observaciones}" />
                             </p:column>
-                            <p:column exportable="false" >
-                                <f:facet name="header">OPCIONES</f:facet>
-
-                                <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoReserva" 
-                                               action="#{ReservasController.selecionarReserva(rs)}">
-                                    <i class="fa fa-eye"></i>
-                                    <f:ajax render=":verInfoReservaContent"/>
-                                </h:commandLink>
-
-                                <h:commandLink class="btn btn-warning"
-                                               action="#{ReservasController.selecionarReserva(rs)}"
-                                               a:data-toggle="modal" a:data-target="#editarInfoReserva">
-                                    <i class="fa fa-pencil" ></i>
-                                    <f:ajax render=":editarInfoReservaContent"/>
-                                </h:commandLink>
-
-                                <h:commandLink class="btn btn-danger" 
-                                               action="#{ReservasController.selecionarReserva(rs)}"
-                                               a:data-toggle="modal" a:data-target="#eliminarReserva">
-                                    <i class="fa fa-trash"></i>
-                                    <f:ajax render=":confirmEmiliminarReserva"/>
-                                </h:commandLink>
-                            </p:column>
+                            
 
                             <f:facet name="paginatorTopLeft">
                                 <p:commandButton type="button" icon="pi pi-refresh" />

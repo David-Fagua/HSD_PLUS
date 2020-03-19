@@ -17,4 +17,6 @@ import javax.ejb.Local;
 public interface IProductoProcesoDAO extends DAO<ProductoProceso>{
     
     public List<ProductoProceso> obtenerprocesoBusquedaxCadena(String cadena);
+    
+    public int cantidadProcesos(boolean estado);
 }

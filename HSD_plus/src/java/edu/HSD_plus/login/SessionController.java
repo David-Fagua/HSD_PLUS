@@ -30,7 +30,7 @@ public class SessionController implements Serializable {
     private IUsuariosDAO uDAO;
 
     private String email;
-    private String password;    
+    private String password;
     private Usuarios usuarioSelecionado;
     private Usuarios user;
     private List<Usuarios> usuarios;
@@ -79,8 +79,8 @@ public class SessionController implements Serializable {
                 && password != null && password.trim().length() > 0) {
             user = uDAO.findByEmailAndPassword(email, password);
             if (user != null) {
-                if (user.getEstado() == 0 ){
-                    
+                if (user.getEstado() == 0) {
+
                     if (!user.getRolesList().isEmpty()) {
                         RolSelecionado = user.getRolesList().get(0);
                         return "/sesion/Admin/InicioA.xhtml?faces-redirect=true";
@@ -120,6 +120,41 @@ public class SessionController implements Serializable {
         }
     }
 
+    public String recordarClave() {
+        String salida = "";
+        try {
+            try {
+                int numerodocumentoIn = Integer.parseInt(email);
+                user = uDAO.consultaUsuario("", numerodocumentoIn);
+
+            } catch (Exception e) {
+                user = uDAO.consultaUsuario(email, 0);
+
+            }
+
+            if (user != null) {
+                // recupera clave
+                double numeroAleatori = Math.random() * 100000000;
+                int claveInt = (int) numeroAleatori;
+                user.setClave("" + claveInt);
+                uDAO.edit(user);
+
+                JavaMail.sendClaves(user.getCorreo(), user.getNombres(), user.getPrimerApellido(), user.getClave());
+
+                MessageUtil.sendInfo(null, "Usuario", "Correo enviado correctamentet", false);
+
+            } else {
+                // usuario no existe
+                MessageUtil.sendInfo(null, "Usuario", "No Existe en la base de Datos", false);
+
+            }
+
+        } catch (Exception e) {
+
+        }
+        return salida;
+    }
+
     public long graficaUsu(boolean consultUsu) {
 
         try {
@@ -136,16 +171,16 @@ public class SessionController implements Serializable {
     public void setUsuarioSelecionado(Usuarios usuarioSelecionado) {
         this.usuarioSelecionado = usuarioSelecionado;
     }
-    
+
     public void selecionarUsuario(Usuarios u) {
         System.out.print("Se ha Selecionado el Usuario");
         System.out.print(u);
         this.usuarioSelecionado = u;
     }
-    
-    public void actualizar(){
+
+    public void actualizar() {
         try {
-            if(usuarioSelecionado != null){
+            if (usuarioSelecionado != null) {
                 uDAO.edit(usuarioSelecionado);
                 MessageUtil.sendInfo(null, "La Información del Usuario se ha Modificado Correctamente", "", false);
                 usuarios = null;
@@ -155,6 +190,10 @@ public class SessionController implements Serializable {
             MessageUtil.sendError(null, "Error al Modificar la Información del usuario", e.getMessage(), false);
         }
     }
+
+    
+
+    
     
 
 }

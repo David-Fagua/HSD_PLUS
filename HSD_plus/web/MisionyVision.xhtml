@@ -2,42 +2,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <h:head>
-        <link rel="icon" type="resources/assets/img/png" href="#{request.contextPath}/resources/assets/Img/Logo.png"/>
-        <title>Mision y Vision</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
-        <meta charset="utf-8"/>
-    </h:head>
-    <h:body>
-        <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-superior.xhtml"></ui:include>
-        
-        <div class="container">
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading">Misión</h2>
-                    <p class="lead">Somos una empresa dedicada a la comercialización y distribución de productos informáticos, fabricación de ordenadores, desarrollo de aplicaciones informáticas de gestión, soluciones en Internet, servicio técnico y mantenimiento de equipos y sistemas informáticos, hosting, y consultoría de protección de datos. Ofreciendo una solución a todo el territorio nacional.</p>
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <link rel="icon" type="resources/assets/img/png" href="#{request.contextPath}/resources/assets/Img/Logo.png"/>
+            <title>Mision y Vision</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+            <meta charset="utf-8"/>
+        </h:head>
+        <h:body>
+            <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-superior.xhtml"></ui:include>
+
+            <div class="container">
+                <div class="row featurette">
+                    <div class="col-md-7">
+                        <h2 class="featurette-heading">#{msjIndex.MisionLabel}</h2>
+                        <p class="lead">#{msjIndex.MisionHiloslabel}</p>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="resources/assets/Img/17.jpg" class="card-img-top" alt="img"></img>
+                    </div>
                 </div>
-                <div class="col-md-5">
-                    <img src="resources/assets/Img/17.jpg" class="card-img-top" alt="img"></img>
+                <br></br>
+                <div class="row featurette">
+                    <div class="col-md-7 order-md-2">
+                        <h2 class="featurette-heading">#{msjIndex.VisionLabel}</h2>
+                        <p class="lead">#{msjIndex.VisionHiloslabel}</p>
+                    </div>
+                    <div class="col-md-5 order-md-1">
+                        <img src="resources/assets/Img/18.jpg" class="card-img-top" alt="img"></img>
+                    </div>
                 </div>
+                <br></br>
             </div>
-            <br></br>
-            <div class="row featurette">
-                <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading">Visión</h2>
-                    <p class="lead">Pretendemos ser un referente en el mercado nacional en el sector de las TIC, y para ello abarcaremos todos los servicios que ofrecemos actualmente incrementando los que vayan surgiendo debido a la necesidad de cambio provocado por los avances tecnológicos. Esto es así ya que somos una empresa en constante innovación ya que el sector de la tecnología así lo requiere.</p>
-                </div>
-                <div class="col-md-5 order-md-1">
-                    <img src="resources/assets/Img/18.jpg" class="card-img-top" alt="img"></img>
-                </div>
-            </div>
-            <br></br>
-        </div>
 
 
 
-        <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-inferior.xhtml"></ui:include>
-    </h:body>
+            <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-inferior.xhtml"></ui:include>
+        </h:body>
+    </f:view>
 </html>
 

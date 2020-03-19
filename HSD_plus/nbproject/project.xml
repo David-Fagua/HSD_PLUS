@@ -18,25 +18,12 @@
                     <file>${file.reference.primefaces-5.0.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
+                <library dirs="200">
+                    <file>${file.reference.javax.mail.jar}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
+                </library>
             </web-module-libraries>
-            <web-module-additional-libraries>
-                <library dirs="200">
-                    <file>${libs.eclipselinkmodelgen.classpath}</file>
-                    <path-in-war>/</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${libs.eclipselink.classpath}</file>
-                    <path-in-war>/</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${libs.CopyLibs.classpath}</file>
-                    <path-in-war>/</path-in-war>
-                </library>
-                <library dirs="200">
-                    <file>${libs.javaee-endorsed-api-7.0.classpath}</file>
-                    <path-in-war>/</path-in-war>
-                </library>
-            </web-module-additional-libraries>
+            <web-module-additional-libraries/>
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>
@@ -47,6 +34,5 @@
         <libraries xmlns="http://www.netbeans.org/ns/ant-project-libraries/1">
             <definitions>.\lib\nblibraries.properties</definitions>
         </libraries>
-        <libraries xmlns="http://www.netbeans.org/ns/cdnjs-libraries/1"/>
     </configuration>
 </project>

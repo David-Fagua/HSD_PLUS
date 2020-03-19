@@ -91,6 +91,18 @@ public class ReservasController implements Serializable{
         }
         return null;
     }
+    public String registrar2(){
+        try {
+            nuevaReseva.setIdReserva(rsDAO.count() + 100);
+            nuevaReseva.setIdReserva(rsDAO.count() + 100);
+            rsDAO.create(nuevaReseva);
+            MessageUtil.sendInfo(null, " El  Registro de la Reserva Fue Exitoso ", "", false);
+            return "/sesion/Cliente/reservaciones.xhtml";
+        } catch (Exception e) {
+            MessageUtil.sendError(null, " Error al Registrar la Reserva porfavor verifique bien los datos ", e.getMessage(), false);
+        }
+        return null;
+    }
     
     public void eliminar() {
         try {
@@ -124,4 +136,10 @@ public class ReservasController implements Serializable{
     public void llenarReserva(){
         reserva=rsDAO.obtenerreservaBusquedaxCadena(textoBuscar);
     }
+    
+    public void llenarReservaFecha(){
+        reserva=rsDAO.obtenerreservaBusquedaxCadenafecha(textoBuscar);
+    }
+    
+    
 }

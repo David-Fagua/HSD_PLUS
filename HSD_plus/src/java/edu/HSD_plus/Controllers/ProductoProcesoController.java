@@ -123,4 +123,13 @@ public class ProductoProcesoController implements Serializable{
     public void llenarProceso(){
         proceso=ppDAO.obtenerprocesoBusquedaxCadena(textoBuscar);
     }
+    
+    public long graficaPro(boolean consultPro) {
+
+        try {
+            return ppDAO.cantidadProcesos(consultPro);
+        } catch (Exception e) {
+        }
+        return 0;
+    }
 }

@@ -6,53 +6,55 @@
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <link rel="icon" type="resources/assets/img/png" href="#{request.contextPath}/resources/assets/Img/Logo.png"/>
-        <title>Catalogo</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
-        <meta charset="utf-8"/>
-    </h:head>
-    <h:body>
-        <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-superior.xhtml"></ui:include>
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <link rel="icon" type="resources/assets/img/png" href="#{request.contextPath}/resources/assets/Img/Logo.png"/>
+            <title>Catalogo</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+            <meta charset="utf-8"/>
+        </h:head>
+        <h:body>
+            <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-superior.xhtml"></ui:include>
 
-        <div class="container">
-            <p:dataTable class="table " value="#{catalogoController.catalogo}"
-                         var="cl">
-                <p:column style="width: 400px; background-color: white; border-color: white">
-                    <f:facet name="header"></f:facet>
-                    <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="300" height="200px " class="d-block w-100" alt="..."/>
+            <div class="container">
+                <p:dataTable class="table " value="#{catalogoController.catalogo}"
+                             var="cl">
+                    <p:column style="width: 400px; background-color: white; border-color: white">
+                        <f:facet name="header"></f:facet>
+                        <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="300" height="200px " class="d-block w-100" alt="..."/>
 
-                </p:column>
+                    </p:column>
 
-                <p:column style="width: 400px; background-color: white; border-color: white">
-                    <f:facet name="header"></f:facet>
-                    <h3><b><h:outputText value="#{cl.nombre}"/></b></h3>
-                    <br></br>
-                    <h4><h:outputText value="#{cl.descripcion}"/></h4>
-                </p:column>
+                    <p:column style="width: 400px; background-color: white; border-color: white">
+                        <f:facet name="header"></f:facet>
+                        <h3><b><h:outputText value="#{cl.nombre}"/></b></h3>
+                        <br></br>
+                        <h4><h:outputText value="#{cl.descripcion}"/></h4>
+                    </p:column>
 
-                <p:column style="width: 120px; background-color: white; border-color: white">
-                    <f:facet name="header"></f:facet>
-                    <h:outputText value="#{cl.fecha}"/>
-                </p:column>
-                <p:column style="background-color: white; border-color: white">
-                    <f:facet name="header"></f:facet>
-                    <h3><b><h:outputText value="#{cl.precioUnitario}"/></b></h3>
-                </p:column>
-                <p:column style="width: 50px; background-color: white; border-color: white">
-                    <f:facet name="header"></f:facet>
-                    <h:outputText value="#{cl.stock}"/>
-                </p:column>
+                    <p:column style="width: 120px; background-color: white; border-color: white">
+                        <f:facet name="header"></f:facet>
+                        <h:outputText value="#{cl.fecha}"/>
+                    </p:column>
+                    <p:column style="background-color: white; border-color: white">
+                        <f:facet name="header"></f:facet>
+                        <h3><b><h:outputText value="#{cl.precioUnitario}"/></b></h3>
+                    </p:column>
+                    <p:column style="width: 50px; background-color: white; border-color: white">
+                        <f:facet name="header"></f:facet>
+                        <h:outputText value="#{cl.stock}"/>
+                    </p:column>
 
-            </p:dataTable>
-        </div>
-
-
-
+                </p:dataTable>
+            </div>
 
 
 
-        <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-inferior.xhtml"></ui:include>
-    </h:body>
+
+
+
+            <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-inferior.xhtml"></ui:include>
+        </h:body>
+    </f:view>
 </html>
 

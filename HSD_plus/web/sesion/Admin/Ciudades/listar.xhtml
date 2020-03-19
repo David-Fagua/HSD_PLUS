@@ -6,136 +6,138 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Ciudad</title>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
-    </h:head>
-    <h:body>
-        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
-            <div style="position: absolute" >
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
-                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-                </h:panelGroup>
-            </div>
-        </nav>    
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Ciudades</h1>
-                        <!-- /.row -->
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <title>Ciudad</title>
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+        </h:head>
+        <h:body>
+            <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+                <div style="position: absolute" >
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                    </h:panelGroup>
+                </div>
+            </nav>    
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Ciudades</h1>
+                            <!-- /.row -->
 
-                        <h3>  <h:messages showDetail="true" layout="table" 
-                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
-                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
-                        </h3>
-                        <h:form prependId="false">
-                            <div>
-                                <h:commandLink class="btn btn-primary"
-                                               a:data-toggle="modal" a:data-target="#registrarCiudad">
-                                    <i class="fa fa-primary" >Agregar Ciudad</i>
-                                    <f:ajax render=":registrarCiudadContent"/>
-                                </h:commandLink>
-                            </div>
-                            <p></p>
+                            <h3>  <h:messages showDetail="true" layout="table" 
+                                              style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                              errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                            </h3>
+                            <h:form prependId="false">
+                                <div>
+                                    <h:commandLink class="btn btn-primary"
+                                                   a:data-toggle="modal" a:data-target="#registrarCiudad">
+                                        <i class="fa fa-primary" >Agregar Ciudad</i>
+                                        <f:ajax render=":registrarCiudadContent"/>
+                                    </h:commandLink>
+                                </div>
+                                <p></p>
 
-                            <div class="btn-group" style="position: absolute">
-                                <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Accion
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
-                                    <label>Imprimir </label>
-                                    <br></br>                                    
-                                    <h:commandLink>
-                                        <h:graphicImage url="/resources/assets/Img/Excel.png"/>
-                                        <p:dataExporter type="xls" target="ciudades" fileName="Ciudades"/>
-                                        <label>Exportar a Excel </label>
-                                    </h:commandLink><br></br>
-                                    <h:commandLink>
-                                        <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
-                                        <p:dataExporter type="pdf" target="ciudades" fileName="Ciudades"/>
-                                        <label>Exportar a Pdf </label>
-                                    </h:commandLink><br></br>
+                                <div class="btn-group" style="position: absolute">
+                                    <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Accion
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
+                                        <label>Imprimir </label>
+                                        <br></br>                                    
+                                        <h:commandLink>
+                                            <h:graphicImage url="/resources/assets/Img/Excel.png"/>
+                                            <p:dataExporter type="xls" target="ciudades" fileName="Ciudades"/>
+                                            <label>Exportar a Excel </label>
+                                        </h:commandLink><br></br>
+                                        <h:commandLink>
+                                            <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
+                                            <p:dataExporter type="pdf" target="ciudades" fileName="Ciudades"/>
+                                            <label>Exportar a Pdf </label>
+                                        </h:commandLink><br></br>
+
+                                    </div>
+                                </div>
+                                <div style="float: right">
+                                    <p:inputText  a:placeholder="Digite un Texto" value="#{CiudadesController.textoBuscar}"/>
+                                    &nbsp;
+                                    <p:commandButton value="Buscar" action="#{CiudadesController.llenarCiudades()}" update="ciudades"/>
+                                    <br></br>
 
                                 </div>
-                            </div>
-                            <div style="float: right">
-                                <p:inputText  a:placeholder="Digite un Texto" value="#{CiudadesController.textoBuscar}"/>
-                                &nbsp;
-                                <p:commandButton value="Buscar" action="#{CiudadesController.llenarCiudades()}" update="ciudades"/>
                                 <br></br>
-                                
-                            </div>
-                            <br></br>
-                            <br></br>
-                            <style type="text/css">
-                                .ui-paginator-page{
-                                    background-color:white !important;   
-                                }
-                                .ui-paginator{ 
-                                    background-color:black !important;   
-                                }
-                            </style>
-                            
-                            <p:dataTable id="ciudades" var="cd" value="#{CiudadesController.ciudades}" rows="10"
-                                         paginator="true" editable="true"
-                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
-                                         rowsPerPageTemplate="5,10,15"
-                                         >
-                                <p:column headerText="Id" style="width: 50px">
-                                    <h:outputText value="#{cd.idCiudad}" />
-                                </p:column>
+                                <br></br>
+                                <style type="text/css">
+                                    .ui-paginator-page{
+                                        background-color:white !important;   
+                                    }
+                                    .ui-paginator{ 
+                                        background-color:black !important;   
+                                    }
+                                </style>
 
-                                <p:column headerText="Nombre Ciudad">
-                                    <h:outputText value="#{cd.nombre}" />
-                                </p:column>
+                                <p:dataTable id="ciudades" var="cd" value="#{CiudadesController.ciudades}" rows="10"
+                                             paginator="true" editable="true"
+                                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                             currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                                             rowsPerPageTemplate="5,10,15"
+                                             >
+                                    <p:column headerText="Id" style="width: 50px">
+                                        <h:outputText value="#{cd.idCiudad}" />
+                                    </p:column>
+
+                                    <p:column headerText="Nombre Ciudad">
+                                        <h:outputText value="#{cd.nombre}" />
+                                    </p:column>
 
 
 
-                                <p:column exportable="false">
-                                    <center>
-                                        <f:facet name="header">OPCIONES</f:facet>
-                                        <h:commandLink class="btn btn-warning"
-                                                       action="#{CiudadesController.selecionarCiudad(cd)}"
-                                                       a:data-toggle="modal" a:data-target="#editarInfoCiudad">
-                                            <i class="fa fa-pencil" ></i>
-                                            <f:ajax render=":editarInfoCiudadContent"/>
-                                        </h:commandLink>
-                                        &nbsp;
-                                        <h:commandLink class="btn btn-danger" 
-                                                       action="#{CiudadesController.selecionarCiudad(cd)}"
-                                                       a:data-toggle="modal" a:data-target="#eliminarCiudad">
-                                            <i class="fa fa-trash"></i>
-                                            <f:ajax render=":confirmEmiliminarCiudad"/>
-                                        </h:commandLink> 
-                                    </center>
-                                </p:column>
+                                    <p:column exportable="false">
+                                        <center>
+                                            <f:facet name="header">OPCIONES</f:facet>
+                                            <h:commandLink class="btn btn-warning"
+                                                           action="#{CiudadesController.selecionarCiudad(cd)}"
+                                                           a:data-toggle="modal" a:data-target="#editarInfoCiudad">
+                                                <i class="fa fa-pencil" ></i>
+                                                <f:ajax render=":editarInfoCiudadContent"/>
+                                            </h:commandLink>
+                                            &nbsp;
+                                            <h:commandLink class="btn btn-danger" 
+                                                           action="#{CiudadesController.selecionarCiudad(cd)}"
+                                                           a:data-toggle="modal" a:data-target="#eliminarCiudad">
+                                                <i class="fa fa-trash"></i>
+                                                <f:ajax render=":confirmEmiliminarCiudad"/>
+                                            </h:commandLink> 
+                                        </center>
+                                    </p:column>
 
-                                <f:facet name="paginatorTopLeft">
-                                    <p:commandButton type="button" icon="pi pi-refresh" />
-                                </f:facet>
+                                    <f:facet name="paginatorTopLeft">
+                                        <p:commandButton type="button" icon="pi pi-refresh" />
+                                    </f:facet>
 
-                                <f:facet name="paginatorBottomRight">
-                                    <p:commandButton type="button" icon="pi pi-cloud-upload" />
-                                </f:facet>
+                                    <f:facet name="paginatorBottomRight">
+                                        <p:commandButton type="button" icon="pi pi-cloud-upload" />
+                                    </f:facet>
 
-                            </p:dataTable>
-                        </h:form>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Ciudades/registrar.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Ciudades/confirmar_eliminar.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Ciudades/editar-info-ciudad.xhtml"></ui:include>
+                                </p:dataTable>
+                            </h:form>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Ciudades/registrar.xhtml"></ui:include>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Ciudades/confirmar_eliminar.xhtml"></ui:include>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Ciudades/editar-info-ciudad.xhtml"></ui:include>
 
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-    </h:body>
+        </h:body>
+    </f:view>
 </html>
 

@@ -23,13 +23,34 @@
                 <br></br>
                 <div style="background-color: white">
                     <br></br>
-                    <p:inputText  a:placeholder="Digite un Texto" value="#{catalogoController.textoBuscar}"/>
-                    &nbsp;
-                    <p:commandButton value="Buscar" action="#{catalogoController.llenarCatalogo()}" update="catalogo"/>
+                    
+                    <div>
+                        <div class="form-group col-lg-7">
+                            <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Coloque Texto"></input>
+                        </div>
+
+                        <script>
+                            // Write on keyup event of keyword input element
+                            $(document).ready(function () {
+                                $("#search").keyup(function () {
+                                    _this = this;
+                                    // Show only matching TR, hide rest of them
+                                    $.each($("#catalogo tbody tr"), function () {
+                                        if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                                            $(this).hide();
+                                        else
+                                            $(this).show();
+                                    });
+                                });
+                            });
+                        </script>
+
+                    </div>
+                    <br></br>
                     <br></br>
                     <br></br>
                 </div>
-                
+
                 <h:dataTable id="catalogo" style="background-color: white" class="table"  value="#{catalogoController.catalogo}"
                              var="cl">
                     <h:column>

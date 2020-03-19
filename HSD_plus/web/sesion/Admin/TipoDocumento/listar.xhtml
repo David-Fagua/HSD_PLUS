@@ -6,132 +6,134 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Tipo Documento</title>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
-    </h:head>
-    <h:body>
-        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
-            <div style="position: absolute" >
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
-                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-                </h:panelGroup>
-            </div>
-        </nav>    
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Tipo Documento</h1>
-                        <!-- /.row -->
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <title>Tipo Documento</title>
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+        </h:head>
+        <h:body>
+            <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+                <div style="position: absolute" >
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                    </h:panelGroup>
+                </div>
+            </nav>    
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Tipo Documento</h1>
+                            <!-- /.row -->
 
-                        <h3>  <h:messages showDetail="true" layout="table" 
-                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
-                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
-                        </h3>
-                        <h:form prependId="false">
-                            <div>
-                                <h:commandLink class="btn btn-primary"
-                                               a:data-toggle="modal" a:data-target="#registrarDocumento">
-                                    <i class="fa fa-primary" >Agregar Documento</i>
-                                    <f:ajax render=":registrarDocumentoContent"/>
-                                </h:commandLink>
-                            </div>
-
-                            <p></p>
-
-                            <div class="btn-group" style="position: absolute">
-                                <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Accion
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
-                                    <label>Imprimir </label>
-                                    <br></br>                                    
-                                    <h:commandLink>
-                                        <h:graphicImage url="/resources/assets/Img/Excel.png"/>
-                                        <p:dataExporter type="xls" target="tdocumento" fileName="Tipo Documento"/>
-                                        <label>Exportar a Excel </label>
-                                    </h:commandLink><br></br>
-                                    <h:commandLink>
-                                        <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
-                                        <p:dataExporter type="pdf" target="tdocumento" fileName="Tipo Documento"/>
-                                        <label>Exportar a Pdf </label>
-                                    </h:commandLink><br></br>
-
-                                </div>
-                            </div>
-                            <br></br>
-                            <br></br>
-
-                            <style type="text/css">
-                                .ui-paginator-page{
-                                    background-color:white !important;   
-                                }
-                                .ui-paginator{ 
-                                    background-color:black !important;   
-                                }
-                            </style>
-                            <p:dataTable id="tdocumento" var="td" value="#{tipoDocumentosController.tipodocumentos}" rows="10"
-                                         paginator="true"
-                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
-                                         rowsPerPageTemplate="5,10,15"
-                                         >
-                                <p:column headerText="Id" style="width: 50px">
-                                    <h:outputText value="#{td.idTdocumento}" />
-                                </p:column>
-
-                                <p:column headerText="Nombre">
-                                    <h:outputText value="#{td.nombre}" />
-                                </p:column>
-
-                                <p:column headerText="Abrebiatura">
-                                    <h:outputText value="#{td.abrebiatura}" />
-                                </p:column>
-
-                                <p:column exportable="false" style="width: 120px">
-                                    <f:facet name="header">OPCIONES</f:facet>
-
-                                    <h:commandLink class="btn btn-warning"
-                                                   action="#{tipoDocumentosController.selecionarTipoDocumento(td)}"
-                                                   a:data-toggle="modal" a:data-target="#editarInfoDocumento">
-                                        <i class="fa fa-pencil" ></i>
-                                        <f:ajax render=":editarInfoDocumentoContent"/>
+                            <h3>  <h:messages showDetail="true" layout="table" 
+                                              style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                              errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                            </h3>
+                            <h:form prependId="false">
+                                <div>
+                                    <h:commandLink class="btn btn-primary"
+                                                   a:data-toggle="modal" a:data-target="#registrarDocumento">
+                                        <i class="fa fa-primary" >Agregar Documento</i>
+                                        <f:ajax render=":registrarDocumentoContent"/>
                                     </h:commandLink>
-                                    &nbsp;
-                                    <h:commandLink class="btn btn-danger" 
-                                                   action="#{tipoDocumentosController.selecionarTipoDocumento(td)}"
-                                                   a:data-toggle="modal" a:data-target="#eliminarDocumento">
-                                        <i class="fa fa-trash"></i>
-                                        <f:ajax render=":confirmEmiliminarDocumento"/>
-                                    </h:commandLink> 
-                                </p:column>
+                                </div>
 
-                                <f:facet name="paginatorTopLeft">
-                                    <p:commandButton type="button" icon="pi pi-refresh" />
-                                </f:facet>
+                                <p></p>
 
-                                <f:facet name="paginatorBottomRight">
-                                    <p:commandButton type="button" icon="pi pi-cloud-upload" />
-                                </f:facet>
+                                <div class="btn-group" style="position: absolute">
+                                    <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Accion
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
+                                        <label>Imprimir </label>
+                                        <br></br>                                    
+                                        <h:commandLink>
+                                            <h:graphicImage url="/resources/assets/Img/Excel.png"/>
+                                            <p:dataExporter type="xls" target="tdocumento" fileName="Tipo Documento"/>
+                                            <label>Exportar a Excel </label>
+                                        </h:commandLink><br></br>
+                                        <h:commandLink>
+                                            <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
+                                            <p:dataExporter type="pdf" target="tdocumento" fileName="Tipo Documento"/>
+                                            <label>Exportar a Pdf </label>
+                                        </h:commandLink><br></br>
 
-                            </p:dataTable>
+                                    </div>
+                                </div>
+                                <br></br>
+                                <br></br>
 
-                        </h:form>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/TipoDocumento/registrar.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/TipoDocumento/confirmar_eliminar.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/TipoDocumento/editar-info-tdocumento.xhtml"></ui:include>
+                                <style type="text/css">
+                                    .ui-paginator-page{
+                                        background-color:white !important;   
+                                    }
+                                    .ui-paginator{ 
+                                        background-color:black !important;   
+                                    }
+                                </style>
+                                <p:dataTable id="tdocumento" var="td" value="#{tipoDocumentosController.tipodocumentos}" rows="10"
+                                             paginator="true"
+                                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                             currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                                             rowsPerPageTemplate="5,10,15"
+                                             >
+                                    <p:column headerText="Id" style="width: 50px">
+                                        <h:outputText value="#{td.idTdocumento}" />
+                                    </p:column>
 
+                                    <p:column headerText="Nombre">
+                                        <h:outputText value="#{td.nombre}" />
+                                    </p:column>
+
+                                    <p:column headerText="Abrebiatura">
+                                        <h:outputText value="#{td.abrebiatura}" />
+                                    </p:column>
+
+                                    <p:column exportable="false" style="width: 120px">
+                                        <f:facet name="header">OPCIONES</f:facet>
+
+                                        <h:commandLink class="btn btn-warning"
+                                                       action="#{tipoDocumentosController.selecionarTipoDocumento(td)}"
+                                                       a:data-toggle="modal" a:data-target="#editarInfoDocumento">
+                                            <i class="fa fa-pencil" ></i>
+                                            <f:ajax render=":editarInfoDocumentoContent"/>
+                                        </h:commandLink>
+                                        &nbsp;
+                                        <h:commandLink class="btn btn-danger" 
+                                                       action="#{tipoDocumentosController.selecionarTipoDocumento(td)}"
+                                                       a:data-toggle="modal" a:data-target="#eliminarDocumento">
+                                            <i class="fa fa-trash"></i>
+                                            <f:ajax render=":confirmEmiliminarDocumento"/>
+                                        </h:commandLink> 
+                                    </p:column>
+
+                                    <f:facet name="paginatorTopLeft">
+                                        <p:commandButton type="button" icon="pi pi-refresh" />
+                                    </f:facet>
+
+                                    <f:facet name="paginatorBottomRight">
+                                        <p:commandButton type="button" icon="pi pi-cloud-upload" />
+                                    </f:facet>
+
+                                </p:dataTable>
+
+                            </h:form>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/TipoDocumento/registrar.xhtml"></ui:include>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/TipoDocumento/confirmar_eliminar.xhtml"></ui:include>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/TipoDocumento/editar-info-tdocumento.xhtml"></ui:include>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-    </h:body>
+        </h:body>
+    </f:view>
 </html>
 

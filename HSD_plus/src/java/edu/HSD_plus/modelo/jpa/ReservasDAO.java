@@ -36,5 +36,18 @@ public class ReservasDAO extends AbstractDAO<Reservas> implements IReservasDAO {
         List<Reservas> lst = q.getResultList();
         return lst;
     }
+    
+    public List<Reservas> obtenerreservaBusquedaxCadenafecha(String cadena) {
+        Query q = em.createNativeQuery("SELECT `reservas`.`id_reserva`,\n"
+                + "    `reservas`.`fecha_reserva`,\n"
+                + "    `reservas`.`cantidad`,\n"
+                + "    `reservas`.`precio_total`,\n"
+                + "    `reservas`.`estado`,\n"
+                + "    `reservas`.`observaciones`,\n"
+                + "    `reservas`.`cliente`\n"
+                + "FROM `hsd_plus`.`reservas` WHERE fecha_reserva LIKE '%" + cadena + "%';", Reservas.class);
+        List<Reservas> lst = q.getResultList();
+        return lst;
+    }
 
 }

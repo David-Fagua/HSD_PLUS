@@ -87,4 +87,25 @@ public class UsuariosDAO extends AbstractDAO<Usuarios> implements IUsuariosDAO {
         return lst;
     }
 
+    @Override
+    public Usuarios consultaUsuario(String email, int numerodocumento) {
+        Usuarios usuarioTest = null;
+        try {
+            Query q = em.createQuery("SELECT u FROM Usuarios u WHERE u.id_usuario=:numerodocumento OR u.correo=:email");
+            q.setParameter("numerodocumento", numerodocumento);
+            q.setParameter("email", email);
+
+            List<Usuarios> listaUsuarios = q.getResultList();
+
+            if (!listaUsuarios.isEmpty()) {
+                usuarioTest = listaUsuarios.get(0);
+            }
+
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return usuarioTest;
+    } 
+    
+
 }

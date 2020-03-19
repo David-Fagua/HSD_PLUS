@@ -6,144 +6,168 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Reservas</title>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
-    </h:head>
-    <h:body>
-        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
-            <div style="position: absolute" >
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
-                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-                </h:panelGroup>
-            </div>
-        </nav>    
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Reservas</h1>
-                        <!-- /.row -->
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <title>Reservas</title>
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+        </h:head>
+        <h:body>
+            <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+                <div style="position: absolute" >
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                    </h:panelGroup>
+                </div>
+            </nav>    
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Reservas</h1>
+                            <!-- /.row -->
 
-                        <h3>  <h:messages showDetail="true" layout="table" 
-                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
-                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
-                        </h3>
-                        <h:form prependId="false">
-                            <div>
-                                <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nueva Reserva</a>
-                            </div>
-                            <p></p>
-                            <div class="btn-group" style="position: absolute">
-                                <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Accion
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
-                                    <label>Imprimir </label>
-                                    <br></br>                                    
-                                    <h:commandLink>
-                                        <h:graphicImage url="/resources/assets/Img/Excel.png"/>
-                                        <p:dataExporter type="xls" target="reservas" fileName="Reservas"/>
-                                        <label>Exportar a Excel </label>
-                                    </h:commandLink><br></br>
-                                    <h:commandLink>
-                                        <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
-                                        <p:dataExporter type="pdf" target="reservas" fileName="Reservas"/>
-                                        <label>Exportar a Pdf </label>
-                                    </h:commandLink><br></br>
-
+                            <h3>  <h:messages showDetail="true" layout="table" 
+                                              style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                              errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                            </h3>
+                            <h:form prependId="false">
+                                <div>
+                                    <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nueva Reserva</a>
                                 </div>
-                            </div>
-                            
-                            <br></br>
-                            <br></br>
-                            <style type="text/css">
-                                .ui-paginator-page{
-                                    background-color:white !important;   
-                                }
-                                .ui-paginator{ 
-                                    background-color:black !important;   
-                                }
-                            </style>
-                            <p:dataTable id="reservas" var="rs" value="#{ReservasController.reservas}" rows="10"
-                                         paginator="true"
-                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
-                                         rowsPerPageTemplate="5,10,15"
-                                         >
-                                <p:column headerText="Id" style="width: 50px">
-                                    <h:outputText value="#{rs.idReserva}" />
-                                </p:column>
+                                <p></p>
+                                <div class="btn-group" style="position: absolute">
+                                    <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Accion
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
+                                        <label>Imprimir </label>
+                                        <br></br>                                    
+                                        <h:commandLink>
+                                            <h:graphicImage url="/resources/assets/Img/Excel.png"/>
+                                            <p:dataExporter type="xls" target="reservas" fileName="Reservas"/>
+                                            <label>Exportar a Excel </label>
+                                        </h:commandLink><br></br>
+                                        <h:commandLink>
+                                            <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
+                                            <p:dataExporter type="pdf" target="reservas" fileName="Reservas"/>
+                                            <label>Exportar a Pdf </label>
+                                        </h:commandLink><br></br>
 
-                                <p:column headerText="Fecha">
-                                    <h:outputText value="#{rs.fechaReserva}" />
-                                </p:column>
+                                    </div>
+                                </div>
+                                <br></br>
+                                <div>
+                                    <label>Selecione una Fecha:</label>
+                                    &nbsp;
+                                    <h:inputText a:type="date"  value="#{ReservasController.textoBuscar}"/>
+                                    &nbsp;
+                                    <p:commandButton value="Buscar" action="#{ReservasController.llenarReservaFecha()}" update="reservas"/>
+                                    <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Coloque un Texto"></input>
+                                    <script>
+                                        // Write on keyup event of keyword input element
+                                        $(document).ready(function () {
+                                            $("#search").keyup(function () {
+                                                _this = this;
+                                                // Show only matching TR, hide rest of them
+                                                $.each($("#reservas tbody tr"), function () {
+                                                    if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                                                        $(this).hide();
+                                                    else
+                                                        $(this).show();
+                                                });
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                                <br></br>
+                                <style type="text/css">
+                                    .ui-paginator-page{
+                                        background-color:white !important;   
+                                    }
+                                    .ui-paginator{ 
+                                        background-color:black !important;   
+                                    }
+                                </style>
+                                <p:dataTable id="reservas" var="rs" value="#{ReservasController.reservas}" rows="10"
+                                             paginator="true"
+                                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                             currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                                             rowsPerPageTemplate="5,10,15"
+                                             >
+                                    <p:column headerText="Id" style="width: 50px">
+                                        <h:outputText value="#{rs.idReserva}" />
+                                    </p:column>
 
-
-                                <p:column headerText="Cantidad">
-                                    <h:outputText value="#{rs.cantidad}" />
-                                </p:column>
-
-                                <p:column headerText="Precio Total">
-                                    <h:outputText value="#{rs.precioTotal}" />
-                                </p:column>
-
-                                <p:column headerText="Cliente">
-                                    <h:outputText value="#{rs.cliente.nombres} #{rs.cliente.primerApellido}" />
-                                </p:column>
-
-                                <p:column headerText="Observaciones">
-                                    <h:outputText value="#{rs.observaciones}" />
-                                </p:column>
-                                <p:column exportable="false" >
-                                    <f:facet name="header">OPCIONES</f:facet>
-
-                                    <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoReserva" 
-                                                   action="#{ReservasController.selecionarReserva(rs)}">
-                                        <i class="fa fa-eye"></i>
-                                        <f:ajax render=":verInfoReservaContent"/>
-                                    </h:commandLink>
-
-                                    <h:commandLink class="btn btn-warning"
-                                                   action="#{ReservasController.selecionarReserva(rs)}"
-                                                   a:data-toggle="modal" a:data-target="#editarInfoReserva">
-                                        <i class="fa fa-pencil" ></i>
-                                        <f:ajax render=":editarInfoReservaContent"/>
-                                    </h:commandLink>
-
-                                    <h:commandLink class="btn btn-danger" 
-                                                   action="#{ReservasController.selecionarReserva(rs)}"
-                                                   a:data-toggle="modal" a:data-target="#eliminarReserva">
-                                        <i class="fa fa-trash"></i>
-                                        <f:ajax render=":confirmEmiliminarReserva"/>
-                                    </h:commandLink>
-                                </p:column>
-
-                                <f:facet name="paginatorTopLeft">
-                                    <p:commandButton type="button" icon="pi pi-refresh" />
-                                </f:facet>
-
-                                <f:facet name="paginatorBottomRight">
-                                    <p:commandButton type="button" icon="pi pi-cloud-upload" />
-                                </f:facet>
-
-                            </p:dataTable>
-                        </h:form>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/ver-info-reservas.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/confirmar_eliminar.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/editar-info-reservas.xhtml"></ui:include>
+                                    <p:column headerText="Fecha">
+                                        <h:outputText value="#{rs.fechaReserva}" />
+                                    </p:column>
 
 
+                                    <p:column headerText="Cantidad">
+                                        <h:outputText value="#{rs.cantidad}" />
+                                    </p:column>
+
+                                    <p:column headerText="Precio Total">
+                                        <h:outputText value="#{rs.precioTotal}" />
+                                    </p:column>
+
+                                    <p:column headerText="Cliente">
+                                        <h:outputText value="#{rs.cliente.nombres} #{rs.cliente.primerApellido}" />
+                                    </p:column>
+
+                                    <p:column headerText="Observaciones">
+                                        <h:outputText value="#{rs.observaciones}" />
+                                    </p:column>
+                                    <p:column exportable="false" >
+                                        <f:facet name="header">OPCIONES</f:facet>
+
+                                        <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoReserva" 
+                                                       action="#{ReservasController.selecionarReserva(rs)}">
+                                            <i class="fa fa-eye"></i>
+                                            <f:ajax render=":verInfoReservaContent"/>
+                                        </h:commandLink>
+
+                                        <h:commandLink class="btn btn-warning"
+                                                       action="#{ReservasController.selecionarReserva(rs)}"
+                                                       a:data-toggle="modal" a:data-target="#editarInfoReserva">
+                                            <i class="fa fa-pencil" ></i>
+                                            <f:ajax render=":editarInfoReservaContent"/>
+                                        </h:commandLink>
+
+                                        <h:commandLink class="btn btn-danger" 
+                                                       action="#{ReservasController.selecionarReserva(rs)}"
+                                                       a:data-toggle="modal" a:data-target="#eliminarReserva">
+                                            <i class="fa fa-trash"></i>
+                                            <f:ajax render=":confirmEmiliminarReserva"/>
+                                        </h:commandLink>
+                                    </p:column>
+
+                                    <f:facet name="paginatorTopLeft">
+                                        <p:commandButton type="button" icon="pi pi-refresh" />
+                                    </f:facet>
+
+                                    <f:facet name="paginatorBottomRight">
+                                        <p:commandButton type="button" icon="pi pi-cloud-upload" />
+                                    </f:facet>
+
+                                </p:dataTable>
+                            </h:form>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/ver-info-reservas.xhtml"></ui:include>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/confirmar_eliminar.xhtml"></ui:include>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/editar-info-reservas.xhtml"></ui:include>
+
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-    </h:body>
+        </h:body>
+    </f:view>
 </html>
 

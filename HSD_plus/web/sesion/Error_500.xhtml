@@ -1,29 +1,32 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <meta charset="utf-8"></meta>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-	<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <meta charset="utf-8"></meta>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
 
-	<title>Error500</title>
+            <title>Error500</title>
 
-        <link rel="icon" type="image/png" href="#{request.contextPath}/resources/assets/Img/Logo.png"></link>
-        <link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/assets/css/style.css" />
-    </h:head>
-    <h:body>
-        <div id="notfound">
-		<div class="notfound">
-			<div class="notfound-404">
-				<div></div>
-				<h1>500</h1>
-			</div>
-			<h2>ERROR DE SERVIDOR INTERNO</h2>
-			<p>Incapaz de encontrar el motivo exacto del error, no se ha podido completar la solicitud.</p>
-			<a href="../index.xhtml">Pagina de Inicio</a>
-		</div>
-	</div>
-    </h:body>
+            <link rel="icon" type="image/png" href="#{request.contextPath}/resources/assets/Img/Logo.png"></link>
+            <link type="text/css" rel="stylesheet" href="#{request.contextPath}/resources/assets/css/style.css" />
+        </h:head>
+        <h:body>
+            <div id="notfound">
+                <div class="notfound">
+                    <div class="notfound-404">
+                        <div></div>
+                        <h1>500</h1>
+                    </div>
+                    <h2>ERROR DE SERVIDOR INTERNO</h2>
+                    <p>Incapaz de encontrar el motivo exacto del error, no se ha podido completar la solicitud.</p>
+                    <a href="../index.xhtml">Pagina de Inicio</a>
+                </div>
+            </div>
+        </h:body>
+    </f:view>
 </html>
 

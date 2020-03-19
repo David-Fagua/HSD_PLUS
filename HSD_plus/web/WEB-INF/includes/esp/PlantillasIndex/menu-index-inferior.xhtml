@@ -3,39 +3,54 @@
 <ui:composition  xmlns="http://www.w3.org/1999/xhtml"
                  xmlns:h="http://xmlns.jcp.org/jsf/html"
                  xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <div class="container">
+    <div class="container col-lg-11">
         <footer class="pt-5 my-md-5 pt-md-5 border-top">
             <div class="row">
-                <div class="col-6 col-md">
-                    <h5 style="color:#47A5B4;">Información Útil</h5>
+                <div class="col-md-4">
+                    <h5 style="color:#47A5B4;">#{msjIndex.InformaciónÚtillabel}</h5>
                     <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" href="#">Contacto y Ayuda</a></li>
-                        <li><a class="text-muted" href="#">Consejos de seguridad</a></li>
-                        <li><a class="text-muted" href="#">Terminos y Condiciones</a></li>
-                        <li><a class="text-muted" href="#">Acerca de HSD Plus</a></li>
-                        <li><a class="text-muted" href="#">Sumate a nosotros</a></li>
+                        <li><a class="text-muted" href="../../../../quienessomos.xhtml">#{msjIndex.ContactoyAyudaAction}</a></li>
+                        <li><a class="text-muted" href="../../../../MisionyVision.xhtml">#{msjIndex.MisiónyVisiónAction}</a></li>
+                        <li><a class="text-muted" href="../../../../Portafolio.xhtml">#{msjIndex.AcercadeHSDPlusAction}</a></li>
                     </ul>
                 </div>
-                <div class="col-6 col-md">
-                    <h5 style="color:#47A5B4;">Servicios</h5>
+                <div class="col-md-4">
+                    <h5 style="color:#47A5B4;">#{msjIndex.Servicioslabel}</h5>
                     <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" href="Registrar.xhtml">Registrar</a></li>
-                        <li><a class="text-muted" href="#">Reserva</a></li>
-                        <li><a class="text-muted" href="#">Consulta</a></li>
+                        <li><a class="text-muted" href="../../../../sesion/Registrar.xhtml">#{msjIndex.RegistrarAction}</a></li>
+                        <li><a class="text-muted" data-toggle="modal" data-target="#mensajeRegistro" href="#">#{msjIndex.ReservaAction}</a></li>
+                        <li><a class="text-muted" data-toggle="modal" data-target="#mensajeRegistro"  href="#">#{msjIndex.ConsultaAction}</a></li>
                     </ul>
                 </div>
-                <div class="col-6 col-md">
-                    <h5 style="color:#47A5B4;">Contactenos</h5>
+                <div class="col-md-4">
+                    <h5 style="color:#47A5B4;">#{msjIndex.Contactenoslabel}</h5>
                     <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" href="#">Equipo</a></li>
-                        <li><a class="text-muted" href="#">Localización</a></li>
-                        <li><a class="text-muted" href="#">Privacidad</a></li>
-                        <li><a class="text-muted" href="#">Terminos</a></li>
+                        <li><a class="text-muted" href="../../../../quienessomos.xhtml">#{msjIndex.QuienesSomosAction}</a></li>
+                        <li><a class="text-muted" href="../../../../Contactenos.xhtml">#{msjIndex.LocalizaciónAction}</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-12 col-md">
                 <small class="d-block mb-3 text-center text-muted">Copyright &copy; 2018-2019 HSD Plus</small>
+            </div>
+            <div class="modal fade" id="mensajeRegistro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">#{msjIndex.EstimadoClientelabel}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            #{msjIndex.enelDeterminadoCasodequererrealizarunareservaounaconsulta}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
+                            <a type="button" class="btn btn-primary" href="../../../../sesion/Registrar.xhtml" >Realizar Registro</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </footer>
     </div>

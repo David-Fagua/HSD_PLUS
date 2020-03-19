@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Consultar Compras</title>
+        <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+    </h:head>
+    <h:body>
+        <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+            <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/plantilla-superior-client.xhtml"/>
+        </h:panelGroup>   
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Consultar Compras</h1>
+                    <!-- /.row -->
+
+                    <h3>  <h:messages showDetail="true" layout="table" 
+                                      style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                      errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                    </h3>
+                    <h:form prependId="false">
+                        <div>
+                            <div class="form-group">
+                                <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Coloque un Texto"></input>
+                            </div>
+
+                            <script>
+                                // Write on keyup event of keyword input element
+                                $(document).ready(function () {
+                                    $("#search").keyup(function () {
+                                        _this = this;
+                                        // Show only matching TR, hide rest of them
+                                        $.each($("#ventas tbody tr"), function () {
+                                            if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                                                $(this).hide();
+                                            else
+                                                $(this).show();
+                                        });
+                                    });
+                                });
+                            </script>
+
+                        </div>
+
+
+                        <br></br>
+                        <br></br>
+                        <style type="text/css">
+                            .ui-paginator-page{
+                                background-color:white !important;   
+                            }
+                            .ui-paginator{ 
+                                background-color:black !important;   
+                            }
+                        </style>
+                        <p:dataTable id="ventas" var="rv" value="#{RventasController.ventas}" rows="10"
+                                     paginator="true"
+                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                                     rowsPerPageTemplate="5,10,15"
+                                     >
+                            <p:column headerText="Id" style="width: 50px">
+                                <h:outputText value="#{rv.idVenta}" />
+                            </p:column>
+
+                            <p:column headerText="Datos de Reserva">
+                                <h:outputText value="#{rv.reserva.idReserva}  " />
+                            </p:column>
+
+                            <p:column headerText="Cliente">
+                                <h:outputText value="#{rv.reserva.cliente.nombres}" />
+                            </p:column>                            
+
+                            <p:column headerText="Cantidad">
+                                <h:outputText value="#{rv.cantidad}" />
+                            </p:column>
+
+                            <p:column headerText="Observaciones">
+                                <h:outputText value="#{rv.observaciones}" />
+                            </p:column>
+
+                            <p:column headerText="Precio Total">
+                                <h:outputText value="#{rv.fechaVenta}" />
+                            </p:column>
+
+                            <p:column exportable="false" style="width: 60px">
+                                <f:facet name="header" >VER</f:facet>
+
+                                <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoVentas" 
+                                               action="#{RventasController.selecionarVenta(rv)}">
+                                    <i class="fa fa-eye"></i>
+                                    <f:ajax render=":verInfoVentasContent"/>
+                                </h:commandLink>
+                            </p:column>
+
+                            <f:facet name="paginatorTopLeft">
+                                <p:commandButton type="button" icon="pi pi-refresh" />
+                            </f:facet>
+
+                            <f:facet name="paginatorBottomRight">
+                                <p:commandButton type="button" icon="pi pi-cloud-upload" />
+                            </f:facet>
+
+                        </p:dataTable>
+                    </h:form>
+
+                    <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/modals/RVentas/ver-info-ventas.xhtml"></ui:include>
+                </div>
+            </div>
+        </div>
+
+    </h:body>
+</html>
+

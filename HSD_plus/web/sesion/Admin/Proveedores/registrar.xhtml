@@ -5,81 +5,83 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-    <h:head>
-        <title>Registrar Proceso</title>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
-    </h:head>
-    <h:body>
-        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
-            <div style="position: absolute" >
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
-                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-                </h:panelGroup>
-            </div>
-        </nav>    
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Registrar Proveedor</h1>
-                        <!-- /.row -->
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <title>Registrar Proceso</title>
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+        </h:head>
+        <h:body>
+            <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+                <div style="position: absolute" >
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                    </h:panelGroup>
+                </div>
+            </nav>    
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Registrar Proveedor</h1>
+                            <!-- /.row -->
 
 
 
 
-                        <h3>  <h:messages showDetail="true" layout="table" 
-                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
-                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
-                        </h3>
-                        <h:form prependId="false">
-                            <div class="row  col-md-10" style="margin: 0px 45px" >
+                            <h3>  <h:messages showDetail="true" layout="table" 
+                                              style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                              errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                            </h3>
+                            <h:form prependId="false">
+                                <div class="row  col-md-10" style="margin: 0px 45px" >
 
-                                <div class="form-group col-lg-12">
-                                    <label>Nit</label>
-                                    <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.nit}"/>
+                                    <div class="form-group col-lg-12">
+                                        <label>Nit</label>
+                                        <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.nit}"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-12">
+                                        <label>Razon social</label>
+                                        <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.razonSocial}"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-12">
+                                        <label>Telefono</label>
+                                        <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.telefono}"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-12">
+                                        <label>Email</label>
+                                        <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.email}"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label>Dirección</label>
+                                        <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.direccion}"/>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label>Ciudad</label>
+                                        <h:selectOneMenu class="form-control" value="#{proveedoresController.nuevoProveedor.ciudad}">
+                                            <f:selectItem itemLabel="Seleciona Materia Prima" itemValue=""/>
+                                            <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
+                                        </h:selectOneMenu>
+                                    </div>
                                 </div>
-
-                                <div class="form-group col-lg-12">
-                                    <label>Razon social</label>
-                                    <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.razonSocial}"/>
+                                <div class="col-sm-12" style="margin: 0px 45px" >
+                                    <a class="btn btn-secondary" href="listar.xhtml">Volver</a>
+                                    <h:commandButton class="btn btn-primary" value="Registrar" action="#{proveedoresController.registrar()}"/>
                                 </div>
-
-                                <div class="form-group col-lg-12">
-                                    <label>Telefono</label>
-                                    <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.telefono}"/>
-                                </div>
-
-                                <div class="form-group col-lg-12">
-                                    <label>Email</label>
-                                    <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.email}"/>
-                                </div>
-
-                                <div class="form-group col-lg-6">
-                                    <label>Dirección</label>
-                                    <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.direccion}"/>
-                                </div>
-
-                                <div class="form-group col-lg-6">
-                                    <label>Ciudad</label>
-                                    <h:selectOneMenu class="form-control" value="#{proveedoresController.nuevoProveedor.ciudad}">
-                                        <f:selectItem itemLabel="Seleciona Materia Prima" itemValue=""/>
-                                        <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
-                                    </h:selectOneMenu>
-                                </div>
-                            </div>
-                            <div class="col-sm-12" style="margin: 0px 45px" >
-                                <a class="btn btn-secondary" href="listar.xhtml">Volver</a>
-                                <h:commandButton class="btn btn-primary" value="Registrar" action="#{proveedoresController.registrar()}"/>
-                            </div>
-                        </h:form>
+                            </h:form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-    </h:body>
+        </h:body>
+    </f:view>
 </html>

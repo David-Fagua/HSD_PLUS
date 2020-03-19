@@ -17,4 +17,6 @@ import javax.ejb.Local;
 public interface IReservasDAO extends DAO<Reservas>{
     
     public List<Reservas> obtenerreservaBusquedaxCadena(String cadena);
+    
+    public List<Reservas> obtenerreservaBusquedaxCadenafecha(String cadena);
 }

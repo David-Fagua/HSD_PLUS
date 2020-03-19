@@ -6,160 +6,162 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Usuarios</title>
-        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
-    </h:head>
-    <h:body>
-        <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
-            <div style="position: absolute" >
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
-                    <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
-                </h:panelGroup>
-                <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-                </h:panelGroup>
-            </div>
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <title>Usuarios</title>
+            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+        </h:head>
+        <h:body>
+            <nav  class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-superior-admin.xhtml"/>
+                <div style="position: absolute" >
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/plantilla-lateral-admin.xhtml"/>
+                    </h:panelGroup>
+                    <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                    </h:panelGroup>
+                </div>
 
-        </nav>    
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Usuarios</h1>
-                        <!-- /.row -->
+            </nav>    
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Usuarios</h1>
+                            <!-- /.row -->
 
-                        <h3>  <h:messages showDetail="true" layout="table" 
-                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
-                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
-                        </h3>
+                            <h3>  <h:messages showDetail="true" layout="table" 
+                                              style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                              errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                            </h3>
 
-                        <h:form prependId="false">
-                            <div>
-                                <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nuevo Usuario</a> 
-                            </div>
-                            <p></p>
-                            <!-- Example single danger button -->
-                            <div class="btn-group" style="position: absolute">
-                                <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Accion
-                                </button>
-                                <div class="dropdown-menu">
-                                    <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
-                                    <label>Imprimir </label>
-                                    <br></br>                                    
-                                    <h:commandLink>
-                                        <h:graphicImage url="/resources/assets/Img/Excel.png"/>
-                                        <p:dataExporter type="xls" target="usuarios" fileName="usuarios"/>
-                                        <label>Exportar a Excel </label>
-                                    </h:commandLink><br></br>
-                                    <h:commandLink>
-                                        <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
-                                        <p:dataExporter type="pdf" target="usuarios" fileName="usuarios"/>
-                                        <label>Exportar a Pdf </label>
-                                    </h:commandLink><br></br>
+                            <h:form prependId="false">
+                                <div>
+                                    <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nuevo Usuario</a> 
+                                </div>
+                                <p></p>
+                                <!-- Example single danger button -->
+                                <div class="btn-group" style="position: absolute">
+                                    <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Accion
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
+                                        <br></br>                                    
+                                        <h:commandLink>
+                                            <h:graphicImage url="/resources/assets/Img/Excel.png"/>
+                                            <p:dataExporter type="xls" target="usuarios" fileName="usuarios"/>
+                                            <label>Exportar a Excel </label>
+                                        </h:commandLink><br></br>
+                                        <h:commandLink>
+                                            <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
+                                            <p:dataExporter type="pdf" target="usuarios" fileName="usuarios"/>
+                                            <label>Exportar a Pdf </label>
+                                        </h:commandLink><br></br>
+
+                                    </div>
+                                </div>
+
+                                <div style="float: right">
+                                    <p:inputText  a:placeholder="Digite un Texto" value="#{catalogoController.textoBuscar}"/>
+                                    &nbsp;
+                                    <p:commandButton value="Buscar" action="#{usuariosController.llenarUsuarios()}" update="usuarios"/>
+                                    <br></br>
 
                                 </div>
-                            </div>
-                            <div style="float: right">
-                                <p:inputText  a:placeholder="Digite un Texto" value="#{usuariosController.textoBuscar}"/>
-                                &nbsp;
-                                <p:commandButton value="Buscar" action="#{usuariosController.llenarUsuarios()}" update="usuarios"/>
+                                <br></br>
                                 <br></br>
 
-                            </div>
-                            <br></br>
-                            <br></br>
+                                <style type="text/css">
+                                    .ui-paginator-page{
+                                        background-color:white !important;   
+                                    }
+                                    .ui-paginator{ 
+                                        background-color:black !important;   
+                                    }
+                                </style>
+                                <p:dataTable id="usuarios" var="u" value="#{usuariosController.usuarios}" rows="10"
+                                             paginator="true"
+                                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                             currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                                             rowsPerPageTemplate="5,10,15"
+                                             >
+                                    <p:column headerText="Id" style="width: 50px">
+                                        <h:outputText value="#{u.idUsuario}" />
+                                    </p:column>
 
-                            <style type="text/css">
-                                .ui-paginator-page{
-                                    background-color:white !important;   
-                                }
-                                .ui-paginator{ 
-                                    background-color:black !important;   
-                                }
-                            </style>
-                            <p:dataTable id="usuarios" var="u" value="#{usuariosController.usuarios}" rows="10"
-                                         paginator="true"
-                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
-                                         rowsPerPageTemplate="5,10,15"
-                                         >
-                                <p:column headerText="Id" style="width: 50px">
-                                    <h:outputText value="#{u.idUsuario}" />
-                                </p:column>
+                                    <p:column headerText="Nombres y Apellido">
+                                        <h:outputText value="#{u.nombres} #{u.primerApellido} #{u.segundoApellido}" />
+                                    </p:column>
 
-                                <p:column headerText="Nombres y Apellido">
-                                    <h:outputText value="#{u.nombres} #{u.primerApellido} #{u.segundoApellido}" />
-                                </p:column>
+                                    <p:column headerText="Correo">
+                                        <h:outputText value="#{u.correo}" />
+                                    </p:column>
 
-                                <p:column headerText="Correo">
-                                    <h:outputText value="#{u.correo}" />
-                                </p:column>
+                                    <p:column headerText="Telefono">
+                                        <h:outputText value="#{u.telefono}" />
+                                    </p:column>
 
-                                <p:column headerText="Telefono">
-                                    <h:outputText value="#{u.telefono}" />
-                                </p:column>
+                                    <p:column exportable="false">
+                                        <f:facet name="header">OPCIONES</f:facet>
 
-                                <p:column exportable="false">
-                                    <f:facet name="header">OPCIONES</f:facet>
+                                        <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoUsuario" 
+                                                       action="#{usuariosController.selecionarUsuario(u)}">
+                                            <i class="fa fa-eye"></i>
+                                            <f:ajax render=":verInfoUsuarioContent"/>
+                                        </h:commandLink>
 
-                                    <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoUsuario" 
-                                                   action="#{usuariosController.selecionarUsuario(u)}">
-                                        <i class="fa fa-eye"></i>
-                                        <f:ajax render=":verInfoUsuarioContent"/>
-                                    </h:commandLink>
+                                        <h:commandLink class="btn btn-warning"
+                                                       action="#{usuariosController.selecionarUsuario(u)}"
+                                                       a:data-toggle="modal" a:data-target="#editarInfoUsuario">
+                                            <i class="fa fa-pencil" ></i>
+                                            <f:ajax render=":editarInfoUsuarioContent"/>
+                                        </h:commandLink>
 
-                                    <h:commandLink class="btn btn-warning"
-                                                   action="#{usuariosController.selecionarUsuario(u)}"
-                                                   a:data-toggle="modal" a:data-target="#editarInfoUsuario">
-                                        <i class="fa fa-pencil" ></i>
-                                        <f:ajax render=":editarInfoUsuarioContent"/>
-                                    </h:commandLink>
+                                        <h:commandLink class="btn btn-danger" 
+                                                       action="#{usuariosController.selecionarUsuario(u)}"
+                                                       a:data-toggle="modal" a:data-target="#eliminarUsuario">
+                                            <i class="fa fa-trash"></i>
+                                            <f:ajax render=":confirmEmiliminarUsuario"/>
+                                        </h:commandLink>
 
-                                    <h:commandLink class="btn btn-danger" 
-                                                   action="#{usuariosController.selecionarUsuario(u)}"
-                                                   a:data-toggle="modal" a:data-target="#eliminarUsuario">
-                                        <i class="fa fa-trash"></i>
-                                        <f:ajax render=":confirmEmiliminarUsuario"/>
-                                    </h:commandLink>
+                                        <h:commandLink rendered="#{usuariosController.renderedBtnBloquear(u)}" class="btn btn-info" style="background: #E7D40A"
+                                                       a:data-toggle="modal" a:data-target="#bloquearUsuario"
+                                                       action="#{usuariosController.selecionarUsuario(u)}">
+                                            <i class="fa fa-lock"></i>
+                                            <f:ajax render=":confirmarBloquearUsuario"/>
+                                        </h:commandLink>
+                                        <h:commandLink  rendered="#{empty u.estado or u.estado eq 0}" class="btn btn-info" style="background: gray"
+                                                        a:data-toggle="modal" a:data-target="#bloquearUsuario"
+                                                        action="#{usuariosController.selecionarUsuario(u)}" >
+                                            <i class="fa fa-unlock" ></i>
+                                            <f:ajax render=":confirmarBloquearUsuario"/>
+                                        </h:commandLink>
+                                    </p:column>
 
-                                    <h:commandLink rendered="#{usuariosController.renderedBtnBloquear(u)}" class="btn btn-info" style="background: #E7D40A"
-                                                   a:data-toggle="modal" a:data-target="#bloquearUsuario"
-                                                   action="#{usuariosController.selecionarUsuario(u)}">
-                                        <i class="fa fa-lock"></i>
-                                        <f:ajax render=":confirmarBloquearUsuario"/>
-                                    </h:commandLink>
-                                    <h:commandLink  rendered="#{empty u.estado or u.estado eq 0}" class="btn btn-info" style="background: gray"
-                                                    a:data-toggle="modal" a:data-target="#bloquearUsuario"
-                                                    action="#{usuariosController.selecionarUsuario(u)}" >
-                                        <i class="fa fa-unlock" ></i>
-                                        <f:ajax render=":confirmarBloquearUsuario"/>
-                                    </h:commandLink>
-                                </p:column>
+                                    <f:facet name="paginatorTopLeft">
+                                        <p:commandButton type="button" icon="pi pi-refresh" />
+                                    </f:facet>
 
-                                <f:facet name="paginatorTopLeft">
-                                    <p:commandButton type="button" icon="pi pi-refresh" />
-                                </f:facet>
+                                    <f:facet name="paginatorBottomRight">
+                                        <p:commandButton type="button" icon="pi pi-cloud-upload" />
+                                    </f:facet>
 
-                                <f:facet name="paginatorBottomRight">
-                                    <p:commandButton type="button" icon="pi pi-cloud-upload" />
-                                </f:facet>
+                                </p:dataTable>
 
-                            </p:dataTable>
+                            </h:form>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/usuarios/ver-info-usuarios.xhtml"></ui:include>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/usuarios/confirmar_eliminar.xhtml"></ui:include>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/usuarios/confirmar_bloquear.xhtml"></ui:include>
+                            <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/usuarios/editar-info-usuarios.xhtml"></ui:include>
 
-                        </h:form>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/usuarios/ver-info-usuarios.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/usuarios/confirmar_eliminar.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/usuarios/confirmar_bloquear.xhtml"></ui:include>
-                        <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/modals/usuarios/editar-info-usuarios.xhtml"></ui:include>
-
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-    </h:body>
+        </h:body>
+    </f:view>
 </html>
 

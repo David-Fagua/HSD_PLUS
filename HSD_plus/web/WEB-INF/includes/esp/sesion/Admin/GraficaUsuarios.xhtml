@@ -9,40 +9,41 @@
         <div class="container-fluid" >
             <div class="row" >
                 <div class="col-lg-12" >
-                    <h1 class="page-header">Bienvenido #{sessionController.user.nombres} #{sessionController.user.primerApellido}</h1>
+                    <h1 class="page-header">#{msjPlantillasAdmin.Bienvenidolabel} #{sessionController.user.nombres} #{sessionController.user.primerApellido}</h1>
                     <!-- /.row -->
 
                     <div class="col-lg-12 bg-white" style="position: absolute">
                         <div class="form d-flex align-items-center" >
                             <div class="content" >
-                                <div id="chartContainer" style="height: 400px; width: 75%;"></div>
+                                <div id="chartContenedor" style="height: 400px; width: 80%;"></div>
                                 <script>
                                     window.onload = function () {
 
-                                        var chart = new CanvasJS.Chart("chartContainer", {
+                                        var chart = new CanvasJS.Chart("chartContenedor", {
                                             theme: "light1", // "light1", "light2", "dark1", "dark2"
                                             exportEnabled: true,
                                             animationEnabled: true,
                                             title: {
-                                                text: "Usuarios Activos e Inactivos o Bloqueados"
+                                                text: "#{msjPlantillasAdmin.UsuariosActivosBloquedoslabel}"
                                             },
                                             data: [{
-                                                    type: "pie",
+                                                    type:"pie",
                                                     startAngle: 25,
                                                     toolTipContent: "<b>{label}</b>: {y}%",
                                                     showInLegend: "true",
                                                     legendText: "{label}",
                                                     indexLabelFontSize: 16,
                                                     indexLabel: "{label} = {y}%",
-                                                    dataPoints: [
-                                                        {y: #{sessionController.graficaUsu(false)}, label: "Activos"},
-                                                        {y: #{sessionController.graficaUsu(true)}, label: "Inactivos"},
-                                                        
+                                                    dataPoints: 
+                                                            [
+                                                        {y: #{sessionController.graficaUsu(false)}, label: "#{msjPlantillasAdmin.ActivosAccion}"},
+                                                        {y: #{sessionController.graficaUsu(true)}, label: "#{msjPlantillasAdmin.InactivosAccion}"},
                                                     ]
                                                 }]
                                         });
                                         chart.render();
                                     }
+                                    
                                 </script>
                                 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> 
                             </div>

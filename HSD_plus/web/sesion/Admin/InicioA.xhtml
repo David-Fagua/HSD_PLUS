@@ -2,31 +2,37 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-    <h:head>
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <title>#{msjPlantillasAdmin.BtnInicioAccion}</title>
+            <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+            <meta charset="utf-8"/>
+            <link rel="stylesheet" href="#{request.contextPath}/resources/assets/css/estilos.css"></link>
+        </h:head>
+        <h:body>
+            <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"/>
+            </h:panelGroup>
+            <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/plantilla-superior-client.xhtml"/>
+            </h:panelGroup>
 
-        <title>InicioA</title>
-        <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
-        <meta charset="utf-8"/>
-    </h:head>
-    <h:body>
-        <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
-            <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/plantilla-superiorlateral-admin.xhtml"/>
-        </h:panelGroup>
-        <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-            <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/plantilla-superior-client.xhtml"/>
-        </h:panelGroup>
+
+
+            <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
+                <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/GraficaUsuarios.xhtml"/>
+            </h:panelGroup>
 
 
 
-        <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 1}">
-            <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/GraficaUsuarios.xhtml"/>
-        </h:panelGroup>
 
-        <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-            <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/CarruselCliente.xhtml"/>
-        </h:panelGroup>
+            <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/CarruselCliente.xhtml"/>
+            </h:panelGroup>
 
-    </h:body>
+        </h:body>
+    </f:view>
 </html>
 
