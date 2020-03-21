@@ -12,7 +12,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="editarInfoProveedorContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Editar Información del Proveedor  #{proveedoresController.proveedorSelecionado.idProveedor}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjComponentes.EditarInformacionProveedorlabel} #{proveedoresController.proveedorSelecionado.idProveedor}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -25,27 +25,27 @@
                                 </div>
                                 
                                 <div class="form-group col-lg-12">
-                                    <label>Razon Social</label>
+                                    <label>#{msjComponentes.RazonSociallabel}</label>
                                     <h:inputText class="form-control" value="#{proveedoresController.proveedorSelecionado.razonSocial}"/>
                                 </div>
                                 
                             <div class="form-group col-lg-12">
-                                    <label>Telefono</label>
+                                <label>#{msjComponentes.Telefonolabel}</label>
                                     <h:inputText class="form-control" value="#{proveedoresController.proveedorSelecionado.telefono}"/>
                                 </div>
                             
                             <div class="form-group col-lg-12">
-                                    <label>Correo</label>
+                                <label>#{msjComponentes.Correolabel}</label>
                                     <h:inputText class="form-control" value="#{proveedoresController.proveedorSelecionado.email}"/>
                                 </div>
                             
                             <div class="form-group col-lg-6">
-                                    <label>Dirección</label>
+                                <label>#{msjComponentes.Direccionlabel}</label>
                                     <h:inputText class="form-control" value="#{proveedoresController.proveedorSelecionado.direccion}"/>
                                 </div>
                             
                                 <div class="form-group col-lg-6">
-                                    <label>Ciudad</label>
+                                    <label>#{msjComponentes.Ciudadalabel}</label>
                                     <h:selectOneMenu class="form-control" value="#{proveedoresController.proveedorSelecionado.ciudad}">
                                         <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
                                         <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
@@ -57,8 +57,8 @@
 
 
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <h:commandLink class="btn btn-warning" value="Guardar"
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                            <h:commandLink class="btn btn-warning" value="#{msjUsuarios.btnGuardar}"
                                            action="#{proveedoresController.actualizar()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>

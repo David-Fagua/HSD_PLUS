@@ -12,7 +12,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="editarInfoDocumentoContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Editar El Tipo de Documento  #{tipoDocumentosController.documentoSelecionado.idTdocumento}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjComponentes.EditarTdocumento}  #{tipoDocumentosController.documentoSelecionado.idTdocumento}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -23,11 +23,11 @@
 
 
                             <div class="form-group">
-                                <label>Nombre</label>
+                                <label>#{msjComponentes.Nombrelabel}</label>
                                 <h:inputText class="form-control" value="#{tipoDocumentosController.documentoSelecionado.nombre}"/>
                             </div>
                             <div class="form-group">
-                                <label>Abrebiatura</label>
+                                <label>#{msjComponentes.Abrebiaturalabel}</label>
                                 <h:inputText class="form-control" value="#{tipoDocumentosController.documentoSelecionado.abrebiatura}"/>
                             </div>
 
@@ -36,8 +36,8 @@
 
 
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <h:commandLink class="btn btn-warning" value="Guardar"
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnVolver}</button>
+                            <h:commandLink class="btn btn-warning" value="#{msjUsuarios.btnGuardar}"
                                            action="#{tipoDocumentosController.actualizar()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>

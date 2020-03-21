@@ -12,7 +12,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="editarInfoProductoContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Editar Información del Producto #{productoFinalController.productoSelecionado.idProductof}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjInventarios.EditarInformacióndelProductolabel} #{productoFinalController.productoSelecionado.idProductof}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -24,7 +24,7 @@
                             <div class="col-md-12">
 
                                 <div class="form-group col-md-12">
-                                    <label>Articulo</label>
+                                    <label>#{msjInventarios.Articulolabel}</label>
                                     <h:selectOneMenu class="form-control" value="#{productoFinalController.productoSelecionado.articulo}">
                                         <f:selectItem itemLabel="Seleciona un Producto" itemValue=""/>
                                         <f:selectItems value="#{inventarioGeneralController.inventarioGeneral}" var="ig" itemLabel="#{ig.nombre}"/>
@@ -34,7 +34,7 @@
                                 <div class="form-group col-md-12">
                                     <label>Grosor de Hilo</label>
                                     <h:selectOneMenu class="form-control" value="#{productoFinalController.productoSelecionado.grosor}">
-                                        <f:selectItem itemLabel="No Aplica" itemValue="NA"/>
+                                        <f:selectItem itemLabel="#{msjInventarios.NoAplicaPlaceholder}" itemValue="NA"/>
                                         <f:selectItem itemLabel="10" itemValue="10"/>
                                         <f:selectItem itemLabel="20" itemValue="20"/>
                                         <f:selectItem itemLabel="30" itemValue="30"/>
@@ -42,23 +42,23 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label>Fecha de Promocion</label>
+                                    <label>#{msjInventarios.fechadepromolabel}</label>
                                     <h:inputText pt:type="date" class="form-control" value="#{productoFinalController.productoSelecionado.fechaPromocion}"/>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label>disponibilidad</label>
+                                    <label>#{msjInventarios.Disponibilidadlabel}</label>
                                     <h:selectOneRadio class="form-check" value="#{productoFinalController.productoSelecionado.disponibilidad}">
-                                        <f:selectItem itemLabel="Actva" itemValue="true"/>
-                                        <f:selectItem itemLabel="Inactiva" itemValue="false"/>
+                                        <f:selectItem itemLabel="#{msjInventarios.ActivoRadione}" itemValue="true"/>
+                                        <f:selectItem itemLabel="#{msjInventarios.IncativoRadione}" itemValue="false"/>
                                     </h:selectOneRadio>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label>Existencias </label>
+                                    <label>#{msjInventarios.Existenciaslabel}</label>
                                     <h:inputText class="form-control" value="#{productoFinalController.productoSelecionado.existencias}"/>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label>Responsable</label>
+                                    <label>#{msjInventarios.Responsablelabel}</label>
                                     <h:selectOneMenu class="form-control" value="#{productoFinalController.productoSelecionado.responsable}">
                                         <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
                                         <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
@@ -67,8 +67,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <h:commandLink class="btn btn-warning" value="Guardar"
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnVolver}</button>
+                            <h:commandLink class="btn btn-warning" value="#{msjUsuarios.btnGuardar}"
                                            action="#{productoFinalController.actualizar()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>

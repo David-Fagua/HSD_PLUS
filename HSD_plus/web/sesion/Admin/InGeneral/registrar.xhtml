@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <f:view locale="#{languajeController.locale}">
         <h:head>
-            <title>Registrar Articulo</title>
+            <title>#{msjInventarios.RegistrarArticulolabeltext}</title>
             <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
         </h:head>
         <h:body>
@@ -25,7 +25,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Registrar Articulo</h1>
+                            <h1 class="page-header">#{msjInventarios.RegistrarArticulolabeltext}</h1>
                             <!-- /.row -->
 
 
@@ -41,41 +41,41 @@
                                     <div class="col-md-12">
 
                                         <div class="form-group col-md-6">
-                                            <label>Nombre</label>
+                                            <label>#{msjInventarios.Nombrelabel}</label>
                                             <h:inputText class="form-control" value="#{inventarioGeneralController.nuevoAriculo.nombre}"/>
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <label>Fecha de Entrada</label>
+                                            <label>#{msjInventarios.FechaEntradalabel}</label>
                                             <h:inputText pt:type="date" class="form-control" value="#{inventarioGeneralController.nuevoAriculo.fechaEntrada}"/>
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <label>Precio de Compra</label>
+                                            <label>#{msjInventarios.PrecioCompralabel}</label>
                                             <h:inputText class="form-control" value="#{inventarioGeneralController.nuevoAriculo.preciodeCompra}"/>
                                         </div>
 
 
                                         <div class="form-group col-md-6">
-                                            <label>Peso Libra</label>
+                                            <label>#{msjInventarios.PesoLibralabel}</label>
                                             <h:inputText class="form-control" value="#{inventarioGeneralController.nuevoAriculo.pesoLibra}"/>
                                         </div>
 
 
                                         <div class="form-group col-md-6">
-                                            <label>Cantidad Unitaria</label>
+                                            <label>#{msjInventarios.CantidadUnitarialabel}</label>
                                             <h:inputText class="form-control" value="#{inventarioGeneralController.nuevoAriculo.cantidadUnitaria}"/>
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <label>Color</label>
+                                            <label>#{msjInventarios.Colorlabel}</label>
                                             <h:inputText class="form-control" value="#{inventarioGeneralController.nuevoAriculo.color}"/>
                                         </div>
 
 
 
                                         <div class="form-group col-md-6">
-                                            <label>Proveedor</label>
+                                            <label>#{msjInventarios.Proveedorlabel}</label>
                                             <h:selectOneMenu class="form-control" value="#{inventarioGeneralController.nuevoAriculo.proveedor}">
                                                 <f:selectItem itemLabel="Selecione un Proveedor" itemValue=""/>
                                                 <f:selectItems value="#{proveedoresController.proveedor}" var="pro" itemLabel="#{pro.razonSocial}"/>
@@ -86,26 +86,26 @@
 
 
                                         <div class="form-group col-md-6">
-                                            <label>Responsable</label>
+                                            <label>#{msjInventarios.Responsablelabel}</label>
                                             <h:selectOneMenu class="form-control" value="#{inventarioGeneralController.nuevoAriculo.responsable}">
-                                                <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
+                                                <f:selectItem itemLabel="#{msjInventarios.ResponsablePlaceholder}" itemValue=""/>
                                                 <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
                                             </h:selectOneMenu>
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <label>Estado</label>
+                                            <label>#{msjInventarios.Estadolabel}</label>
                                             <h:selectOneRadio class="form-check" value="#{inventarioGeneralController.nuevoAriculo.estado}">
-                                                <f:selectItem itemLabel="Actvo" itemValue="1"/>
-                                                <f:selectItem itemLabel="Inactivo" itemValue="0"/>
+                                                <f:selectItem itemLabel="#{msjInventarios.ActivoRadione}" itemValue="1"/>
+                                                <f:selectItem itemLabel="#{msjInventarios.IncativoRadione}" itemValue="0"/>
                                             </h:selectOneRadio>
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <label>Disponibilidad</label>
+                                            <label>#{msjInventarios.Disponibilidadlabel}</label>
                                             <h:selectOneRadio class="form-check" value="#{inventarioGeneralController.nuevoAriculo.disponibilidad}">
-                                                <f:selectItem itemLabel="Actvo" itemValue="1"/>
-                                                <f:selectItem itemLabel="Inactivo" itemValue="0"/>
+                                                <f:selectItem itemLabel="#{msjInventarios.ActivoRadione}" itemValue="1"/>
+                                                <f:selectItem itemLabel="#{msjInventarios.IncativoRadione}" itemValue="0"/>
                                             </h:selectOneRadio>
                                         </div>
 
@@ -113,8 +113,8 @@
                                 </div>
 
                                 <div class="col-sm-12">
-                                    <a class="btn btn-secondary" href="listar.xhtml">Volver</a>
-                                    <h:commandButton class="btn btn-primary" value="Registrar" action="#{inventarioGeneralController.registrar()}"/>
+                                    <a class="btn btn-secondary" href="listar.xhtml">#{msjUsuarios.btnVolver}</a>
+                                    <h:commandButton class="btn btn-primary" value="#{msjUsuarios.btnRegistrarlabel}" action="#{inventarioGeneralController.registrar()}"/>
                                 </div>
 
                             </h:form>

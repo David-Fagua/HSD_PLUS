@@ -11,17 +11,17 @@
                     <h:panelGroup id="confirmEmiliminarReserva" layout="block">
                         <div id=""></div>
                         <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel" >Eliminar Reserva - #{ReservasController.reservaSelecionada.idReserva}</h4>
+                            <h4 class="modal-title" id="exampleModalLabel" >#{msjCatalogo.EliminarReserva} - #{ReservasController.reservaSelecionada.idReserva}</h4>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h5>¿ Esta Seguro de Eliminar la reserva Nro #{ReservasController.reservaSelecionada.idReserva}?</h5>
+                            <h5>¿ #{msjCatalogo.EstaSegurodeEliminarreserva} #{ReservasController.reservaSelecionada.idReserva}?</h5>
 
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                <h:commandButton class="btn btn-danger" value="Eliminar" action="#{ReservasController.eliminar()}"/>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                                <h:commandButton class="btn btn-danger" value="#{msjUsuarios.btnEliminar}" action="#{ReservasController.eliminar()}"/>
 
                             </div>
                         </div>    

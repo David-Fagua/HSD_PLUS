@@ -11,8 +11,8 @@
                 <h:form prependId="false">
                     <h:panelGroup id="editarInfoUsuarioContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Editar Información del usuario  #{usuariosController.usuarioSelecionado.idUsuario}</h3><p></p>
-                            <h5 class="modal-title" id="exampleModalLabel" >En caso de querer editar el Correo o el Rol Porfavor pongase en contacto con su Administrador</h5>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjUsuarios.EditarInformaciónusuario}  #{usuariosController.usuarioSelecionado.idUsuario}</h3><p></p>
+                            <h5 class="modal-title" id="exampleModalLabel" >#{msjUsuarios.EncasodequerereditarelCorreooelRolPorfavor}</h5>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -24,7 +24,7 @@
                                 <div class="col-md-12">
                                     
                                     <div class="form-group col-md-6">
-                                        <label>Tipo de Documento</label>
+                                        <label>#{msjUsuarios.TipoDocumentolabel}</label>
                                         <h:selectOneMenu class="form-control" value="#{usuariosController.usuarioSelecionado.tipoDocumento}">
                                             <f:selectItem itemLabel="Selecione un Tipo de Documento" itemValue=""/>
                                             <f:selectItems value="#{tipoDocumentosController.tipodocumentos}" var="td" itemLabel="#{td.nombre}"/>
@@ -32,25 +32,25 @@
                                     </div>
                                     
                                     <div class="form-group col-md-6">
-                                        <label>Numero de Documento</label>
+                                        <label>#{msjUsuarios.NumeroDocumentolabel}</label>
                                         <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.numerodocumento}"/>
                                     </div>
                                     
                                     <div class="form-group col-md-4">
-                                        <label>Nombres</label>
+                                        <label>#{msjUsuarios.Nombreslabel}</label>
                                         <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.nombres}"/>
                                     </div>
                                     <div class="form-group col-md-4" >
-                                        <label>Primer Apellido</label>
+                                        <label>#{msjUsuarios.PrimerApellidolabel}</label>
                                         <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.primerApellido}"/>
                                     </div>
                                     <div class="form-group col-md-4" >
-                                        <label>Segundo Apellido</label>
+                                        <label>#{msjUsuarios.SegundoApellidolabel}</label>
                                         <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.segundoApellido}"/>
                                     </div>
                                     
                                     <div class="form-group col-md-6">
-                                        <label>Ciudad</label>
+                                        <label>#{msjUsuarios.Ciudadlabel}</label>
                                         <h:selectOneMenu class="form-control" value="#{usuariosController.usuarioSelecionado.ciudad}">
                                             <f:selectItem itemLabel="Selecione una ciudad" itemValue=""/>
                                             <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
@@ -58,18 +58,13 @@
                                     </div>
                                     
                                     <div class="form-group col-md-6">
-                                        <label>Telefono</label>
+                                        <label>#{msjUsuarios.Telefonolabel}</label>
                                         <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.telefono}"/>
                                     </div>
                                     
                                     <div class="form-group col-md-6">
-                                        <label>Ingrece su Clave para Actualizar</label>
+                                        <label>#{msjUsuarios.IngreseclaveActualizarlabel}</label>
                                         <h:inputText class="form-control" value="#{usuariosController.clave}"/>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-6">
-                                        <label>Telefono</label>
-                                        <h:inputText class="form-control" value="#{usuariosController.usuarioSelecionado.telefono}"/>
                                     </div>
                                                                         
                                 </div>
@@ -78,8 +73,8 @@
 
 
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <h:commandLink class="btn btn-warning" value="Guardar"
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                            <h:commandLink class="btn btn-warning" value="#{msjUsuarios.btnGuardar}"
                                            action="#{usuariosController.actualizarConf()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>

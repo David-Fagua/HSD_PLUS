@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <title>#{msjPlantillasAdmin.ConfiguracionesAccion}</title>
+            <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+        </h:head>
+        <h:body>
+            <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/plantilla-superior-client.xhtml"/>
+            </h:panelGroup>    
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">#{msjPlantillasAdmin.ConfiguracionesAccion}</h1>
+                        <!-- /.row -->
+
+
+
+
+                        <h3>  <h:messages showDetail="true" layout="table" 
+                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                        </h3>
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group col-md-4">
+                                    <label>#{msjUsuarios.TipoDocumentolabel}</label>
+                                    <span class="form-control">#{sessionController.user.tipoDocumento.nombre}</span>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label>#{msjUsuarios.NumeroDocumentolabel}</label>
+                                    <span class="form-control">#{sessionController.user.numerodocumento}</span>
+                                </div>
+
+                                <div class="form-group col-md-4" >
+                                    <label>#{msjUsuarios.Ciudadlabel}</label>
+                                    <span class="form-control" >#{sessionController.user.ciudad.nombre}</span>
+                                </div>
+
+                                <div class="form-group col-md-4">
+                                    <label>#{msjUsuarios.Nombreslabel}</label>
+                                    <span class="form-control">#{sessionController.user.nombres}</span>
+                                </div>
+                                <div class="form-group col-md-4" >
+                                    <label>#{msjUsuarios.PrimerApellidolabel}</label>
+                                    <span class="form-control">#{sessionController.user.primerApellido}</span>
+                                </div>
+                                <div class="form-group col-md-4" >
+                                    <label>#{msjUsuarios.SegundoApellidolabel}</label>
+                                    <span class="form-control">#{sessionController.user.segundoApellido}</span>
+                                </div>
+
+
+                                <div class="form-group col-md-6" >
+                                    <label>#{msjUsuarios.Correolabel}</label>
+                                    <span class="form-control">#{sessionController.user.correo}</span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>#{msjUsuarios.Telefonolabel}</label>
+                                    <span class="form-control">#{sessionController.user.telefono}</span>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <h:form prependId="false">
+
+                            <p:dataTable  var="u" value="#{sessionController.user}" 
+                                          >
+                                <p:column headerText="Id" width="50">
+                                    <h:outputText  value="#{u.idUsuario}" />
+                                </p:column>
+                                <p:column headerText="#{msjUsuarios.NombresApellidosLabel}">
+                                    <h:outputText value="#{u.nombres} #{u.primerApellido} #{u.segundoApellido}" />
+
+                                </p:column>
+
+                                <p:column headerText="#{msjUsuarios.Correolabel}">
+                                    <h:outputText value="#{u.correo}" />
+                                </p:column>
+
+                                <p:column headerText="#{msjUsuarios.Telefonolabel}">
+                                    <h:outputText value="#{u.telefono}" />
+                                </p:column>
+
+                                <p:column  width="160" exportable="false">
+                                    <f:facet  name="header">#{msjUsuarios.OpcionesLabel}</f:facet>
+
+
+                                    <h:commandLink class="btn btn-warning"
+                                                   action="#{usuariosController.selecionarUsuario(u)}"
+                                                   a:data-toggle="modal" a:data-target="#editarInfoUsuario">
+                                        <i class="fa fa-pencil" >#{msjUsuarios.btnEditar}</i>
+                                        <f:ajax render=":editarInfoUsuarioContent"/>
+                                    </h:commandLink>
+
+
+                                </p:column>
+
+                                <f:facet name="paginatorTopLeft">
+                                    <p:commandButton type="button" icon="pi pi-refresh" />
+                                </f:facet>
+
+                                <f:facet name="paginatorBottomRight">
+                                    <p:commandButton type="button" icon="pi pi-cloud-upload" />
+                                </f:facet>
+
+                            </p:dataTable>
+
+                        </h:form>
+
+                        <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/modals/usuarios/editar-info-usuariosconf.xhtml"></ui:include>
+                    </div>
+                </div>
+            </div>
+
+
+        </h:body>
+    </f:view>
+</html>

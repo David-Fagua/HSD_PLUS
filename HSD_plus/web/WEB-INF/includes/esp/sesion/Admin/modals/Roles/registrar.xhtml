@@ -13,7 +13,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="registrarRolesContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Registrar Rol</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjComponentes.RegistrarRollabel}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -24,20 +24,20 @@
 
 
                             <div class="form-group">
-                                <label>Nombre Rol</label>
+                                <label>#{msjComponentes.Nombrelabel}</label>
                                 <h:inputText class="form-control" value="#{rolesController.nuevoRol.nombre}"/>
                             </div>
                             
                             <div class="form-group">
-                                <label>Fecha de Apertura</label>
+                                <label>#{msjComponentes.FechaApertura}</label>
                                 <h:inputText pt:type="date" class="form-control" value="#{rolesController.nuevoRol.fechaApertura}"/>
                             </div>
 
                         </div>
 
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <h:commandLink class="btn btn-primary" value="Guardar"
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnVolver}</button>
+                            <h:commandLink class="btn btn-primary" value="#{msjUsuarios.btnGuardar}"
                                            action="#{rolesController.registrar()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>

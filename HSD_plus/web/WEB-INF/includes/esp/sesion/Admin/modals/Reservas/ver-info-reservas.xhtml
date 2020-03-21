@@ -12,7 +12,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="verInfoReservaContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Información del Proceso Nro #{ReservasController.reservaSelecionada.idReserva}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjCatalogo.InformacionReserva} #{ReservasController.reservaSelecionada.idReserva}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -20,48 +20,48 @@
 
                         <div class="row  col-md-10" style="margin: 0px 45px" >
                             <div class="form-group col-lg-6">
-                                <label>Fecha del Proceso</label>
+                                <label>#{msjCatalogo.FechaReservalabel}</label>
                                 <span  class="form-control">#{ReservasController.reservaSelecionada.fechaReserva}</span>
                             </div>
 
                             <div class="form-group col-lg-12">
-                                <label>Producto</label>
+                                <label>#{msjCatalogo.Productolabel}</label>
                                 <h:selectManyMenu  style="height: 100px" class="form-control" value="#{ReservasController.reservaSelecionada.productoFinalList}">
-                                    <f:selectItem itemLabel="Seleciona los Aticulos de su Interes" itemValue=""/>
+                                    
                                     <f:selectItems value="#{productoFinalController.productoFinal}" var="pr" itemLabel="#{pr.articulo.nombre}"/>
                                 </h:selectManyMenu>
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label>Cantidad</label>
+                                <label>#{msjCatalogo.Cantidadlabel}</label>
                                 <span  class="form-control">#{ReservasController.reservaSelecionada.cantidad}</span>
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label>Precio Total</label>
+                                <label>#{msjCatalogo.PrecioTotallabel}</label>
                                 <span  class="form-control">#{ReservasController.reservaSelecionada.precioTotal}</span>
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label>Cliente</label>
+                                <label>#{msjCatalogo.Clientelabel}</label>
                                 <span  class="form-control">#{ReservasController.reservaSelecionada.cliente.nombres} #{ReservasController.reservaSelecionada.cliente.primerApellido}</span>
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label>Observaciones</label>
+                                <label>#{msjCatalogo.Observacioneslabel}</label>
                                 <span  class="form-control">#{ReservasController.reservaSelecionada.observaciones}</span>
                             </div>
                             <div class="form-group col-lg-6">
-                                <label>Estado</label>
+                                <label>#{msjCatalogo.Estadolabel}</label>
                                 <h:selectOneRadio class="form-check" value="#{ReservasController.reservaSelecionada.estado}">
-                                    <f:selectItem itemLabel="Iniciada" itemValue="0"/>
-                                    <f:selectItem itemLabel="Finalizada" itemValue="1"/>
+                                    <f:selectItem itemLabel="#{msjCatalogo.IniciadoRadiolabel}" itemValue="0"/>
+                                    <f:selectItem itemLabel="#{msjCatalogo.TerminadoRadiolabel}" itemValue="1"/>
                                 </h:selectOneRadio>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-secondary" href="#{request.contextPath}/sesion/Admin/Reservas/listar.xhtml" type="button" data-dismiss="modal">Volver</a>
-                            <input class="btn btn-success" type="button" onclick="printDiv('verInfoReservaContent')" value="imprimir " />
+                            <a class="btn btn-secondary" href="#{request.contextPath}/sesion/Admin/Reservas/listar.xhtml" type="button" data-dismiss="modal">#{msjUsuarios.btnVolver}</a>
+                            <input class="btn btn-success" type="button" onclick="printDiv('verInfoReservaContent')" value="#{msjUsuarios.btnImprimir}" />
                         </div>
                     </h:panelGroup>
                 </h:form>

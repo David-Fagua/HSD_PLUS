@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <f:view locale="#{languajeController.locale}">
         <h:head>
-            <title>Registrar Proceso</title>
+            <title>#{msjInventarios.btnNuevoProcesolabel}</title>
             <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
         </h:head>
         <h:body>
@@ -25,7 +25,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Registrar Proceso</h1>
+                            <h1 class="page-header">#{msjInventarios.btnNuevoProcesolabel}</h1>
                             <!-- /.row -->
 
 
@@ -38,30 +38,30 @@
                             <h:form prependId="false">
                                 <div class="row  col-md-10" style="margin: 0px 45px">
                                     <div class="form-group col-lg-7" style="float: left">
-                                        <label>Fecha del Proceso</label>
+                                        <label>#{msjInventarios.FechaProcesolabel}</label>
                                         <h:inputText pt:type="date" class="form-control" value="#{productoProcesoController.nuevoProceso.fechaProceso}"/>
                                     </div>
 
 
                                     <div class="form-group col-lg-6" style="float: right">
-                                        <label>Articulo#2</label>                                   
+                                        <label>#{msjInventarios.Articulo2label}</label>                                   
                                         <h:selectOneMenu class="form-control" value="#{productoProcesoController.nuevoProceso.articuloInicial}">
-                                            <f:selectItem itemLabel="Seleciona articulo Secuandario de Materia Prima" itemValue=""/>
+                                            <f:selectItem itemLabel="#{msjInventarios.Articulo1Placeholder}" itemValue=""/>
                                             <f:selectItems value="#{inventarioGeneralController.inventarioGeneral}" var="ig" itemLabel="#{ig.nombre}"/>
                                         </h:selectOneMenu>                                    
                                     </div>
                                     <div class="form-group col-lg-6" style="float: left">
-                                        <label>Ariculo#1</label>
+                                        <label>#{msjInventarios.Ariculo1label}</label>
                                         <h:selectOneMenu class="form-control" value="#{productoProcesoController.nuevoProceso.articuloInicial2}">
-                                            <f:selectItem itemLabel="Seleciona articulo Inicial de Materia Prima" itemValue=""/>
+                                            <f:selectItem itemLabel="#{msjInventarios.Articulo2Placeholder}" itemValue=""/>
                                             <f:selectItems value="#{inventarioGeneralController.inventarioGeneral}" var="ig" itemLabel="#{ig.nombre}"/>
                                         </h:selectOneMenu>
                                     </div>  
 
                                     <div class="form-group col-lg-12">
-                                        <label>Producto Final</label>
+                                        <label>#{msjInventarios.ProductoFinallabel}</label>
                                         <h:selectOneMenu class="form-control" value="#{productoProcesoController.nuevoProceso.productoFinal}">
-                                            <f:selectItem itemLabel="Seleciona Producto" itemValue=""/>
+                                            <f:selectItem itemLabel="#{msjInventarios.SelecionaProductoplaceholder}" itemValue=""/>
                                             <f:selectItems value="#{productoFinalController.productoFinal}" var="pf" itemLabel="#{pf.articulo.nombre}"/>
                                         </h:selectOneMenu>
                                     </div>
@@ -74,15 +74,15 @@
                                     <div class="form-group col-lg-6">
                                         <label>Responsable</label>
                                         <h:selectOneMenu class="form-control" value="#{productoProcesoController.nuevoProceso.responsable}">
-                                            <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
+                                            <f:selectItem itemLabel="#{msjInventarios.ResponsablePlaceholder}" itemValue=""/>
                                             <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
                                         </h:selectOneMenu>
                                     </div>
 
                                 </div>
                                 <div class="col-sm-12" style="margin: 0px 45px" >
-                                    <a class="btn btn-secondary" href="listar.xhtml">Cancelar</a>
-                                    <h:commandButton class="btn btn-primary" value="Registrar" action="#{productoProcesoController.registrar()}"/>
+                                    <a class="btn btn-secondary" href="listar.xhtml">#{msjUsuarios.btnCancelarlabel}</a>
+                                    <h:commandButton class="btn btn-primary" value="#{msjUsuarios.btnRegistrarlabel}" action="#{productoProcesoController.registrar()}"/>
                                 </div>
 
                             </h:form>

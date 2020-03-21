@@ -8,7 +8,7 @@
       xmlns:p="http://primefaces.org/ui">
     <f:view locale="#{languajeController.locale}">
         <h:head>
-            <title>Ciudad</title>
+            <title>#{msjComponentes.Ciudadestext}</title>
             <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
         </h:head>
         <h:body>
@@ -26,7 +26,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Ciudades</h1>
+                            <h1 class="page-header">#{msjComponentes.Ciudadestext}</h1>
                             <!-- /.row -->
 
                             <h3>  <h:messages showDetail="true" layout="table" 
@@ -37,7 +37,7 @@
                                 <div>
                                     <h:commandLink class="btn btn-primary"
                                                    a:data-toggle="modal" a:data-target="#registrarCiudad">
-                                        <i class="fa fa-primary" >Agregar Ciudad</i>
+                                        <i class="fa fa-primary" >#{msjComponentes.btnAgregarCiudad}</i>
                                         <f:ajax render=":registrarCiudadContent"/>
                                     </h:commandLink>
                                 </div>
@@ -45,29 +45,29 @@
 
                                 <div class="btn-group" style="position: absolute">
                                     <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Accion
+                                        #{msjUsuarios.btnAccion}
                                     </button>
                                     <div class="dropdown-menu">
                                         <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
-                                        <label>Imprimir </label>
+                                        
                                         <br></br>                                    
                                         <h:commandLink>
                                             <h:graphicImage url="/resources/assets/Img/Excel.png"/>
                                             <p:dataExporter type="xls" target="ciudades" fileName="Ciudades"/>
-                                            <label>Exportar a Excel </label>
+                                            <label>#{msjUsuarios.ExportarExcelAccion}</label>
                                         </h:commandLink><br></br>
                                         <h:commandLink>
                                             <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
                                             <p:dataExporter type="pdf" target="ciudades" fileName="Ciudades"/>
-                                            <label>Exportar a Pdf </label>
+                                            <label>#{msjUsuarios.ExportarPdfAccion}</label>
                                         </h:commandLink><br></br>
 
                                     </div>
                                 </div>
                                 <div style="float: right">
-                                    <p:inputText  a:placeholder="Digite un Texto" value="#{CiudadesController.textoBuscar}"/>
+                                    <p:inputText  a:placeholder="#{msjUsuarios.ColoquetextoPlacehonder}" value="#{CiudadesController.textoBuscar}"/>
                                     &nbsp;
-                                    <p:commandButton value="Buscar" action="#{CiudadesController.llenarCiudades()}" update="ciudades"/>
+                                    <p:commandButton value="#{msjUsuarios.btnBuscarlabel}" action="#{CiudadesController.llenarCiudades()}" update="ciudades"/>
                                     <br></br>
 
                                 </div>
@@ -92,7 +92,7 @@
                                         <h:outputText value="#{cd.idCiudad}" />
                                     </p:column>
 
-                                    <p:column headerText="Nombre Ciudad">
+                                    <p:column headerText="#{msjComponentes.Nombrelabel}">
                                         <h:outputText value="#{cd.nombre}" />
                                     </p:column>
 
@@ -100,7 +100,7 @@
 
                                     <p:column exportable="false">
                                         <center>
-                                            <f:facet name="header">OPCIONES</f:facet>
+                                            <f:facet name="header">#{msjComponentes.Opcioneslabel}</f:facet>
                                             <h:commandLink class="btn btn-warning"
                                                            action="#{CiudadesController.selecionarCiudad(cd)}"
                                                            a:data-toggle="modal" a:data-target="#editarInfoCiudad">

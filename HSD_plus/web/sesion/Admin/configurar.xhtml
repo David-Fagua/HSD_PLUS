@@ -8,7 +8,7 @@
       xmlns:p="http://primefaces.org/ui">
     <f:view locale="#{languajeController.locale}">
         <h:head>
-            <title>Configurar Usuario</title>
+            <title>#{msjPlantillasAdmin.ConfiguracionesAccion}</title>
             <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
         </h:head>
         <h:body>
@@ -26,7 +26,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Configurar Usuario</h1>
+                            <h1 class="page-header">#{msjPlantillasAdmin.ConfiguracionesAccion}</h1>
                             <!-- /.row -->
 
 
@@ -41,40 +41,40 @@
                                 <div class="col-md-12">
 
                                     <div class="form-group col-md-4">
-                                        <label>Tipo Documento</label>
+                                        <label>#{msjUsuarios.TipoDocumentolabel}</label>
                                         <span class="form-control">#{sessionController.user.tipoDocumento.nombre}</span>
                                     </div>
 
                                     <div class="form-group col-md-4">
-                                        <label>Numero de Documento</label>
+                                        <label>#{msjUsuarios.NumeroDocumentolabel}</label>
                                         <span class="form-control">#{sessionController.user.numerodocumento}</span>
                                     </div>
 
                                     <div class="form-group col-md-4" >
-                                        <label>Ciudad</label>
+                                        <label>#{msjUsuarios.Ciudadlabel}</label>
                                         <span class="form-control" >#{sessionController.user.ciudad.nombre}</span>
                                     </div>
 
                                     <div class="form-group col-md-4">
-                                        <label>Nombres</label>
+                                        <label>#{msjUsuarios.Nombreslabel}</label>
                                         <span class="form-control">#{sessionController.user.nombres}</span>
                                     </div>
                                     <div class="form-group col-md-4" >
-                                        <label>Primer Apellido</label>
+                                        <label>#{msjUsuarios.PrimerApellidolabel}</label>
                                         <span class="form-control">#{sessionController.user.primerApellido}</span>
                                     </div>
                                     <div class="form-group col-md-4" >
-                                        <label>Segundo Apellido</label>
+                                        <label>#{msjUsuarios.SegundoApellidolabel}</label>
                                         <span class="form-control">#{sessionController.user.segundoApellido}</span>
                                     </div>
 
 
                                     <div class="form-group col-md-6" >
-                                        <label>Correo</label>
+                                        <label>#{msjUsuarios.Correolabel}</label>
                                         <span class="form-control">#{sessionController.user.correo}</span>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label>Telefono</label>
+                                        <label>#{msjUsuarios.Telefonolabel}</label>
                                         <span class="form-control">#{sessionController.user.telefono}</span>
                                     </div>
 
@@ -88,27 +88,27 @@
                                     <p:column headerText="Id" width="50">
                                         <h:outputText  value="#{u.idUsuario}" />
                                     </p:column>
-                                    <p:column headerText="Nombres y Apellido">
+                                    <p:column headerText="#{msjUsuarios.NombresApellidosLabel}">
                                         <h:outputText value="#{u.nombres} #{u.primerApellido} #{u.segundoApellido}" />
 
                                     </p:column>
 
-                                    <p:column headerText="Correo">
+                                    <p:column headerText="#{msjUsuarios.Correolabel}">
                                         <h:outputText value="#{u.correo}" />
                                     </p:column>
 
-                                    <p:column headerText="Telefono">
+                                    <p:column headerText="#{msjUsuarios.Telefonolabel}">
                                         <h:outputText value="#{u.telefono}" />
                                     </p:column>
 
                                     <p:column  width="160" exportable="false">
-                                        <f:facet  name="header">EDITAR</f:facet>
+                                        <f:facet  name="header">#{msjUsuarios.OpcionesLabel}</f:facet>
 
 
                                         <h:commandLink class="btn btn-warning"
                                                        action="#{usuariosController.selecionarUsuario(u)}"
                                                        a:data-toggle="modal" a:data-target="#editarInfoUsuario">
-                                            <i class="fa fa-pencil" >Editar Información</i>
+                                            <i class="fa fa-pencil" >#{msjUsuarios.btnEditar}</i>
                                             <f:ajax render=":editarInfoUsuarioContent"/>
                                         </h:commandLink>
 

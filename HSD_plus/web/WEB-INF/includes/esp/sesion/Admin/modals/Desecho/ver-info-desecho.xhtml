@@ -12,7 +12,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="verInfoDesechoContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Información del Desecho Nro #{DesechoController.desechoSelecionado.idDesecho}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjInventarios.InformacióndelDesecho} #{DesechoController.desechoSelecionado.idDesecho}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -23,31 +23,31 @@
                         <div class="row  col-md-10" style="margin: 10px 45px" >
 
                                 <div class="form-group">
-                                    <label>Articulo </label>
+                                    <label>#{msjInventarios.Articulolabel}</label>
                                     <span class="form-control">#{DesechoController.desechoSelecionado.articulo.nombre}</span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Fecha</label>
+                                    <label>#{msjInventarios.FechaEntradalabel}</label>
                                     <span class="form-control">#{DesechoController.desechoSelecionado.fecha}</span>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Cantidad</label>
+                                    <label>#{msjInventarios.Catidadlabel}</label>
                                     <span class="form-control">#{DesechoController.desechoSelecionado.cantidad} </span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Observaciones</label>
+                                    <label>#{msjInventarios.Observacionesarea}</label>
                                     <span class="form-control">#{DesechoController.desechoSelecionado.observaciones}</span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Resposable</label>
+                                    <label>#{msjInventarios.Responsablelabel}</label>
                                     <span class="form-control">#{DesechoController.desechoSelecionado.responsable.nombres} #{DesechoController.desechoSelecionado.responsable.primerApellido}</span>
                                 </div>
                             
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-secondary" href="#{request.contextPath}/sesion/Admin/Desechos/listar.xhtml" type="button" data-dismiss="modal">Volver</a>
-                            <input class="btn btn-success" type="button" onclick="printDiv('verInfoDesechoContent')" value="imprimir " />
+                            <a class="btn btn-secondary" href="#{request.contextPath}/sesion/Admin/Desechos/listar.xhtml" type="button" data-dismiss="modal">#{msjUsuarios.btnVolver}</a>
+                            <input class="btn btn-success" type="button" onclick="printDiv('verInfoDesechoContent')" value="#{msjUsuarios.btnImprimir}" />
                         </div>
                     </h:panelGroup>
                 </h:form>

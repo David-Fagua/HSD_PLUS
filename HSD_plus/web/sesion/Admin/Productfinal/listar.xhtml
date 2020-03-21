@@ -8,7 +8,7 @@
       xmlns:p="http://primefaces.org/ui">
     <f:view locale="#{languajeController.locale}">
         <h:head>
-            <title>Producto Final</title>
+            <title>#{msjInventarios.ProductoFinallabel}</title>
             <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
         </h:head>
         <h:body>
@@ -26,7 +26,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Producto Final</h1>
+                            <h1 class="page-header">#{msjInventarios.ProductoFinallabel}</h1>
                             <!-- /.row -->
 
                             <h3>  <h:messages showDetail="true" layout="table" 
@@ -35,34 +35,34 @@
                             </h3>
                             <h:form prependId="false">
                                 <div>
-                                    <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nuevo Producto</a>
+                                    <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i>#{msjInventarios.RegistrarProducto}</a>
                                 </div>
                                 <p></p>
 
                                 <div class="btn-group" style="position: absolute">
                                     <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Accion
+                                        #{msjUsuarios.btnAccion}
                                     </button>
                                     <div class="dropdown-menu">
                                         <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
-                                        <label>Imprimir </label>
+                                        
                                         <br></br>                                    
                                         <h:commandLink>
                                             <h:graphicImage url="/resources/assets/Img/Excel.png"/>
                                             <p:dataExporter type="xls" target="productofinal" fileName="Productos Finales"/>
-                                            <label>Exportar a Excel </label>
+                                            <label>#{msjUsuarios.ExportarExcelAccion}</label>
                                         </h:commandLink><br></br>
                                         <h:commandLink>
                                             <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
                                             <p:dataExporter type="pdf" target="productofinal" fileName="Productos Finales"/>
-                                            <label>Exportar a Pdf </label>
+                                            <label>#{msjUsuarios.ExportarPdfAccion}</label>
                                         </h:commandLink><br></br>
 
                                     </div>
                                 </div>
                                 <div>
-                                    <div class="form-group col-lg-12">
-                                        <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Coloque un Texto"></input>
+                                    <div>
+                                        <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="#{msjUsuarios.ColoquetextoPlacehonder}"></input>
                                     </div>
 
                                     <script>
@@ -104,25 +104,25 @@
                                         <h:outputText value="#{pf.idProductof}" />
                                     </p:column>
 
-                                    <p:column headerText="Articulo">
+                                    <p:column headerText="#{msjInventarios.Articulolabel}">
                                         <h:outputText value="#{pf.articulo.nombre}" />
                                     </p:column>
 
-                                    <p:column headerText="Grosor">
+                                    <p:column headerText="#{msjInventarios.GrosorHilolabel}">
                                         <h:outputText value="#{pf.grosor}" />
                                     </p:column>
 
-                                    <p:column headerText="Existencias">
+                                    <p:column headerText="#{msjInventarios.Existenciaslabel}">
                                         <h:outputText value="#{pf.existencias}" />
                                     </p:column>
 
-                                    <p:column headerText="Fecha">
+                                    <p:column headerText="#{msjInventarios.fechadepromolabel}">
                                         <h:outputText value="#{pf.fechaPromocion}" />
                                     </p:column>
 
 
                                     <p:column exportable="false">
-                                        <f:facet name="header">OPCIONES</f:facet>
+                                        <f:facet name="header">#{msjInventarios.OpcionesLabel}</f:facet>
 
                                         <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoProducto" 
                                                        action="#{productoFinalController.selecionarProducto(pf)}">

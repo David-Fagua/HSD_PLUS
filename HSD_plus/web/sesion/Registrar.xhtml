@@ -62,8 +62,11 @@
                                     <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.segundoApellido}"/>
                                 </div>
                                 <div class="form-group col-md-4" style="float: left">
-                                    <label style="color: white">#{msjUsuarios.CorreoLabel}</label>
-                                    <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.correo}"/>
+                                    <label style="color: white">#{msjUsuarios.Correolabel}</label>
+                                    <h:inputText class="form-control" 
+                                                 pt:required="true"
+                                                 pt:type="email"  pt:aria-describedby="emailHelp"
+                                                 value="#{usuariosController.nuevoUsuario.correo}"/>
                                 </div>
                                 <div class="form-group col-md-4" style="float: left">
                                     <label style="color: white">#{msjUsuarios.ClaveSecret}</label>

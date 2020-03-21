@@ -31,4 +31,25 @@
         </resource-bundle>
     </application> 
     
+    <application>
+        <resource-bundle>
+            <base-name>edu.HSD_plus.Languaje.Componentes</base-name>
+            <var>msjComponentes</var>
+        </resource-bundle>
+    </application> 
+    
+    <application>
+        <resource-bundle>
+            <base-name>edu.HSD_plus.Languaje.Inventarios</base-name>
+            <var>msjInventarios</var>
+        </resource-bundle>
+    </application> 
+    
+    <application>
+        <resource-bundle>
+            <base-name>edu.HSD_plus.Languaje.Catalogo</base-name>
+            <var>msjCatalogo</var>
+        </resource-bundle>
+    </application> 
+    
 </faces-config>

@@ -12,7 +12,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="editarInfoVentasContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Editar Información del Proceso  #{RventasController.ventaSelecionada.idVenta}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjCatalogo.EditarInformaciónVenta}  #{RventasController.ventaSelecionada.idVenta}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -21,17 +21,16 @@
                         <div class="row  col-md-10" style="margin: 0px 45px" >
 
                             <div class="form-group">
-                                <label>Fecha del Proceso</label>
+                                <label>#{msjCatalogo.Fechalabel}</label>
                                 <h:inputText pt:type="date" class="form-control" value="#{RventasController.ventaSelecionada.fechaVenta}"/>
                             </div>
 
                             <div class="form-group">
-                                <label>Numero de Reserva</label>
+                                <label>#{msjCatalogo.DatosReservalabel}</label>
                                 <h:selectOneMenu class="form-control" value="#{RventasController.ventaSelecionada.reserva}">
                                     <f:selectItem itemLabel="Selecione datos de reservas" itemValue=""/>
                                     <f:selectItems value="#{ReservasController.reservas}" var="rs" 
                                                    itemLabel="#{rs.idReserva}  ||
-                                                   #{rs.productoFinalList}  ||
                                                    #{rs.cliente.nombres}
                                                    #{rs.cliente.primerApellido} ||
                                                    #{rs.precioTotal}
@@ -39,22 +38,22 @@
                                 </h:selectOneMenu>
                             </div>
                             <div class="form-group">
-                                <label>Observaciones</label>
+                                <label>#{msjCatalogo.Observacioneslabel}</label>
                                 <h:inputTextarea class="form-control" value="#{RventasController.ventaSelecionada.observaciones}"/>
                             </div>
 
                             <div class="form-group">
-                                <label>Cantidad</label>
+                                <label>#{msjCatalogo.Cantidadlabel}</label>
                                 <h:inputText class="form-control" value="#{RventasController.ventaSelecionada.cantidad}"/>
                             </div>
 
                             <div class="form-group">
-                                <label>Precio Total</label>
+                                <label>#{msjCatalogo.PrecioTotallabel}</label>
                                 <h:inputText class="form-control" value="#{RventasController.ventaSelecionada.presioTotal}"/>
                             </div>
 
                             <div class="form-group">
-                                <label>Responsable  </label>
+                                <label>#{msjCatalogo.Responsablelabel}</label>
                                 <h:selectOneMenu class="form-control" value="#{RventasController.ventaSelecionada.responsable}">
                                     <f:selectItem itemLabel="Seleciona el Responsable de la Venta" itemValue=""/>
                                     <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres} #{us.primerApellido}"/>
@@ -65,8 +64,8 @@
 
 
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <h:commandLink class="btn btn-warning" value="Guardar"
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnVolver}</button>
+                            <h:commandLink class="btn btn-warning" value="#{msjUsuarios.btnGuardar}"
                                            action="#{RventasController.actualizar()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>

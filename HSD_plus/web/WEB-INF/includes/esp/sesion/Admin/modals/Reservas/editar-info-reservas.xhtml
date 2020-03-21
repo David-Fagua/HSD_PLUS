@@ -12,7 +12,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="editarInfoReservaContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Editar Información del Proceso  #{ReservasController.reservaSelecionada.idReserva}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjCatalogo.EditarReservaciones}  #{ReservasController.reservaSelecionada.idReserva}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -21,7 +21,7 @@
                         <div class="row  col-md-10" style="margin: 0px 45px" >
 
                             <div class="form-group col-lg-6">
-                                <label>Cliente</label>
+                                <label>#{msjCatalogo.Clientelabel}</label>
                                 <h:selectOneMenu class="form-control" value="#{ReservasController.reservaSelecionada.cliente}">
                                     <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
                                     <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
@@ -29,12 +29,12 @@
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label>Fecha del Proceso</label>
+                                <label>#{msjCatalogo.FechaReservalabel}</label>
                                 <h:inputText pt:type="date" class="form-control" value="#{ReservasController.reservaSelecionada.fechaReserva}"/>
                             </div>
 
                             <div class="form-group col-lg-12">
-                                <label>Producto</label>
+                                <label>#{msjCatalogo.Productolabel}</label>
                                 <h:selectManyMenu  style="height: 100px" class="form-control" value="#{ReservasController.reservaSelecionada.productoFinalList}">
                                     <f:selectItem itemLabel="Seleciona los Aticulos de su Interes" itemValue=""/>
                                     <f:selectItems value="#{productoFinalController.productoFinal}" var="pr" itemLabel="#{pr.articulo.nombre}"/>
@@ -43,19 +43,19 @@
 
 
                             <div class="form-group col-lg-6">
-                                <label>Precio Total</label>
+                                <label>#{msjCatalogo.PrecioTotallabel}</label>
                                 <h:inputText class="form-control" value="#{ReservasController.reservaSelecionada.precioTotal}"/>
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label>Cantidad</label>
+                                <label>#{msjCatalogo.Cantidadlabel}</label>
                                 <h:inputText class="form-control" value="#{ReservasController.reservaSelecionada.cantidad}"/>
                             </div>
 
 
 
                             <div class="form-group col-lg-12">
-                                <label>Observaciones</label>
+                                <label>#{msjCatalogo.Observacioneslabel}</label>
                                 <h:inputTextarea class="form-control" value="#{ReservasController.reservaSelecionada.observaciones}"/>
                             </div>
 
@@ -66,8 +66,8 @@
 
 
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <h:commandLink class="btn btn-warning" value="Guardar"
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                            <h:commandLink class="btn btn-warning" value="#{msjUsuarios.btnGuardar}"
                                            action="#{ReservasController.actualizar()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>

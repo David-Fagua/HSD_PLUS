@@ -11,7 +11,7 @@
                 <h:panelGroup id="verInfoUsuarioContent">
                     <h:form>
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Información del usuario  #{usuariosController.usuarioSelecionado.idUsuario}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjUsuarios.InformaciónUsuariolabel}  #{usuariosController.usuarioSelecionado.idUsuario}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -19,23 +19,23 @@
                         <div class="row" style="margin: 5px 5px" >
                             <div class="col-md-6" >
                                 <div class="form-group">
-                                    <label>Nombres</label>
+                                    <label>#{msjUsuarios.Nombreslabel}</label>
                                     <span class="form-control">#{usuariosController.usuarioSelecionado.nombres}</span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Apellidos</label>
+                                    <label>#{msjUsuarios.Apellidoslabel}</label>
                                     <span class="form-control">#{usuariosController.usuarioSelecionado.primerApellido} #{usuariosController.usuarioSelecionado.segundoApellido}</span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Tipo de Documento</label>
+                                    <label>#{msjUsuarios.TipoDocumentolabel}</label>
                                     <span class="form-control">#{usuariosController.usuarioSelecionado.tipoDocumento.nombre} </span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Numero de Documento</label>
+                                    <label>#{msjUsuarios.NumeroDocumentolabel}</label>
                                     <span class="form-control">#{usuariosController.usuarioSelecionado.numerodocumento}</span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Correo</label>
+                                    <label>#{msjUsuarios.Correolabel}</label>
                                     <span class="form-control">#{usuariosController.usuarioSelecionado.correo}</span>
                                 </div>
                             </div>
@@ -45,19 +45,19 @@
 
 
                                 <div class="form-group">
-                                    <label>Clave</label>
+                                    <label>#{msjUsuarios.ClaveSecret}</label>
                                     <span class="form-control">#{usuariosController.usuarioSelecionado.clave}</span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Telefono</label>
+                                    <label>#{msjUsuarios.Telefonolabel}</label>
                                     <span class="form-control">#{usuariosController.usuarioSelecionado.telefono}</span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Ciudad</label>
+                                    <label>#{msjUsuarios.Ciudadlabel}</label>
                                     <span class="form-control">#{usuariosController.usuarioSelecionado.ciudad.nombre}</span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Rol</label>
+                                    <label>#{msjUsuarios.Rollabel}</label>
                                     <h:selectManyListbox class="form-control" value="#{usuariosController.usuarioSelecionado.rolesList}">
                                         <f:selectItems class="form-control" value="#{rolesController.roles}" var="r" itemLabel="#{r.nombre}"/>
                                     </h:selectManyListbox>
@@ -67,9 +67,9 @@
                         </div>
 
                         <div class="modal-footer">
-                            <a class="btn btn-secondary" href="#{request.contextPath}/sesion/Admin/Usuarios/listar.xhtml" type="button" data-dismiss="modal">Volver</a>
+                            <a class="btn btn-secondary" href="#{request.contextPath}/sesion/Admin/Usuarios/listar.xhtml" type="button" data-dismiss="modal">#{msjUsuarios.btnVolver}</a>
 
-                            <input class="btn btn-success" type="button" onclick="printDiv('verInfoUsuarioContent')" value="imprimir " />
+                            <input class="btn btn-success" type="button" onclick="printDiv('verInfoUsuarioContent')" value="#{msjUsuarios.btnImprimir}" />
 
                         </div>
                     </h:form>

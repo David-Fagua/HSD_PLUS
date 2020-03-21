@@ -6,76 +6,78 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Reservaciones</title>
-        <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
-    </h:head>
-    <h:body>
-        <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-            <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/plantilla-superior-client.xhtml"/>
-        </h:panelGroup>   
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <title>#{msjCatalogo.NuevaReservalabel}</title>
+            <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+        </h:head>
+        <h:body>
+            <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/plantilla-superior-client.xhtml"/>
+            </h:panelGroup>   
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Registrar Reserva</h1>
-                    <!-- /.row -->
-                    <ui:repeat value = "#{ReservasController.nuevaReseva.productoFinalList}" var = "pr">		
-                        #{pr.articulo.nombre}
-                    </ui:repeat>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">#{msjCatalogo.NuevaReservalabel}</h1>
+                        <!-- /.row -->
+                        <ui:repeat value = "#{ReservasController.nuevaReseva.productoFinalList}" var = "pr">		
+                            #{pr.articulo.nombre}
+                        </ui:repeat>
 
 
 
-                    <h3>  <h:messages showDetail="true" layout="table" 
-                                      style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
-                                      errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
-                    </h3>
-                    <h:form prependId="false">
-                        <div class="row  col-md-10" style="margin: 0px 45px" >
+                        <h3>  <h:messages showDetail="true" layout="table" 
+                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                        </h3>
+                        <h:form prependId="false">
+                            <div class="row  col-md-10" style="margin: 0px 45px" >
 
-                            <div class="form-group col-lg-6">
-                                <label>Cliente</label>
-                                <h:selectOneMenu class="form-control" value="#{ReservasController.nuevaReseva.cliente}">
-                                    <f:selectItem itemLabel="Porfavor Selecione su Nombre para Agilizar la Reserva" itemValue=""/>
-                                    <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
-                                </h:selectOneMenu>
+                                <div class="form-group col-lg-6">
+                                    <label>#{msjCatalogo.Clientelabel}</label>
+                                    <h:selectOneMenu class="form-control" value="#{ReservasController.nuevaReseva.cliente}">
+                                        <f:selectItem itemLabel="Porfavor Selecione su Nombre para Agilizar la Reserva" itemValue=""/>
+                                        <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
+                                    </h:selectOneMenu>
+                                </div>
+
+                                <div class="form-group col-lg-6">
+                                    <label>#{msjCatalogo.FechaReservalabel}</label>
+                                    <h:inputText a:type="date" class="form-control" value="#{ReservasController.nuevaReseva.fechaReserva}"/>
+                                </div>
+
+                                <div class="form-group col-lg-6">
+                                    <label>#{msjCatalogo.Enelcasodeselect}</label>
+
+                                    <h:selectManyListbox style="height: 200px" class="form-control" value="#{ReservasController.nuevaReseva.productoFinalList}">
+                                        <f:selectItems value="#{productoFinalController.productoFinal}" var="pr" itemLabel="#{pr.articulo.nombre}"/>
+                                    </h:selectManyListbox>
+                                </div>
+
+
+                                <div class="form-group col-lg-6">
+                                    <label>#{msjCatalogo.Observacioneslabel}</label>
+                                    <br></br>
+                                    <h:inputTextarea class="form-control" value="#{ReservasController.nuevaReseva.observaciones}"/>
+                                </div>
+
+
+
+                            </div>
+                            <div class="col-sm-12" style="margin: 0px 45px" >
+                                <a class="btn btn-secondary" href="reservaciones.xhtml">#{msjUsuarios.btnCancelarlabel}</a>
+                                <h:commandButton class="btn btn-primary" value="#{msjUsuarios.btnRegistrarlabel}" action="#{ReservasController.registrar2()}"/>
                             </div>
 
-                            <div class="form-group col-lg-6">
-                                <label>Fecha de Reserva</label>
-                                <h:inputText a:type="date" class="form-control" value="#{ReservasController.nuevaReseva.fechaReserva}"/>
-                            </div>
-
-                            <div class="form-group col-lg-6">
-                                <label>En El caso de querer selecionar mas de un producto porfavor Oprima Ctrl antes de selecionar</label>
-
-                                <h:selectManyListbox style="height: 200px" class="form-control" value="#{ReservasController.nuevaReseva.productoFinalList}">
-                                    <f:selectItems value="#{productoFinalController.productoFinal}" var="pr" itemLabel="#{pr.articulo.nombre}"/>
-                                </h:selectManyListbox>
-                            </div>
-
-                           
-                            <div class="form-group col-lg-6">
-                                <label>Si tiene Alguna Observación, porfavor escribala en el cuadro de texto</label>
-                                <br></br>
-                                <h:inputTextarea class="form-control" value="#{ReservasController.nuevaReseva.observaciones}"/>
-                            </div>
-
-
-
-                        </div>
-                        <div class="col-sm-12" style="margin: 0px 45px" >
-                            <a class="btn btn-secondary" href="listar.xhtml">Cancelar</a>
-                            <h:commandButton class="btn btn-primary" value="Registrar" action="#{ReservasController.registrar2()}"/>
-                        </div>
-
-                    </h:form>
+                        </h:form>
+                    </div>
                 </div>
             </div>
-        </div>
-        
 
 
-    </h:body>
+
+        </h:body>
+    </f:view>
 </html>
 

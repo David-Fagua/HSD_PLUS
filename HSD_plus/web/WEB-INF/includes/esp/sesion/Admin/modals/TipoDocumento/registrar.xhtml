@@ -13,7 +13,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="registrarDocumentoContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Registrar Documento</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjComponentes.RegistrarDocumento}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -22,20 +22,20 @@
                         <div class="row  col-md-10" style="margin: 10px 45px" >
                             
                             <div class="form-group">
-                                <label>Nombre</label>
+                                <label>#{msjComponentes.Nombrelabel}</label>
                                 <h:inputText class="form-control" value="#{tipoDocumentosController.nuevoDocumento.nombre}"/>
                             </div>
 
                             <div class="form-group">
-                                <label>Abrebiatura</label>
+                                <label>#{msjComponentes.Abrebiaturalabel}</label>
                                 <h:inputText  class="form-control" value="#{tipoDocumentosController.nuevoDocumento.abrebiatura}"/>
                             </div>
 
                         </div>
 
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <h:commandLink class="btn btn-primary" value="Guardar"
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                            <h:commandLink class="btn btn-primary" value="#{msjUsuarios.btnGuardar}"
                                            action="#{tipoDocumentosController.registrar()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>

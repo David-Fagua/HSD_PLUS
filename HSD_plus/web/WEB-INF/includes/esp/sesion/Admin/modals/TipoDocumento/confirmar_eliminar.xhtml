@@ -11,17 +11,17 @@
                     <h:panelGroup id="confirmEmiliminarDocumento" layout="block">
                         <div id=""></div>
                         <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel" >Eliminar Rol No -  #{tipoDocumentosController.documentoSelecionado.idTdocumento}</h4>
+                            <h4 class="modal-title" id="exampleModalLabel" >#{msjComponentes.EliminarTDocumento} -  #{tipoDocumentosController.documentoSelecionado.idTdocumento}</h4>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h5>¿ Esta Seguro de Eliminar El Tipo de Documento #{tipoDocumentosController.documentoSelecionado.nombre}?</h5>
+                            <h5>¿ #{msjComponentes.EstaSegurodeEliminarElTipoDocumento} #{tipoDocumentosController.documentoSelecionado.nombre}?</h5>
 
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                <h:commandButton class="btn btn-danger" value="Eliminar" action="#{tipoDocumentosController.eliminar()}"/>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                                <h:commandButton class="btn btn-danger" value="#{msjUsuarios.btnEliminar}" action="#{tipoDocumentosController.eliminar()}"/>
                             </div>
                         </div>    
                     </h:panelGroup>

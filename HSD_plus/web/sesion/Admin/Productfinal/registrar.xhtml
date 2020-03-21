@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <f:view locale="#{languajeController.locale}">
         <h:head>
-            <title>Registrar Producto</title>
+            <title>#{msjInventarios.RegistrarProducto}</title>
             <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
         </h:head>
         <h:body>
@@ -25,7 +25,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Registrar Producto</h1>
+                            <h1 class="page-header">#{msjInventarios.RegistrarProducto}</h1>
                             <!-- /.row -->
 
 
@@ -40,7 +40,7 @@
                                     <div class="col-md-12">
 
                                         <div class="form-group col-md-12">
-                                            <label>Articulo</label>
+                                            <label>#{msjInventarios.Articulolabel}</label>
                                             <h:selectOneMenu class="form-control" value="#{productoFinalController.nuevoProducto.articulo}">
                                                 <f:selectItem itemLabel="Seleciona un Producto" itemValue=""/>
                                                 <f:selectItems value="#{inventarioGeneralController.inventarioGeneral}" var="ig" itemLabel="#{ig.nombre}"/>
@@ -48,9 +48,9 @@
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <label>Grosor de Hilo</label>
+                                            <label>#{msjInventarios.GrosorHilolabel}</label>
                                             <h:selectOneMenu class="form-control" value="#{productoFinalController.nuevoProducto.grosor}">
-                                                <f:selectItem itemLabel="No Aplica" itemValue="NA"/>
+                                                <f:selectItem itemLabel="#{msjInventarios.NoAplicaPlaceholder}" itemValue="NA"/>
                                                 <f:selectItem itemLabel="10" itemValue="10"/>
                                                 <f:selectItem itemLabel="20" itemValue="20"/>
                                                 <f:selectItem itemLabel="30" itemValue="30"/>
@@ -58,12 +58,12 @@
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <label>Fecha de Promocion</label>
+                                            <label>#{msjInventarios.fechadepromolabel}</label>
                                             <h:inputText pt:type="date" class="form-control" value="#{productoFinalController.nuevoProducto.fechaPromocion}"/>
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <label>Responsable</label>
+                                            <label>#{msjInventarios.Responsablelabel}</label>
                                             <h:selectOneMenu class="form-control" value="#{productoFinalController.nuevoProducto.responsable}">
                                                 <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
                                                 <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
@@ -71,15 +71,15 @@
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <label>Existencias </label>
+                                            <label>#{msjInventarios.Existenciaslabel}</label>
                                             <h:inputText class="form-control" value="#{productoFinalController.nuevoProducto.existencias}"/>
                                         </div> 
 
                                         <div class="form-group col-md-6" style="float: left">
-                                            <label>disponibilidad</label>
+                                            <label>#{msjInventarios.Disponibilidadlabel}</label>
                                             <h:selectOneRadio class="form-check" value="#{productoFinalController.nuevoProducto.disponibilidad}">
-                                                <f:selectItem itemLabel="Actva" itemValue="true"/>
-                                                <f:selectItem itemLabel="Inactiva" itemValue="false"/>
+                                                <f:selectItem itemLabel="#{msjInventarios.ActivoRadione}" itemValue="true"/>
+                                                <f:selectItem itemLabel="#{msjInventarios.IncativoRadione}" itemValue="false"/>
                                             </h:selectOneRadio>
                                         </div>
 
@@ -88,8 +88,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12" style="float: right">
-                                    <a class="btn btn-secondary" href="listar.xhtml">Volver</a>
-                                    <h:commandButton class="btn btn-primary" value="Registrar" action="#{productoFinalController.registrar()}"/>
+                                    <a class="btn btn-secondary" href="listar.xhtml">#{msjUsuarios.btnVolver}</a>
+                                    <h:commandButton class="btn btn-primary" value="#{msjUsuarios.btnRegistrarlabel}" action="#{productoFinalController.registrar()}"/>
                                 </div>
 
                             </h:form>

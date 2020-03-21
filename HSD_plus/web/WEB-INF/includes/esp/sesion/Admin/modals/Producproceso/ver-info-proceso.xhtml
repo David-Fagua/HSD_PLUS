@@ -12,7 +12,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="verInfoProcesoContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Información del Proceso Nro #{productoProcesoController.procesoSelecionado.idProceso}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjInventarios.InformacióndelProcesolabel} #{productoProcesoController.procesoSelecionado.idProceso}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -22,45 +22,45 @@
 
                         <div class="row  col-md-10" style="margin: 10px 45px" >
                                 <div class="form-group">
-                                    <label>Fecha del Proceso</label>
+                                    <label>#{msjInventarios.FechaProcesolabel}</label>
                                     <span class="form-control">#{productoProcesoController.procesoSelecionado.fechaProceso}</span>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label>Estado</label>
+                                    <label>#{msjInventarios.Estadolabel}</label>
                                     <h:selectOneRadio class="form-check" value="#{productoProcesoController.procesoSelecionado.estado}">
-                                        <f:selectItem itemLabel="Iniciado" itemValue="0"/>
-                                        <f:selectItem itemLabel="Finalizado" itemValue="1"/>
+                                        <f:selectItem itemLabel="#{msjInventarios.IniciadoRadiolabel}" itemValue="0"/>
+                                        <f:selectItem itemLabel="#{msjInventarios.TerminadoRadiolabel}" itemValue="1"/>
                                     </h:selectOneRadio>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label>Cantidad</label>
+                                    <label>#{msjInventarios.Catidadlabel}</label>
                                     <span class="form-control">#{productoProcesoController.procesoSelecionado.cantidad} </span>
                                 </div>
                                 
                                 <div class="form-group col-md-6">
-                                    <label>Articulo Inicial Primario</label>
+                                    <label>#{msjInventarios.Ariculo1label}</label>
                                     <span class="form-control">#{productoProcesoController.procesoSelecionado.articuloInicial.nombre}</span>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label>Articulo Inicial Secundario</label>
+                                    <label>#{msjInventarios.Articulo2label}</label>
                                     <span class="form-control">#{productoProcesoController.procesoSelecionado.articuloInicial2.nombre}</span>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label>Producto Final</label>
+                                    <label>#{msjInventarios.ProductoFinallabel}</label>
                                     <span class="form-control">#{productoProcesoController.procesoSelecionado.productoFinal.articulo.nombre}</span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Resposable</label>
+                                    <label>#{msjInventarios.Responsablelabel}</label>
                                     <span class="form-control">#{productoProcesoController.procesoSelecionado.responsable.nombres} #{productoProcesoController.procesoSelecionado.responsable.primerApellido}</span>
                                 </div>
                             
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-secondary" href="#{request.contextPath}/sesion/Admin/Producproceso/listar.xhtml" type="button" data-dismiss="modal">Volver</a>
-                            <input class="btn btn-success" type="button" onclick="printDiv('verInfoProcesoContent')" value="imprimir " />
+                            <a class="btn btn-secondary" href="#{request.contextPath}/sesion/Admin/Producproceso/listar.xhtml" type="button" data-dismiss="modal">#{msjUsuarios.btnVolver}</a>
+                            <input class="btn btn-success" type="button" onclick="printDiv('verInfoProcesoContent')" value="#{msjUsuarios.btnImprimir}" />
                         </div>
                     </h:panelGroup>
                 </h:form>

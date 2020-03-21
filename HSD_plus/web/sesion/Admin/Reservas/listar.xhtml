@@ -8,7 +8,7 @@
       xmlns:p="http://primefaces.org/ui">
     <f:view locale="#{languajeController.locale}">
         <h:head>
-            <title>Reservas</title>
+            <title>#{msjCatalogo.Reservaslabeltitle}</title>
             <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
         </h:head>
         <h:body>
@@ -26,7 +26,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Reservas</h1>
+                            <h1 class="page-header">#{msjCatalogo.Reservaslabeltitle}</h1>
                             <!-- /.row -->
 
                             <h3>  <h:messages showDetail="true" layout="table" 
@@ -35,38 +35,38 @@
                             </h3>
                             <h:form prependId="false">
                                 <div>
-                                    <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nueva Reserva</a>
+                                    <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i>#{msjCatalogo.NuevaReservalabel}</a>
                                 </div>
                                 <p></p>
                                 <div class="btn-group" style="position: absolute">
                                     <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Accion
+                                        #{msjUsuarios.btnAccion}
                                     </button>
                                     <div class="dropdown-menu">
                                         <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
-                                        <label>Imprimir </label>
+                                        
                                         <br></br>                                    
                                         <h:commandLink>
                                             <h:graphicImage url="/resources/assets/Img/Excel.png"/>
                                             <p:dataExporter type="xls" target="reservas" fileName="Reservas"/>
-                                            <label>Exportar a Excel </label>
+                                            <label>#{msjUsuarios.ExportarExcelAccion}</label>
                                         </h:commandLink><br></br>
                                         <h:commandLink>
                                             <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
                                             <p:dataExporter type="pdf" target="reservas" fileName="Reservas"/>
-                                            <label>Exportar a Pdf </label>
+                                            <label>#{msjUsuarios.ExportarPdfAccion}</label>
                                         </h:commandLink><br></br>
 
                                     </div>
                                 </div>
                                 <br></br>
                                 <div>
-                                    <label>Selecione una Fecha:</label>
+                                    <label>#{msjCatalogo.SelecioneFecha}:</label>
                                     &nbsp;
                                     <h:inputText a:type="date"  value="#{ReservasController.textoBuscar}"/>
                                     &nbsp;
-                                    <p:commandButton value="Buscar" action="#{ReservasController.llenarReservaFecha()}" update="reservas"/>
-                                    <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Coloque un Texto"></input>
+                                    <p:commandButton value="#{msjUsuarios.btnBuscarlabel}" action="#{ReservasController.llenarReservaFecha()}" update="reservas"/>
+                                    <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="#{msjUsuarios.ColoquetextoPlacehonder}"></input>
                                     <script>
                                         // Write on keyup event of keyword input element
                                         $(document).ready(function () {
@@ -102,28 +102,28 @@
                                         <h:outputText value="#{rs.idReserva}" />
                                     </p:column>
 
-                                    <p:column headerText="Fecha">
+                                    <p:column headerText="#{msjCatalogo.Fechalabel}">
                                         <h:outputText value="#{rs.fechaReserva}" />
                                     </p:column>
 
 
-                                    <p:column headerText="Cantidad">
+                                    <p:column headerText="#{msjCatalogo.Cantidadlabel}">
                                         <h:outputText value="#{rs.cantidad}" />
                                     </p:column>
 
-                                    <p:column headerText="Precio Total">
+                                    <p:column headerText="#{msjCatalogo.PrecioTotallabel}">
                                         <h:outputText value="#{rs.precioTotal}" />
                                     </p:column>
 
-                                    <p:column headerText="Cliente">
+                                    <p:column headerText="#{msjCatalogo.Clientelabel}">
                                         <h:outputText value="#{rs.cliente.nombres} #{rs.cliente.primerApellido}" />
                                     </p:column>
 
-                                    <p:column headerText="Observaciones">
+                                    <p:column headerText="#{msjCatalogo.Observacioneslabel}">
                                         <h:outputText value="#{rs.observaciones}" />
                                     </p:column>
                                     <p:column exportable="false" >
-                                        <f:facet name="header">OPCIONES</f:facet>
+                                        <f:facet name="header">#{msjCatalogo.Opcioneslabel}</f:facet>
 
                                         <h:commandLink class="btn btn-primary" a:data-toggle="modal" a:data-target="#verInfoReserva" 
                                                        action="#{ReservasController.selecionarReserva(rs)}">

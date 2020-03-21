@@ -11,7 +11,7 @@
                     <h:panelGroup id="confirmarBloquearUsuario" layout="block">
                         <div id=""></div>
                         <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel" >Usuario   #{usuariosController.usuarioSelecionado.idUsuario}</h4>
+                            <h4 class="modal-title" id="exampleModalLabel" >#{msjUsuarios.Bloquearlabel}   #{usuariosController.usuarioSelecionado.idUsuario}</h4>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -20,7 +20,7 @@
                             <h5>¿ Esta Seguro de #{usuariosController.btnValueBloquear.toLowerCase()}  el usuario - #{usuariosController.usuarioSelecionado.nombres} #{usuariosController.usuarioSelecionado.primerApellido}?</h5>
 
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
                                 <h:commandButton class="btn btn-danger" value="#{usuariosController.btnValueBloquear}" 
                                                  action="#{usuariosController.bloquearODesbloquear}"/>
 

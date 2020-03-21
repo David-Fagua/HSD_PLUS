@@ -12,7 +12,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="registrarCiudadContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Registrar Ciudad</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjComponentes.RegistrarCiudadlabel}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -23,7 +23,7 @@
 
 
                             <div class="form-group">
-                                <label>Porfavor Agrege la nueva Ciudad</label>
+                                <label>#{msjComponentes.porfavoragregueCiudad}</label>
                                 <h:inputText class="form-control" value="#{CiudadesController.nuevaCiudad.nombre}"/>
                             </div>
 
@@ -32,8 +32,8 @@
 
 
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <h:commandLink class="btn btn-primary" value="Guardar"
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                            <h:commandLink class="btn btn-primary" value="#{msjUsuarios.btnGuardar}"
                                            action="#{CiudadesController.registrar()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>

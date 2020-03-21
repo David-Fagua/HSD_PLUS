@@ -6,93 +6,95 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Reservaciones</title>
-        <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
-    </h:head>
-    <h:body>
-        <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-            <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/plantilla-superior-client.xhtml"/>
-        </h:panelGroup>   
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Reservas</h1>
-                    <!-- /.row -->
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <title>#{msjCatalogo.Reservaslabeltitle}</title>
+            <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+        </h:head>
+        <h:body>
+            <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/plantilla-superior-client.xhtml"/>
+            </h:panelGroup>   
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">#{msjCatalogo.Reservaslabeltitle}</h1>
+                        <!-- /.row -->
 
-                    <h3>  <h:messages showDetail="true" layout="table" 
-                                      style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
-                                      errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
-                    </h3>
-                    <h:form prependId="false">
-                        <div style="float: right">
-                            <div class="form-group col-md-2">
-                                <h:selectOneMenu class="form-control" value="#{ReservasController.textoBuscar}">
-                                    <f:selectItem itemLabel="Usuario" itemValue="#{sessionController.user.idUsuario}"/>
-                                </h:selectOneMenu>
+                        <h3>  <h:messages showDetail="true" layout="table" 
+                                          style="padding: 5px; border-radius: 5px; box-shadow: 0px 0px 4px; display: block" 
+                                          errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
+                        </h3>
+                        <h:form prependId="false">
+                            <div style="float: right">
+                                <div class="form-group col-md-2">
+                                    <h:selectOneMenu class="form-control" value="#{ReservasController.textoBuscar}">
+                                        <f:selectItem itemLabel="Usuario" itemValue="#{sessionController.user.idUsuario}"/>
+                                    </h:selectOneMenu>
+                                </div>
+                                &nbsp;
+                                <p:commandButton value="#{msjCatalogo.ConsultarmisReservas}" id="lista" action="#{ReservasController.llenarReserva()}" update="reservas"/>
+                                <br></br>
+
                             </div>
-                            &nbsp;
-                            <p:commandButton value="Consultar Mis Reservas" id="lista" action="#{ReservasController.llenarReserva()}" update="reservas"/>
+                            <div>
+                                <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i>#{msjCatalogo.NuevaReservalabel}</a>
+                            </div>
+                            <p></p>
+
                             <br></br>
-
-                        </div>
-                        <div>
-                            <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Nueva Reserva</a>
-                        </div>
-                        <p></p>
-
-                        <br></br>
-                        <br></br>
-                        <style type="text/css">
-                            .ui-paginator-page{
-                                background-color:white !important;   
-                            }
-                            .ui-paginator{ 
-                                background-color:black !important;   
-                            }
-                        </style>
+                            <br></br>
+                            <style type="text/css">
+                                .ui-paginator-page{
+                                    background-color:white !important;   
+                                }
+                                .ui-paginator{ 
+                                    background-color:black !important;   
+                                }
+                            </style>
                             <p:dataTable id="reservas" var="rs" value="#{ReservasController.reservas}" rows="10"
-                                     paginator="true"
-                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                     currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
-                                     rowsPerPageTemplate="5,10,15"
-                                     >
-                            <p:column headerText="Id" style="width: 50px">
-                                <h:outputText value="#{rs.idReserva}" />
-                            </p:column>
+                                         paginator="true"
+                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                                         rowsPerPageTemplate="5,10,15"
+                                         >
+                                <p:column headerText="Id" style="width: 50px">
+                                    <h:outputText value="#{rs.idReserva}" />
+                                </p:column>
 
-                            <p:column headerText="Fecha">
-                                <h:outputText value="#{rs.fechaReserva}" />
-                            </p:column>                      
+                                <p:column headerText="#{msjCatalogo.Fechalabel}">
+                                    <h:outputText value="#{rs.fechaReserva}" />
+                                </p:column>                      
 
-                            <p:column headerText="Cliente">
-                                <h:outputText value="#{rs.cliente.nombres} #{rs.cliente.primerApellido}" />
-                            </p:column>
+                                <p:column headerText="#{msjCatalogo.Clientelabel}">
+                                    <h:outputText value="#{rs.cliente.nombres} #{rs.cliente.primerApellido}" />
+                                </p:column>
 
-                            <p:column headerText="Observaciones">
-                                <h:outputText value="#{rs.observaciones}" />
-                            </p:column>
-                            
-
-                            <f:facet name="paginatorTopLeft">
-                                <p:commandButton type="button" icon="pi pi-refresh" />
-                            </f:facet>
-
-                            <f:facet name="paginatorBottomRight">
-                                <p:commandButton type="button" icon="pi pi-cloud-upload" />
-                            </f:facet>
-
-                        </p:dataTable>
-                    </h:form>
-                    <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/ver-info-reservas.xhtml"></ui:include>
-                    <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/confirmar_eliminar.xhtml"></ui:include>
-                    <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/editar-info-reservas.xhtml"></ui:include>
+                                <p:column headerText="#{msjCatalogo.Observacioneslabel}">
+                                    <h:outputText value="#{rs.observaciones}" />
+                                </p:column>
 
 
+                                <f:facet name="paginatorTopLeft">
+                                    <p:commandButton type="button" icon="pi pi-refresh" />
+                                </f:facet>
+
+                                <f:facet name="paginatorBottomRight">
+                                    <p:commandButton type="button" icon="pi pi-cloud-upload" />
+                                </f:facet>
+
+                            </p:dataTable>
+                        </h:form>
+                        <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/ver-info-reservas.xhtml"></ui:include>
+                        <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/confirmar_eliminar.xhtml"></ui:include>
+                        <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/modals/Reservas/editar-info-reservas.xhtml"></ui:include>
+
+
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </h:body>
+        </h:body>
+    </f:view>
 </html>
 

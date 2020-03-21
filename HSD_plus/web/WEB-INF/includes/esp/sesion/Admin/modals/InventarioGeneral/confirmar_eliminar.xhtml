@@ -11,17 +11,17 @@
                     <h:panelGroup id="confirmEmiliminarArticulo" layout="block">
                         <div id=""></div>
                         <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel" >Eliminar Articulo -  #{inventarioGeneralController.articuloSelecionado.idArticulo}</h4>
+                            <h4 class="modal-title" id="exampleModalLabel" >#{msjInventarios.EliminarArticulolabel} -  #{inventarioGeneralController.articuloSelecionado.idArticulo}</h4>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h5>¿ Esta Seguro de Eliminar el Articulo - #{inventarioGeneralController.articuloSelecionado.nombre}?</h5>
+                            <h5>¿ #{msjInventarios.EstaSegurodeEliminarelArticulo} - #{inventarioGeneralController.articuloSelecionado.nombre}?</h5>
 
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                <h:commandButton class="btn btn-danger" value="Eliminar" action="#{inventarioGeneralController.eliminar()}"/>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                                <h:commandButton class="btn btn-danger" value="#{msjUsuarios.btnEliminar}" action="#{inventarioGeneralController.eliminar()}"/>
 
                             </div>
                         </div>    

@@ -11,17 +11,17 @@
                     <h:panelGroup id="confirmEmiliminarProveedor" layout="block">
                         <div id=""></div>
                         <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel" >Eliminar Proceso -  #{proveedoresController.proveedorSelecionado.idProveedor}</h4>
+                            <h4 class="modal-title" id="exampleModalLabel" >#{msjComponentes.EliminarProveedorlabel} -  #{proveedoresController.proveedorSelecionado.idProveedor}</h4>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h5>¿ Esta Seguro de Eliminar el Provedor Selecionado #{proveedoresController.proveedorSelecionado.razonSocial}?</h5>
+                            <h5>¿ #{msjComponentes.EstaSeguroEliminarProveedor} #{proveedoresController.proveedorSelecionado.razonSocial}?</h5>
 
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                <h:commandButton class="btn btn-danger" value="Eliminar" action="#{proveedoresController.eliminar()}"/>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                                <h:commandButton class="btn btn-danger" value="#{msjUsuarios.btnEliminar}" action="#{proveedoresController.eliminar()}"/>
 
                             </div>
                         </div>    

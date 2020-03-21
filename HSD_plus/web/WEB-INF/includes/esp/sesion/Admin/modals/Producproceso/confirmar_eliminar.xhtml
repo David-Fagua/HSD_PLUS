@@ -11,17 +11,17 @@
                     <h:panelGroup id="confirmEmiliminarProceso" layout="block">
                         <div id=""></div>
                         <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel" >Eliminar Proceso -  #{productoProcesoController.procesoSelecionado.idProceso}</h4>
+                            <h4 class="modal-title" id="exampleModalLabel" >#{msjInventarios.EliminarProceso} -  #{productoProcesoController.procesoSelecionado.idProceso}</h4>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h5>¿ Esta Seguro de Eliminar el Proceso Selecionado?</h5>
+                            <h5>¿ #{msjInventarios.EstaSegurodeEliminarelProceso} #{productoProcesoController.procesoSelecionado.idProceso}?</h5>
 
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                <h:commandButton class="btn btn-danger" value="Eliminar" action="#{productoProcesoController.eliminar()}"/>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                                <h:commandButton class="btn btn-danger" value="#{msjUsuarios.btnEliminar}" action="#{productoProcesoController.eliminar()}"/>
 
                             </div>
                         </div>    

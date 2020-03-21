@@ -12,7 +12,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="editarInfoProcesoContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Editar Información del Proceso  #{productoProcesoController.procesoSelecionado.idProceso}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjInventarios.EditarInformacióndelProceso}  #{productoProcesoController.procesoSelecionado.idProceso}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -20,24 +20,24 @@
 
                         <div class="row  col-md-10" style="margin: 10px 45px" >
                             <div class="form-group">
-                                <label>Fecha del Proceso</label>
+                                <label>#{msjInventarios.FechaProcesolabel}</label>
                                 <h:inputText pt:type="date" class="form-control" value="#{productoProcesoController.procesoSelecionado.fechaProceso}"/>
                             </div>
 
                             <div class="form-group">
-                                <label>Estado</label>
+                                <label>#{msjInventarios.Estadolabel}</label>
                                 <h:selectOneRadio class="form-check" value="#{productoProcesoController.procesoSelecionado.estado}">
-                                    <f:selectItem itemLabel="Iniciado" itemValue="0"/>
-                                    <f:selectItem itemLabel="Finalizado" itemValue="1"/>
+                                    <f:selectItem itemLabel="#{msjInventarios.IniciadoRadiolabel}" itemValue="0"/>
+                                    <f:selectItem itemLabel="#{msjInventarios.TerminadoRadiolabel}" itemValue="1"/>
                                 </h:selectOneRadio>
                             </div>
 
                             <div class="form-group">
-                                <label>Cantidad</label>
+                                <label>#{msjInventarios.Catidadlabel}</label>
                                 <h:inputText class="form-control" value="#{productoProcesoController.procesoSelecionado.cantidad}"/>
                             </div>
                             <div class="form-group col-md-6">
-                                <label>Articulo Inicial # 1</label>
+                                <label>#{msjInventarios.Ariculo1label}</label>
                                 <h:selectOneMenu class="form-control" value="#{productoProcesoController.procesoSelecionado.articuloInicial}">
                                     <f:selectItem itemLabel="Seleciona articulo Inicial de Materia Prima" itemValue=""/>
                                     <f:selectItems value="#{inventarioGeneralController.inventarioGeneral}" var="ig" itemLabel="#{ig.nombre}"/>
@@ -45,7 +45,7 @@
                                 
                             </div>
                             <div class="form-group col-md-6">
-                                <label>Articulo Inicial # 2</label>
+                                <label>#{msjInventarios.Articulo2label}</label>
                                 <h:selectOneMenu class="form-control" value="#{productoProcesoController.procesoSelecionado.articuloInicial}">
                                     <f:selectItem itemLabel="Seleciona articulo Secundario de Materia Prima" itemValue=""/>
                                     <f:selectItems value="#{inventarioGeneralController.inventarioGeneral}" var="ig" itemLabel="#{ig.nombre}"/>
@@ -53,7 +53,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Producto Final</label>
+                                <label>#{msjInventarios.ProductoFinallabel}</label>
                                 <h:selectOneMenu class="form-control" value="#{productoProcesoController.procesoSelecionado.productoFinal}">
                                     <f:selectItem itemLabel="Seleciona Producto" itemValue=""/>
                                     <f:selectItems value="#{productoFinalController.productoFinal}" var="pf" itemLabel="#{pf.articulo.nombre}"/>
@@ -61,7 +61,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Responsable</label>
+                                <label>#{msjInventarios.Responsablelabel}</label>
                                 <h:selectOneMenu class="form-control" value="#{productoProcesoController.procesoSelecionado.responsable}">
                                     <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
                                     <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
@@ -73,8 +73,8 @@
 
 
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <h:commandLink class="btn btn-warning" value="Guardar"
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                            <h:commandLink class="btn btn-warning" value="#{msjUsuarios.btnGuardar}"
                                            action="#{productoProcesoController.actualizar()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>

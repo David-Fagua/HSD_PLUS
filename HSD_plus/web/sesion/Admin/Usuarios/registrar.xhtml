@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <f:view locale="#{languajeController.locale}">
         <h:head>
-            <title>Registrar Usuario</title>
+            <title>#{msjUsuarios.RegistrarUsuariotitle}</title>
             <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
         </h:head>
         <h:body>
@@ -24,7 +24,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Registrar Usuario</h1>
+                            <h1 class="page-header">#{msjUsuarios.RegistrarUsuariotitle}</h1>
                             <!-- /.row -->
 
 
@@ -39,59 +39,59 @@
                                     <div class="col-md-12">
 
                                         <div class="form-group col-md-6" >
-                                            <label>Tipo de Documento</label>
+                                            <label>#{msjUsuarios.TipoDocumentolabel}</label>
                                             <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.tipoDocumento}">
-                                                <f:selectItem itemLabel="Selecione un Tipo de Documento" itemValue=""/>
+                                                <f:selectItem itemLabel="#{msjUsuarios.TipoDocumentoPlaceholder}" itemValue=""/>
                                                 <f:selectItems value="#{tipoDocumentosController.tipodocumentos}" var="td" itemLabel="#{td.nombre}"/>
                                             </h:selectOneMenu>
                                         </div>
 
                                         <div class="form-group col-md-6" >
-                                            <label>Numero de Documento</label>
+                                            <label>#{msjUsuarios.NumeroDocumentolabel}</label>
                                             <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.numerodocumento}"/>
                                         </div>
 
                                         <div class="form-group col-md-4" >
-                                            <label>Nombres</label>
+                                            <label>#{msjUsuarios.Nombreslabel}</label>
                                             <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.nombres}"/>
                                         </div>
                                         <div class="form-group col-md-4" >
-                                            <label>Primer Apellido</label>
+                                            <label>#{msjUsuarios.PrimerApellidolabel}</label>
                                             <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.primerApellido}"/>
                                         </div>
                                         <div class="form-group col-md-4" >
-                                            <label>Segundo Apellido</label>
+                                            <label>#{msjUsuarios.SegundoApellidolabel}</label>
                                             <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.segundoApellido}"/>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label>Correo</label>
+                                            <label>#{msjUsuarios.Correolabel}</label>
                                             <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.correo}"/>
                                         </div>
                                         <div class="form-group col-md-4" >
-                                            <label>Clave</label>
+                                            <label>#{msjUsuarios.ClaveSecret}</label>
                                             <h:inputSecret class="form-control" value="#{usuariosController.nuevoUsuario.clave}"/>
                                         </div>
 
                                         <div class="form-group col-md-4">
-                                            <label>Confirmación Clave</label>
+                                            <label>#{msjUsuarios.ConfirmaciónClaveSecret}</label>
                                             <h:inputSecret id="calve" class="form-control" value="#{usuariosController.clave}"/>
                                         </div>
 
                                         <div class="form-group col-md-4" >
-                                            <label>Ciudad</label>
+                                            <label>#{msjUsuarios.Ciudadlabel}</label>
                                             <h:selectOneMenu class="form-control" value="#{usuariosController.nuevoUsuario.ciudad}">
-                                                <f:selectItem itemLabel="Selecione una ciudad" itemValue=""/>
+                                                <f:selectItem itemLabel="#{msjUsuarios.SelecioneCiudadPlaceholder}" itemValue=""/>
                                                 <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
                                             </h:selectOneMenu>
                                         </div>
 
                                         <div class="form-group col-md-4" style="float: left">
-                                            <label>Telefono</label>
+                                            <label>#{msjUsuarios.Telefonolabel}</label>
                                             <h:inputText class="form-control" value="#{usuariosController.nuevoUsuario.telefono}"/>
                                         </div>
 
                                         <div class="form-group col-md-4" style="float: right">
-                                            <label>Rol</label>
+                                            <label>#{msjUsuarios.Rollabel}</label>
                                             <h:selectManyListbox class="form-control" value="#{usuariosController.nuevoUsuario.rolesList}">
                                                 <f:selectItems  value="#{rolesController.roles}" var="r" itemLabel="#{r.nombre}"/>
                                             </h:selectManyListbox>
@@ -101,8 +101,8 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
-                                    <a class="btn btn-secondary" href="listar.xhtml">Cancelar</a>
-                                    <h:commandButton class="btn btn-primary" value="Registrar" action="#{usuariosController.registrar()}"/>
+                                    <a class="btn btn-secondary" href="listar.xhtml">#{msjUsuarios.btnCancelarlabel}</a>
+                                    <h:commandButton class="btn btn-primary" value="#{msjUsuarios.btnRegistrarlabel}" action="#{usuariosController.registrar()}"/>
                                 </div>
 
                             </h:form>

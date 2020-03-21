@@ -8,7 +8,7 @@
       xmlns:p="http://primefaces.org/ui">
     <f:view locale="#{languajeController.locale}">
         <h:head>
-            <title>Roles</title>
+            <title>#{msjComponentes.RolesLabeltitle}</title>
             <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
         </h:head>
         <h:body>
@@ -26,7 +26,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Roles</h1>
+                            <h1 class="page-header">#{msjComponentes.RolesLabeltitle}</h1>
                             <!-- /.row -->
 
                             <h3>  <h:messages showDetail="true" layout="table" 
@@ -37,7 +37,7 @@
                                 <div>
                                     <h:commandLink class="btn btn-primary"
                                                    a:data-toggle="modal" a:data-target="#registrarRoles">
-                                        <i class="fa fa-primary" >Agregar Rol</i>
+                                        <i class="fa fa-primary" >#{msjComponentes.RegistrarRollabel}</i>
                                         <f:ajax render=":registrarRolesContent"/>
                                     </h:commandLink>
                                 </div>
@@ -45,21 +45,21 @@
 
                                 <div class="btn-group" style="position: absolute">
                                     <button type="button" class="btn btn-Secoundary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Accion
+                                        #{msjUsuarios.btnAccion}
                                     </button>
                                     <div class="dropdown-menu">
                                         <a href="javascript:window.print()"><img src="#{request.contextPath}/resources/assets/Img/Img.png" alt=""/></a>
-                                        <label>Imprimir </label>
+                                        
                                         <br></br>                                    
                                         <h:commandLink>
                                             <h:graphicImage url="/resources/assets/Img/Excel.png"/>
                                             <p:dataExporter type="xls" target="roles" fileName="Roles"/>
-                                            <label>Exportar a Excel </label>
+                                            <label>#{msjUsuarios.ExportarExcelAccion}</label>
                                         </h:commandLink><br></br>
                                         <h:commandLink>
                                             <h:graphicImage url="/resources/assets/Img/Pdf.png"/>
                                             <p:dataExporter type="pdf" target="roles" fileName="Roles"/>
-                                            <label>Exportar a Pdf </label>
+                                            <label>#{msjUsuarios.ExportarPdfAccion}</label>
                                         </h:commandLink><br></br>
 
                                     </div>
@@ -85,17 +85,17 @@
                                         <h:outputText value="#{rl.idRol}" />
                                     </p:column>
 
-                                    <p:column headerText="Nombre">
+                                    <p:column headerText="#{msjComponentes.Nombrelabel}">
                                         <h:outputText value="#{rl.nombre}" />
                                     </p:column>
 
-                                    <p:column headerText="Fecha">
+                                    <p:column headerText="#{msjComponentes.FechaApertura}">
                                         <h:outputText value="#{rl.fechaApertura}" />
                                     </p:column>
 
 
                                     <p:column exportable="false" style="width: 150px">
-                                        <f:facet name="header">OPCIONES</f:facet>
+                                        <f:facet name="header">#{msjComponentes.Opcioneslabel}</f:facet>
 
                                         <h:commandLink class="btn btn-warning"
                                                        action="#{rolesController.selecionarRol(rl)}"

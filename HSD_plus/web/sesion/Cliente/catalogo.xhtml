@@ -6,88 +6,90 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>Catalogo</title>
-        <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
-    </h:head>
-    <h:body>
-        <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
-            <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/plantilla-superior-client.xhtml"/>
-        </h:panelGroup>   
-        <center>
-            <h:form style="width: 95%;" prependId="false" enctype="multipart/form-data" >
+    <f:view locale="#{languajeController.locale}">
+        <h:head>
+            <title>#{msjCatalogo.Catalogolabel}</title>
+            <ui:include src="../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
+        </h:head>
+        <h:body>
+            <h:panelGroup rendered="#{sessionController.rolSelecionado.idRol eq 2}">
+                <ui:include src="../../WEB-INF/includes/esp/sesion/Cliente/plantilla-superior-client.xhtml"/>
+            </h:panelGroup>   
+            <center>
+                <h:form style="width: 95%;" prependId="false" enctype="multipart/form-data" >
 
 
-                <br></br>
-                <br></br>
-                <br></br>
-                <div style="background-color: white">
                     <br></br>
-                    
-                    <div>
-                        <div class="form-group col-lg-7">
-                            <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="Coloque Texto"></input>
-                        </div>
+                    <br></br>
+                    <br></br>
+                    <div style="background-color: white">
+                        <br></br>
 
-                        <script>
-                            // Write on keyup event of keyword input element
-                            $(document).ready(function () {
-                                $("#search").keyup(function () {
-                                    _this = this;
-                                    // Show only matching TR, hide rest of them
-                                    $.each($("#catalogo tbody tr"), function () {
-                                        if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-                                            $(this).hide();
-                                        else
-                                            $(this).show();
+                        <div>
+                            <div class="form-group col-lg-7">
+                                <input type="text" class="form-control pull-right" style="width:20%" id="search" placeholder="#{msjCatalogo.Coloquetextolabel}"></input>
+                            </div>
+
+                            <script>
+                                // Write on keyup event of keyword input element
+                                $(document).ready(function () {
+                                    $("#search").keyup(function () {
+                                        _this = this;
+                                        // Show only matching TR, hide rest of them
+                                        $.each($("#catalogo tbody tr"), function () {
+                                            if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                                                $(this).hide();
+                                            else
+                                                $(this).show();
+                                        });
                                     });
                                 });
-                            });
-                        </script>
+                            </script>
 
-                    </div>
-                    <br></br>
-                    <br></br>
-                    <br></br>
-                </div>
-
-                <h:dataTable id="catalogo" style="background-color: white" class="table"  value="#{catalogoController.catalogo}"
-                             var="cl">
-                    <h:column>
-                        <f:facet name="header"></f:facet>
-                        <h:outputText value="#{cl.codigo}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header"></f:facet>
-                        <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="300" height="150px " class="d-block w-100" alt="..."/>
-
-                    </h:column>
-
-                    <h:column>
-                        <f:facet name="header"></f:facet>
-                        <h3><b><h:outputText value="#{cl.nombre}"/></b></h3>
+                        </div>
                         <br></br>
-                        <h4><h:outputText value="#{cl.descripcion}"/></h4>
-                    </h:column>
+                        <br></br>
+                        <br></br>
+                    </div>
 
-                    <h:column>
-                        <f:facet name="header"></f:facet>
-                        <h:outputText value="#{cl.fecha}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header"></f:facet>
-                        <h3><b><h:outputText value="#{cl.precioUnitario}"/></b></h3>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header"></f:facet>
-                        <h:outputText value="#{cl.stock}"/>
-                    </h:column>
+                    <h:dataTable id="catalogo" style="background-color: white" class="table"  value="#{catalogoController.catalogo}"
+                                 var="cl">
+                        <h:column>
+                            <f:facet name="header"></f:facet>
+                            <h:outputText value="#{cl.codigo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header"></f:facet>
+                            <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="300" height="150px " class="d-block w-100" alt="..."/>
+
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"></f:facet>
+                            <h3><b><h:outputText value="#{cl.nombre}"/></b></h3>
+                            <br></br>
+                            <h4><h:outputText value="#{cl.descripcion}"/></h4>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header"></f:facet>
+                            <h:outputText value="#{cl.fecha}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header"></f:facet>
+                            <h3><b><h:outputText value="#{cl.precioUnitario}"/></b></h3>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header"></f:facet>
+                            <h:outputText value="#{cl.stock}"/>
+                        </h:column>
 
 
 
-                </h:dataTable>
-            </h:form>
-        </center>
-    </h:body>
+                    </h:dataTable>
+                </h:form>
+            </center>
+        </h:body>
+    </f:view>
 </html>
 

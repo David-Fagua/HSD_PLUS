@@ -12,7 +12,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="verInfoVentasContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Información de la Venta Nro #{RventasController.ventaSelecionada.idVenta}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjCatalogo.InformaciónVenta} #{RventasController.ventaSelecionada.idVenta}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -22,26 +22,26 @@
 
                         <div class="row  col-md-10" style="margin: 10px 45px" >
                             <div class="form-group col-lg-7">
-                                <label>Fecha de la Venta</label>
+                                <label>#{msjCatalogo.Fechalabel}</label>
                                 <span class="form-control">#{RventasController.ventaSelecionada.fechaVenta}</span>
                             </div>
 
                             <div class="form-group col-lg-12">
-                                <label class="col-lg-12">Datos de Reserva</label>
+                                <label class="col-lg-12">#{msjCatalogo.DatosReservalabel}</label>
                                 <div class="col-lg-6">
                                     <span class="form-control "> id = #{RventasController.ventaSelecionada.reserva.idReserva}</span>
                                 </div>
                                 <div class="col-lg-12">
-                                    <span class="form-control "> Clienete = #{RventasController.ventaSelecionada.reserva.cliente.nombres} #{RventasController.ventaSelecionada.reserva.cliente.primerApellido}</span>
+                                    <span class="form-control "> #{msjCatalogo.Clientelabel} = #{RventasController.ventaSelecionada.reserva.cliente.nombres} #{RventasController.ventaSelecionada.reserva.cliente.primerApellido}</span>
                                 </div>
                                 <div class="col-lg-6">
-                                    <span class="form-control "> Cantidad = #{RventasController.ventaSelecionada.reserva.cantidad}</span>
+                                    <span class="form-control "> #{msjCatalogo.Cantidadlabel} = #{RventasController.ventaSelecionada.reserva.cantidad}</span>
                                 </div>
                                 <div class="col-lg-6">
-                                    <span class="form-control "> Precio total = #{RventasController.ventaSelecionada.reserva.precioTotal}</span>
+                                    <span class="form-control "> #{msjCatalogo.PrecioTotallabel} = #{RventasController.ventaSelecionada.reserva.precioTotal}</span>
                                 </div>
                                 <div class="col-lg-12">
-                                    <span class="form-control "> Observaciones = #{RventasController.ventaSelecionada.reserva.observaciones}</span>
+                                    <span class="form-control "> #{msjCatalogo.Observacioneslabel} = #{RventasController.ventaSelecionada.reserva.observaciones}</span>
                                 </div>
                                 
                                 
@@ -51,29 +51,29 @@
                             </div>
 
                             <div class="form-group col-lg-12">
-                                <label>Observaciones</label>
+                                <label>#{msjCatalogo.Observacioneslabel}</label>
                                 <span class="form-control">#{RventasController.ventaSelecionada.observaciones} </span>
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label>Cantidad</label>
+                                <label>#{msjCatalogo.Cantidadlabel}</label>
                                 <span class="form-control">#{RventasController.ventaSelecionada.cantidad}</span>
                             </div>
 
                             <div class="form-group col-lg-6">
-                                <label>Precio Total</label>
+                                <label>#{msjCatalogo.PrecioTotallabel}</label>
                                 <span class="form-control">#{RventasController.ventaSelecionada.presioTotal}</span>
                             </div>
 
                             <div class="form-group col-lg-12">
-                                <label>Resposable</label>
+                                <label>#{msjCatalogo.Responsablelabel}</label>
                                 <span class="form-control">#{RventasController.ventaSelecionada.responsable.nombres} #{RventasController.ventaSelecionada.responsable.primerApellido}</span>
                             </div>
 
                         </div>
                         <div class="modal-footer">
-                            <a class="btn btn-secondary" href="#{request.contextPath}/sesion/Admin/RVentas/listar.xhtml" type="button" data-dismiss="modal">Volver</a>
-                            <input class="btn btn-success" type="button" onclick="printDiv('verInfoVentasContent')" value="imprimir " />
+                            <a class="btn btn-secondary" href="#{request.contextPath}/sesion/Admin/RVentas/listar.xhtml" type="button" data-dismiss="modal">#{msjUsuarios.btnVolver}</a>
+                            <input class="btn btn-success" type="button" onclick="printDiv('verInfoVentasContent')" value="#{msjUsuarios.btnImprimir} " />
                         </div>
                     </h:panelGroup>
                 </h:form>

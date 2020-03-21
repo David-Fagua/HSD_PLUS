@@ -11,17 +11,17 @@
                     <h:panelGroup id="confirmEmiliminarRoles" layout="block">
                         <div id=""></div>
                         <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel" >Eliminar Rol No -  #{rolesController.rolSelecionado.idRol}</h4>
+                            <h4 class="modal-title" id="exampleModalLabel" >#{msjComponentes.Eliminarrollabel} -  #{rolesController.rolSelecionado.idRol}</h4>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h5>¿ Esta Seguro de Eliminar la Ciudad #{rolesController.rolSelecionado.nombre}?</h5>
+                            <h5>¿ #{msjComponentes.EstaSeguroEliminarRol} #{rolesController.rolSelecionado.nombre}?</h5>
 
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                <h:commandButton class="btn btn-danger" value="Eliminar" action="#{rolesController.eliminar()}"/>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                                <h:commandButton class="btn btn-danger" value="#{msjUsuarios.btnEliminar}" action="#{rolesController.eliminar()}"/>
                             </div>
                         </div>    
                     </h:panelGroup>

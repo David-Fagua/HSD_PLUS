@@ -12,7 +12,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="editarInfoCiudadContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Editar Ciudad  #{CiudadesController.ciudadSelecionada.idCiudad}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjComponentes.EditarCiudadlabel}  #{CiudadesController.ciudadSelecionada.idCiudad}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -23,7 +23,7 @@
 
 
                             <div class="form-group">
-                                <label>Nombre de la Ciudad</label>
+                                <label>#{msjComponentes.Nombrelabel}</label>
                                 <h:inputText class="form-control" value="#{CiudadesController.ciudadSelecionada.nombre}"/>
                             </div>
 
@@ -32,8 +32,8 @@
 
 
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <h:commandLink class="btn btn-warning" value="Guardar"
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                            <h:commandLink class="btn btn-warning" value="#{msjUsuarios.btnGuardar}"
                                            action="#{CiudadesController.actualizar()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>

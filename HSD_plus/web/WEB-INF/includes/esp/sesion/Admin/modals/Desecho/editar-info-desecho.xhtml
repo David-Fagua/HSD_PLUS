@@ -12,7 +12,7 @@
                 <h:form prependId="false">
                     <h:panelGroup id="editarInfoDesechoContent">
                         <div class="modal-header">
-                            <h3 class="modal-title" id="exampleModalLabel" >Editar Información del Desecho  #{DesechoController.desechoSelecionado.idDesecho}</h3>
+                            <h3 class="modal-title" id="exampleModalLabel" >#{msjInventarios.EditarInformacióndelDesecho}  #{DesechoController.desechoSelecionado.idDesecho}</h3>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
@@ -30,24 +30,24 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Fecha</label>
+                                <label>#{msjInventarios.FechaEntradalabel}</label>
                                 <h:inputText pt:type="date" class="form-control" value="#{DesechoController.desechoSelecionado.fecha}"/>
                             </div>
 
                             <div class="form-group">
-                                <label>Cantidad</label>
+                                <label>#{msjInventarios.Catidadlabel}</label>
                                 <h:inputText class="form-control" value="#{DesechoController.desechoSelecionado.cantidad}"/>
                             </div>
 
                             <div class="form-group">
-                                <label>Observaciones</label>
+                                <label>#{msjInventarios.Observacionesarea}</label>
                                 <h:inputTextarea class="form-control" value="#{DesechoController.desechoSelecionado.observaciones}"/>
                             </div>
 
 
 
                             <div class="form-group">
-                                <label>Responsable</label>
+                                <label>#{msjInventarios.Responsablelabel}</label>
                                 <h:selectOneMenu class="form-control" value="#{DesechoController.desechoSelecionado.responsable}">
                                     <f:selectItem itemLabel="Seleciona un Usuario que no sea cliente" itemValue=""/>
                                     <f:selectItems value="#{usuariosController.usuarios}" var="us" itemLabel="#{us.nombres}"/>
@@ -59,8 +59,8 @@
 
 
                         <div class="modal-footer">
-                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                            <h:commandLink class="btn btn-warning" value="Guardar"
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                            <h:commandLink class="btn btn-warning" value="#{msjUsuarios.btnGuardar}"
                                            action="#{DesechoController.actualizar()}">
                                 <i class="fa fa-save"></i>
                             </h:commandLink>

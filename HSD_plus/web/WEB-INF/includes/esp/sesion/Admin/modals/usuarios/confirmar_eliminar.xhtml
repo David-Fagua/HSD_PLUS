@@ -11,17 +11,17 @@
                     <h:panelGroup id="confirmEmiliminarUsuario" layout="block">
                         <div id=""></div>
                         <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel" >Eliminar usuario -  #{usuariosController.usuarioSelecionado.idUsuario}</h4>
+                            <h4 class="modal-title" id="exampleModalLabel" >#{msjUsuarios.Eliminarusuariolabel} -  #{usuariosController.usuarioSelecionado.idUsuario}</h4>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h5>¿ Esta Seguro de Eliminar el usuario - #{usuariosController.usuarioSelecionado.nombres} #{usuariosController.usuarioSelecionado.primerApellido}?</h5>
+                            <h5>¿ #{msjUsuarios.ConfirmEliminarUsuario} - #{usuariosController.usuarioSelecionado.nombres} #{usuariosController.usuarioSelecionado.primerApellido}?</h5>
 
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                <h:commandButton class="btn btn-danger" value="Eliminar" action="#{usuariosController.eliminar()}"/>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                                <h:commandButton class="btn btn-danger" value="#{msjUsuarios.btnEliminar}" action="#{usuariosController.eliminar()}"/>
 
                             </div>
                         </div>    

@@ -8,7 +8,7 @@
       xmlns:p="http://primefaces.org/ui">
     <f:view locale="#{languajeController.locale}">
         <h:head>
-            <title>Catalogo</title>
+            <title>#{msjCatalogo.Catalogolabel}</title>
             <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
         </h:head>
         <h:body>
@@ -26,7 +26,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Catalogo</h1>
+                            <h1 class="page-header">#{msjCatalogo.Catalogolabel}</h1>
                             <!-- /.row -->
 
                             <h3>  <h:messages showDetail="true" layout="table" 
@@ -34,11 +34,11 @@
                                               errorStyle="background: #FF0000" infoStyle="background: #4DB5D0"/>
                             </h3>
                             <h:form prependId="false" enctype="multipart/form-data" >
-                                <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i> Anadir</a>
+                                <a href="registrar.xhtml" class="btn btn-primary" ><i class="fa fa-plus"></i>#{msjCatalogo.btnAñadirlabel}</a>
                                 <div style="float: right">
-                                    <p:inputText  a:placeholder="Digite un Texto" value="#{catalogoController.textoBuscar}"/>
+                                    <p:inputText  a:placeholder="#{msjCatalogo.Coloquetextolabel}" value="#{catalogoController.textoBuscar}"/>
                                     &nbsp;
-                                    <p:commandButton value="Buscar" action="#{catalogoController.llenarCatalogo()}" update="catalogo"/>
+                                    <p:commandButton value="#{msjUsuarios.btnBuscarlabel}" action="#{catalogoController.llenarCatalogo()}" update="catalogo"/>
                                     <br></br>
 
                                 </div>
@@ -47,37 +47,37 @@
                                 <p:dataTable id="catalogo" class="table " value="#{catalogoController.catalogo}"
                                              var="cl">
                                     <p:column style="width: 70px">
-                                        <f:facet name="header"> Codigo</f:facet>
+                                        <f:facet name="header">#{msjCatalogo.Codigolabel}</f:facet>
                                         <h:outputText value="#{cl.codigo}"/>
                                     </p:column>
                                     <p:column style="width: 150px">
-                                        <f:facet name="header">Imagen</f:facet>
+                                        <f:facet name="header">#{msjCatalogo.Imagenlabel}</f:facet>
                                         <img src="#{request.contextPath}/resources/assets/Img/ImgCatalogo/#{cl.codigo}/#{cl.imagen}" width="120" height="80px " class="d-block w-100" alt="..."/>
 
                                     </p:column>
 
                                     <p:column>
-                                        <f:facet name="header">Nombre</f:facet>
+                                        <f:facet name="header">#{msjCatalogo.Nombrelabel}</f:facet>
                                         <h3><b><h:outputText value="#{cl.nombre}"/></b></h3>
                                         <br></br>
                                         <h4><h:outputText value="#{cl.descripcion}"/></h4>
                                     </p:column>
 
                                     <p:column style="width: 60px">
-                                        <f:facet name="header">Fecha</f:facet>
+                                        <f:facet name="header">#{msjCatalogo.Fechalabel}</f:facet>
                                         <h:outputText value="#{cl.fecha}"/>
                                     </p:column>
                                     <p:column style="width: 100px">
-                                        <f:facet name="header">Precio</f:facet>
+                                        <f:facet name="header">#{msjCatalogo.Preciolabel}</f:facet>
                                         <h3><b><h:outputText value="#{cl.precioUnitario}"/></b></h3>
                                     </p:column>
                                     <p:column style="width: 90px">
-                                        <f:facet name="header">Disponible</f:facet>
+                                        <f:facet name="header">#{msjCatalogo.Disponibilidadlabel}</f:facet>
                                         <h:outputText value="#{cl.stock}"/>
                                     </p:column>
 
                                     <p:column style="width: 90px">
-                                        <f:facet name="header">Acciones</f:facet>                                    
+                                        <f:facet name="header">#{msjCatalogo.Accioneslabel}</f:facet>                                    
 
 
                                         <h:commandLink class="btn btn-danger" 

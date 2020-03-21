@@ -11,17 +11,17 @@
                     <h:panelGroup id="confirmEmiliminarVentas" layout="block">
                         <div id=""></div>
                         <div class="modal-header">
-                            <h4 class="modal-title" id="exampleModalLabel" >Eliminar Venta -  #{RventasController.ventaSelecionada.idVenta}</h4>
+                            <h4 class="modal-title" id="exampleModalLabel" >#{msjCatalogo.EliminarVenta} -  #{RventasController.ventaSelecionada.idVenta}</h4>
                             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true"></span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h5>¿ Esta Seguro de Eliminar la Venta Selecionado?</h5>
+                            <h5>¿ #{msjCatalogo.EstaSegurodeEliminarlaVenta} #{RventasController.ventaSelecionada.idVenta}?</h5>
 
                             <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                                <h:commandButton class="btn btn-danger" value="Eliminar" action="#{RventasController.eliminar()}"/>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">#{msjUsuarios.btnCancelarlabel}</button>
+                                <h:commandButton class="btn btn-danger" value="#{msjUsuarios.btnEliminar}" action="#{RventasController.eliminar()}"/>
 
                             </div>
                         </div>    

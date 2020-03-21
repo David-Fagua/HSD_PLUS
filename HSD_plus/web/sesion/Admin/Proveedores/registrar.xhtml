@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <f:view locale="#{languajeController.locale}">
         <h:head>
-            <title>Registrar Proceso</title>
+            <title>#{msjComponentes.RegistrarProveedorLabel}</title>
             <ui:include src="../../../WEB-INF/includes/esp/sesion/Admin/meta-link.xhtml"></ui:include>
         </h:head>
         <h:body>
@@ -25,7 +25,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Registrar Proveedor</h1>
+                            <h1 class="page-header">#{msjComponentes.RegistrarProveedorLabel}</h1>
                             <!-- /.row -->
 
 
@@ -44,36 +44,36 @@
                                     </div>
 
                                     <div class="form-group col-lg-12">
-                                        <label>Razon social</label>
+                                        <label>#{msjComponentes.RazonSociallabel}</label>
                                         <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.razonSocial}"/>
                                     </div>
 
                                     <div class="form-group col-lg-12">
-                                        <label>Telefono</label>
+                                        <label>#{msjComponentes.Telefonolabel}</label>
                                         <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.telefono}"/>
                                     </div>
 
                                     <div class="form-group col-lg-12">
-                                        <label>Email</label>
+                                        <label>#{msjComponentes.Correolabel}</label>
                                         <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.email}"/>
                                     </div>
 
                                     <div class="form-group col-lg-6">
-                                        <label>Dirección</label>
+                                        <label>#{msjComponentes.Direccionlabel}</label>
                                         <h:inputText class="form-control" value="#{proveedoresController.nuevoProveedor.direccion}"/>
                                     </div>
 
                                     <div class="form-group col-lg-6">
-                                        <label>Ciudad</label>
+                                        <label>#{msjComponentes.Ciudadalabel}</label>
                                         <h:selectOneMenu class="form-control" value="#{proveedoresController.nuevoProveedor.ciudad}">
-                                            <f:selectItem itemLabel="Seleciona Materia Prima" itemValue=""/>
+                                            <f:selectItem itemLabel="#{msjComponentes.NombredelaCiudad}" itemValue=""/>
                                             <f:selectItems value="#{CiudadesController.ciudades}" var="cd" itemLabel="#{cd.nombre}"/>
                                         </h:selectOneMenu>
                                     </div>
                                 </div>
                                 <div class="col-sm-12" style="margin: 0px 45px" >
-                                    <a class="btn btn-secondary" href="listar.xhtml">Volver</a>
-                                    <h:commandButton class="btn btn-primary" value="Registrar" action="#{proveedoresController.registrar()}"/>
+                                    <a class="btn btn-secondary" href="listar.xhtml">#{msjUsuarios.btnVolver}</a>
+                                    <h:commandButton class="btn btn-primary" value="#{msjUsuarios.btnRegistrarlabel}" action="#{proveedoresController.registrar()}"/>
                                 </div>
                             </h:form>
                         </div>
