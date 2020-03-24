@@ -46,7 +46,7 @@ public class UsuariosDAO extends AbstractDAO<Usuarios> implements IUsuariosDAO {
     public int cantidadUsuario(boolean estado) {
         int cantidad = 0;
         try {
-            Query q = em.createNativeQuery("SELECT COUNT(id_usuario) FROM Usuarios WHERE Usuarios.estado= ?");
+            Query q = em.createNativeQuery("SELECT COUNT(id_usuario) FROM usuarios WHERE usuarios.estado= ?");
             q.setParameter(1, estado);
             long cantidadL = (long) q.getSingleResult();
             cantidad = (int) cantidadL;
