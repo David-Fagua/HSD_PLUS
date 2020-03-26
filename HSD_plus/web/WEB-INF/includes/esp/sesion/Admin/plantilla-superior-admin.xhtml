@@ -32,23 +32,13 @@
                         </li>
                         <li><a href="#{request.contextPath}/sesion/Admin/configurar.xhtml"><i class="fa fa-gear fa-fw" ></i>#{msjPlantillasAdmin.ConfiguracionesAccion}</a>
                         </li>
+                        <li><a href="#{request.contextPath}/sesion/Admin/cambiarContraseña.xhtml"><i class="fa fa-gear fa-fw" ></i>Cambiar Contraseña</a>
+                        </li>
                         <li class="divider"></li>
                         <h:commandLink class="fa fa-sign-out fa-fw" style="color:black" action="#{sessionController.endSession()}" value="#{msjPlantillasAdmin.CerrarAccion}"/>
                     </ul>    
                 </li>
                 <p></p>
-            </h:form>
-        </ul>
-        
-        <ul class="nav navbar-right navbar-top-links">
-            <br></br>
-            <h:form>
-                <label style="color:white ">#{msjIndex.Idiomalabel}&nbsp;</label>
-                <h:selectOneMenu value="#{languajeController.lang}"
-                                 onchange="submit()">
-                    <f:selectItems value="#{languajeController.locales}"
-                                   var="l" itemLabel="#{l.language}"/>
-                </h:selectOneMenu>
             </h:form>
         </ul>
 

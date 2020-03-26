@@ -141,5 +141,12 @@ public class ReservasController implements Serializable{
         reserva=rsDAO.obtenerreservaBusquedaxCadenafecha(textoBuscar);
     }
     
-    
+    public long graficaVentas(boolean consultVentas) {
+
+        try {
+            return rsDAO.cantidadVentas(consultVentas);
+        } catch (Exception e) {
+        }
+        return 0;
+    }
 }

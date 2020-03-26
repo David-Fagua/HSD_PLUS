@@ -12,40 +12,87 @@
                     <h1 class="page-header">#{msjPlantillasAdmin.Bienvenidolabel} #{sessionController.user.nombres} #{sessionController.user.primerApellido}</h1>
                     <!-- /.row -->
 
-                    <div class="col-lg-12 bg-white" style="position: absolute">
+                    <div class="col-lg-12 bg-white" >
                         <div class="form d-flex align-items-center" >
                             <div class="content" >
-                                <div id="chartContenedor" style="height: 400px; width: 80%;"></div>
+                                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> 
+                                <div class="col-lg-6" id="Usuarios" style="height: 400px; width: 30%;"></div>
+                                <div class="col-lg-6" id="Procesos" style="height: 400px; width: 30%;"></div>
+                                <div class="col-lg-6" id="Ventas" style="height: 400px; width: 30%;"></div>
                                 <script>
                                     window.onload = function () {
 
-                                        var chart = new CanvasJS.Chart("chartContenedor", {
+                                        var chart1 = new CanvasJS.Chart("Usuarios", {
                                             theme: "light1", // "light1", "light2", "dark1", "dark2"
                                             exportEnabled: true,
                                             animationEnabled: true,
                                             title: {
-                                                text: "#{msjPlantillasAdmin.UsuariosActivosBloquedoslabel}"
+                                                text: "#{msjPlantillasAdmin.EstadoUsuarioslabel}"
                                             },
                                             data: [{
-                                                    type:"pie",
+                                                    type: "pie",
                                                     startAngle: 25,
                                                     toolTipContent: "<b>{label}</b>: {y}%",
                                                     showInLegend: "true",
                                                     legendText: "{label}",
                                                     indexLabelFontSize: 16,
                                                     indexLabel: "{label} = {y}%",
-                                                    dataPoints: 
+                                                    dataPoints:
                                                             [
-                                                        {y: #{sessionController.graficaUsu(false)}, label: "#{msjPlantillasAdmin.ActivosAccion}"},
-                                                        {y: #{sessionController.graficaUsu(true)}, label: "#{msjPlantillasAdmin.InactivosAccion}"},
+                                                                {y: #{sessionController.graficaUsu(false)}, label: "#{msjPlantillasAdmin.ActivosAccion}"},
+                                                                {y: #{sessionController.graficaUsu(true)}, label: "#{msjPlantillasAdmin.BloquedosAccion}"},
+                                                            ]
+                                                }]
+                                        });
+                                        var chart2 = new CanvasJS.Chart("Procesos", {
+                                            theme: "light1", // "light1", "light2", "dark1", "dark2"
+                                            exportEnabled: true,
+                                            animationEnabled: true,
+                                            title: {
+                                                text: "#{msjPlantillasAdmin.EstadoProcesoslabel}"
+                                            },
+                                            data: [{
+                                                    type: "pie",
+                                                    startAngle: 25,
+                                                    toolTipContent: "<b>{label}</b>: {y}%",
+                                                    showInLegend: "true",
+                                                    legendText: "{label}",
+                                                    indexLabelFontSize: 16,
+                                                    indexLabel: "{label} = {y}%",
+                                                    dataPoints: [
+                                                        {y: #{productoProcesoController.graficaPro(true)}, label: "#{msjPlantillasAdmin.Terminadolabel}"},
+                                                        {y: #{productoProcesoController.graficaPro(false)}, label: "#{msjPlantillasAdmin.Terminadolabel}"},                                                        
                                                     ]
                                                 }]
                                         });
-                                        chart.render();
+                                        var chart3 = new CanvasJS.Chart("Ventas", {
+                                            theme: "light1", // "light1", "light2", "dark1", "dark2"
+                                            exportEnabled: true,
+                                            animationEnabled: true,
+                                            title: {
+                                                text: "#{msjPlantillasAdmin.Reservaslabel}"
+                                            },
+                                            data: [{
+                                                    type: "pie",
+                                                    startAngle: 25,
+                                                    toolTipContent: "<b>{label}</b>: {y}%",
+                                                    showInLegend: "true",
+                                                    legendText: "{label}",
+                                                    indexLabelFontSize: 16,
+                                                    indexLabel: "{label} = {y}%",
+                                                    dataPoints: [
+                                                        {y: #{ReservasController.graficaVentas(true)}, label: "#{msjPlantillasAdmin.Vendidalabel}"},
+                                                        {y: #{ReservasController.graficaVentas(false)}, label: "#{msjPlantillasAdmin.iniciadilabel}"},
+                                                    ]
+                                                }]
+                                        });
+                                        chart1.render();
+                                        chart2.render();
+                                        chart3.render();
                                     }
-                                    
+
                                 </script>
-                                <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> 
+
                             </div>
                         </div>
                     </div>

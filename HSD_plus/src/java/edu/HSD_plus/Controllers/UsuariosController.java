@@ -202,4 +202,17 @@ public class UsuariosController implements Serializable {
         }
     }
     
+    public void actualizarcontraseñas() {
+        try {
+            if (clave != null && clave.equals(usuarioSelecionado.getClave())) {
+                uDAO.edit(usuarioSelecionado);
+                MessageUtil.sendInfo(null, "La Contraseña del Usuario se ha Modificado Correctamente", "", false);
+                usuarios = null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            MessageUtil.sendError(null, "Error al Modificar la Información del usuario", e.getMessage(), false);
+        }
+    }
+    
 }

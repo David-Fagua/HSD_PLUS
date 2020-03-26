@@ -14,14 +14,26 @@
     <br></br>
     <div class="navbar-collapse sidebar" style="background-color: #F8F8F8; height: 100px" role="navigation">
         <div class="sidebar-nav navbar-collapse">
-           
-                <h4 style="margin: 2px 15px">#{sessionController.rolSelecionado.nombre}</h4>
-            
+
+            <h4 style="margin: 2px 15px">#{sessionController.rolSelecionado.nombre}</h4>
+
+
+            <br></br>
+            <h:form>
+                <label style="color:white ">#{msjIndex.Idiomalabel}&nbsp;</label>
+                <h:selectOneMenu value="#{languajeController.lang}"
+                                 onchange="submit()">
+                    <f:selectItems value="#{languajeController.locales}"
+                                   var="l" itemLabel="#{l.language}"/>
+                </h:selectOneMenu>
+            </h:form>
+
+
             <ul class="nav" id="side-menu">
                 <li class="sidebar-search">
                     <div class="input-group custom-search-form">
-                        
-                        
+
+
                     </div>
                 </li>
                 <li>
