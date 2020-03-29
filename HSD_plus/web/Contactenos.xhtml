@@ -12,58 +12,53 @@
             <meta charset="utf-8"/>
         </h:head>
         <h:body>
+            <h1>#{msjIndex.ContactaConNosotrostitle}</h1>
             <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-superior.xhtml"></ui:include>
 
-            <form>
-                <center>
-                    <h1>#{msjIndex.ContactaConNosotrostitle}</h1>
-                </center>
-                <div class="form-row" style="margin: 0px 200px">
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">#{msjIndex.Nombrelabel}</label>
-                        <input type="text" class="form-control" id="inputEmail4" required="true" placeholder="#{msjIndex.NombrePlaceholder}"></input>
-                    </div>
 
-                    <div class="form-group col-md-6">
-                        <label for="inputPassword4">#{msjIndex.ApellidoLabel}</label>
-                        <input type="text" class="form-control" id="inputPassword4" required="true" placeholder="#{msjIndex.ApellidoLabelPlaceholder}"></input>
-                    </div>
+            <div class="contact col-md-12">
+                <h3>
+                    #{msjIndex.Ubicanosnelabel}:
+                </h3>
+                <div class="col-md-12" style="float: right">
+                    <footer class="intermedio4">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span>
+                                            #{msjIndex.Direccionlabel}:  Carrera 13 No. 65 - 10 Bogotá - Colombia.
+                                        </span>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <p></p>
+                                        #{msjUsuarios.Correolabel}: hsdplus@gmail.com
+                                        <p></p>
+                                    </div>
+                                    <br></br>
+                                    <div class="col-sm-12">
+                                        <span>
+                                            #{msjUsuarios.Telefonolabel}:3115375124 .
+                                        </span>
+                                    </div>
+                                    <br></br>
+                                    <br></br>
+                                </div>
+                            </div>
+                        
+                    </footer>
+                </div>
+                <div>
+                    <figure >
+                        <center>
+                            <iframe allowfullscreen="" frameborder="0" height="300" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d994.1692496434707!2d-74.062899624265!3d4.651573314098995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a45d9f1654b%3A0x3d69138572d157f2!2sSENA+-+Centro+De+Servicios+Financieros!5e0!3m2!1ses!2ses!4v1503588403919" style="border:0"   width="90%">
+                            </iframe>
+                        </center>
+                    </figure>
                 </div>
 
-               
 
-                <div class="form-row" style="margin: 0px 200px">
-                    <div class="form-group col-md-6">
-                        <label for="inputCity">#{msjIndex.EmailLabel}</label>
-                        <input type="email" class="form-control" id="inputCity" required="true" placeholder="#{msjIndex.EmailLabelPlaceholder}"></input>
-                    </div>
-                    <div class="form-group col-md-6 ">
-                        <label for="inputState">Ciudad</label>
-                        <select id="inputState" class="form-control">
-                            <option>#{msjIndex.CiudadlabelPlaceholder}</option>
-                            <option>Bogotá¡</option>
-                            <option>Medelli­n</option>
-                            <option>Cali</option>
-                            <option>Tunja</option>
-                            <option>Otra</option>
-                        </select>
-                    </div>
+            </div>
 
-
-                    <label for="inputZip">#{msjIndex.NumeroTelefonoLabel}</label>
-                    <input type="text" maxlength="10" class="form-control required" id="inputZip"></input>
-
-                </div>
-
-                <div class="form-group" style="margin: 0px 200px">
-                    <label for="exampleFormControlTextarea1">#{msjIndex.DejanosunComentariolabel}</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1"  required="true" rows="3"></textarea>
-                </div>
-
-                <center>
-                    <button type="submit" class="btn btn-primary" style="margin: 50px 200px" >#{msjIndex.btnEnviarLabel}</button>
-                </center>
-            </form>
 
 
             <ui:include src="WEB-INF/includes/esp/PlantillasIndex/menu-index-inferior.xhtml"></ui:include>
